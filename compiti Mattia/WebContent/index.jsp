@@ -44,88 +44,19 @@
 <script
 	src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.js"></script>
 
+<script
+	src="${pageContext.request.contextPath}/resources/jquery/jquery.validate.min.js"></script>
+
+<!-- js delle pagine crea partita e annuncio -->	
+	<script
+	src="${pageContext.request.contextPath}/resources/js/creaPartita.js"></script>
+
 </head>
 
 <body>
 	<%@include file="/layout/navbar.jsp"%>
-
-	<form>
-		 <div class="container">
-			<div class="row">
-				<div class='col-sm-4'>
-					<div class="form-group">
-						<label for="NomeEvento">Nome evento:</label> <input type="text" class="form-control"
-							id="NomeEvento">
-					</div>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class='col-sm-4'>
-					<div class="form-group">
-						<label for="Tipologia">Tipologia:</label> 
-						<select	class="form-control" id="Tipologia">
-							<option>Deathmatch a squadre</option>    
-							<option>Tutti contro tutti</option>    
-							<option>Cattura la bandiera</option>    
-							<option>Dominio</option>  
-						</select>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class='col-sm-4'>
-					<div class="form-group">
-						<label for="DataOra">Data e ora:</label>
-						<div class='input-group date' id='datetimepicker1'>
-							<input type='text' class="form-control" /> <span
-								class="input-group-addon"> <span
-								class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-					</div>
-				</div>
-				<script type="text/javascript">
-					$(function() {
-						$('#datetimepicker1').datetimepicker();
-					});
-				</script>
-			</div>
-
-			<div class="row">
-				<div class='col-sm-4'>
-					<div class="form-group">
-						<label for="MaxPartecipanti">Numero massimo di
-							partecipanti:</label> <input type="number" class="form-control"
-							id="NumPartecipanti">
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class='col-sm-4'>
-					<input type="image"
-						src="${pageContext.request.contextPath}/resources/img/uploadicon.png"
-						alt="upload image"> <input class="file" type="file"
-						id="image" style="display: none;">
-				</div>
-				<script>
-					$("input[type='image']").click(function() {
-						$("input[id='image']").click();
-					});
-				</script>
-			</div>
-			
-			<img class="bg-img" src="${pageContext.request.contextPath}/resources/img/map.jpg"/>
-						
-
-
-			 </br>
-			<button type="submit" class="btn btn-default">Submit</button>
-	</div>
-	</form>
-
+	<%@include file="/layout/creaPartita.jsp"%>
+	
 	<%@include file="/layout/footer.jsp"%>
 
 </body>
