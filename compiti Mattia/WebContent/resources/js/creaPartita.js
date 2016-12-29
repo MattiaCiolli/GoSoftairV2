@@ -8,9 +8,30 @@ $(function() {
 });
 
 //permette upload immagine
-$("input[type='image']").click(function() {
-	$("input[id='image']").click();
-});
+$("#Immagine")
+.fileinput(
+		{
+			overwriteInitial : true,
+			minFileSize : 1,
+			maxFileSize : 1000,
+			showClose : false,
+			showCaption : false,
+			showBrowse : true,
+			browseOnZoneClick : true,
+			browseLabel : '',
+			removeLabel : '',
+			browseIcon : '<i class="glyphicon glyphicon-folder-open"></i>',
+			removeIcon : '<i class="glyphicon glyphicon-remove"></i>',
+			removeTitle : 'Cancel or reset changes',
+			elErrorContainer : '#kv-avatar-errors-2',
+			msgErrorClass : 'alert alert-block alert-danger',
+			defaultPreviewContent : '<img src="resources/img/uploadicon.png" id="imginput" alt="Immagine partita">',
+			layoutTemplates : {
+				main2 : '{preview}{browse} {remove}'
+			},
+			allowedFileExtensions : [ "jpg", "png",
+					"gif" ]
+		});
 
 	
 	//evita valori negativi

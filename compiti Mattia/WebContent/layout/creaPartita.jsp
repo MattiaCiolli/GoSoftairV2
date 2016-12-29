@@ -53,11 +53,12 @@
 
 			<div class="row">
 				<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
-				<label for="Immagine">Immagine:</label>
-					<input type="image"
-						src="${pageContext.request.contextPath}/resources/img/uploadicon.png"
-						alt="upload image"> <input class="file" type="file"
-						id="image">
+					<label for="Immagine">Immagine:</label>
+					<div id="kv-avatar-errors-2" class="center-block"></div>
+					<div class="kv-avatar center-block">
+						<input id="Immagine" name="Immagine" type="file"
+							class="file-loading">
+					</div>
 				</div>
 			</div>
 			

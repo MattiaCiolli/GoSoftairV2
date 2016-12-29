@@ -27,6 +27,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.css"
 	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/fileinput/css/fileinput.min.css"
+	rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/mycss.css"
 	rel="stylesheet">
 
@@ -43,20 +46,23 @@
 	src="${pageContext.request.contextPath}/resources/datetimepicker/moment-with-locales.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.js"></script>
-
 <script
 	src="${pageContext.request.contextPath}/resources/jquery/jquery.validate.min.js"></script>
+	<script
+	src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
 
 <!-- js delle pagine crea partita e annuncio -->	
 	<script
 	src="${pageContext.request.contextPath}/resources/js/creaPartita.js"></script>
+	<script
+	src="${pageContext.request.contextPath}/resources/js/creaAnnuncio.js"></script>
 
 </head>
 
 <body>
 	<%@include file="/layout/navbar.jsp"%>
 	<%@include file="/layout/creaPartita.jsp"%>
-	
+<!--<%@include file="/layout/creaAnnuncio.jsp"%>-->
 	<%@include file="/layout/footer.jsp"%>
 
 </body>

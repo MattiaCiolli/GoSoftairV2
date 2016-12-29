@@ -1,4 +1,18 @@
 @CHARSET "ISO-8859-1";
+
+.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    max-width: 220px;
+}
+
+
 .bg-img {
   max-height:500px;
   position:absolute;
@@ -10,11 +24,7 @@
 }
 
 #rowimg {
-	max-width:75px;
-}
-
-#image {
-	display: none;
+	max-width:230px;
 }
 
 #login-dp{
@@ -68,3 +78,28 @@
         border-top:0 none;
     }
 }
+
+@media(max-width:319px){
+    #imginput{
+        width:200px;
+    }
+    .file-preview{
+        width:213px;
+    }
+    .file-preview-image{
+        width:213px;
+    }
+}
+
+@media(min-width:320px){
+    #imginput{
+        width:278px;
+    }
+    .file-preview{
+        width:291px;
+    }
+    .kv-preview-data{
+        width:290px;
+    }
+}
+
