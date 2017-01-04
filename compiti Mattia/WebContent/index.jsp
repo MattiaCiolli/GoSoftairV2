@@ -52,17 +52,20 @@
 	src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
 
 <!-- js delle pagine crea partita e annuncio -->	
+		
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>	
 	<script
 	src="${pageContext.request.contextPath}/resources/js/creaPartita.js"></script>
 	<script
 	src="${pageContext.request.contextPath}/resources/js/creaAnnuncio.js"></script>
+	
 
 </head>
 
 <body>
 	<%@include file="/layout/navbar.jsp"%>
-	<%@include file="/layout/creaPartita.jsp"%>
-<!--<%@include file="/layout/creaAnnuncio.jsp"%>-->
+	<!--<%@include file="/layout/creaPartita.jsp"%>-->
+<%@include file="/layout/creaAnnuncio.jsp"%>
 	<%@include file="/layout/footer.jsp"%>
 
 </body>

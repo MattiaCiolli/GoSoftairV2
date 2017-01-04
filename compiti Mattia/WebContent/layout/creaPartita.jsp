@@ -3,21 +3,22 @@
 <body>
 
 	<form id="partitaform">
-		 <div class="container">
+		 
+		<div class="container">
 			<div class="row">
 				<div class='col-sm-4 col-md-4 col-lg-4'>
 					<div class="form-group">
-						<label for="NomeEvento">Nome evento:</label> <input type="text" class="form-control"
-							name="NomeEvento" id="NomeEvento">
+						<label for="NomeEvento">Nome evento:</label> <input type="text"
+							class="form-control" name="NomeEvento" id="NomeEvento">
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class='col-sm-4 col-md-4 col-lg-4'>
 					<div class="form-group">
-						<label for="Tipologia">Tipologia:</label> 
-						<select	class="form-control" name="Tipologia" id="Tipologia">
+						<label for="Tipologia">Tipologia:</label> <select
+							class="form-control" name="Tipologia" id="Tipologia">
 							<option>Deathmatch a squadre</option>    
 							<option>Tutti contro tutti</option>    
 							<option>Cattura la bandiera</option>    
@@ -44,15 +45,22 @@
 			<div class="row">
 				<div class='col-sm-4 col-md-4 col-lg-4'>
 					<div class="form-group">
-						<label for="NumPartecipanti">Numero di
-							partecipanti:</label> <input type="number" class="form-control"
-							name="NumPartecipanti" id="NumPartecipanti">
+						<label for="NumPartecipanti">Numero di partecipanti:</label> <input
+							type="number" class="form-control" name="NumPartecipanti"
+							id="NumPartecipanti">
 					</div>
 				</div>
 			</div>
+			
+			<div class="row">			      
+				<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
+					<label for="Posizione">Posizione:</label>				        
+				<div id="mapcont"></div>
+			</div>
+			</div>
 
 			<div class="row">
-				<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
+				<div class='col-sm-4 col-md-4 col-lg-4 limit'>
 					<label for="Immagine">Immagine:</label>
 					<div id="kv-avatar-errors-2" class="center-block"></div>
 					<div class="kv-avatar center-block">
@@ -61,17 +69,11 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			<div class="bg-img col-sm-12 col-md-12 col-lg-12"><label for="Posizione">Posizione:</label><img src="${pageContext.request.contextPath}/resources/img/map.jpg"/>
-			</div>
-			
-						
-
-
-			 </br>
-			<button type="submit" id="creapartita" class="btn btn-success">Crea evento</button>
-	</div>
+		
+			      </br>
+			<button type="submit" id="creapartita" class="btn btn-success">Crea
+				evento</button>
+		</div>
 	</form>
 
 </body>

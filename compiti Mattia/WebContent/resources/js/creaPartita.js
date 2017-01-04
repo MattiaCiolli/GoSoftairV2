@@ -1,7 +1,26 @@
+ function initMap() {
+	      var uluru = {lat: 42.368943, lng: 13.349799};
+	      var map = new google.maps.Map(document.getElementById('mapcont'), {
+	       zoom: 16,
+	          center: uluru
+	      });
+
+	         //var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+	         
+	      var marker = new google.maps.Marker({
+	       position: uluru,
+	          map: map
+	             //icon: '${pageContext.request.contextPath}/resources/img/profile.jpg'
+	      });
+	     }
+ 
 $(document).ready(function()
 
 {
-	//attiva datepicker
+	//initMap();
+	 
+	
+//attiva datepicker
 
 $(function() {
 	$('#datetimepicker1').datetimepicker();
