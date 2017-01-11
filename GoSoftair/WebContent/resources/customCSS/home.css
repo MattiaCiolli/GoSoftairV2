@@ -1,0 +1,114 @@
+.cssBody{
+	margin-top:0px;
+	margin-right:0px;
+	margin-left:0px;
+			
+}
+
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
+	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+
+.jumbotron {
+	background: url("images/jumbo3.jpg") no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #fff;
+
+
+  	padding-bottom: 3%;
+	padding-top:30%;
+	margin-top:auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+
+/* Sezioni eventi*/
+.SezEventi{
+	padding-bottom: 3%;
+}
+
+
+.carta{
+	border-color: #a6b71b;
+	border-width: 3px;
+	border-style: solid;
+	padding: 1.5em;
+	color:#3c3c37;
+}
+
+.carta:hover{
+	background-color:#a6b71b ;
+	color:#ffffff;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+
+/* courosel slide*/
+.carousel-inner .active.left { left: -33%; }
+.carousel-inner .next        { left:  33%; }
+.carousel-inner .prev        { left: -33%; }
+.carousel-control.left,.carousel-control.right {background-image:none;}
+.item:not(.prev) {visibility: visible;}
+.item.right:not(.prev) {visibility: hidden;}
+.rightest{ visibility: visible;}
+
+
+/* Sezione annunci*/
+
+.SezAnnunci{
+	background-color:#515547;
+	margin-top: 3%;
+	height: auto;
+	padding-top: 3%;
+	padding-bottom: 3%;
+
+
+	background: url("images/footer1.jpg") no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top:auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+
+}
+
+.cartaScura{
+	border-color: #ffffff;
+	border-width: 3px;
+	border-style: solid;
+	padding: 1.5em;
+	color:#ffffff;
+}
+
+.cartaScura:hover{
+	background-color:#ffffff ;
+	color:#3c3c37;
+	text-decoration: none;
+}
+
+.footer{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: large;
+}
+
+
+

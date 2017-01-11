@@ -1,0 +1,73 @@
+/*pagine LeMie*/
+.cssBody{
+	margin-top:0px;
+	margin-right:0px;
+	margin-left:0px;
+			
+}
+
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
+	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+.carta{
+	border-color: #a6b71b;
+	border-width: 3px;
+	border-style: solid;
+	padding: 1.5em;
+	color:#3c3c37;
+}
+
+.carta:hover{
+	background-color:#a6b71b ;
+	color:#ffffff;
+}
+
+.elemento{
+	margin-top: 3%;
+	max-height: 10%;
+}
+
+.immagineElemento{
+	width: 100%;
+}
+
+
+.tag{
+	margin-top: 40%;
+	color:#a6b71b;
+	text-transform: uppercase;
+	font-family: "Oswald",sans-serif;
+}
+
+.valore{
+	color:#3c3c37;
+	text-transform: uppercase;
+	font-family: "oswald_stencilbold",sans-serif;
+	font-size: x-large;
+}
+
+
+.elemento:hover .valore{
+	color: white;
+}
+
+.elemento:hover .tag{
+	color: #3c3c37;
+}
+
+@media (min-width: 768px) and (max-width: 992px){
+	.immagineElemento{
+		width: 50%;
+		margin-left: 25%;
+	}
+}
+
+.spazio{
+	margin-top: 3%;
+}
