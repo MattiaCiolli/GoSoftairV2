@@ -1,4 +1,13 @@
 /* css barra superiore*/
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
+	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
 .btn-success:hover {
 	background-color: #94A31A;
 	border-color: #94A31A;

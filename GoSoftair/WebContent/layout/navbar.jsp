@@ -74,7 +74,7 @@
 							<li class="divider"></li>
 							<li><a href="#">Iscrizioni</a></li>
 							<li class="divider"></li>
-							<li><a href="#">Crea partita</a></li>
+							<li><a href="${pageContext.request.contextPath}/titles/creaPartita.jsp">Crea partita</a></li>
 							<li><a href="${pageContext.request.contextPath}/titles/leMiePartite.jsp">Le mie partite</a></li>
 						</ul>
 					</li>
@@ -84,7 +84,7 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#">Bacheca annuci</a></li>
 							<li class="divider"></li>
-							<li><a href="#">Crea annuncio</a></li>
+							<li><a href="${pageContext.request.contextPath}/titles/creaAnnuncio.jsp">Crea annuncio</a></li>
 							<li><a href="#">I miei annunci</a></li>
 						</ul>
 					</li>

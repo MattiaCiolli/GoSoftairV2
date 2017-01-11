@@ -19,7 +19,7 @@
         <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div></div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo1.jpg" class="img-responsive immagineElemento">
+                <img src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg" class="img-responsive immagineElemento">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -43,7 +43,7 @@
         <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div></div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo2.jpg" class="img-responsive immagineElemento">
+                <img src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg" class="img-responsive immagineElemento">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -67,7 +67,7 @@
         <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div></div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo3.jpg" class="img-responsive immagineElemento">
+                <img src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg" class="img-responsive immagineElemento">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -91,7 +91,7 @@
         <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div></div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo4.jpg" class="img-responsive immagineElemento">
+                <img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive immagineElemento">
             </div>
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">

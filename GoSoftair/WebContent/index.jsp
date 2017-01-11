@@ -32,7 +32,7 @@
 				  <div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 					  <a href="#">
 						  <div class="carta">
-							<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo1.jpg" class="img-responsive ">
+							<img src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg" class="img-responsive ">
 							<div class="scemo"><p>1</p></div>
 						  </div>
 					  </a>
@@ -42,7 +42,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo2.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg" class="img-responsive ">
 								<div class="scemo"><p>2</p></div>
 							</div>
 						</a>
@@ -52,7 +52,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo3.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg" class="img-responsive ">
 								<div class="scemo"><p>3</p></div>
 							</div>
 						</a>
@@ -62,7 +62,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo4.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive ">
 								<div class="scemo"><p>4</p></div>
 							</div>
 						</a>
@@ -72,7 +72,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo5.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg" class="img-responsive ">
 								<div class="scemo"><p>5</p></div>
 							</div>
 						</a>
@@ -82,7 +82,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo3.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg" class="img-responsive ">
 								<div class="scemo"><p>6</p></div>
 							</div>
 						</a>
@@ -92,7 +92,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo4.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive ">
 								<div class="scemo"><p>7</p></div>
 							</div>
 						</a>
@@ -102,7 +102,7 @@
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="carta">
-								<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo5.jpg" class="img-responsive ">
+								<img src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg" class="img-responsive ">
 								<div class="scemo"><p>8</p></div>
 							</div>
 						</a>
@@ -121,7 +121,7 @@
 		<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 			<a href="#">
 				<div class="cartaScura">
-					<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo5.jpg" class="img-responsive ">
+					<img src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg" class="img-responsive ">
 					<div class="scemo"><p>8</p></div>
 				</div>
 			</a>
@@ -129,7 +129,7 @@
 		<div class="hidden-xs col-lg-4 col-md-6 col-sm-6">
 			<a href="#">
 				<div class="cartaScura">
-					<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo4.jpg" class="img-responsive ">
+					<img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive ">
 					<div class="scemo"><p>8</p></div>
 				</div>
 			</a>
@@ -137,7 +137,7 @@
 		<div class="hidden-md  hidden-xs hidden-sm  col-lg-4">
 			<a href="#">
 				<div class="cartaScura">
-					<img src="${pageContext.request.contextPath}/resources/customCSS/images/jumbo3.jpg" class="img-responsive ">
+					<img src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg" class="img-responsive ">
 					<div class="scemo"><p>8</p></div>
 				</div>
 			</a>
