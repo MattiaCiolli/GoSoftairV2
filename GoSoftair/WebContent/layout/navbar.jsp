@@ -5,8 +5,6 @@
 			<a class="linkBarraAlta" href="#">Registrati</a>
 			<span class="separatore"></span>
 			<a href="#" class="linkBarraAlta dropdown-toggle"  data-toggle="dropdown">Login</a>
-
-
 			<ul id="login-dp" class="dropdown-menu">
 				<li>
 					<div class="row">
