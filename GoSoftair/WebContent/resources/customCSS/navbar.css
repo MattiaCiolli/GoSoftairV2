@@ -5,7 +5,6 @@
 	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
-
 }
 
 .btn-success:hover {
@@ -28,11 +27,9 @@
 	border-radius: 0px;
 }
 
-
 .top_panel{
 	background-color: #34362d;
 	color: #ffffff;
-	margin-top: 0;
 	font-size: 1em;
 	font-family: inherit;
 	font-style: inherit;
@@ -85,7 +82,6 @@
 	padding-top: 10px;
 }
 
-
 .btn-fb{
 	color: #fff;
 	background-color:#3b5998;
@@ -131,12 +127,13 @@
 	word-wrap: break-word;
 	color: #767a70;
 	text-rendering: optimizeLegibility;
-
 	position:static;
 	top:0;
     right: 0;
     left: 0;
     z-index: 1030;
+    border: none;
+  	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
 }
 
 .barra_media{
@@ -183,8 +180,6 @@ li>a{
 	}
 }
 
-
-
 @media (max-width: 768px) {
 	.nav .open>a:hover,.dropdown-menu, .nav .open>a,.nav>li>a:hover, .dropdown-menu>li>a .open>a:hover, .open>a, .nav .open>a:hover, .dropdown-menu>li>a, .nav>li>a:hover, .nav>li>a:focus, .dropdown-menu>li>a:hover {
 		background-color: #515547;
@@ -196,8 +191,6 @@ li>a{
 	}
 
 }
-
-
 
 .icon-bar{
 	border-radius: 10px !important;
