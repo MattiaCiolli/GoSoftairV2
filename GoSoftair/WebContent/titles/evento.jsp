@@ -36,7 +36,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						 <img src="${pageContext.request.contextPath}/resources/img/immagine.jpg" class="img-responsive" alt="Cinque Terre"> 
+						 <img src="${pageContext.request.contextPath}/resources/img/immagine_evento.jpg" class="img-responsive" alt="Cinque Terre"> 
 					</div>
 					<div class="col-md-6">
 						<div class="row event-description">
