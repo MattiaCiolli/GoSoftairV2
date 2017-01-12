@@ -8,7 +8,6 @@
 }
 
 
-/*************************/
 .bottone:hover {
 	background-color: #94A31A;
 	border-color: #94A31A;
@@ -40,7 +39,6 @@
 .loginTradizionale{
 	border-bottom: 1px solid #ddd;
 }
-/*************************************/
 
 .top_panel{
 	background-color: #34362d;
@@ -87,7 +85,6 @@
 	text-decoration: none;
 }
 
-/********************************/
 #login-dp{
 	background-color: white;
 	border-radius: 0px;
@@ -95,9 +92,9 @@
 	margin-right: inherit;
 	color: initial;
 	padding-top: 20px;
+	padding-bottom: 8px;
 }
 
-/***********************************/
 
 .btn-fb{
 	color: #fff;
@@ -195,15 +192,32 @@ li>a{
 		background-color: #94a31a;
 		color: #ffffff;
 	}
+	/****** tentativo di dropdown all'hover
+	.dropdown-menu li:hover  {
+		visibility: visible;
+	}
+
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	}
+
+	.dropdown-menu a:hover{
+		background-color: white;
+	}**/
 }
 
 @media (max-width: 768px) {
-	.nav .open>a:hover,.dropdown-menu, .nav .open>a,.nav>li>a:hover, .dropdown-menu>li>a .open>a:hover, .open>a, .nav .open>a:hover, .dropdown-menu>li>a, .nav>li>a:hover, .nav>li>a:focus, .dropdown-menu>li>a:hover {
-		background-color: #515547;
+	.nav .open>a:hover,.dropdown-menu, .nav .open>a,.nav>li>a:hover, .dropdown-menu>li>a .open>a:hover, .open>a, .nav .open>a:hover, .nav>li>a:hover, .nav>li>a:focus, .dropdown-menu>li>a:hover {
+		background-color: #a6b71b;/*#515547;*/
 		color: #ffffff;
 	}
+
+	.dropdown-menu>li>a{
+		color: #ffffff;
+	}
+
 	.dropdown-menu>li>a:hover, .nav>li>a:hover, .nav .open>a:focus{
-		background-color: #34362d;
+		background-color: #94a31a;/*#34362d;*/
 		color: #ffffff;
 	}
 

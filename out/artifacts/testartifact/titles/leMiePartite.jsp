@@ -14,105 +14,139 @@
 </head>
 <body class="cssBody BodyWidth">
 	<%@include file="/layout/navbar.jsp" %>
-	
-     <div class="col-lg-12">
-        <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div></div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg" class="img-responsive immagineElemento">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Titolo</p>
-                    <p class="valore">Partita</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Data</p>
-                    <p class="valore">Oggi</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Ora</p>
-                    <p class="valore">Adesso</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Luogo</p>
-                    <p class="valore">Esattamente qui</p>
-                </div>
-            </div>
-        </div>
-        <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div></div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg" class="img-responsive immagineElemento">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Titolo</p>
-                    <p class="valore">Partita</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Data</p>
-                    <p class="valore">Oggi</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Ora</p>
-                    <p class="valore">Adesso</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Luogo</p>
-                    <p class="valore">Esattamente qui</p>
+
+
+    <section>
+        <div class="container-fluid">
+            <div class="row lateralPadding">
+                <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div></div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <img src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg" class="img-responsive immagineElemento">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Titolo</p>
+                            <p class="valore">Partita</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Data</p>
+                            <p class="valore">Oggi</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Ora</p>
+                            <p class="valore">Adesso</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Luogo</p>
+                            <p class="valore">Esattamente qui</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div></div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg" class="img-responsive immagineElemento">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Titolo</p>
-                    <p class="valore">Partita</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Data</p>
-                    <p class="valore">Oggi</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Ora</p>
-                    <p class="valore">Adesso</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Luogo</p>
-                    <p class="valore">Esattamente qui</p>
-                </div>
-            </div>
-        </div>
-        <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div></div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive immagineElemento">
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Titolo</p>
-                    <p class="valore">Partita</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Data</p>
-                    <p class="valore">Oggi</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Ora</p>
-                    <p class="valore">Adesso</p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                    <p class="tag">Luogo</p>
-                    <p class="valore">Esattamente qui</p>
+    </section>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row lateralPadding">
+                <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div></div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <img src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg" class="img-responsive immagineElemento">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Titolo</p>
+                            <p class="valore">Partita</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Data</p>
+                            <p class="valore">Oggi</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Ora</p>
+                            <p class="valore">Adesso</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Luogo</p>
+                            <p class="valore">Esattamente qui</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-12 spazio"></div>
+    </section>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row lateralPadding">
+                <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div></div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <img src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg" class="img-responsive immagineElemento">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Titolo</p>
+                            <p class="valore">Partita</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Data</p>
+                            <p class="valore">Oggi</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Ora</p>
+                            <p class="valore">Adesso</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Luogo</p>
+                            <p class="valore">Esattamente qui</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row lateralPadding">
+                <div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div></div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive immagineElemento">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Titolo</p>
+                            <p class="valore">Partita</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Data</p>
+                            <p class="valore">Oggi</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Ora</p>
+                            <p class="valore">Adesso</p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <p class="tag">Luogo</p>
+                            <p class="valore">Esattamente qui</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 spazio"></div>
+            </div>
+        </div>
+    </section>
 
     </div>
 

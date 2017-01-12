@@ -7,6 +7,11 @@
 
 }
 
+.jumboPadding{
+	padding-right: 0px;
+	padding-left: 0px;
+	border-radius: 0px;
+}
 .jumbotron {
 	background: url("../img/jumbo3.jpg") no-repeat center;
 	-webkit-background-size: cover;
@@ -20,6 +25,10 @@
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+
+.container-fluid .jumbotron{
+	border-radius: 0px;
 }
 
 

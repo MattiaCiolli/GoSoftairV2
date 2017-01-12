@@ -15,6 +15,11 @@
 
 }
 
+.lateralPadding{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
 .carta{
 	border-color: #a6b71b;
 	border-width: 3px;
