@@ -7,25 +7,40 @@
 	font-style: normal;
 }
 
-.btn-success:hover {
+
+/*************************/
+.bottone:hover {
 	background-color: #94A31A;
 	border-color: #94A31A;
 	border-radius: 0px;
 }
 
-.btn-success {
+.bottone {
 	background-color: #A6B71B;
 	border-color: #A6B71B;
 	border-radius: 0px;
 }
 
-#login-dp .social-buttons a{
+#exampleInputEmail2, #exampleInputPassword2{
 	border-radius: 0px;
+	border-width: 2px;
+    border-style: solid;
 }
 
-.form-control{
-	border-radius: 0px;
+.linkSfondoBianco{
+	color:#3c3c37;
+	font-weight: bold;
 }
+
+#login-dp .social-buttons{
+	margin: 12px 0;
+    clear: both;
+}
+
+.loginTradizionale{
+	border-bottom: 1px solid #ddd;
+}
+/*************************************/
 
 .top_panel{
 	background-color: #34362d;
@@ -72,15 +87,17 @@
 	text-decoration: none;
 }
 
-
+/********************************/
 #login-dp{
 	background-color: white;
 	border-radius: 0px;
 	padding: 0px 40px;
 	margin-right: inherit;
 	color: initial;
-	padding-top: 10px;
+	padding-top: 20px;
 }
+
+/***********************************/
 
 .btn-fb{
 	color: #fff;
