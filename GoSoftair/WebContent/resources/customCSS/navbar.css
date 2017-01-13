@@ -7,6 +7,14 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Oswald';
+	src: url('../fonts/Oswald-Regular.woff2') format('woff2'),
+	url('../fonts/Oswald-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 header {
 	background-color: #34362d;
 	color: #ffffff;
@@ -33,7 +41,7 @@ nav {
 	border: none;
 	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
 	height: 100px;
-	position:static;  /*position:absolute; margin-top: 30px;*/
+	position:static;
 	top:0;
 	right: 0;
 	left: 0;
@@ -182,6 +190,7 @@ li>a{
 	.dropdown-menu>li>a:hover{
 		background-color: #94a31a;
 		color: #ffffff;
+		background-image: none;
 	}
 	.dropdown-menu{
 		border: none;

@@ -195,6 +195,7 @@
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
   	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
 	<script>
 		function initMap() {

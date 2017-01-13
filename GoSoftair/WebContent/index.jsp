@@ -16,7 +16,7 @@
 	<section>
 		<div class="container-fluid jumboPadding">
 			<row>
-				<div class="col-lg-12 jumbotron">
+				<div class="jumbotron">
 					<div class=" text-center">
 					  <h1 class="titolo">Frase ad effetto</h1>
 					  <p class="sottotitolo">un'altra frase ad effetto, o forse no</p>
