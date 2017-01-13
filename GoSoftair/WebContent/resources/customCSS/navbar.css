@@ -33,7 +33,7 @@ nav {
 	border: none;
 	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
 	height: 100px;
-	position:static;
+	position:static;  /*position:absolute; margin-top: 30px;*/
 	top:0;
 	right: 0;
 	left: 0;
