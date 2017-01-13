@@ -75,16 +75,14 @@
 									<li><a href="#">Iscrizioni</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/titles/creaPartita.jsp">Crea partita</a></li>
-									<li><a href="${pageContext.request.contextPath}/titles/leMiePartite.jsp">Le mie partite</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">Bacheca annuci</a></li>
+									<li><a href="#">Bacheca annunci</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/titles/creaAnnuncio.jsp">Crea annuncio</a></li>
-									<li><a href="#">I miei annunci</a></li>
 								</ul>
 							</li>
 							<li ><a href="#">Profilo</a></li>
