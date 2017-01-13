@@ -10,11 +10,18 @@
 	
 }
 
-.bg-scr {
-	margin-top: -17px;
+#partitaform {
+	margin-top: 20px;	
 }
 
-��
+#annuncioform {
+	margin-top: 20px;	
+}
+
+.bg-scr {
+	margin-top: -1px;
+}
+
 .kv-avatar .file-preview-frame, .kv-avatar .file-preview-frame:hover {
 	margin: 0;
 	padding: 0;
@@ -31,68 +38,6 @@
 .limit {
 	max-width: 230px;
 	margin-top: 17px;
-}
-
-#login-dp {
-	margin-top: 9px;
-	min-width: 250px;
-	padding: 14px 14px 0;
-	overflow: hidden;
-	background-color: rgba(255, 255, 255, .8);
-}
-
-#login-dp .help-block {
-	font-size: 12px
-}
-
-#login-dp .bottom {
-	background-color: rgba(255, 255, 255, .8);
-	border-top: 1px solid #ddd;
-	clear: both;
-	padding: 14px;
-}
-
-#login-dp .social-buttons {
-	margin: 12px 0
-}
-
-#login-dp .social-buttons a {
-	width: 49%;
-}
-
-#login-dp .form-group {
-	margin-bottom: 10px;
-}
-
-.btn-fb {
-	color: #fff;
-	background-color: #3b5998;
-}
-
-.btn-fb:hover {
-	color: #fff;
-	background-color: #496ebc
-}
-
-.btn-tw {
-	color: #fff;
-	background-color: #55acee;
-}
-
-.btn-tw:hover {
-	color: #fff;
-	background-color: #59b5fa;
-}
-
-@media ( max-width :768px) {
-	#login-dp {
-		background-color: inherit;
-		color: #fff;
-	}
-	#login-dp .bottom {
-		background-color: inherit;
-		border-top: 0 none;
-	}
 }
 
 @media ( max-width :319px) {
@@ -122,14 +67,14 @@
 @media ( min-width :981px) {
 	.bg-scr {
 		position: absolute;
-		top: 70px;
+		top: 150px;
 		left: 27%;
 		right: 0;
 		margin: 0 auto;
 	}
 	.limit {
 		max-width: 230px;
-		margin-top: -17px;
+		margin-top: -1px;
 	}
 	#mapcont {
 		height: 400px;
