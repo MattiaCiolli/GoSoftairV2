@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
-					<a class="linkBarraAlta" href="#">Registrati</a>
+					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/titles/registrazione.jsp">Registrati</a>
 					<span class="separatore"></span>
 					<a href="#" class="linkBarraAlta dropdown-toggle"  data-toggle="dropdown">Login</a>
 					<ul id="login-dp" class="dropdown-menu">
@@ -34,13 +34,10 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="social-buttons ">
-										<p>Puoi accedere usando il tuo profilo:</p>
+										<p class="AccedereUsando">Puoi accedere usando il tuo profilo:</p>
 										<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
 										<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
 									</div>
-								</div>
-								<div class="bottom text-center">
-									New here ? <a class="linkSfondoBianco" href="#"><b>Join Us</b></a>
 								</div>
 							</div>
 						</li>
@@ -80,12 +77,12 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">Bacheca annunci</a></li>
+									<li><a href="${pageContext.request.contextPath}/titles/bachecaAnnunci.jsp">Bacheca annunci</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/titles/creaAnnuncio.jsp">Crea annuncio</a></li>
 								</ul>
 							</li>
-							<li ><a href="#">Profilo</a></li>
+							<li ><a href="${pageContext.request.contextPath}/titles/profilo.jsp">Profilo</a></li>
 						</ul>
 					</div>
 				</div>

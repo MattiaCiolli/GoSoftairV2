@@ -7,7 +7,7 @@ $(document).ready(function(){
             pro=0;
         }
         if ($(document).scrollTop() < ($(".nav").height()+ $("header").height())){
-            $("nav").css({"position":"static","top":"0"});
+            $("nav").css({"position":"relative","top":"0"});
             pro=1;
         }
     });

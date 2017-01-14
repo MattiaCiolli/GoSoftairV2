@@ -18,8 +18,8 @@
 header {
 	background-color: #34362d;
 	color: #ffffff;
-	font-size: 1em;
-	font-family: inherit;
+	font-size: 1em !important;
+	font-family: "Oswald",sans-serif !important;
 	font-style: inherit;
 	font-weight: inherit;
 	line-height: inherit;
@@ -41,26 +41,30 @@ nav {
 	border: none;
 	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
 	height: 100px;
-	position:static;
+	position:relative;
 	top:0;
 	right: 0;
 	left: 0;
     z-index: 1002;
+	letter-spacing: 1px;
 }
 
 /*************************/
 .bottone:hover {
-	background-color: #94A31A;
-	border-color: #94A31A;
-	border-radius: 0px;
+	background-color: #94A31A !important;
+	border-color: #94A31A !important;
+	border-radius: 0px !important;
 }
 
 .bottone {
-	background-color: #A6B71B;
-	border-color: #A6B71B;
-	border-radius: 0px;
+	background-color: #A6B71B !important;
+	border-color: #A6B71B !important;
+	border-radius: 0px !important;
 }
 
+.AccedereUsando{
+	font-family: Oswald;
+}
 #exampleInputEmail2, #exampleInputPassword2{
 	border-radius: 0px;
 	border-width: 2px;
@@ -68,9 +72,11 @@ nav {
 }
 
 .linkSfondoBianco{
-	color:#3c3c37;
-	font-weight: bold;
+	color:#3c3c37 !important;
+	font-weight: bold !important;
 }
+
+
 
 #login-dp .social-buttons{
 	margin: 12px 0;
@@ -91,7 +97,8 @@ nav {
 	text-transform: uppercase;
 	text-decoration: none !important;
 	background-color: initial;
-	background-color: initial !important
+	background-color: initial !important;
+	letter-spacing: 1px;
 }
 
 .separatore{
@@ -112,7 +119,6 @@ nav {
 	text-decoration: none;
 }
 
-/********************************/
 #login-dp{
 	background-color: white;
 	border-radius: 0px;
@@ -120,9 +126,9 @@ nav {
 	margin-right: inherit;
 	color: initial;
 	padding-top: 20px;
+	z-index: 2002;
 }
 
-/***********************************/
 
 .btn-fb{
 	color: #fff;

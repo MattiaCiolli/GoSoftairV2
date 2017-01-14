@@ -7,7 +7,6 @@
 	<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<%@include file="/layout/navbar.jsp" %>

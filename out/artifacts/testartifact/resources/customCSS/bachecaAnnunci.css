@@ -1,0 +1,57 @@
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
+	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+    font-family: oswaldStencil;
+    src: url(../fonts/Oswald-Stencil.ttf);
+}
+
+@font-face {
+    font-family: oswaldRegular;
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+.bachecaAnnunci {
+	font-family: 'oswald_stencilbold';
+}
+
+.img-carta {
+	display: block;
+    max-width: 100%;
+    max-height: 180px;
+    text-align:central;
+    border-style: solid;
+    border-color: #A6B71B;
+    border-width:1px;
+}
+#imgAnnuncio{
+	width:100%;
+}
+p {
+	font-family: oswaldRegular;
+	text-transform: uppercase;
+}
+.bottone:focus {
+	background-color:#515547;
+	border-color:#A6B71B;;
+}
+.bottone:active {
+	background-color:#515547;
+	border-color:#A6B71B;;
+}
+@media (max-width:768px){
+img {
+	display: block;
+    margin-left:30%;
+    width: 40%;
+    margin-bottom:15px;
+
+}
+
+.carta {
+	margin-top:15px;
+}
+}
