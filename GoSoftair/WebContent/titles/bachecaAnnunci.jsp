@@ -15,7 +15,6 @@
 
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/customJS/creaAnnuncio.js"></script>
 </head>
 
 <body class="cssBody BodyWidth">
@@ -220,36 +219,36 @@
 	<!-- fine modal3-->
 	
 	<!-- inizio -->
-	<div class="container-fluid bachecaAnnunci">
+	<div class="container-fluid bachecaAnnunci ">
 		<section>
 			<div class="row">
 				<h1 class="text-center"> Mercatino </h1>
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 1</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center">	<button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
   					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 2</h3>
-	        							<p style="text-align:center">Descrizione Evento</p>
+	        							<p style="text-align:center">Descrizione dell'articolo</p>
 	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
   					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 3</h3>
-	        							<p style="text-align:center">Descrizione Evento</p>
+	        							<p style="text-align:center">Descrizione dell'articolo</p>
 	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
@@ -259,7 +258,7 @@
 				<section>
 			<div class="row" style="margin-top:15px;">
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 4</h3>
@@ -269,21 +268,21 @@
     					</div>
   					</div>
   					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 5</h3>
-	        							<p style="text-align:center">Descrizione Evento</p>
+	        							<p style="text-align:center">Descrizione dell'articolo</p>
 	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
   					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 6</h3>
-	        							<p style="text-align:center">Descrizione Evento</p>
+	        							<p style="text-align:center">Descrizione dell'articolo</p>
 	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
@@ -291,9 +290,9 @@
 			</div>
 		</section>
 				<section>
-			<div class="row" style="margin-top:15px";>
+			<div class="row" style="margin-top:15px">
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 7</h3>
@@ -302,22 +301,22 @@
       							</div>
     					</div>
   					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 8</h3>
-	        							<p style="text-align:center">Descrizione Evento</p>
+	        							<p style="text-align:center">Descrizione dell'articolo</p>
 	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
   					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<div class="carta">
+    					<div class="cartaScura">
       						<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Arma 9</h3>
-	        							<p style="text-align:center">Descrizione Evento</p>
+	        							<p style="text-align:center">Descrizione dell'articolo</p>
 	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn btn-primary bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
@@ -325,3 +324,4 @@
 			</div>
 		</section>
 	</div>
+	<%@include file="/layout/footer.jsp" %>

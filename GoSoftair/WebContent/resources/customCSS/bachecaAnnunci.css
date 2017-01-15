@@ -14,8 +14,14 @@
     font-family: oswaldRegular;
     src: url(../fonts/Oswald-Regular.ttf);
 }
+
+
 .bachecaAnnunci {
 	font-family: 'oswald_stencilbold';
+	background: url("../img/footer1.jpg") repeat center;
+	border-top-style:solid;
+	border-top-color: #FFFFFF;
+	border-top-width: 1px;
 }
 
 .img-carta {
@@ -30,6 +36,9 @@
 #imgAnnuncio{
 	width:100%;
 }
+h1{
+	color:#FFFFFF;
+}
 p {
 	font-family: oswaldRegular;
 	text-transform: uppercase;
@@ -42,6 +51,11 @@ p {
 	background-color:#515547;
 	border-color:#A6B71B;;
 }
+.list-group-item:hover {
+	background-color: #515547 !important;
+	color: #FFFFFF !important;
+}
+
 @media (max-width:768px){
 img {
 	display: block;
@@ -51,7 +65,7 @@ img {
 
 }
 
-.carta {
+.cartaScura {
 	margin-top:15px;
 }
 }
