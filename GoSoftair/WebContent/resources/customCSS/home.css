@@ -1,17 +1,37 @@
 @font-face {
 	font-family: 'oswald_stencilbold';
-	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
-	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
+	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2')
+		format('woff2'),
+		url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff')
+		format('woff');
 	font-weight: normal;
 	font-style: normal;
-
 }
 
-.jumboPadding{
+.slick-prev {
+	left: -5px;
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-right: 12px solid #a6b71b;
+}
+
+.slick-next {
+	right: -5px;
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 12px solid #a6b71b;
+}
+
+.jumboPadding {
 	padding-right: 0px;
 	padding-left: 0px;
 	border-radius: 0px;
 }
+
 .jumbotron {
 	background: url("../img/jumbo3.jpg") no-repeat center;
 	-webkit-background-size: cover;
@@ -20,95 +40,104 @@
 	background-size: cover;
 	background-color: inherit;
 	color: #fff;
-  	padding-bottom: 3%;
-	padding-top:30%;
-	margin-top:auto;
+	padding-bottom: 3%;
+	padding-top: 30%;
+	margin-top: auto;
 	display: block;
 	max-width: 100%;
 	height: auto;
 }
 
-.container-fluid .jumbotron{
+.container-fluid .jumbotron {
 	border-radius: 0px;
 }
 
-
 /* Sezioni eventi*/
-.SezEventi{
-	padding-bottom: 3%;
+.SezEventi {
+	padding-bottom: 2%;
 }
 
-
-.carta{
+.carta {
 	border-color: #a6b71b;
 	border-width: 3px;
 	border-style: solid;
 	padding: 1.5em;
-	color:#3c3c37;
+	color: #3c3c37;
 }
 
-.carta:hover{
-	background-color:#a6b71b ;
-	color:#ffffff;
+.carta:hover {
+	background-color: #a6b71b;
+	color: #ffffff;
 }
 
-a:hover{
+a:hover {
 	text-decoration: none;
 }
 
-
 /* courosel slide*/
-.carousel-inner .active.left { left: -33%; }
-.carousel-inner .next        { left:  33%; }
-.carousel-inner .prev        { left: -33%; }
-.carousel-control.left,.carousel-control.right {background-image:none;}
-.item:not(.prev) {visibility: visible;}
-.item.right:not(.prev) {visibility: hidden;}
-.rightest{ visibility: visible;}
+.carousel-inner .active.left {
+	left: -33%;
+}
 
+.carousel-inner .next {
+	left: 33%;
+}
+
+.carousel-inner .prev {
+	left: -33%;
+}
+
+.carousel-control.left, .carousel-control.right {
+	background-image: none;
+}
+
+.item:not (.prev ) {
+	visibility: visible;
+}
+
+.item.right:not (.prev ) {
+	visibility: hidden;
+}
+
+.rightest {
+	visibility: visible;
+}
 
 /* Sezione annunci*/
-
-.SezAnnunci{
-	background-color:#515547;
+.SezAnnunci {
+	background-color: #515547;
 	margin-top: 3%;
 	height: auto;
 	padding-top: 3%;
 	padding-bottom: 3%;
-
-
 	background: url("../img/footer1.jpg") no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	margin-top:auto;
+	margin-top: auto;
 	display: block;
 	max-width: 100%;
 	height: auto;
-
 }
 
-.cartaScura{
+.cartaScura {
 	border-color: #ffffff;
 	border-width: 3px;
 	border-style: solid;
 	padding: 1.5em;
-	color:#ffffff;
+	color: #ffffff;
 }
 
-.cartaScura:hover{
-	background-color:#ffffff ;
-	color:#3c3c37;
+.cartaScura:hover {
+	background-color: #ffffff;
+	color: #3c3c37;
 	text-decoration: none;
 }
 
-.footer{
+.footer {
 	margin-top: 30px;
 	margin-bottom: 30px;
 	text-align: center;
 	font-size: large;
 }
-
-
-
