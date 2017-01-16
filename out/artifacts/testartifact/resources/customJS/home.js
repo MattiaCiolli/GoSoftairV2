@@ -1,41 +1,24 @@
-/*carousel slide*/
-$('#myCarousel').carousel({
-  interval: 40000
+$(document).ready(function()
+
+{//sistema le slide di slick in base alla risoluzione
+	$('.autoplay').slick({
+		slidesToShow : 3,
+		slidesToScroll : 1,
+		autoplay : true,
+		autoplaySpeed : 2000,
+		responsive : [ {
+			breakpoint : 1199,
+			settings : {
+				slidesToShow : 2,
+			}
+		}, {
+			breakpoint : 767,
+			settings : {
+				slidesToShow : 1,
+			}
+		}
+
+		]
+
+	});
 });
-
-
-
-/*carousel e responsive */
-$('.carousel .item').each(function(){
-    var next = $(this).next();
-    $(".carousel-inner .active.left").css("left", "-100%") ;
-    $(".carousel-inner .next").css("left", "100%") ;
-    $(".carousel-inner .prev").css("left", "-100%") ;
-
-    if ($(window).width() > 768){
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
-        $(".carousel-inner .active.left").css("left", "-50%") ;
-        $(".carousel-inner .next").css("left", "50%") ;
-        $(".carousel-inner .prev").css("left", "-50%") ;
-    }
-
-    if ($(window).width() > 1200){
-        if (next.next().length > 0) {
-            next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
-        }
-        else {
-            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-        }
-        $(".carousel-inner .active.left").css("left", "-33%") ;
-        $(".carousel-inner .next").css("left", "33%") ;
-        $(".carousel-inner .prev").css("left", "-33%") ;
-    }
-});
-
-
-
-
-

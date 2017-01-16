@@ -14,7 +14,7 @@
 	<link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/resources/customCSS/profilo.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/customCSS/modificaProfilo.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/customCSS/registrazione.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -24,10 +24,10 @@
 
 <!-- inizio -->
 
-<div class="container-fluid ">
-  <div class="row ModificaProfilo">
+<div class="container-fluid sfondo">
+  <div class="row registrati">
     <!-- immagine profilo -->
-    <aside style="margin-top:60px";>
+    <aside>
     <div class="col-md-4 col-xs-12">
       <div class="text-center">
       <br>
@@ -38,11 +38,13 @@
     </div>
     </aside>
     <!-- fine immagine profilo -->
+    
     <!-- edit form column -->
-    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+    <section>
+    <div class="col-md-8 col-xs-12">
       <h3>Informazioni personali</h3>
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
+      <form class="form-horizontal contenitoreForm " role="form">
+        <div class="form-group" style="margin-top:2%">
           <label class="col-lg-3 control-label personalLabel">Nome:</label>
           <div class="col-lg-8">
             <input class="form-control" value="Niccolò" type="text">
@@ -90,10 +92,13 @@
         </div>
       </form>
     </div>
+    </section>
   </div>
 </div>
 
 <!-- fine -->
 
 </body>
+<%@include file="/layout/footer.jsp" %>
+
 </html>

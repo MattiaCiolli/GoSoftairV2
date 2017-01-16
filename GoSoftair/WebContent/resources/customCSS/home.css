@@ -26,6 +26,10 @@
 	border-left: 12px solid #a6b71b;
 }
 
+a:active{
+	color: #a6b71b;
+}
+
 .jumboPadding {
 	padding-right: 0px;
 	padding-left: 0px;
@@ -46,6 +50,7 @@
 	display: block;
 	max-width: 100%;
 	height: auto;
+	margin-bottom: 0px;
 }
 
 .container-fluid .jumbotron {
@@ -54,7 +59,18 @@
 
 /* Sezioni eventi*/
 .SezEventi {
-	padding-bottom: 2%;
+	padding-bottom: 3%;
+	padding-top: 3%;
+
+	background: url("../img/sfondo.jpg") no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 .carta {
@@ -75,32 +91,12 @@ a:hover {
 }
 
 /* courosel slide*/
-.carousel-inner .active.left {
-	left: -33%;
+.slick-prev:before, .slick-next:before{
+	content: ' ';
 }
 
-.carousel-inner .next {
-	left: 33%;
-}
-
-.carousel-inner .prev {
-	left: -33%;
-}
-
-.carousel-control.left, .carousel-control.right {
-	background-image: none;
-}
-
-.item:not (.prev ) {
-	visibility: visible;
-}
-
-.item.right:not (.prev ) {
-	visibility: hidden;
-}
-
-.rightest {
-	visibility: visible;
+.slick-prev, .slick-next{
+	z-index: 200;
 }
 
 /* Sezione annunci*/

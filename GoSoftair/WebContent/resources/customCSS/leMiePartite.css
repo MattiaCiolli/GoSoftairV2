@@ -3,6 +3,16 @@
 	margin-top:0px;
 	margin-right:0px;
 	margin-left:0px;
+
+	background: url("../img/sfondo.jpg") no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 			
 }
 
@@ -25,7 +35,7 @@
 	border-width: 3px;
 	border-style: solid;
 	padding: 1.5em;
-	color:#3c3c37;
+	color:white;/*#3c3c37;*/
 }
 
 .carta:hover{
@@ -44,14 +54,14 @@
 
 
 .tag{
-	margin-top: 40%;
+	margin-top: 20%;
 	color:#a6b71b;
 	text-transform: uppercase;
 	font-family: "Oswald",sans-serif;
 }
 
 .valore{
-	color:#3c3c37;
+	color:white;/*#3c3c37;*/
 	text-transform: uppercase;
 	font-family: "oswald_stencilbold",sans-serif;
 	font-size: x-large;
@@ -75,4 +85,19 @@
 
 .spazio{
 	margin-top: 3%;
+}
+
+.titolo{
+	text-align: center;
+	font-size: 2.5em;
+	font-family: oswald_stencilbold;
+}
+
+@media (max-width: 768px) {
+	.titolo{
+		margin-top: 3%;
+	}
+	.tag{
+		margin-top: 5%;
+	}
 }

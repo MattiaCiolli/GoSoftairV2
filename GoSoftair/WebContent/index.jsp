@@ -30,135 +30,129 @@
 
 	<!--Immagine di compertina, jumbotron -->
 	<section>
-	<div class="container-fluid jumboPadding">
-		<row>
-		<div class="jumbotron">
-			<div class=" text-center">
-				<h1 class="titolo">Frase ad effetto</h1>
-				<p class="sottotitolo">un'altra frase ad effetto, o forse no</p>
-				<p></p>
+		<div class="container-fluid jumboPadding">
+			<row>
+			<div class="jumbotron">
+				<div class=" text-center">
+					<h1 class="titolo">Frase ad effetto</h1>
+					<p class="sottotitolo">un'altra frase ad effetto, o forse no</p>
+					<p></p>
+				</div>
 			</div>
+			</row>
 		</div>
-		</row>
-	</div>
 	</section>
 
 	<section>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12 SezEventi">
-				<div class="autoplay">
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a href="${pageContext.request.contextPath}/titles/evento.jsp">
-							<div class="carta">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
-									class="img-responsive ">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 SezEventi">
+					<div class="autoplay">
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
+								<div class="carta">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
+										class="img-responsive ">
 
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a href="${pageContext.request.contextPath}/titles/evento.jsp">
-							<div class="carta">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo11.jpg"
-									class="img-responsive ">
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
+								<div class="carta">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
+										class="img-responsive ">
 
-							</div>
-						</a>
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
+								<div class="carta">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
+										class="img-responsive ">
+
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
+								<div class="carta">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
+										class="img-responsive ">
+
+								</div>
+							</a>
+						</div>
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
+								<div class="carta">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"
+										class="img-responsive ">
+
+								</div>
+							</a>
+						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	 </section>
+		<!--sezione annunci con numero di card fisse -->
+
+	<section>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 SezAnnunci">
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a href="${pageContext.request.contextPath}/titles/evento.jsp">
-							<div class="carta">
+						<a href="#">
+							<div class="cartaScura">
 								<img
 									src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
 									class="img-responsive ">
-
+								<div>
+									<p>8</p>
+								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a href="${pageContext.request.contextPath}/titles/evento.jsp">
-							<div class="carta">
+					<div class="hidden-xs col-lg-4 col-md-6 col-sm-6">
+						<a href="#">
+							<div class="cartaScura">
 								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo22.jpg"
+									src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
 									class="img-responsive ">
-
+								<div >
+									<p>8</p>
+								</div>
 							</div>
 						</a>
 					</div>
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a href="${pageContext.request.contextPath}/titles/evento.jsp">
-							<div class="carta">
+					<div class="hidden-md  hidden-xs hidden-sm  col-lg-4">
+						<a href="#">
+							<div class="cartaScura">
 								<img
 									src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
 									class="img-responsive ">
-
+								<div >
+									<p>8</p>
+								</div>
 							</div>
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
- </section>
-	<!--sezione annunci con numero di card fisse -->
-	<section>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 SezAnnunci">
-				<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-					<a href="#">
-						<div class="cartaScura">
-							<img
-								src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"
-								class="img-responsive ">
-							<div class="scemo">
-								<p>8</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="hidden-xs col-lg-4 col-md-6 col-sm-6">
-					<a href="#">
-						<div class="cartaScura">
-							<img
-								src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
-								class="img-responsive ">
-							<div class="scemo">
-								<p>8</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="hidden-md  hidden-xs hidden-sm  col-lg-4">
-					<a href="#">
-						<div class="cartaScura">
-							<img
-								src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
-								class="img-responsive ">
-							<div class="scemo">
-								<p>8</p>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
 	</section>
 	<!--fine sezione annunci con numero di card fisse -->
 
-	<section>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-12 footer">
-				<p>ciaoooooooooooooooooooooooooooooooooooooooooooooooooooo</p>
-			</div>
-		</div>
-	</div>
-	</section>
+
+	<%@include file="/layout/footer.jsp"%>
 
 	<script
 		src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
