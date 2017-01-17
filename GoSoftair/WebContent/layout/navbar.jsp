@@ -82,7 +82,7 @@
 									<li><a href="${pageContext.request.contextPath}/titles/creaAnnuncio.jsp">Crea annuncio</a></li>
 								</ul>
 							</li>
-							<li ><a href="${pageContext.request.contextPath}/titles/profilo.jsp">Profilo</a></li>
+							<li ><a class="ultimoNavbarStretta" href="${pageContext.request.contextPath}/titles/profilo.jsp">Profilo</a></li>
 						</ul>
 					</div>
 				</div>

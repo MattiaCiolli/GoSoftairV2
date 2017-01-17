@@ -229,7 +229,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 1</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -239,7 +239,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 2</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -249,7 +249,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 3</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -263,7 +263,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 4</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center">	<button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center">	<button data-toggle="modal" data-target="#modal" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -273,7 +273,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 5</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -283,7 +283,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 6</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -297,7 +297,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 7</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center">	<button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center">	<button data-toggle="modal" data-target="#modal" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -307,7 +307,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 8</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal2" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>
@@ -317,7 +317,7 @@
       							<div class="caption">
         							<h3 style="text-align:center">Arma 9</h3>
 	        							<p style="text-align:center">Descrizione dell'articolo</p>
-	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn btn-primary bottone">Vedi dettagli</button></h4>
+	        								<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal3" class="btn bottone">Vedi dettagli</button></h4>
       							</div>
     					</div>
   					</div>

@@ -227,7 +227,9 @@ li>a{
 	.navbar{
 		border:none;
 	}
-
+	.ultimoNavbarStretta{
+		border-bottom: 1px solid black;
+	}
 }
 
 .dropdown-menu>li>a{

@@ -54,7 +54,14 @@
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
 										class="img-responsive ">
-
+									<div class="contenuto">
+										<div>
+											<p class="nome">Partita 1</p>
+										</div>
+										<div>
+											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</div>
 								</div>
 							</a>
 						</div>
@@ -64,6 +71,14 @@
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
 										class="img-responsive ">
+									<div class="contenuto">
+										<div>
+											<p class="nome">Partita 2</p>
+										</div>
+										<div>
+											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</div>
 
 								</div>
 							</a>
@@ -74,7 +89,14 @@
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
 										class="img-responsive ">
-
+									<div class="contenuto">
+										<div>
+											<p class="nome">Partita 3</p>
+										</div>
+										<div>
+											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</div>
 								</div>
 							</a>
 						</div>
@@ -84,7 +106,14 @@
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
 										class="img-responsive ">
-
+									<div class="contenuto">
+										<div>
+											<p class="nome">Partita 4</p>
+										</div>
+										<div>
+											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</div>
 								</div>
 							</a>
 						</div>
@@ -94,7 +123,14 @@
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"
 										class="img-responsive ">
-
+									<div class="contenuto">
+										<div>
+											<p class="nome">Partita 5</p>
+										</div>
+										<div>
+											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+									</div>
 								</div>
 							</a>
 						</div>
@@ -115,8 +151,13 @@
 								<img
 									src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
 									class="img-responsive ">
-								<div>
-									<p>8</p>
+								<div class="contenuto">
+									<div>
+										<p class="nome">Articolo 1</p>
+									</div>
+									<div>
+										<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
 								</div>
 							</div>
 						</a>
@@ -127,8 +168,13 @@
 								<img
 									src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
 									class="img-responsive ">
-								<div >
-									<p>8</p>
+								<div class="contenuto">
+									<div>
+										<p class="nome">Articolo 2</p>
+									</div>
+									<div>
+										<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
 								</div>
 							</div>
 						</a>
@@ -139,8 +185,13 @@
 								<img
 									src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
 									class="img-responsive ">
-								<div >
-									<p>8</p>
+								<div class="contenuto">
+									<div>
+										<p class="nome">Articolo 3</p>
+									</div>
+									<div>
+										<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
 								</div>
 							</div>
 						</a>

@@ -21,7 +21,7 @@
 											<div class="help-block text-right"><a class="linkSfondoBianco" href="">Password dimenticata?</a></div>
 										</div>
 										<div class="form-group">
-											<button type="submit" class="btn btn-success btn-block bottone">Sign in</button> <!-- ----------------------------- -->
+											<button type="submit" class="btn btn-block bottonenav">Sign in</button> <!-- ----------------------------- -->
 										</div>
 										<div class="form-group">
 											<div class="checkbox">
@@ -82,7 +82,7 @@
 									<li><a href="${pageContext.request.contextPath}/titles/creaAnnuncio.jsp">Crea annuncio</a></li>
 								</ul>
 							</li>
-							<li ><a href="${pageContext.request.contextPath}/titles/profilo.jsp">Profilo</a></li>
+							<li ><a class="ultimoNavbarStretta" href="${pageContext.request.contextPath}/titles/profilo.jsp">Profilo</a></li>
 						</ul>
 					</div>
 				</div>

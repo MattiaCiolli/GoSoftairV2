@@ -73,12 +73,42 @@ a:active{
 	height: auto;
 }
 
+.nome{
+	font-size: 24px;
+	font-family: oswald_stencilbold;
+	text-align: center;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.descrizione{
+	font-family: oswald_stencil;
+	font-size: 14px;
+	text-align: center;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+
+	/*taglia dopo la terza riga*/
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.contenuto{
+	height: 100px;
+}
+
 .carta {
 	border-color: #a6b71b;
 	border-width: 3px;
 	border-style: solid;
 	padding: 1.5em;
-	color: #3c3c37;
+	color: white;
 }
 
 .carta:hover {
@@ -116,6 +146,7 @@ a:hover {
 	max-width: 100%;
 	height: auto;
 }
+
 
 .cartaScura {
 	border-color: #ffffff;
