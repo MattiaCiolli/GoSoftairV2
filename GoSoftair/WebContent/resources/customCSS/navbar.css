@@ -50,16 +50,18 @@ nav {
 }
 
 /*************************/
-.bottone:hover {
+.bottonenav:hover {
 	background-color: #94A31A !important;
 	border-color: #94A31A !important;
 	border-radius: 0px !important;
+	color:white;
 }
 
-.bottone {
+.bottonenav {
 	background-color: #A6B71B !important;
 	border-color: #A6B71B !important;
 	border-radius: 0px !important;
+	color:white;
 }
 
 .AccedereUsando{

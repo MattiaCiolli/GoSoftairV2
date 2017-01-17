@@ -28,10 +28,14 @@
 <link
 	href="${pageContext.request.contextPath}/resources/fileinput/css/fileinput.min.css"
 	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/customCSS/mycss.css"
+<link
+	href="${pageContext.request.contextPath}/resources/customCSS/mycss.css"
 	rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+<link
+	href="${pageContext.request.contextPath}/resources/customCSS/navbar.css"
+	rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700'
+	rel='stylesheet' type='text/css'>
 
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/bootstrap/img/favicon.ico">
@@ -47,22 +51,27 @@
 	src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/jquery/jquery.validate.min.js"></script>
-	<script
+<script
 	src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
 
-<!-- js delle pagine crea partita e annuncio -->	
-		
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>	
-	<script
+<!-- js delle pagine crea partita e annuncio -->
+
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap"
+	async defer></script>
+<script
 	src="${pageContext.request.contextPath}/resources/customJS/creaPartita.js"></script>
-	<script
+<script
 	src="${pageContext.request.contextPath}/resources/customJS/creaAnnuncio.js"></script>
-	
+<script
+	src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+
 
 </head>
 
-<body class="cssBody">
-	<%@include file="/layout/navbar.jsp" %>
+<body id="sfondochiaro">
+	<%@include file="/layout/navbar.jsp"%>
+
 	<!-- edit modal -->
 
 	<div class="modal fade" id="modal" tabindex="-1" role="dialog"
@@ -82,7 +91,9 @@
 					</h4>
 
 					<div id="loadingedit">
-						<img src='${pageContext.request.contextPath}/resources/fileinput/img/loading.gif' alt='loading...' />
+						<img
+							src='${pageContext.request.contextPath}/resources/fileinput/img/loading.gif'
+							alt='loading...' />
 					</div>
 
 				</div>
@@ -129,62 +140,62 @@
 
 	</div>
 	<!-- fine modal-->
-	
-	<form id="annuncioform">
-	
 	<div class="container">
-			<div class="row">
-				<div class='col-sm-4 col-md-4 col-lg-4'>
-					<div class="form-group">
-						<label for="Titolo">Titolo:</label> <input type="text"
-							class="form-control" id="Titolo" name="Titolo">
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class='col-sm-4 col-md-4 col-lg-4'>
-					<div class="form-group">
-						<label for="Decrizione">Descrizione:</label>
-						<textarea rows="5" class="form-control" id="Descrizione"
-							name="Descrizione"></textarea>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<div class='col-sm-4 col-md-4 col-lg-4'>
-					<div class="form-group">
-						<label for="Prezzo">Prezzo:</label>
-						<div class="input-group">
-							<input type="number" class="form-control" id="Prezzo"
-								name="Prezzo" /> <span class="input-group-addon">$</span>
+		<div class="card" id="bianco">
+			<form id="annuncioform">
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="Titolo">Titolo:</label> <input type="text"
+								class="form-control" id="Titolo" name="Titolo">
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="row">
-				<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
-					<label for="Immagine">Immagine:</label>
-					<div id="kv-avatar-errors-2" class="center-block"></div>
-					<div class="kv-avatar center-block">
-						<input id="Immagine" name="Immagine" type="file"
-							class="file-loading">
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="Decrizione">Descrizione:</label>
+							<textarea rows="5" class="form-control" id="Descrizione"
+								name="Descrizione"></textarea>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<br/>
-			<button type="submit" id="inserisciannuncio" class="btn btn-success">Inserisci
-				annuncio</button>
 
+
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="Prezzo">Prezzo:</label>
+							<div class="input-group">
+								<input type="number" class="form-control" id="Prezzo"
+									name="Prezzo" /> <span class="input-group-addon">$</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
+						<label for="Immagine">Immagine:</label>
+						<div id="kv-avatar-errors-2" class="center-block"></div>
+						<div class="kv-avatar center-block">
+							<input id="Immagine" name="Immagine" type="file"
+								class="file-loading">
+						</div>
+					</div>
+				</div>
+
+				<br />
+				<button type="submit" id="inserisciannuncio" class="btn bottonenav">Inserisci
+					annuncio</button>
 		</div>
-	</form>
+		</form>
+	</div>
+	</div>
 
 	<button data-toggle="modal" data-target="#modal" class="btn btn-danger">Apri
 		modal</button>
-	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+	<%@include file="/layout/footer.jsp"%>
 </body>
 </html>
