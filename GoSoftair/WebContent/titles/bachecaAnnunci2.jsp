@@ -225,7 +225,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 1</h3>
+        								<h3 style="text-align:center">Arma 10</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -236,7 +236,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 2</h3>
+        								<h3 style="text-align:center">Arma 11</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -247,7 +247,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 3</h3>
+        								<h3 style="text-align:center">Arma 12</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -262,7 +262,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 4</h3>
+        								<h3 style="text-align:center">Arma 13</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -273,7 +273,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 5</h3>
+        								<h3 style="text-align:center">Arma 14</h3>
 	        								<p class="descrizione">DLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -284,7 +284,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 6</h3>
+        								<h3 style="text-align:center">Arma 15</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -299,7 +299,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 7</h3>
+        								<h3 style="text-align:center">Arma 16</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -310,7 +310,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 8</h3>
+        								<h3 style="text-align:center">Arma 17</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -321,7 +321,7 @@
     						<div class="cartaScura">
       							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       								<div class="caption">
-        								<h3 style="text-align:center">Arma 9</h3>
+        								<h3 style="text-align:center">Arma 18</h3>
 	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
@@ -332,8 +332,8 @@
 
 <div style="text-align:center">
 <ul class="pagination">
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="/GoSoftair-2/titles/bachecaAnnunci2.jsp">2</a></li>
+  <li><a href="/GoSoftair-2/titles/bachecaAnnunci.jsp">1</a></li>
+  <li class="active"><a href="#">2</a></li>
 </ul>
 </div>
 	</div>

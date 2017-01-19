@@ -56,6 +56,29 @@ p {
 	background-color: #515547 !important;
 	color: #FFFFFF !important;
 }
+.pagination>.active>a {
+	background-color:#A6B71B;
+	border-color:#515547;
+	color:#515547;
+}
+
+.pagination>.active>a:hover {
+	background-color:#515547;
+	border-color:white;
+	color:#A6B71B;
+}
+
+.pagination>li>a {
+	background-color:white;
+	border-color:#515547;
+	color:#515547;
+}
+
+.pagination>li>a:hover {
+	background-color:#515547;
+	color:#A6B71B;
+	}
+
 
 @media (max-width:768px){
 img {

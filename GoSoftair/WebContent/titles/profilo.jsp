@@ -237,18 +237,18 @@
                      <div class="contenitoreProfilo">
                     <div class="col-xs-12 col-sm-8">
                     	<div class="row event-description">
-                    		<div class="span-master col-md-6">
+                    		<div class="span-master col-md-4">
                     			<span>Nome: </span>
                     		</div>
-                    		<div class="span-master-2 col-md-6">
+                    		<div class="span-master-2 col-md-8">
                     			<span>Niccolò</span>
                     		</div>
                     	</div>
                            <div class="row event-description">
-                    		<div class="span-master col-md-6">
+                    		<div class="span-master col-md-4">
                     			<span>Cognome: </span>
                     		</div>
-                    		<div class="span-master-2 col-md-6">
+                    		<div class="span-master-2 col-md-8">
                     			<span>Campriani</span>
                     		</div>
                     	</div>
@@ -261,10 +261,10 @@
                     		</div>
                     	</div>
                     	<div class="row event-description">
-                    		<div class="span-master col-md-6">
+                    		<div class="span-master col-md-4">
                     			<span>Email: </span>
                     		</div>
-                    		<div class="span-master-2 col-md-6">
+                    		<div class="span-master-2 col-md-8">
                     			<span>NiccoloCampriani@gmail.com</span>
                     		</div>
                     	</div>
@@ -281,36 +281,38 @@
 <div class="container-fluid">
 	<div class="row UltimiEventi">
 		<h1 class="text-center"> Ultime Partite </h1>
-  			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    			<div class="carta">
-      				<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="foto evento">
-      				<div class="caption">
-        				<h3 style="text-align:center">La Valle della Morte</h3>
-	        				<p style="text-align:center">Descrizione Evento</p>
-	        			<h4 style="text-align:center"><a href="evento.jsp" class="btn btn-primary bottone" role="button">Guarda</a></h4>
-      				</div>
-    			</div>
+  			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
+    			<a href="${pageContext.request.contextPath}/titles/evento.jsp">
+    				<div class="carta">
+      					<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="foto evento">
+      						<div class="caption">
+        						<h3 style="text-align:center">La Valle della Morte</h3>
+									<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      						</div>
+    				</div>
+    			</a>
   		</div>
-
   	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    	<div class="carta">
-      		<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="foto evento">
-      		<div class="caption">
-       	 		<h3 style="text-align:center">Roio Deathmatch</h3>
-        		<p style="text-align:center">Descrizione Evento</p>
-        		<h4 style="text-align:center"><a href="#" class="btn btn-primary bottone" role="button">Guarda</a></h4>
-      		</div>
-    	</div>
+    	<a href="#">
+    		<div class="carta">
+      			<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="foto evento">
+      				<div class="caption">
+       	 				<h3 style="text-align:center">Roio Deathmatch</h3>
+							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      				</div>
+    		</div>
+    	</a>
   	</div>
-  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    	<div class="carta">
-      		<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta" alt="foto evento" >
-      		<div class="caption">
-        		<h3 style="text-align:center">Mezzanotte di fuoco a Coppito</h3>
-        		<p style="text-align:center">Descrizione Evento</p>
-        		<h4 style="text-align:center"><a href="#" class="btn btn-primary bottone" role="button">Guarda</a></h4>
-     		 </div>
- 		</div>
+  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
+    	<a href="#">
+    		<div class="carta">
+      			<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta" alt="foto evento" >
+      				<div class="caption">
+        				<h3 style="text-align:center">Mezzanotte di fuoco a Coppito</h3>
+							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        			</div>
+ 			</div>
+ 		</a>
   	</div>
 </div>
 </div>
@@ -322,51 +324,47 @@
 <div class="container-fluid">
 	<div class="row UltimiAnnunci">
 		<h5 class="text-center"> Ultimi Annunci </h5>
-  			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    			<div class="cartaScura">
-      				<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="foto articolo">
-      				<div class="caption">
-        				<h3 style="text-align:center">Arma 1</h3>
-	        				<p style="text-align:center">Descrizione Articolo</p>
-	        			<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
-      				</div>
-    			</div>
-  		</div>
+  			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"style="margin-bottom:3%">
+    			<a data-toggle="modal" data-target="#modal">
+    				<div class="cartaScura">
+      					<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="foto articolo">
+      						<div class="caption">
+        						<h3 style="text-align:center">Arma 1</h3>
+									<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      						</div>
+    				</div>
+    			</a>
+  			</div>
 
+  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
+    	<a data-toggle="modal" data-target="#modal2">
+    		<div class="cartaScura">
+      			<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="foto articolo">
+      				<div class="caption">
+       	 				<h3 style="text-align:center">Arma 2</h3>
+											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      				</div>
+    		</div>
+    	</a>
+  	</div>
   	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
-    	<div class="cartaScura">
-      		<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="foto articolo">
-      		<div class="caption">
-       	 		<h3 style="text-align:center">Arma 2</h3>
-        		<p style="text-align:center">Descrizione Articolo</p>
-        		<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
-      		</div>
-    	</div>
+    	<a data-toggle="modal" data-target="#modal3">
+    		<div class="cartaScura">
+      			<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta" alt="foto articolo" >
+      				<div class="caption">
+        				<h3 style="text-align:center">Arma 3</h3>
+							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		     		</div>
+ 			</div>
+ 		</a>
   	</div>
-  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    	<div class="cartaScura">
-      		<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta" alt="foto articolo" >
-      		<div class="caption">
-        		<h3 style="text-align:center">Arma 3</h3>
-        		<p style="text-align:center">Descrizione Articolo</p>
-        		<h4 style="text-align:center"><button data-toggle="modal" data-target="#modal" class="btn btn-primary bottone">Vedi dettagli</button></h4>
-     		 </div>
- 		</div>
-  	</div>
-</div>
+	</div>
 </div>
 </section>
 
 <!-- fine sezione ultimi annunci -->
 
-
 <!-- fine -->
-
-
-
-
-
-
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
