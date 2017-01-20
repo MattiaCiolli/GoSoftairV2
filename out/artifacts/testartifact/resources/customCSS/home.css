@@ -8,28 +8,15 @@
 	font-style: normal;
 }
 
-.slick-prev {
-	left: -5px;
-	width: 0;
-	height: 0;
-	border-top: 12px solid transparent;
-	border-bottom: 12px solid transparent;
-	border-right: 12px solid #a6b71b;
-}
-
-.slick-next {
-	right: -5px;
-	width: 0;
-	height: 0;
-	border-top: 12px solid transparent;
-	border-bottom: 12px solid transparent;
-	border-left: 12px solid #a6b71b;
-}
-
 a:active{
 	color: #a6b71b;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
+/* Jumbotron */
 .jumboPadding {
 	padding-right: 0px;
 	padding-left: 0px;
@@ -57,22 +44,8 @@ a:active{
 	border-radius: 0px;
 }
 
-/* Sezioni eventi*/
-.SezEventi {
-	padding-bottom: 3%;
-	padding-top: 3%;
 
-	background: url("../img/sfondo.jpg") no-repeat center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	margin-top: auto;
-	display: block;
-	max-width: 100%;
-	height: auto;
-}
-
+/*Parti in comune a piu sezioni*/
 .nome{
 	font-size: 24px;
 	font-family: oswald_stencilbold;
@@ -103,6 +76,57 @@ a:active{
 	height: 100px;
 }
 
+.titoloSezione{
+	font-family: 'oswald_stencilbold';
+	font-size: 36px;
+	text-align: center;
+	letter-spacing: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: white;
+}
+
+/* Sezioni eventi*/
+
+.slick-prev {
+	left: -5px;
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-right: 12px solid #a6b71b;
+}
+
+.slick-next {
+	right: -5px;
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 12px solid #a6b71b;
+}
+
+.slick-prev:before, .slick-next:before{
+	content: ' ';
+}
+
+.slick-prev, .slick-next{
+	z-index: 200;
+}
+
+.SezEventi {
+	padding-bottom: 3%;
+	background: url("../img/sfondo.jpg") no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
 .carta {
 	border-color: #a6b71b;
 	border-width: 3px;
@@ -116,25 +140,12 @@ a:active{
 	color: #ffffff;
 }
 
-a:hover {
-	text-decoration: none;
-}
-
-/* courosel slide*/
-.slick-prev:before, .slick-next:before{
-	content: ' ';
-}
-
-.slick-prev, .slick-next{
-	z-index: 200;
-}
 
 /* Sezione annunci*/
 .SezAnnunci {
 	background-color: #515547;
 	margin-top: 3%;
 	height: auto;
-	padding-top: 3%;
 	padding-bottom: 3%;
 	background: url("../img/footer1.jpg") no-repeat center;
 	-webkit-background-size: cover;
@@ -162,6 +173,7 @@ a:hover {
 	text-decoration: none;
 }
 
+/*footer*/
 .footer {
 	margin-top: 30px;
 	margin-bottom: 30px;

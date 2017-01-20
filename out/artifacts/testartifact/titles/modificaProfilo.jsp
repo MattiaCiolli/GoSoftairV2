@@ -41,7 +41,7 @@
     
     <!-- edit form column -->
     <section>
-    <div class="col-md-8 col-xs-12">
+    <div class="col-md-7 col-xs-12">
       <h3>Informazioni personali</h3>
       <form class="form-horizontal contenitoreForm " role="form">
         <div class="form-group" style="margin-top:2%">
@@ -85,9 +85,9 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input class="btn btn-primary bottone" value="Salva Modifiche" type="button">
+            <input class="btn bottone1" value="Salva Modifiche" type="button">
             <span></span>
-            <input class="btn btn-primary bottone" value="Annulla" type="reset">
+            <input class="btn bottone1" value="Annulla" type="reset">
           </div>
         </div>
       </form>

@@ -5,13 +5,15 @@
 	font-weight: normal;
 	font-style: normal;
 }
-.bg-lightgray
-{
-    border-top-style:solid;
+
+footer{
+	height:60px;
+	clear:both;
+	display:block;
+	border-top-style:solid;
     border-top-color:#515547;
     border-top-width:2px;
     color:#515547;
-    background-color:#FFFFFF;
+    background-color:white;
     font-family:'oswald_stencilbold';
-    
 }

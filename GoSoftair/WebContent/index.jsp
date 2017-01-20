@@ -43,10 +43,14 @@
 		</div>
 	</section>
 
+	<!--sezione annunci -->
 	<section>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12 SezEventi">
+					<div class="titoloSezione">
+						Partite
+					</div>
 					<div class="autoplay">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
@@ -139,12 +143,15 @@
 			</div>
 		</div>
 	 </section>
-		<!--sezione annunci con numero di card fisse -->
 
+	<!--sezione annunci con numero di card fisse -->
 	<section>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 SezAnnunci">
+					<div class="titoloSezione">
+						Annunci
+					</div>
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="cartaScura">

@@ -15,7 +15,6 @@
 <body class="cssBody BodyWidth">
 	<%@include file="/layout/navbar.jsp" %>
 
-
     <section>
         <div class="container-fluid">
             <div class="row lateralPadding">
@@ -32,19 +31,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
                                 <p class="tag">Data</p>
                                 <p class="valore">04/01/2017</p>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
                                 <p class="tag">Ora</p>
                                 <p class="valore">9:00-12:00</p>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
                                 <p class="tag">Punto di incontro</p>
                                 <p class="valore">Università</p>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
                                 <p class="tag">Tipo partita</p>
                                 <p class="valore">Dead Match</p>
                             </div>

@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
-					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/titles/registrazione.jsp">Registrati</a>
+					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/titles/registrazione.jsp">REGISTRATI</a>
 					<span class="separatore"></span>
 					<a href="#" class="linkBarraAlta dropdown-toggle"  data-toggle="dropdown">Login</a>
 					<ul id="login-dp" class="dropdown-menu">
@@ -60,16 +60,16 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand " href="${pageContext.request.contextPath}/index.jsp"><b class="menuButton">GoSoftair</b></a>
+						<a class="navbar-brand " href="${pageContext.request.contextPath}/index.jsp"><b class="menuButton">GOSOFTAIR</b></a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Partite <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">Elenco partite</a></li>
+									<li><a href="${pageContext.request.contextPath}/titles/bachecaPartite.jsp">Elenco partite</a></li>
 									<li class="divider"></li>
-									<li><a href="#">Iscrizioni</a></li>
+									<li><a href="${pageContext.request.contextPath}/titles/leMieIscrizioni.jsp">Iscrizioni</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/titles/creaPartita.jsp">Crea partita</a></li>
 								</ul>

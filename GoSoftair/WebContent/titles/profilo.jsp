@@ -222,10 +222,10 @@
 	<div class="row ">
 		<div class="col-md-4">
 			<div class="list-group">
-  			<a href="#" class="list-group-item">Le mie Iscrizioni</a>
-  			<a href="#" class="list-group-item">I miei Annunci</a>
-  			<a href="leMiePartite.jsp" class="list-group-item">Le mie Partite</a>
-  			<a href="modificaProfilo.jsp" class="list-group-item">Modifica Profilo</a>
+  			<a href="${pageContext.request.contextPath}/titles/leMieIscrizioni.jsp" class="list-group-item">Le mie Iscrizioni</a>
+  			<a href="${pageContext.request.contextPath}/titles/iMieiAnnunci.jsp" class="list-group-item">I miei Annunci</a>
+  			<a href="${pageContext.request.contextPath}/titles/leMiePartite.jsp" class="list-group-item">Le mie Partite</a>
+  			<a href="${pageContext.request.contextPath}/titles/modificaProfilo.jsp" class="list-group-item">Modifica Profilo</a>
 			</div>
 		</div>
 		<div class="col-md-8">

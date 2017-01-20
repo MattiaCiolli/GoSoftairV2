@@ -1,30 +1,23 @@
 /* css barra superiore*/
 @font-face {
 	font-family: 'oswald_stencilbold';
-	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
-	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+	src: url(../fonts/Oswald-Stencil.ttf);
 }
 
 @font-face {
 	font-family: 'Oswald';
-	src: url('../fonts/Oswald-Regular.woff2') format('woff2'),
-	url('../fonts/Oswald-Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+	src: url(../fonts/Oswald-Regular.ttf);
 }
 
 header {
 	background-color: #34362d;
 	color: #ffffff;
-	font-size: 1em !important;
-	font-family: "Oswald",sans-serif !important;
+	font-size: 1em ;
+	font-family: "oswald_stencilbold",sans-serif !important;
 	font-style: inherit;
 	font-weight: inherit;
 	line-height: inherit;
 	word-wrap: break-word;
-	text-rendering: optimizeLegibility;
 	height: 30px;
 	width: 100%;
 }
@@ -37,7 +30,6 @@ nav {
 	line-height: inherit;
 	word-wrap: break-word;
 	color: #767a70;
-	text-rendering: optimizeLegibility;
 	border: none;
 	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
 	height: 100px;
@@ -94,7 +86,7 @@ nav {
 .linkBarraAlta{
 	color: #ffffff !important;
 	padding: 0.8em 0 0.8em;
-	font-family: "Oswald",sans-serif;
+	font-family: "oswald_stencilbold";
 	line-height: 1.3em;
 	text-transform: uppercase;
 	text-decoration: none !important;
@@ -173,7 +165,7 @@ nav {
 li>a{
 	color: #ffffff;
 	padding: 0.45em 1.1em 0.35em;
-	font-family: "Oswald",sans-serif;
+	font-family: "oswald_stencilbold",sans-serif;
 	line-height: 1.3em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
