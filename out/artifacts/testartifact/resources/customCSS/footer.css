@@ -7,13 +7,19 @@
 }
 
 footer{
-	height:60px;
 	clear:both;
 	display:block;
 	border-top-style:solid;
     border-top-color:#515547;
     border-top-width:2px;
     color:#515547;
-    background-color:white;
+    background-color:lightgray;
     font-family:'oswald_stencilbold';
+	padding-top: 25px;
+	bottom:0;
+	width: 100%;
+}
+
+.spazio{
+	height: 67px;
 }

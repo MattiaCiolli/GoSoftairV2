@@ -93,8 +93,8 @@
 
 
 <!--sottonavbar -->
-<section>
-	<div class="container-fluid">
+<section class="colorata">
+	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 navigazione">
 				<p>

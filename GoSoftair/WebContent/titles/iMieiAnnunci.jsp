@@ -115,6 +115,7 @@
             </div>
         </div>
     </section>
+
     <section>
         <div class="container-fluid">
             <div class="row lateralPadding">
@@ -189,7 +190,9 @@
     <section>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 spazio"></div>
+                <div class="spazietto">
+
+                </div>
             </div>
         </div>
     </section>
@@ -201,5 +204,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </body>
 </html>

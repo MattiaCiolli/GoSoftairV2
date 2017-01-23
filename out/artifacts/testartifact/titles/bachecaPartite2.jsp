@@ -14,7 +14,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body class="cssBody BodyWidth">
@@ -143,4 +142,8 @@
 	</div>
 	
 	<%@include file="/layout/footer.jsp" %>
-	
+	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
+</body>
+</html>

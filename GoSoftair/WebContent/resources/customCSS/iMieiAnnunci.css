@@ -84,9 +84,6 @@
     }
 }
 
-.spazio{
-    margin-top: 3%;
-}
 
 .titolo{
     text-align: center;
@@ -118,4 +115,8 @@
 
 #imgAnnuncio {
     width: 100%;
+}
+
+.spazietto{
+    height: 30px;
 }

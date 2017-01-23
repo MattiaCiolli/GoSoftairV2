@@ -71,7 +71,7 @@
 
 <body id="sfondochiaro">
 	<%@include file="/layout/navbar.jsp"%>
-	<div class="container">
+	<div class="container-fluid immagineSfondo">
 		<div class="card" id="bianco">
 			<form id="partitaform">
 				<div class="row">

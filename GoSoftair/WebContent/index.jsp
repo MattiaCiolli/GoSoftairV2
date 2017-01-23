@@ -5,25 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>GoSoftair</title>
-<link
-	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/customCSS/navbar.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/slick/slick/slick.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/slick/slick/slick-theme.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/customCSS/home.css"
-	rel="stylesheet">
-<script
-	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/slick/slick/slick.min.js"></script>
+<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/slick/slick/slick.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/slick/slick/slick-theme.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/slick/slick/slick.min.js"></script>
 </head>
 <body>
 	<%@include file="/layout/navbar.jsp"%>
@@ -212,11 +200,9 @@
 
 	<%@include file="/layout/footer.jsp"%>
 
-	<script
-		src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/customJS/home.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/home.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </body>
 </html>

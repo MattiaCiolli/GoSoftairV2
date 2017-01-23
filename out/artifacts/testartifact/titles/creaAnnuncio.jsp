@@ -65,6 +65,7 @@
 	src="${pageContext.request.contextPath}/resources/customJS/creaAnnuncio.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 
 
 </head>
@@ -197,5 +198,6 @@
 	<button data-toggle="modal" data-target="#modal" class="btn btn-danger">Apri
 		modal</button>
 	<%@include file="/layout/footer.jsp"%>
+	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </body>
 </html>

@@ -15,18 +15,6 @@
 <body class="cssBody BodyWidth">
 	<%@include file="/layout/navbar.jsp" %>
 
-    <!--sottonavbar -->
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 sottonavbar">
-                    <p >
-                        Home > Profilo > Le Mie Partite
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <section>
@@ -162,5 +150,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </body>
 </html>

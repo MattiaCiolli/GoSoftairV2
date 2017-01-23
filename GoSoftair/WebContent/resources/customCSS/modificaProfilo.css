@@ -5,13 +5,14 @@
 
 .sfondo{
 	background: url("../img/footer1.jpg") repeat center;
+	padding-bottom: 3%;
 }
 
 .bottone1 {
 	background-color:#515547;
 	color:#FFFFFF;
 	font-family:'oswald_stencilbold';
-	border-color:##94A31A;
+	border-color:#94A31A;
 	
 }
 .bottone1:hover {
