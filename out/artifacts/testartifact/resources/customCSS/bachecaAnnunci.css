@@ -39,10 +39,13 @@
 h1{
 	color:#FFFFFF;
 }
-p {
+
+
+.fontMaiuscola{
 	font-family: oswaldRegular;
 	text-transform: uppercase;
 }
+
 .bottone:focus {
 	background-color:#515547;
 	border-color:#A6B71B;;

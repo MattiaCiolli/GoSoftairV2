@@ -43,7 +43,7 @@
 		</div>
 	</section>
 
-	<!--sezione annunci -->
+	<!--sezione eventi -->
 	<section>
 		<div class="container-fluid">
 			<div class="row">

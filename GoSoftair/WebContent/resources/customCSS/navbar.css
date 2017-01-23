@@ -32,7 +32,7 @@ nav {
 	color: #767a70;
 	border: none;
 	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
-	height: 100px;
+	height: 90px;
 	position:relative;
 	top:0;
 	right: 0;
@@ -240,4 +240,18 @@ li>a{
 
 .navbar{
 	margin-bottom: 0px;
+}
+
+/* css barra di navigazione*/
+
+.navigazione{
+	background-color: #94a31a;
+	height: 50px;
+	color:white;
+	font-size: 20px;
+	padding-top: 11px;
+	padding-left: 105px;
+	font-family: "Oswald",sans-serif;
+	text-transform: none;
+	letter-spacing: 1px;
 }

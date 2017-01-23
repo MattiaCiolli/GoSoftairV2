@@ -180,3 +180,15 @@ a:hover {
 	text-align: center;
 	font-size: large;
 }
+
+
+/*******************
+mettere il div invece che l'immagine e nella classe di quel div mettere cose tipo questo
+oppure modificare l'immagine al momento del caricamento ridimensionandola e tagliandola e poi mettendola  nel DB
+
+    width: 359px;
+    height: 276px;
+    background-size: cover;
+    background-image: url(../resources/img/jumbo4.jpg);
+
+ */

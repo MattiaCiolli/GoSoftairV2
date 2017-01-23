@@ -39,10 +39,12 @@
 h1,h3 {
 	color: white;
 }
-p {
+
+.fontMaiuscola{
 	font-family: oswaldRegular;
 	text-transform: uppercase;
 }
+
 
 .list-group-item:hover {
 	background-color: #515547 !important;

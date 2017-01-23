@@ -21,4 +21,7 @@ $(document).ready(function()
 		]
 
 	});
+
+	$('.navigazione').css({"display":"none"});
+
 });

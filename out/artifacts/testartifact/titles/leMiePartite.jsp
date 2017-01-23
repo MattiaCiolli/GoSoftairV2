@@ -15,6 +15,20 @@
 <body class="cssBody BodyWidth">
 	<%@include file="/layout/navbar.jsp" %>
 
+    <!--sottonavbar -->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 sottonavbar">
+                    <p >
+                        Home > Profilo > Le Mie Partite
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section>
         <div class="container-fluid">
             <div class="row lateralPadding">

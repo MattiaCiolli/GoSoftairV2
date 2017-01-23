@@ -31,7 +31,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 10</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -42,7 +42,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 11</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -53,7 +53,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 12</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -68,7 +68,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 13</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -79,7 +79,7 @@
       						<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
       							<div class="caption">
         							<h3 style="text-align:center">Partita 14</h3>
-	        							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        							<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       							</div>
     						</div>
     					</a>
@@ -90,7 +90,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 15</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -105,7 +105,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 16</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -116,7 +116,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 17</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -127,7 +127,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Partita 18</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -136,7 +136,7 @@
 		</section>
 <div style="text-align:center">
 <ul class="pagination">
-  <li><a href="/GoSoftair-2/titles/bachecaPartite.jsp">1</a></li>
+  <li><a href="${pageContext.request.contextPath}/titles/bachecaPartite.jsp">1</a></li>
   <li class="active"><a href="#">2</a></li>
 </ul>
 </div>

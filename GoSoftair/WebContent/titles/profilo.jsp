@@ -47,14 +47,14 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text">Arma 1</p>
+								<p class="list-group-item-text fontStencil">Arma 1</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text">molto bello sisi blabla bla
+								<p class="list-group-item-text fontStencil">molto bello sisi blabla bla
 									blablablabla blablablabl blablablabl blablablabl blablablabl</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text">50$</p>
+								<p class="list-group-item-text fontStencil">50$</p>
 							</a>
 						</div>
 
@@ -69,7 +69,7 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text">3333333333</p>
+								<p class="list-group-item-text fontStencil">3333333333</p>
 							</a>
 						</div>
 					</div>
@@ -113,14 +113,14 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text">Arma 2</p>
+								<p class="list-group-item-text fontStencil">Arma 2</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text">troppo bello sisi blabla bla
+								<p class="list-group-item-text fontStencil">troppo bello sisi blabla bla
 									blablablabla blablablabl blablablabl blablablabl blablablabl</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text">100$</p>
+								<p class="list-group-item-text fontStencil">100$</p>
 							</a>
 						</div>
 
@@ -135,7 +135,7 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text">3333333333</p>
+								<p class="list-group-item-text fontStencil">3333333333</p>
 							</a>
 						</div>
 					</div>
@@ -179,14 +179,14 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text">G36K</p>
+								<p class="list-group-item-text fontStencil">G36K</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text">molto bello sisi blabla bla
+								<p class="list-group-item-text fontStencil">molto bello sisi blabla bla
 									blablablabla blablablabl blablablabl blablablabl blablablabl</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text">50$</p>
+								<p class="list-group-item-text fontStencil">50$</p>
 							</a>
 						</div>
 
@@ -201,7 +201,7 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text">3333333333</p>
+								<p class="list-group-item-text fontStencil">3333333333</p>
 							</a>
 						</div>
 					</div>
@@ -280,14 +280,14 @@
 <section>	
 <div class="container-fluid">
 	<div class="row UltimiEventi">
-		<h1 class="text-center"> Ultime Partite </h1>
+		<h1 class="text-center titolo"> Ultime Partite </h1>
   			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
     			<a href="${pageContext.request.contextPath}/titles/evento.jsp">
     				<div class="carta">
       					<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="foto evento">
       						<div class="caption">
         						<h3 style="text-align:center">La Valle della Morte</h3>
-									<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       						</div>
     				</div>
     			</a>
@@ -298,7 +298,7 @@
       			<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="foto evento">
       				<div class="caption">
        	 				<h3 style="text-align:center">Roio Deathmatch</h3>
-							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       				</div>
     		</div>
     	</a>
@@ -309,7 +309,7 @@
       			<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta" alt="foto evento" >
       				<div class="caption">
         				<h3 style="text-align:center">Mezzanotte di fuoco a Coppito</h3>
-							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         			</div>
  			</div>
  		</a>
@@ -330,7 +330,7 @@
       					<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="foto articolo">
       						<div class="caption">
         						<h3 style="text-align:center">Arma 1</h3>
-									<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       						</div>
     				</div>
     			</a>
@@ -342,7 +342,7 @@
       			<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="foto articolo">
       				<div class="caption">
        	 				<h3 style="text-align:center">Arma 2</h3>
-											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+											<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       				</div>
     		</div>
     	</a>
@@ -353,7 +353,7 @@
       			<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta" alt="foto articolo" >
       				<div class="caption">
         				<h3 style="text-align:center">Arma 3</h3>
-							<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		     		</div>
  			</div>
  		</a>

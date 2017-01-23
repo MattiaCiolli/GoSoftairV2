@@ -68,7 +68,7 @@
 	height:150px;
 }
 
-p{
+.fontStencil{
 	font-family: oswald_stencil;
 }
 
@@ -98,8 +98,12 @@ h3{
 }
 
 .UltimiAnnunci{
-	margin-top:3%;
 	background: url("../img/footer1.jpg") no-repeat center;
+	background-size:cover;
+}
+
+.UltimiEventi{
+	background: url("../img/sfondo.jpg") no-repeat center;
 	background-size:cover;
 }
 
@@ -110,19 +114,23 @@ font-family:oswaldStencil;
 	font-family: 'oswald_stencilbold';
 }
 @media (max-width:768px){
-img {
-	display: block;
-    margin-left:30%;
-    width: 40%;
-    margin-bottom:15px;
+	img {
+		display: block;
+		margin-left:30%;
+		width: 40%;
+		margin-bottom:15px;
+	}
+	.carta {
+		margin-top:15px;
+	}
+	.cartaScura{
+		margin-top:15px;
+	}
+	#imgAnnuncio{
+		width:100%;
+	}
 }
-.carta {
-	margin-top:15px;
-}
-.cartaScura{
-	margin-top:15px;
-}
-#imgAnnuncio{
-	width:100%;
-}
+
+.titolo{
+	color:white;
 }

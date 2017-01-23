@@ -50,13 +50,13 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text">Arma 1</p>
+								<p class="list-group-item-text fontMaiuscola">Arma 1</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p class="list-group-item-text fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text">50$</p>
+								<p class="list-group-item-text fontMaiuscola">50$</p>
 							</a>
 						</div>
 
@@ -71,7 +71,7 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text">3333333333</p>
+								<p class="list-group-item-text fontMaiuscola">3333333333</p>
 							</a>
 						</div>
 					</div>
@@ -115,13 +115,13 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text">Arma 2</p>
+								<p class="list-group-item-text fontMaiuscola">Arma 2</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p class="list-group-item-text fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text">100$</p>
+								<p class="list-group-item-text fontMaiuscola">100$</p>
 							</a>
 						</div>
 
@@ -136,7 +136,7 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text">3333333333</p>
+								<p class="list-group-item-text fontMaiuscola">3333333333</p>
 							</a>
 						</div>
 					</div>
@@ -180,13 +180,13 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text">G36K</p>
+								<p class="list-group-item-text fontMaiuscola">G36K</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p class="list-group-item-text fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							</a> <a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text">50$</p>
+								<p class="list-group-item-text fontMaiuscola">50$</p>
 							</a>
 						</div>
 
@@ -201,7 +201,7 @@
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text">3333333333</p>
+								<p class="list-group-item-text fontMaiuscola">3333333333</p>
 							</a>
 						</div>
 					</div>
@@ -226,7 +226,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 1</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -237,7 +237,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 2</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -248,7 +248,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 3</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -263,7 +263,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 4</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -274,7 +274,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 5</h3>
-	        								<p class="descrizione">DLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">DLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -285,7 +285,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 6</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -300,7 +300,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 7</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -311,7 +311,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 8</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -322,7 +322,7 @@
       							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
       								<div class="caption">
         								<h3 style="text-align:center">Arma 9</h3>
-	        								<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       								</div>
     						</div>
     					</a>
@@ -333,7 +333,7 @@
 <div style="text-align:center">
 <ul class="pagination">
   <li class="active"><a href="#">1</a></li>
-  <li><a href="/GoSoftair-2/titles/bachecaAnnunci2.jsp">2</a></li>
+  <li><a href="${pageContext.request.contextPath}/titles/bachecaAnnunci2.jsp">2</a></li>
 </ul>
 </div>
 	</div>
