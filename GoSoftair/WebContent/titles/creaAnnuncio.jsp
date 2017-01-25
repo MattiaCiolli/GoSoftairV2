@@ -141,7 +141,7 @@
 
 	</div>
 	<!-- fine modal-->
-	<div class="container">
+	<div class="container-fluid immagineSfondo">
 		<div class="card" id="bianco">
 			<form id="annuncioform">
 				<div class="row">
@@ -195,8 +195,6 @@
 	</div>
 	</div>
 
-	<button data-toggle="modal" data-target="#modal" class="btn btn-danger">Apri
-		modal</button>
 	<%@include file="/layout/footer.jsp"%>
 	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </body>

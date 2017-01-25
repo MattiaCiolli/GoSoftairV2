@@ -215,127 +215,142 @@
 	<!-- fine modal3-->
 	
 	<!-- inizio -->
-	<div class="container-fluid bachecaAnnunci ">
+	<div class="bachecaAnnunci ">
 		<section>
-			<div class="row">
-				<h1 class="text-center"> Mercatino </h1>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 1</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal2">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 2</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal3">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 3</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 class="text-center"> Mercatino </h1>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 1</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal2">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 2</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal3">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 3</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
-		<section>
-			<div class="row" style="margin-top:15px;">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 4</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal2">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 5</h3>
-	        								<p class="descrizione fontMaiuscola">DLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal3">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 6</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-			</div>
-		</section>
-		<section>
-			<div class="row" style="margin-top:15px">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 7</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
-    					<a data-toggle="modal" data-target="#modal2">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 8</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a data-toggle="modal" data-target="#modal3">
-    						<div class="cartaScura">
-      							<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Arma 9</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-			</div>
-	</section>
 
-<div style="text-align:center">
-<ul class="pagination">
-  <li class="active"><a href="#">1</a></li>
-  <li><a href="${pageContext.request.contextPath}/titles/bachecaAnnunci2.jsp">2</a></li>
-</ul>
-</div>
+		<section>
+			<div class="container-fluid">
+				<div class="row spazioSopra">
+					<div class="col-lg-12">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 4</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal2">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 5</h3>
+												<p class="descrizione fontMaiuscola">DLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal3">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 6</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+					</div>
+			</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container-fluid">
+				<div class="row spazioSopra">
+					<div class="col-lg-12">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 7</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
+							<a data-toggle="modal" data-target="#modal2">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 8</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a data-toggle="modal" data-target="#modal3">
+								<div class="cartaScura">
+									<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta"alt="...">
+										<div class="caption">
+											<h3 style="text-align:center">Arma 9</h3>
+												<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										</div>
+								</div>
+							</a>
+						</div>
+					</div>
+			</div>
+			</div>
+		</section>
+
+		<div class="centra">
+		<ul class="pagination">
+		  <li class="active"><a href="#">1</a></li>
+		  <li><a href="${pageContext.request.contextPath}/titles/bachecaAnnunci2.jsp">2</a></li>
+		</ul>
+		</div>
 	</div>
+
 	<%@include file="/layout/footer.jsp" %>
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>

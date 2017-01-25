@@ -51,7 +51,7 @@
 								<span>Ora:</span>
 							</div>
 							<div class="span-master-2 col-md-6">
-								<span></span>
+								<span>${evento.ora}</span>
 							</div>
 						</div>
 						<div class="row event-description">

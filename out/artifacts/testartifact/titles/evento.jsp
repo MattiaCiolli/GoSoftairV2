@@ -30,7 +30,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h1 class="title-event">La valle della morte</h1>
+						<h1 class="title-event">${evento.titolo}</h1>
 					</div>
 				</div>
 				<div class="row">
@@ -43,7 +43,7 @@
 								<span>Data:</span>
 							</div>
 							<div class="span-master-2 col-md-6">
-								<span>04/01/2017</span> 
+								<span>${evento.data}</span> 
 							</div>
 						</div>
 						<div class="row event-description">
@@ -51,7 +51,7 @@
 								<span>Ora:</span>
 							</div>
 							<div class="span-master-2 col-md-6">
-								<span>9:00-12:00</span>
+								<span>${evento.ora}</span>
 							</div>
 						</div>
 						<div class="row event-description">
@@ -59,7 +59,7 @@
 								<span>Punto di incontro:</span>
 							</div>
 							<div class="span-master-2 col-md-6">
-								<span>Università</span>
+								<span>${evento.puntoIncontro}</span>
 							</div>
 						</div>
 						<div class="row event-description">
@@ -67,7 +67,7 @@
 								<span>Numero Max partecipanti:</span> 
 							</div>
 							<div class="span-master-2 col-md-5">
-								<span>10</span>
+								<span>${evento.numMaxPartecipanti}</span>
 							</div>
 						</div>
 						<div class="row event-description">
@@ -75,7 +75,7 @@
 								<span class="">Tipo partita:</span> 
 							</div>
 							<div class="span-master-2 col-md-6">
-								<span>Dead match</span>
+								<span>${evento.tipologia}</span>
 							</div>
 						</div>
 						<div class="row">
@@ -142,19 +142,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 text-justify">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae dui velit. 
-							Sed ac pharetra quam, in feugiat leo. Vestibulum ultrices elit sed odio lacinia, 
-							pulvinar pellentesque quam vulputate. Pellentesque habitant morbi tristique 
-							senectus et netus et malesuada fames ac turpis egestas. Donec ut feugiat ipsum. 
-							Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse ullamcorper, 
-							ligula a viverra laoreet, lectus nisl condimentum mauris, et condimentum leo libero 
-							hendrerit mauris. Etiam mollis, risus vel ultrices pellentesque, turpis arcu pulvinar 
-							libero, ut porttitor nunc sem nec ex. Integer sed arcu tincidunt, tincidunt lectus 
-							vitae, sagittis velit. Ut massa diam, porta quis tincidunt vitae, volutpat vel magna. 
-							Fusce sagittis, dui luctus ultricies tristique, augue odio blandit sapien, vitae dapibus 
-							odio libero eget erat. Phasellus maximus neque at convallis lacinia. Sed suscipit, 
-							lectus sed ullamcorper iaculis, massa metus luctus erat, at molestie ante purus ac nibh. 
-							Phasellus at ex odio. 
+							${evento.descrizione}
 						</div>
 					</div>
 				</div>

@@ -19,9 +19,6 @@
 .bachecaAnnunci {
 	font-family: 'oswald_stencilbold';
 	background: url("../img/footer1.jpg") repeat center;
-	border-top-style:solid;
-	border-top-color: #FFFFFF;
-	border-top-width: 1px;
 }
 
 .img-carta {
@@ -40,6 +37,14 @@ h1{
 	color:#FFFFFF;
 }
 
+
+.spazioSopra{
+	margin-top: 15px;
+}
+
+.centra{
+	text-align: center;
+}
 
 .fontMaiuscola{
 	font-family: oswaldRegular;

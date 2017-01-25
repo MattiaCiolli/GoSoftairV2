@@ -36,6 +36,17 @@
 	width:100%;
 }
 
+.spazioSopra{
+	margin-top: 15px;
+}
+
+.centra{
+	text-align: center;
+}
+.spazioSotto{
+	margin-bottom: 3%;
+}
+
 h1,h3 {
 	color: white;
 }

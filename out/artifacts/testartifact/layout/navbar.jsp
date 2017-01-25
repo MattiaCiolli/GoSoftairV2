@@ -18,14 +18,14 @@
 										<div class="form-group">
 											<label class="sr-only" for="exampleInputPassword2">Password</label>
 											<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-											<div class="help-block text-right"><a class="linkSfondoBianco" href="">Password dimenticata?</a></div>
+											<div class="help-block text-right"><a class="linkSfondoBianco pwdimenticata" href="">PASSWORD DIMENTICATA?</a></div>
 										</div>
 										<div class="form-group">
-											<button type="submit" class="btn btn-block bottonenav">Sign in</button> <!-- ----------------------------- -->
+											<button type="submit" class="btn btn-block bottonenav">Accedi</button> <!-- ----------------------------- -->
 										</div>
 										<div class="form-group">
 											<div class="checkbox">
-												<label><input type="checkbox" value="">Resta connesso</label>
+												<label><input type="checkbox" value="">RESTA CONNESSO</label>
 											</div>
 										</div>
 									</form>

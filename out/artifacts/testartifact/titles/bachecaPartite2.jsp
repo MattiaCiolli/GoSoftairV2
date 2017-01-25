@@ -20,117 +20,131 @@
 	<%@include file="/layout/navbar.jsp" %>
 	
 	<!-- inizio -->
-	<div class="container-fluid bachecaPartite">
+	<div class="bachecaPartite">
 		<section>
-			<div class="row">
-				<h1 class="text-center"> Partite </h1>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 10</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 11</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 12</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
+			<div class="container-fluid">
+				<div class="row">
+					<h1 class="text-center"> Partite </h1>
+					<div class="col-lg-12">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="/GoSoftair-2/titles/evento.jsp">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">La Valle della Morte</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 2</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 3</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
+
 		<section>
-			<div class="row" style="margin-top:15px">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 13</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    					<div class="carta">
-      						<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
-      							<div class="caption">
-        							<h3 style="text-align:center">Partita 14</h3>
-	        							<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      							</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 15</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
+			<div class="container-fluid">
+				<div class="row spazioSopra">
+					<div class="col-lg-12">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 4</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 5</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partite 6</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
+
 		<section>
-			<div class="row" style="margin-top:15px;margin-bottom:3%">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 16</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 17</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
-  					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    					<a href="#">
-    						<div class="carta">
-      							<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
-      								<div class="caption">
-        								<h3 style="text-align:center">Partita 18</h3>
-	        								<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      								</div>
-    						</div>
-    					</a>
-  					</div>
+			<div class="container-fluid">
+				<div class="row spazioSopra spazioSotto">
+					<div class="col-lg-12">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 7</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 8</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<a href="#">
+								<div class="carta">
+									<img src="${pageContext.request.contextPath}/resources/img/evento3.jpg" class="img-carta"alt="...">
+									<div class="caption">
+										<h3 style="text-align:center">Partita 9</h3>
+										<p class="descrizione fontMaiuscola">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 <div style="text-align:center">
