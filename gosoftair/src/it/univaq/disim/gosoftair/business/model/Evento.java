@@ -22,4 +22,52 @@ public class Evento implements java.io.Serializable {
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
 	}
+
+	public String getTitolo() {
+		return titolo;
+	}
+
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
+	public float getData() {
+		return data;
+	}
+
+	public void setData(float data) {
+		this.data = data;
+	}
+
+	public String getPuntoIncontro() {
+		return puntoIncontro;
+	}
+
+	public void setPuntoIncontro(String puntoIncontro) {
+		this.puntoIncontro = puntoIncontro;
+	}
+
+	public String getTipologia() {
+		return tipologia;
+	}
+
+	public void setTipologia(String tipologia) {
+		this.tipologia = tipologia;
+	}
+
+	public int getNumMaxPartecipanti() {
+		return numMaxPartecipanti;
+	}
+
+	public void setNumMaxPartecipanti(int numMaxPartecipanti) {
+		this.numMaxPartecipanti = numMaxPartecipanti;
+	}
 }

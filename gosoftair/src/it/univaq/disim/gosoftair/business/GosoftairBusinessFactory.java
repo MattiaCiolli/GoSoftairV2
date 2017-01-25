@@ -5,7 +5,7 @@ import it.univaq.disim.gosoftair.business.impl.JDBCGosoftairBusinessFactory;
 
 public abstract class GosoftairBusinessFactory {
 	
-	public abstract TitleService getTitleService();
+	public abstract EventoService getEventoService();
 	
 	public static GosoftairBusinessFactory getInstance() {
 		return new JDBCGosoftairBusinessFactory();
