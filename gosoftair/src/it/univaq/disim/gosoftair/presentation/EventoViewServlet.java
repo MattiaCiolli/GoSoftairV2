@@ -37,7 +37,7 @@ public class EventoViewServlet extends HttpServlet {
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = eventoService.moockObject();
-		request.setAttribute("Evento", evento);
+		request.setAttribute("evento", evento);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/titles/evento.jsp");
 		dispatcher.forward(request, response);

@@ -8,11 +8,10 @@ public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 	private static final String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 	private static final String username ="sistemi";
 	private static final String password = "sistemi";
-	
-	
+		
 	@Override
-	public EventoService getTitleService()  {
-		return new JDBCTitleService(url, username, password);
+	public EventoService getEventoService()  {
+		return new JDBCEventoService(url, username, password);
 	} 
 	
 }
