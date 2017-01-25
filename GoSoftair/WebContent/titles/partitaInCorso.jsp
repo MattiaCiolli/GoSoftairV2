@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-default" aria-label="Left Align">
+                <button type="button" class="btn btn-default" id="cover" aria-label="Left Align">
                     <span class="glyphicon glyphicon-align-left" aria-hidden="true">Copritemi</span>
                 </button>
             </div>
@@ -86,18 +86,25 @@
 
         // Multiple Markers
         var markers = [
-            ['Davide', 42.368943, 13.349999, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Mattia', 42.368744,13.349799, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Federica', 42.3685745, 13.349599, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Matteo', 42.368636, 13.349399, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Mille!!!', 42.368147, 13.349299, '${pageContext.request.contextPath}/resources/img/profile.jpg']
+            ['Davide', 42.368943, 13.349999, '${pageContext.request.contextPath}/resources/img/profile_images/2profile.jpg'],
+            ['Mattia', 42.368744,13.349799, '${pageContext.request.contextPath}/resources/img/profile_images/2profile2.png'],
+            ['Federica', 42.3685745, 13.349599, '${pageContext.request.contextPath}/resources/img/profile_images/2profile3.jpg'],
         ];
 
         // Display multiple markers on a map
         var infoWindow = new google.maps.InfoWindow(), marker, i;
-
+		
+        var position = new google.maps.LatLng(markers[0][1], markers[0][2]);
+        bounds.extend(position);
+        myMarker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: markers[0][0],
+            icon: markers[0][3]
+        });
+        
         // Loop through our array of markers & place each one on the map
-        for( i = 0; i < markers.length; i++ ) {
+        for( i = 1; i < markers.length; i++ ) {
             var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
             bounds.extend(position);
             marker = new google.maps.Marker({
@@ -128,20 +135,17 @@
                 title: markers[i][0]
             });
         }
-        document.getElementById("attach").onclick = function() {attach(map)};
+        document.getElementById("attach").onclick = function() {attach(myMarker)};
+        document.getElementById("cover").onclick = function() {cover(myMarker)};
     }
 
-    function attach(mappa) {
-        var addAttach = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: mappa,
-            center: {lat: 42.368943, lng: 13.349999},
-            radius: 15,
-        });
+    function attach(marker) {
+    	marker.setIcon('${pageContext.request.contextPath}/resources/img/profile_images/0profile.jpg');
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+    
+    function cover(marker) {
+    	marker.setIcon('${pageContext.request.contextPath}/resources/img/profile_images/1profile.jpg');
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
