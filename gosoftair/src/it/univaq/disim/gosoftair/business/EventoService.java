@@ -5,8 +5,8 @@ import it.univaq.disim.gosoftair.business.model.Evento;
 
 public interface EventoService {
 	
-	/*void create(Title title) throws BusinessException;
-
+	void create(Evento evento) throws BusinessException;
+	/*
 	List<Title> findAllTitles() throws BusinessException;
 	
 	void delete(Title title) throws BusinessException;

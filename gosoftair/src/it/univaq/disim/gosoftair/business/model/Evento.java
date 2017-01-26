@@ -1,7 +1,6 @@
 package it.univaq.disim.gosoftair.business.model;
 
 public class Evento implements java.io.Serializable {
-
 	private String titolo;
 	private String descrizione;
 	private float data;
@@ -9,12 +8,16 @@ public class Evento implements java.io.Serializable {
 	private String puntoIncontro;
 	private String tipologia;
 	private int numMaxPartecipanti;
+	private int stato;
+	private Squadra squadra1;
+	private Squadra squadra2;
+	private Forum forum;
 	
 	public Evento() { 
 		super();
 	}
 	
-	public Evento(String titolo, String descrizione, float data,float ora, String puntoIncontro, String tipologia, int numMaxPartecipanti) {
+	public Evento(String titolo, String descrizione, float data,float ora, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
@@ -23,6 +26,7 @@ public class Evento implements java.io.Serializable {
 		this.puntoIncontro = puntoIncontro;
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
+		this.setStato(stato);
 	}
 
 	public String getTitolo() {
@@ -53,7 +57,7 @@ public class Evento implements java.io.Serializable {
 		this.data = data;
 	}
 
-	public void setOra(float data) {
+	public void setOra(float ora) {
 		this.ora = ora;
 	}
 
@@ -79,5 +83,37 @@ public class Evento implements java.io.Serializable {
 
 	public void setNumMaxPartecipanti(int numMaxPartecipanti) {
 		this.numMaxPartecipanti = numMaxPartecipanti;
+	}
+
+	public int getStato() {
+		return stato;
+	}
+
+	public void setStato(int stato) {
+		this.stato = stato;
+	}
+
+	public Squadra getSquadra1() {
+		return squadra1;
+	}
+
+	public void setSquadra1(Squadra squadra1) {
+		this.squadra1 = squadra1;
+	}
+
+	public Squadra getSquadra2() {
+		return squadra2;
+	}
+
+	public void setSquadra2(Squadra squadra2) {
+		this.squadra2 = squadra2;
+	}
+
+	public Forum getForum() {
+		return forum;
+	}
+
+	public void setForum(Forum forum) {
+		this.forum = forum;
 	}
 }

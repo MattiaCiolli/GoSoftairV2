@@ -16,8 +16,10 @@ public class JDBCEventoService implements EventoService {
 		this.password = password;
 	}
 	public Evento moockObject() throws BusinessException {
-		Evento prova = new Evento("titolo", "descrizione", 356, 18, " puntoIncontro", " tipologia", 1000);
+		Evento prova = new Evento("titolo", "descrizione", 356, 18, " puntoIncontro", " tipologia", 1000, 0);
 		return prova;
 	}
 	
+	public void create(Evento evento) throws BusinessException {
+	}
 }
