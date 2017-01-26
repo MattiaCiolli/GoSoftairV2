@@ -2,6 +2,7 @@
   <library name="servlet-api">
     <CLASSES>
       <root url="jar://C:/Program Files/Java/Tomcat-8.5.8/lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GoSoftair/WebContent/WEB-INF/lib/ojdbc6.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
