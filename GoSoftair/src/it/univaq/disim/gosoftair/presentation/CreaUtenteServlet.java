@@ -1,5 +1,9 @@
 package it.univaq.disim.gosoftair.presentation;
 
+import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.model.Utente;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +27,14 @@ public class CreaUtenteServlet extends HttpServlet {
         String password = "password" ;
         String documentoValido = "documento valido";
         String immagineProfilo = "immagine profilo" ;
+
+        Utente utente=new Utente(nome,cognome, email, nickname, password, documentoValido, immagineProfilo);
+        GosoftairBusinessFactory factory=GosoftairBusinessFactory.getInstance();
+        UtenteService utenteService=factory.getUtenteService();
+        utenteService.create(utente);
+
+        System.out.println("controlla");
+
         /*
         Title title = new Title(name, author, description, isbn, publicationYear, editor, titleKind);
         LibraryBusinessFactory factory = LibraryBusinessFactory.getInstance();

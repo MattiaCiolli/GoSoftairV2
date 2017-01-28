@@ -6,6 +6,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="GoSoftair" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/GoSoftair/WebContent/WEB-INF/lib/ojdbc6.jar" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="GoSoftair/web/Web" />
       <element id="javaee-facet-resources" facet="GoSoftair/web/Web" />
