@@ -25,7 +25,7 @@ public class JDBCUtenteService implements UtenteService{
         this.password = password;
     }
 
-    public void create(Utente utente) throws BusinessException {
+    public void create(Utente utente){
         Connection con = null;
         PreparedStatement st = null;
         try {

@@ -38,14 +38,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="servlet-api" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/WebContent/WEB-INF/lib/ojdbc6.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="ojdbc6" level="project" />
   </component>
 </module>

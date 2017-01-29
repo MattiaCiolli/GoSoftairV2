@@ -10,6 +10,10 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 
+  <listener>
+    <listener-class>it.univaq.disim.gosoftair.common.startup.GosoftairServletContextListener</listener-class>
+  </listener>
+
   <servlet>
     <servlet-name>eventview</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.EventoViewServlet</servlet-class>
@@ -21,8 +25,8 @@
 
 
   <servlet>
-  <servlet-name>CreaUtenteServlet</servlet-name>
-  <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteServlet</servlet-class>
+    <servlet-name>CreaUtenteServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CreaUtenteServlet</servlet-name>
