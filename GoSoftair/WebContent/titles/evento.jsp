@@ -48,14 +48,6 @@
 						</div>
 						<div class="row event-description">
 							<div class="span-master col-md-6">
-								<span>Ora:</span>
-							</div>
-							<div class="span-master-2 col-md-6">
-								<span>${evento.ora}</span>
-							</div>
-						</div>
-						<div class="row event-description">
-							<div class="span-master col-md-6">
 								<span>Punto di incontro:</span>
 							</div>
 							<div class="span-master-2 col-md-6">
@@ -179,6 +171,28 @@
 				</div>
 			</div>
 		</section>
+		<section style="margin-top:60px">
+			<div class="container">
+				<div class="row text-center">
+					<h3>Leave a comment</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-1">
+						<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
+					</div>
+					<div class="col-md-7">
+						<form action="action_page.php">
+							<input type="text" name="postText" placeholder="Insersci un commento">
+  							<input type="text" name="idUtente" value="" hidden>
+  							<input type="text" name="idEvento" value="" hidden>
+  							<input type="submit" value="Inserisci">
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<%@include file="/layout/footer.jsp"%>
 	</body>
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>

@@ -43,12 +43,12 @@ public class CreaEventoServlet extends HttpServlet {
 		String dataOra = request.getParameter("DataOra");
 		int numeroPartecipanti = Integer.parseInt(request.getParameter("NumPartecipanti"));
 		
-		Evento myEvento = new Evento(titolo, "descrizione", 17, 10, "punto incontro", tipologia, numeroPartecipanti, 0);
+		/*Evento myEvento = new Evento(titolo, "descrizione", , "punto incontro", tipologia, numeroPartecipanti, 0);
 		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		EventoService eventoService = factory.getEventoService();
 		eventoService.create(myEvento);
-		
+		*/
 		doGet(request, response);
 	}
 

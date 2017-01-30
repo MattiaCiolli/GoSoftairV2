@@ -1,28 +1,29 @@
 package it.univaq.disim.gosoftair.business.model;
 
+import java.util.Date;
+import java.util.List;
+
 public class Evento implements java.io.Serializable {
 	private String titolo;
 	private String descrizione;
-	private float data;
-	private float ora;
+	private Date data;
 	private String puntoIncontro;
 	private String tipologia;
 	private int numMaxPartecipanti;
 	private int stato;
 	private Squadra squadra1;
 	private Squadra squadra2;
-	private Forum forum;
+	private List<Post> posts;
 	
 	public Evento() { 
 		super();
 	}
 	
-	public Evento(String titolo, String descrizione, float data,float ora, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
+	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
 		this.data = data;
-		this.ora=ora;
 		this.puntoIncontro = puntoIncontro;
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
@@ -45,20 +46,12 @@ public class Evento implements java.io.Serializable {
 		this.descrizione = descrizione;
 	}
 
-	public float getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public float getOra() {
-		return ora;
-	}
-
-	public void setData(float data) {
+	public void setData(Date data) {
 		this.data = data;
-	}
-
-	public void setOra(float ora) {
-		this.ora = ora;
 	}
 
 	public String getPuntoIncontro() {
@@ -109,11 +102,15 @@ public class Evento implements java.io.Serializable {
 		this.squadra2 = squadra2;
 	}
 
-	public Forum getForum() {
-		return forum;
+	public List<Post> getPosts() {
+		return posts;
 	}
 
-	public void setForum(Forum forum) {
-		this.forum = forum;
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+	
+	public void addPost(Post post) {
+		this.posts.add(post);
 	}
 }

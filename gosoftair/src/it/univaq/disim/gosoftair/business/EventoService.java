@@ -12,11 +12,11 @@ public interface EventoService {
 	void delete(Title title) throws BusinessException;
 	
 	void update(Title title) throws BusinessException;
-	
-	Title findTitleByPK(long id) throws BusinessException;
-	
-	List<TitleKind> findAllTitleKinds() throws BusinessException;
 	*/
+	Evento findTitleByPK(long id) throws BusinessException;
+	
+	//List<TitleKind> findAllTitleKinds() throws BusinessException;
+	
 	
 	Evento moockObject() throws BusinessException;
 }
