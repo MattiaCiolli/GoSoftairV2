@@ -9,6 +9,11 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+  <listener>
+    <listener-class>it.univaq.disim.gosoftair.common.startup.GosoftairServletContextListener</listener-class>
+  </listener>
+
   <servlet>
     <servlet-name>eventview</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.EventoViewServlet</servlet-class>
@@ -17,4 +22,16 @@
     <servlet-name>eventview</servlet-name>
     <url-pattern>/titles/evento</url-pattern>
   </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>CreaUtenteServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreaUtenteServlet</servlet-name>
+    <url-pattern>/titles/creautente</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>

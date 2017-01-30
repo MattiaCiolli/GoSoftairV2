@@ -2,10 +2,15 @@ package it.univaq.disim.gosoftair.business;
 
 import it.univaq.disim.gosoftair.business.model.Utente;
 
+<<<<<<< HEAD
+public interface UtenteService {
+	void create(Utente utente) throws BusinessException;
+=======
 /**
  * Created by Davide on 28/01/2017.
  */
 public interface UtenteService {
     void create(Utente utente) throws BusinessException;
 
+>>>>>>> 54e54e15511729b5acf7d365cfcf7b2344948892
 }
