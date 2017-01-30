@@ -12,6 +12,5 @@ public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 	@Override
 	public EventoService getEventoService()  {
 		return new JDBCEventoService(url, username, password);
-	} 
-	
+	}	
 }

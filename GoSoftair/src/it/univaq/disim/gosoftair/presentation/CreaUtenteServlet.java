@@ -1,5 +1,8 @@
 package it.univaq.disim.gosoftair.presentation;
 
+import it.univaq.disim.gosoftair.business.model.Utente;
+import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,9 +14,7 @@ import java.io.IOException;
  */
 public class CreaUtenteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nome = "nome" ;
@@ -23,13 +24,12 @@ public class CreaUtenteServlet extends HttpServlet {
         String password = "password" ;
         String documentoValido = "documento valido";
         String immagineProfilo = "immagine profilo" ;
-        /*
-        Title title = new Title(name, author, description, isbn, publicationYear, editor, titleKind);
-        LibraryBusinessFactory factory = LibraryBusinessFactory.getInstance();
-        TitleService titleService = factory.getTitleService();
-        titleService.create(title);
+        
+        Utente utente = new Utente(nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
+        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+        UtenteService utenteService = factory.getUtenteService();
+        utenteService.create(utente);
 
-        resp.sendRedirect(req.getContextPath() + "/titles/view");
-        */
+        //response.sendRedirect(request.getContextPath() + "/titles/view");
     }
 }
