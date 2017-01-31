@@ -143,12 +143,12 @@
 	<!-- fine modal-->
 	<div class="container-fluid immagineSfondo">
 		<div class="card" id="bianco">
-			<form id="annuncioform">
+			<form id="annuncioform" action="${pageContext.request.contextPath}/CreaAnnuncioServlet" method="post">
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<div class="form-group">
 							<label for="Titolo">Titolo:</label> <input type="text"
-								class="form-control" id="Titolo" name="Titolo">
+								class="form-control" id="titolo" name="titolo">
 						</div>
 					</div>
 				</div>
@@ -157,8 +157,8 @@
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<div class="form-group">
 							<label for="Decrizione">Descrizione:</label>
-							<textarea rows="5" class="form-control" id="Descrizione"
-								name="Descrizione"></textarea>
+							<textarea rows="5" class="form-control" id="descrizione"
+								name="descrizione"></textarea>
 						</div>
 					</div>
 				</div>
@@ -169,19 +169,44 @@
 						<div class="form-group">
 							<label for="Prezzo">Prezzo:</label>
 							<div class="input-group">
-								<input type="number" class="form-control" id="Prezzo"
-									name="Prezzo" /> <span class="input-group-addon">$</span>
+								<input type="number" class="form-control" id="prezzo"
+									name="prezzo" /> <span class="input-group-addon">$</span>
 							</div>
 						</div>
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="Prezzo">Telefono:</label>
+							<div class="input-group">
+								<input type="number" class="form-control" id="numTelefono"
+									name="numTelefono" /> 
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="Prezzo">E-Mail:</label>
+							<div class="input-group">
+								<input type="email" class="form-control" id="email"
+									name="email" /> 
+							</div>
+						</div>
+					</div>
+				</div>
+				
 
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
 						<label for="Immagine">Immagine:</label>
 						<div id="kv-avatar-errors-2" class="center-block"></div>
 						<div class="kv-avatar center-block">
-							<input id="Immagine" name="Immagine" type="file"
+							<input id="immagine" name="immagine" type="file"
 								class="file-loading">
 						</div>
 					</div>

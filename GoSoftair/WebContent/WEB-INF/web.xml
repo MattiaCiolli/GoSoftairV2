@@ -32,6 +32,15 @@
     <servlet-name>CreaUtenteServlet</servlet-name>
     <url-pattern>/titles/creautente</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CreaAnnuncioServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CreaAnnuncioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreaUtenteServlet</servlet-name>
+    <url-pattern>/titles/creaAnnuncio</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>
