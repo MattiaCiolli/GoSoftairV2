@@ -27,7 +27,7 @@
 				<h1 class="text-center"> Partite </h1>
 					<div class="col-lg-12">
 						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-							<a href="/GoSoftair-2/titles/evento.jsp">
+							<a href="${pageContext.request.contextPath}/titles/evento.jsp">
 								<div class="carta">
 									<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="...">
 										<div class="caption">
