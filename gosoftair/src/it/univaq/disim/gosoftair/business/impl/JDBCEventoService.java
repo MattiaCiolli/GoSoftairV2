@@ -2,7 +2,6 @@ package it.univaq.disim.gosoftair.business.impl;
 
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.model.Evento;
-import it.univaq.disim.gosoftair.business.model.Squadra;
 import it.univaq.disim.gosoftair.business.BusinessException;
 
 import java.sql.Connection;
@@ -30,11 +29,6 @@ public class JDBCEventoService implements EventoService {
 		this.username = username;
 		this.password = password;
 	}
-	public Evento moockObject() throws BusinessException {
-		Date date = new Date();
-		Evento prova = new Evento("titolo", "descrizione", date, " puntoIncontro", " tipologia", 1000, 0);
-		return prova;
-	}
 	
 	public void create(Evento evento) throws BusinessException {
 	}
@@ -61,9 +55,7 @@ public class JDBCEventoService implements EventoService {
 				String tipologia = rs.getString("tipologia");
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
-				//Squadra squadra1 = rs.getString("name");
-				//Squadra squadra2 = rs.getString("name");
-				//Forum forum = rs.getString("name");
+				
 				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato);
 				
 				return evento;

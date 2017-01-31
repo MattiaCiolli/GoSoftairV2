@@ -16,7 +16,4 @@ public interface EventoService {
 	Evento findTitleByPK(long id) throws BusinessException;
 	
 	//List<TitleKind> findAllTitleKinds() throws BusinessException;
-	
-	
-	Evento moockObject() throws BusinessException;
 }

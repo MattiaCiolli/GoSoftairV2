@@ -11,8 +11,8 @@ public class Evento implements java.io.Serializable {
 	private String tipologia;
 	private int numMaxPartecipanti;
 	private int stato;
-	private Squadra squadra1;
-	private Squadra squadra2;
+	private List<Utente> squadra1;
+	private List<Utente> squadra2;
 	private List<Post> posts;
 	
 	public Evento() { 
@@ -84,22 +84,6 @@ public class Evento implements java.io.Serializable {
 
 	public void setStato(int stato) {
 		this.stato = stato;
-	}
-
-	public Squadra getSquadra1() {
-		return squadra1;
-	}
-
-	public void setSquadra1(Squadra squadra1) {
-		this.squadra1 = squadra1;
-	}
-
-	public Squadra getSquadra2() {
-		return squadra2;
-	}
-
-	public void setSquadra2(Squadra squadra2) {
-		this.squadra2 = squadra2;
 	}
 
 	public List<Post> getPosts() {
