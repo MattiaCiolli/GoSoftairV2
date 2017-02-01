@@ -3,6 +3,7 @@ package it.univaq.disim.gosoftair.business.model;
 import java.util.List;
 
 public class Utente implements java.io.Serializable {
+	private long id;
 	private String nome;
 	private String cognome;
 	private String email;
@@ -17,7 +18,20 @@ public class Utente implements java.io.Serializable {
 		super();
 	}
 	
+	public Utente(long id, String nome, String cognome, String email, String nickname, String password, String documentoValido, String immagineProfilo) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.nickname = nickname;
+		this.password = password;
+		this.documentoValido = documentoValido;
+		this.immagineProfilo = immagineProfilo;
+	}
+	
 	public Utente(String nome, String cognome, String email, String nickname, String password, String documentoValido, String immagineProfilo) {
+		super();
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;

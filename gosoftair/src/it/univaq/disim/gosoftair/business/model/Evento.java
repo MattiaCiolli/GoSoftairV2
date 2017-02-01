@@ -20,6 +20,18 @@ public class Evento implements java.io.Serializable {
 		super();
 	}
 	
+	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
+		super();
+		this.id = id;
+		this.titolo = titolo;
+		this.descrizione = descrizione;
+		this.data = data;
+		this.puntoIncontro = puntoIncontro;
+		this.tipologia = tipologia;
+		this.numMaxPartecipanti = numMaxPartecipanti;
+		this.setStato(stato);
+	}
+	
 	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
 		super();
 		this.titolo = titolo;

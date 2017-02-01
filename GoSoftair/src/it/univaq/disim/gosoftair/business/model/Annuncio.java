@@ -1,6 +1,7 @@
 package it.univaq.disim.gosoftair.business.model;
 
 public class Annuncio implements java.io.Serializable {
+	private long id;
 	private String titolo;
 	private String descrizione;
 	private String immagine;
@@ -8,19 +9,23 @@ public class Annuncio implements java.io.Serializable {
 	private String numeroTelefono;
 	private String email;
 	private Integer idutente;
-	
-	public Integer getIdUtente() {
-		return idutente;
-	}
-
-	public void setIdUtente(Integer idutente) {
-		this.idutente = idutente;
-	}
 
 	public Annuncio() {
 		super();
 	}
-
+	
+	public Annuncio(long id, String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Integer idutente) {
+		super();
+		this.id = id;
+		this.titolo = titolo;
+		this.descrizione = descrizione;
+		this.immagine = immagine;
+		this.prezzo = prezzo;
+		this.numeroTelefono = numeroTelefono;
+		this.email = email;
+		this.idutente = idutente;
+	}
+	
 	public Annuncio(String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Integer idutente) {
 		super();
 		this.titolo = titolo;
@@ -78,5 +83,13 @@ public class Annuncio implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public Integer getIdUtente() {
+		return idutente;
+	}
+
+	public void setIdUtente(Integer idutente) {
+		this.idutente = idutente;
 	}
 }

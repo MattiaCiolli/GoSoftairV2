@@ -1,6 +1,7 @@
 package it.univaq.disim.gosoftair.business.model;
 
 public class Post implements java.io.Serializable {
+	private long id;
 	private Utente utente;
 	private String messaggio;
 	private Float data;
@@ -10,6 +11,15 @@ public class Post implements java.io.Serializable {
 		super();
 	}
 
+	public Post(long id, Utente utente, String messaggio, Float data, Float orario) {
+		super();
+		this.id = id;
+		this.utente = utente;
+		this.messaggio = messaggio;
+		this.data = data;
+		this.orario = orario;
+	}
+	
 	public Post(Utente utente, String messaggio, Float data, Float orario) {
 		super();
 		this.utente = utente;
