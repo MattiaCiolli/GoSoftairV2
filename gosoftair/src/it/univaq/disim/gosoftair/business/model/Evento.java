@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Evento implements java.io.Serializable {
+	private long id;
 	private String titolo;
 	private String descrizione;
 	private Date data;

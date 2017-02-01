@@ -28,16 +28,16 @@ public class JDBCAnnuncioService implements AnnuncioService{
         PreparedStatement st = null;
         try {
             con = DriverManager.getConnection(url, username, password);
-            String sql = "INSERT INTO ANNUNCIO (ID, TITOLO, DESCRIZONE, IMMAGINE, PREZZO, NUMEROTELEFONO, EMAIL) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO ANNUNCIO (ID, TITOLO, DESCRIZIONE, IMMAGINE, PREZZO, NUMEROTELEFONO, EMAIL, IDUTENTE) VALUES (INCREMENTIDANNUNCIO.NEXTVAL,?,?,?,?,?,?,?)";
             st = con.prepareStatement(sql);
-            st.setInt(1, 1);//idannuncio
-            st.setString(2, annuncio.getTitolo());
-            st.setString(3, annuncio.getDescrizione());
-            st.setString(4, annuncio.getImmagine());
-            st.setString(5, annuncio.getPrezzo());
-            st.setString(6, annuncio.getNumeroTelefono());
-            st.setString(7, annuncio.getEmail());
-            st.setInt(8, 1);//idutente
+    
+            st.setString(1, annuncio.getTitolo());
+            st.setString(2, annuncio.getDescrizione());
+            st.setString(3, annuncio.getImmagine());
+            st.setString(4, annuncio.getPrezzo());
+            st.setString(5, annuncio.getNumeroTelefono());
+            st.setString(6, annuncio.getEmail());
+            st.setInt(7, annuncio.getIdUtente());//idutente
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

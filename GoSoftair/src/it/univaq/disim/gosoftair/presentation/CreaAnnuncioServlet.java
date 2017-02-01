@@ -1,8 +1,12 @@
 package it.univaq.disim.gosoftair.presentation;
 
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.EventoService;
+import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
+import it.univaq.disim.gosoftair.business.model.Utente;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -40,10 +44,11 @@ public class CreaAnnuncioServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("titolo");
 		String descrizione = request.getParameter("descrizione");
-		String immagine = request.getParameter("immagine");
-		int prezzo = Integer.parseInt(request.getParameter("prezzo"));
+		String immagine = "ksafhlguif";
+		String prezzo = request.getParameter("prezzo");
 		String numeroTelefono = request.getParameter("numeroTelefono");
 		String email = request.getParameter("email");
+		Integer idutente=1;
 		
 		/*Evento myEvento = new Evento(titolo, "descrizione", , "punto incontro", tipologia, numeroPartecipanti, 0);
 		
@@ -51,7 +56,11 @@ public class CreaAnnuncioServlet extends HttpServlet {
 		EventoService eventoService = factory.getEventoService();
 		eventoService.create(myEvento);
 		*/
-		doGet(request, response);
+		//doGet(request, response);
+		Annuncio annuncio=new Annuncio(titolo,descrizione, immagine, prezzo, numeroTelefono, email, idutente);
+        GosoftairBusinessFactory factory=GosoftairBusinessFactory.getInstance();
+        AnnuncioService annuncioService=factory.getAnnuncioService();
+        annuncioService.create(annuncio);
 	}
 
 }

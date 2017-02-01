@@ -7,12 +7,21 @@ public class Annuncio implements java.io.Serializable {
 	private String prezzo;
 	private String numeroTelefono;
 	private String email;
+	private Integer idutente;
 	
+	public Integer getIdUtente() {
+		return idutente;
+	}
+
+	public void setIdUtente(Integer idutente) {
+		this.idutente = idutente;
+	}
+
 	public Annuncio() {
 		super();
 	}
 
-	public Annuncio(String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email) {
+	public Annuncio(String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Integer idutente) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
@@ -20,6 +29,7 @@ public class Annuncio implements java.io.Serializable {
 		this.prezzo = prezzo;
 		this.numeroTelefono = numeroTelefono;
 		this.email = email;
+		this.idutente = idutente;
 	}
 
 	public String getTitolo() {
