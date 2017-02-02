@@ -147,8 +147,9 @@
 						<div class="team_select_card">
 							<h1 class="squadra text-center">Squadra 1</h1>
 							<ul>
-								<li class="team-member">Davide</li>
-								<li class="team-member">Mattia</li>
+								<c:forEach items="${squadre.getSquadra1()}" var="utente">
+									<li class="team-member">${utente.getNome()}</li>
+								</c:forEach>
 							</ul>
 						</div>
 					</div>
@@ -156,8 +157,9 @@
 						<div class="team_select_card">
 							<h1 class="squadra text-center">Squadra 2</h1>
 							<ul>
-								<li class="team-member">Matteo</li>
-								<li class="team-member">Niccolo</li>
+								<c:forEach items="${squadre.getSquadra2()}" var="utente">
+									<li class="team-member">${utente.getNome()}</li>
+								</c:forEach>
 							</ul>
 						</div>
 					</div>

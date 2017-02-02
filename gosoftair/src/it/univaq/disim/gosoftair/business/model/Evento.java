@@ -12,8 +12,7 @@ public class Evento implements java.io.Serializable {
 	private String tipologia;
 	private int numMaxPartecipanti;
 	private int stato;
-	private List<Utente> squadra1;
-	private List<Utente> squadra2;
+	private Utente organizzatore;
 	private List<Post> posts;
 	
 	public Evento() { 
@@ -109,5 +108,13 @@ public class Evento implements java.io.Serializable {
 	
 	public void addPost(Post post) {
 		this.posts.add(post);
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

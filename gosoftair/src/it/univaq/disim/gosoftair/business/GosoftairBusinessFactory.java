@@ -10,6 +10,8 @@ public abstract class GosoftairBusinessFactory {
 	
 	public abstract AnnuncioService getAnnuncioService();
 	
+	public abstract SquadreService getSquadreService();
+	
 	public static GosoftairBusinessFactory getInstance() {
 		return new JDBCGosoftairBusinessFactory();
 	}

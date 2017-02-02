@@ -13,7 +13,7 @@ public interface EventoService {
 	
 	void update(Title title) throws BusinessException;
 	*/
-	Evento findTitleByPK(long id) throws BusinessException;
+	Evento findEventoByPK(long id) throws BusinessException;
 	
 	//List<TitleKind> findAllTitleKinds() throws BusinessException;
 }

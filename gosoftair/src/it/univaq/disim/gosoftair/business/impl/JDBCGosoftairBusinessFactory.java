@@ -1,9 +1,11 @@
 package it.univaq.disim.gosoftair.business.impl;
 
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+
 import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.SquadreService;
 
 public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 
@@ -18,11 +20,16 @@ public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 
 	@Override
 	public UtenteService getUtenteService() { 
-		return  new JDBCUtenteService(url, username, password); 
+		return new JDBCUtenteService(url, username, password); 
 	}
 	
 	@Override
 	public AnnuncioService getAnnuncioService() { 
-		return  new JDBCAnnuncioService(url, username, password); 
+		return new JDBCAnnuncioService(url, username, password); 
+	}
+	
+	@Override 
+	public SquadreService getSquadreService() {
+		return new JDBCSquadreService(url, username, password);
 	}
 }

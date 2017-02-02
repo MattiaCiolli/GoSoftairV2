@@ -1,9 +1,12 @@
 package it.univaq.disim.gosoftair.presentation;
 
-import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
-import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.model.Evento;
+import it.univaq.disim.gosoftair.business.model.Utente;
+import it.univaq.disim.gosoftair.business.model.Squadre;
+import it.univaq.disim.gosoftair.business.EventoService;
+import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.SquadreService;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,8 +39,12 @@ public class EventoViewServlet extends HttpServlet {
 
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		EventoService eventoService = factory.getEventoService();
-		Evento evento = eventoService.findTitleByPK(Long.parseLong(request.getParameter("idEvento")));		
+		Evento evento = eventoService.findEventoByPK(Long.parseLong(request.getParameter("idEvento")));
+		SquadreService squadreService = factory.getSquadreService();
+		Squadre squadre = squadreService.cercaSquadreByEventoPK(evento.getId());
 		request.setAttribute("evento", evento);
+		request.setAttribute("squadre", squadre);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/titles/evento.jsp");
 		dispatcher.forward(request, response);
 	}
