@@ -1,31 +1,30 @@
 package it.univaq.disim.gosoftair.business.model;
 
+import java.util.Date;
+
 public class Post implements java.io.Serializable {
 	private long id;
 	private Utente utente;
 	private String messaggio;
-	private Float data;
-	private Float orario;
+	private Date data;
 	
 	public Post() {
 		super();
 	}
 
-	public Post(long id, Utente utente, String messaggio, Float data, Float orario) {
+	public Post(long id, Utente utente, String messaggio, Date data) {
 		super();
 		this.id = id;
 		this.utente = utente;
 		this.messaggio = messaggio;
 		this.data = data;
-		this.orario = orario;
 	}
 	
-	public Post(Utente utente, String messaggio, Float data, Float orario) {
+	public Post(Utente utente, String messaggio, Date data) {
 		super();
 		this.utente = utente;
 		this.messaggio = messaggio;
 		this.data = data;
-		this.orario = orario;
 	}
 
 	public Utente getUtente() {
@@ -44,19 +43,11 @@ public class Post implements java.io.Serializable {
 		this.messaggio = messaggio;
 	}
 
-	public Float getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(Float data) {
+	public void setData(Date data) {
 		this.data = data;
-	}
-
-	public Float getOrario() {
-		return orario;
-	}
-
-	public void setOrario(Float orario) {
-		this.orario = orario;
 	}
 }

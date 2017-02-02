@@ -23,7 +23,6 @@
     <url-pattern>/titles/evento</url-pattern>
   </servlet-mapping>
 
-
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteServlet</servlet-class>
