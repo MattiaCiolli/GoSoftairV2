@@ -14,6 +14,7 @@ public class Evento implements java.io.Serializable {
 	private int stato;
 	private Utente organizzatore;
 	private List<Post> posts;
+	private Squadre squadre;
 	
 	public Evento() { 
 		super();
@@ -117,4 +118,22 @@ public class Evento implements java.io.Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public Utente getOrganizzatore() {
+		return organizzatore;
+	}
+
+	public void setOrganizzatore(Utente organizzatore) {
+		this.organizzatore = organizzatore;
+	}
+
+	public Squadre getSquadre() {
+		return squadre;
+	}
+
+	public void setSquadre(Squadre squadre) {
+		this.squadre = squadre;
+	}
+	
+	
 }

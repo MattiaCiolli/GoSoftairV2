@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -78,7 +80,7 @@
 												<div class="card-weather">
 													<div class="info">
 														<div class="night">9:00-10:00</div>
-														<div class="temp">3Â°</div>
+														<div class="temp">3°</div>
 														<div class="wind">
 															<i class="wi wi-strong-wind"></i>
 															<span>25 km/h</span>
@@ -94,7 +96,7 @@
 												<div class="card-weather">
 													<div class="info">
 														<div class="night">10:00-11:00</div>
-														<div class="temp">2Â°</div>
+														<div class="temp">2°</div>
 														<div class="wind">
 															<i class="wi wi-strong-wind"></i>
 															<span>25 km/h</span>
@@ -110,7 +112,7 @@
 												<div class="card-weather">
 													<div class="info">
 														<div class="night">11:00-12:00</div>
-														<div class="temp">2Â°</div>
+														<div class="temp">2°</div>
 														<div class="wind">
 															<i class="wi wi-strong-wind"></i>
 															<span>25 km/h</span>
@@ -147,8 +149,8 @@
 						<div class="team_select_card">
 							<h1 class="squadra text-center">Squadra 1</h1>
 							<ul>
-								<c:forEach items="${squadre.getSquadra1()}" var="utente">
-									<li class="team-member">${utente.getNome()}</li>
+								<c:forEach items="${evento.squadre.squadra1}" var="utente">
+									<li class="team-member">${utente.nome}</li>
 								</c:forEach>
 							</ul>
 						</div>
@@ -157,8 +159,8 @@
 						<div class="team_select_card">
 							<h1 class="squadra text-center">Squadra 2</h1>
 							<ul>
-								<c:forEach items="${squadre.getSquadra2()}" var="utente">
-									<li class="team-member">${utente.getNome()}</li>
+								<c:forEach items="${evento.squadre.squadra2}" var="utente">
+									<li class="team-member">${utente.nome}</li>
 								</c:forEach>
 							</ul>
 						</div>

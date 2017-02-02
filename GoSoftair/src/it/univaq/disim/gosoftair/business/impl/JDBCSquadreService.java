@@ -48,9 +48,9 @@ public class JDBCSquadreService implements SquadreService {
 				String immagineProfilo = rs.getString("immagineprofilo");
 				Utente utente = new Utente(id, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
 				
-				int squadra = Integer.parseInt(rs.getString("numsquadra"));
+				int numSquadra = Integer.parseInt(rs.getString("numsquadra"));
 				
-				if(squadra == 1) 
+				if(numSquadra == 1) 
 					squadre.addUtenteSquadra1(utente);
 				else
 					squadre.addUtenteSquadra2(utente);

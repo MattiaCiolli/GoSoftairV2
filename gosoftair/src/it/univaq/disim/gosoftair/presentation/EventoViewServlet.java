@@ -42,9 +42,8 @@ public class EventoViewServlet extends HttpServlet {
 		Evento evento = eventoService.findEventoByPK(Long.parseLong(request.getParameter("idEvento")));
 		SquadreService squadreService = factory.getSquadreService();
 		Squadre squadre = squadreService.cercaSquadreByEventoPK(evento.getId());
+		evento.setSquadre(squadre);
 		request.setAttribute("evento", evento);
-		request.setAttribute("squadre", squadre);
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/titles/evento.jsp");
 		dispatcher.forward(request, response);
 	}
