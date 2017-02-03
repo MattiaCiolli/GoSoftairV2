@@ -24,7 +24,6 @@ public class CreaAnnuncioServlet extends HttpServlet {
      */
     public CreaAnnuncioServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
