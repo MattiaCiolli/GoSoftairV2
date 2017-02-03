@@ -1,0 +1,109 @@
+/*pagine LeMie*/
+.cssBody{
+	margin-top:0px;
+	margin-right:0px;
+	margin-left:0px;
+
+	background: url("../img/sfondo.jpg") no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
+			
+}
+
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url(../fonts/Oswald-Stencil.ttf);
+
+}
+
+.lateralPadding{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.carta{
+	border-color: #a6b71b;
+	border-width: 3px;
+	border-style: solid;
+	padding: 1.5em;
+	color:white;/*#3c3c37;*/
+}
+
+.carta:hover{
+	background-color:#a6b71b ;
+	color:#ffffff;
+}
+
+.elemento{
+	margin-top: 3%;
+	max-height: 10%;
+}
+
+.immagineElemento{
+	width: 100%;
+}
+
+
+.tag{
+	margin-top: 20%;
+	color:#a6b71b;
+	text-transform: uppercase;
+	font-family: "Oswald",sans-serif;
+}
+
+.valore{
+	color:white;/*#3c3c37;*/
+	text-transform: uppercase;
+	font-family: "oswald_stencilbold",sans-serif;
+	font-size: x-large;
+}
+
+
+.elemento:hover .valore{
+	color: white;
+}
+
+.elemento:hover .tag{
+	color: #3c3c37;
+}
+
+@media (min-width: 768px) and (max-width: 992px){
+	.immagineElemento{
+		width: 50%;
+		margin-left: 25%;
+	}
+}
+
+.spazio{
+	margin-top: 3%;
+}
+
+.titolo{
+	text-align: center;
+	font-size: 2.5em;
+	font-family: oswald_stencilbold;
+}
+
+@media (max-width: 768px) {
+	.titolo{
+		margin-top: 3%;
+	}
+	.tag{
+		margin-top: 5%;
+	}
+}
+
+@media (max-width: 992px) {
+	.centra{
+		text-align: center;
+	}
+	
+}
+
+

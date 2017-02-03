@@ -1,0 +1,55 @@
+@font-face {
+    font-family: oswaldStencil;
+    src: url(../fonts/Oswald-Stencil.ttf);
+}
+
+.sfondo{
+	background: url("../img/footer1.jpg") repeat center;
+	padding-bottom: 3%;
+}
+
+.bottone1 {
+	background-color:#515547;
+	color:#FFFFFF;
+	font-family:'oswald_stencilbold';
+	border-color:#94A31A;
+	
+}
+.bottone1:hover {
+	background-color:#94A31A;
+}
+
+
+.contenitoreForm{
+	border-style:solid;
+	border-color:#515547;
+	border-width:1px;
+	border-radius:5px;
+	background-color:#FFFFFF;
+}
+
+h3{
+	color:#FFFFFF;
+}
+
+h6{
+	color:#FFFFFF;
+	text-transform:lowercase;
+}
+
+.img-thumbnail{
+	margin:auto;
+	max-width:100%;
+}
+
+.title{
+ margin-left:10px;
+}
+.personalLabel{
+	font-family: 'oswald_stencilbold';
+	color:#515547;
+}
+
+.form-control:focus {
+	border-color:#94A31A;
+}

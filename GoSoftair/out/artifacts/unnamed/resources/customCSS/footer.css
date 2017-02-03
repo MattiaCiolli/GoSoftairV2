@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
+	url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+footer{
+	clear:both;
+	display:block;
+	border-top-style:solid;
+    border-top-color:#515547;
+    border-top-width:2px;
+    color:#515547;
+    background-color:lightgray;
+    font-family:'oswald_stencilbold';
+	padding-top: 25px;
+	bottom:0;
+	width: 100%;
+}
+
+.spazio{
+	height: 67px;
+}

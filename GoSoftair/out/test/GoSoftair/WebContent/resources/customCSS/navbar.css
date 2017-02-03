@@ -1,0 +1,266 @@
+/* css barra superiore*/
+@font-face {
+	font-family: 'oswald_stencilbold';
+	src: url(../fonts/Oswald-Stencil.ttf);
+}
+
+@font-face {
+	font-family: 'Oswald';
+	src: url(../fonts/Oswald-Regular.ttf);
+}
+
+header {
+	background-color: #34362d;
+	color: #ffffff;
+	font-size: 1em ;
+	font-family: "oswald_stencilbold",sans-serif !important;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	word-wrap: break-word;
+	height: 30px;
+	width: 100%;
+}
+
+nav {
+	background-color: #515547;
+	font-family: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	word-wrap: break-word;
+	color: #767a70;
+	border: none;
+	box-shadow: -4px 3px 0px 0px rgba(0,0,0,0.2);
+	height: 90px;
+	position:relative;
+	top:0;
+	right: 0;
+	left: 0;
+    z-index: 1002;
+	letter-spacing: 1px;
+}
+
+/*************************/
+.bottonenav:hover {
+	background-color: #94A31A !important;
+	border-color: #94A31A !important;
+	border-radius: 0px !important;
+	color:white;
+}
+
+.bottonenav {
+	background-color: #A6B71B !important;
+	border-color: #A6B71B !important;
+	border-radius: 0px !important;
+	color:white;
+}
+
+.AccedereUsando{
+	font-family: Oswald;
+	text-transform: none;
+}
+#exampleInputEmail2, #exampleInputPassword2{
+	border-radius: 4px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.linkSfondoBianco{
+	color:#3c3c37 !important;
+	font-weight: bold !important;
+}
+
+
+
+#login-dp .social-buttons{
+	margin: 12px 0;
+	clear: both;
+}
+
+.loginTradizionale{
+	border-bottom: 1px solid #ddd;
+}
+/*************************************/
+
+
+.linkBarraAlta{
+	color: #ffffff !important;
+	padding: 0.8em 0 0.8em;
+	font-family: "oswald_stencilbold";
+	line-height: 1.3em;
+	text-transform: uppercase;
+	text-decoration: none !important;
+	background-color: initial;
+	background-color: initial !important;
+	letter-spacing: 1px;
+}
+
+.separatore{
+	background-color: #767a70;
+	padding: 0px 2px 0px 1px;
+	margin-right: 6px;
+	margin-left: 2px;
+	height: 15px;
+}
+.registrazione{
+	margin-right: 15px;
+	height: 100%;
+	padding-top: 5px;
+}
+
+.linkBarraAlta:hover, .linkBarraAlta:focus{
+	color: #a6b71b !important;
+	text-decoration: none;
+}
+
+#login-dp{
+	background-color: white;
+	border-radius: 0px;
+	padding: 0px 40px;
+	margin-right: inherit;
+	color: initial;
+	padding-top: 20px;
+	z-index: 2002;
+	left: 75%;
+	letter-spacing: 0.5px;
+}
+
+
+.btn-fb{
+	color: #fff;
+	background-color:#3b5998;
+}
+.btn-fb:hover{
+	color: #fff;
+	background-color:#496ebc
+}
+.btn-tw{
+	color: #fff;
+	background-color:#55acee;
+}
+.btn-tw:hover{
+	color: #fff;
+	background-color:#59b5fa;
+}
+
+#login-dp .social-buttons a{
+	width: 48%;
+}
+
+#login-dp .bottom{
+	background-color:rgba(255,255,255,.8);
+	border-top:1px solid #ddd;
+	clear:both;
+	padding:14px;
+}
+
+#login-dp .social-buttons{
+	margin:12px 0
+}
+
+/* css barra intermedia*/
+
+.navbar-header>a{
+	color: #ffffff;
+}
+
+li>a{
+	color: #ffffff;
+	padding: 0.45em 1.1em 0.35em;
+	font-family: "oswald_stencilbold",sans-serif;
+	line-height: 1.3em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+
+
+.dropdown-menu .divider{
+	height: 0px;
+}
+
+.menuButton{
+	font-size: 2em;
+	font-family: "oswald_stencilbold",sans-serif;
+}
+
+@media (min-width: 768px) {
+	.nav .open>a:hover,.dropdown-menu, .nav .open>a,.nav>li>a:hover, .dropdown-menu>li>a .open>a:hover, .open>a, .nav .open>a:hover, .nav .open>a:focus, .dropdown-menu>li>a, .nav>li>a:hover, .nav>li>a:focus,.nav>li>a:hover {
+		background-color: #a6b71b;
+		color: #ffffff;
+	}
+	.dropdown-menu>li>a:hover{
+		background-color: #94a31a;
+		color: #ffffff;
+		background-image: none;
+	}
+	.dropdown-menu{
+		border: none;
+		margin-top: 2px !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.nav .open>a:hover,  .nav .open>a,.nav>li>a:hover, .dropdown-menu>li>a .open>a:hover, .open>a, .nav .open>a:hover, .nav>li>a:hover, .nav>li>a:focus, .dropdown-menu>li>a:hover {
+		background-color: #a6b71b !important;
+		color: #ffffff;
+	}
+	.dropdown-menu>li>a:hover, .nav>li>a:hover, .nav .open>a:focus{
+		background-color: #94a31a !important;
+		color: #ffffff;
+	}
+
+	.navbar-nav>li>a, .dropdown-menu{
+		background-color: #515547 !important;
+	}
+
+	.dropdown-menu{
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	.navbar{
+		border:none;
+	}
+	.ultimoNavbarStretta{
+		border-bottom: 1px solid black;
+	}
+}
+
+.dropdown-menu>li>a{
+	color: #ffffff;
+}
+
+.icon-bar{
+	border-radius: 10px !important;
+	background-color: white;
+	border: white solid 2.5px;
+}
+
+.navbar-toggle{
+	padding: 6px 10px 0px 0px ;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+
+/* css barra di navigazione*/
+
+.navigazione{
+	height: 50px;
+	color:white;
+	font-size: 20px;
+	padding-top: 11px;
+	font-family: "Oswald",sans-serif;
+	text-transform: none;
+	letter-spacing: 1px;
+}
+
+.pwdimenticata{
+	font-family: oswald_stencilbold;
+}
+
+.colorata{
+	background-color:#94a31a ;
+}

@@ -1,0 +1,136 @@
+@font-face {
+    font-family: oswaldStencil;
+    src: url(../fonts/Oswald-Stencil.ttf);
+}
+.Profilo{
+	background: url("../img/footer1.jpg") no-repeat center;
+	background-size:cover;
+	border-top-style:solid;
+	border-top-color: #FFFFFF;
+	border-top-width: 1px;
+}
+.contenitore {
+	margin-top:15px;
+}
+
+#imgAnnuncio{
+	width:100%;
+}
+
+.contenitoreProfilo
+{
+	font-family: 'oswald_stencil';
+	font-size: 14px;
+}
+
+
+.span-master {
+	font-size: 1.3em;
+}
+
+.span-master-2{
+	font-size:1.1em;
+	text-transform:capitalize;
+}
+
+.list-group {
+	font-family: 'oswald_stencilbold';
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+}
+
+.list-group-item {
+	background-color: #515547;
+	border-color: #FFFFFF;
+	color: #FFFFFF !important;
+	font-size:17px;
+	letter-spacing: 2px;
+	}
+.list-group-item:hover {
+	background-color: #A6B71B !important;
+	color: #FFFFFF !important;
+}
+.list-group-item:focus {
+	background-color: #A6B71B !important;
+	color: #FFFFFF !important;
+}
+
+.img-carta {
+	display: block;
+    max-width: 100%;
+    max-height: 176px;
+    margin:auto;
+    border-style:solid;
+    border-color:#A6B71B;
+    border-width:1px;
+}
+.img-thumbnail{
+	height:150px;
+}
+
+.fontStencil{
+	font-family: oswald_stencil;
+}
+
+h1{
+	font-family: 'oswald_stencilbold';
+}
+h5{
+	font-family: 'oswald_stencilbold';
+	color:#FFFFFF;
+	font-size:36px;
+}
+
+h3{
+	font-family: 'oswald_stencilbold'
+}
+.bottone {
+	background-color:#515547 !important;
+	text-transform: uppercase;
+	font-family: 'oswald_stencilbold';
+}
+.bottone:hover {
+	background-color:#515547 !important;
+}
+.bottone:active {
+	background-color:#515547;
+	border-color:#A6B71B;;
+}
+
+.UltimiAnnunci{
+	background: url("../img/footer1.jpg") no-repeat center;
+	background-size:cover;
+}
+
+.UltimiEventi{
+	background: url("../img/sfondo.jpg") no-repeat center;
+	background-size:cover;
+}
+
+.UltimiEventi{
+font-family:oswaldStencil;
+}
+.text.center{
+	font-family: 'oswald_stencilbold';
+}
+@media (max-width:768px){
+	img {
+		display: block;
+		margin-left:30%;
+		width: 40%;
+		margin-bottom:15px;
+	}
+	.carta {
+		margin-top:15px;
+	}
+	.cartaScura{
+		margin-top:15px;
+	}
+	#imgAnnuncio{
+		width:100%;
+	}
+}
+
+.titolo{
+	color:white;
+}
