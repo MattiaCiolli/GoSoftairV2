@@ -23,7 +23,9 @@ $(document).ready(function()
 //attiva datepicker
 
 $(function() {
-	$('#datetimepicker1').datetimepicker();
+	$('#datetimepicker1').datetimepicker({
+		locale:"it"
+	});
 });
 
 //permette upload immagine
@@ -44,7 +46,7 @@ $("#Immagine")
 			removeTitle : 'Cancel or reset changes',
 			elErrorContainer : '#kv-avatar-errors-2',
 			msgErrorClass : 'alert alert-block alert-danger',
-			defaultPreviewContent : '<img src="../resources/img/uploadicon.png" id="imginput" alt="Immagine partita">',
+			defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine partita">',
 			layoutTemplates : {
 				main2 : '{preview}{browse} {remove}'
 			},

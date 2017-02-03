@@ -100,7 +100,7 @@
 						<div class="form-group">
 							<label for="DataOra">Data e ora:</label>
 							<div class='input-group date' id='datetimepicker1'>
-								<input type='text' class="form-control" name="DataOra" /> <span
+								<input type='text' class="form-control" name="DataOra" data-format="dd/mm/yyyy hh:mm"/> <span
 									class="input-group-addon"> <span
 									class="glyphicon glyphicon-calendar"></span>
 								</span>
@@ -121,7 +121,7 @@
 				<div class="row">
 					<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
 						<label for="Posizione">Posizione:</label>
-						<div id="mapcont">
+						<div id="mapcont" name=PuntoIncontro>
 						</div>
 					</div>
 				</div>
