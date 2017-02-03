@@ -185,10 +185,10 @@
 						<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
 					</div>
 					<div class="col-md-7">
-						<form action="action_page.php">
+						<form action="" method="post">
 							<input type="text" name="postText" placeholder="Insersci un commento">
-  							<input type="text" name="idUtente" value="" hidden>
-  							<input type="text" name="idEvento" value="" hidden>
+  							<input type="text" name="idUtente" value="<%= session.getAttribute("idUtente") %>" hidden>
+  							<input type="text" name="idEvento" value="${evento.id}" hidden>
   							<input type="submit" value="Inserisci">
 						</form>
 					</div>
@@ -238,7 +238,7 @@
 			var matches = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')' );
 			if(matches.length == 0) {
 				var data = "<%= session.getAttribute("idUtente") %>" + " 1";
-				$.post("http://localhost:8080/gosoftair/post/scegli-squadra", {data: data}, function(result){
+				$.post("${pageContext.request.contextPath}" + "/post/scegli-squadra", {data: data}, function(result){
 					if(result == 1) {
 						$('ul#squadra1List').append('<li class="team-member">' + name + '</li>');
 						var elementToRemove = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')');
@@ -256,7 +256,7 @@
 			var matches = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')' );
 			if(matches.length == 0) {
 				var data = "<%= session.getAttribute("idUtente") %>" + " 2";
-				$.post("http://localhost:8080/gosoftair/post/scegli-squadra", {data: data}, function(result){
+				$.post("${pageContext.request.contextPath}" + "/post/scegli-squadra", {data: data}, function(result){
 					if(result == 1) {
 						$('ul#squadra2List').append('<li class="team-member">' + name + '</li>');
 						var elementToRemove = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')');
