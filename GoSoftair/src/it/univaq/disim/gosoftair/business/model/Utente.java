@@ -112,4 +112,12 @@ public class Utente implements java.io.Serializable {
 	public void setEventi(List<Evento> eventi) {
 		this.eventi = eventi;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }
