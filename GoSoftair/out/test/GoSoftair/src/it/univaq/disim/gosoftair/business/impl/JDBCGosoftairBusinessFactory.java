@@ -1,11 +1,11 @@
 package it.univaq.disim.gosoftair.business.impl;
 
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
-
 import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.SquadreService;
+import it.univaq.disim.gosoftair.business.PostService;
 
 public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 
@@ -31,5 +31,10 @@ public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 	@Override 
 	public SquadreService getSquadreService() {
 		return new JDBCSquadreService(url, username, password);
+	}
+	
+	@Override 
+	public PostService getPostService() {
+		return new JDBCPostService(url, username, password);
 	}
 }

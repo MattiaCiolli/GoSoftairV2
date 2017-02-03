@@ -50,4 +50,13 @@ public class Post implements java.io.Serializable {
 	public void setData(Date data) {
 		this.data = data;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }
+

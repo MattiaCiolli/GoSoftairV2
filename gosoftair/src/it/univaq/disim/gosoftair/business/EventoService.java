@@ -14,6 +14,8 @@ public interface EventoService {
 	void update(Title title) throws BusinessException;
 	*/
 	Evento findEventoByPK(long id) throws BusinessException;
+
+	//List<Evento> findUltimiByUserId (long id) throws BusinessException;
 	
 	//List<TitleKind> findAllTitleKinds() throws BusinessException;
 }

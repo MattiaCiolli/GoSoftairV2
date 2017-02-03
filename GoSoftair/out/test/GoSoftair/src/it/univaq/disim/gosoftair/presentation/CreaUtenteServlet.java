@@ -27,14 +27,12 @@ public class CreaUtenteServlet extends HttpServlet {
         String documentoValido = request.getParameter("documentoValido");
         String immagine = "url";
 
-        System.out.println(nome+cognome+email+nickname+password+documentoValido+immagine);
 
         Utente utente =new Utente(nome,cognome, email, nickname, password, documentoValido, immagine);
         GosoftairBusinessFactory factory=GosoftairBusinessFactory.getInstance();
         UtenteService utenteService=factory.getUtenteService();
         utenteService.create(utente);
 
-        System.out.println(nome+cognome+email+nickname+password+documentoValido+immagine);
 
     }
 

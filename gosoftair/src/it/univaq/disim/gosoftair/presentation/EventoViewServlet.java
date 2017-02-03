@@ -43,7 +43,7 @@ public class EventoViewServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		//Per ora li setto manualemnte ma questo andrà fatto nel login
+		//Per ora li setto manualmente ma questo andrà fatto nel login
 		session.setAttribute("idUtente", 0);
 		session.setAttribute("nickname", "netrider");			
 		

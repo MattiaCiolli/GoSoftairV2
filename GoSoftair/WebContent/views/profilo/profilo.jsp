@@ -285,10 +285,10 @@
   			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
     			<a href="${pageContext.request.contextPath}/views/evento/dettagli">
     				<div class="carta">
-      					<img src="${pageContext.request.contextPath}/resources/img/evento1.jpg" class="img-carta"alt="foto evento">
+      					<img src="${pageContext.request.contextPath}${evento.immagine}" class="img-carta"alt="foto evento">
       						<div class="caption">
-        						<h3 style="text-align:center">La Valle della Morte</h3>
-									<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        						<h3 style="text-align:center">${evento.nome}</h3>
+									<p class="descrizione fontStencil">${evento.descrizione}</p>
       						</div>
     				</div>
     			</a>

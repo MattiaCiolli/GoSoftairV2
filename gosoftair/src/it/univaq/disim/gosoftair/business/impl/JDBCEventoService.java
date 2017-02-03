@@ -81,7 +81,9 @@ public class JDBCEventoService implements EventoService {
 		}
 		return null;
 	}
-	
+
+
+
 	public List<Utente> creaSquadre(long idEvento){
     	Connection con = null;
 		Statement st = null;
@@ -125,5 +127,12 @@ public class JDBCEventoService implements EventoService {
 			}	
 		}
 		return null;
+
 	}
+
+	/*@Override
+	public List<Evento> findUltimiByUserId(long id, Date data) throws BusinessException {
+
+		//query al database per ottenere gli ultimi 3 eventi select in base all'id dell'utente --> tabella utente evento e mi ricavo tutti gli id degli eventi con quell'id -->
+	}*/
 }
