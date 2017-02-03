@@ -42,7 +42,7 @@ public class JDBCPostService implements PostService {
 				String password = rs.getString("password");
 				String documentoValido = rs.getString("documentovalido");
 				String immagineProfilo = rs.getString("immagineprofilo");
-				Post post = new Post(id, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
+				//Post post = new Post(id, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

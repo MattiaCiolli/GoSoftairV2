@@ -41,7 +41,7 @@
 					</div>
 					<div class="autoplay">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/titles/evento">
+							<a href="${pageContext.request.contextPath}/views/evento/dettagli">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
@@ -58,7 +58,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/titles/evento">
+							<a href="${pageContext.request.contextPath}/views/evento/dettagli">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
@@ -76,7 +76,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/titles/evento">
+							<a href="${pageContext.request.contextPath}/views/evento/dettagli">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
@@ -93,7 +93,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/titles/evento">
+							<a href="${pageContext.request.contextPath}/views/evento/dettagli">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
@@ -110,7 +110,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/titles/evento">
+							<a href="${pageContext.request.contextPath}/views/evento/dettagli">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"

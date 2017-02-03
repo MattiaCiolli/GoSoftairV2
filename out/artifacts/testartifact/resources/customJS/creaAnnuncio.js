@@ -5,7 +5,7 @@ $(document)
 				{
 
 					// permette upload immagine
-					$("#Immagine")
+					$("#immagine")
 							.fileinput(
 									{
 										overwriteInitial : true,
@@ -22,7 +22,7 @@ $(document)
 										removeTitle : 'Cancel or reset changes',
 										elErrorContainer : '#kv-avatar-errors-2',
 										msgErrorClass : 'alert alert-block alert-danger',
-										defaultPreviewContent : '<img src="resources/img/uploadicon.png" id="imginput" alt="Immagine annuncio">',
+										defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine annuncio">',
 										layoutTemplates : {
 											main2 : '{preview}{browse} {remove}'
 										},
@@ -46,7 +46,7 @@ $(document)
 
 								rules : {
 
-									Titolo : {
+									titolo : {
 
 										required : true,
 
@@ -56,7 +56,7 @@ $(document)
 
 									},
 
-									Descrizione : {
+									descrizione : {
 
 										required : true,
 
@@ -66,7 +66,7 @@ $(document)
 
 									},
 
-									Prezzo : {
+									prezzo : {
 
 										required : true,
 
@@ -75,12 +75,26 @@ $(document)
 										greaterthan : 0
 
 									},
+									
+									email : {
+
+										required : true
+
+									},
+									
+									numTelefono : {
+
+										required : true,
+										
+										number : true
+
+									},
 
 								},
 
 								messages : {
 
-									Titolo : {
+									titolo : {
 
 										required : "Inserisci un titolo",
 
@@ -90,7 +104,7 @@ $(document)
 
 									},
 
-									Descrizione : {
+									descrizione : {
 
 										required : "Inserisci una descrizione",
 
@@ -100,9 +114,23 @@ $(document)
 
 									},
 
-									Prezzo : {
+									prezzo : {
 
 										required : "Inserisci un prezzo",
+
+										number : "Solo numeri"
+
+									},
+									
+									email : {
+
+										required : "Inserisci una mail"
+
+									},
+									
+									numTelefono : {
+
+										required : "Inserisci un numero di telefono",
 
 										number : "Solo numeri"
 

@@ -33,7 +33,6 @@ public class CreaUtenteServlet extends HttpServlet {
         UtenteService utenteService=factory.getUtenteService();
         utenteService.create(utente);
 
-        System.out.println("Inserimento utente del DB");
 
         /*
         Title title = new Title(name, author, description, isbn, publicationYear, editor, titleKind);

@@ -67,22 +67,22 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Partite <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/titles/bachecaPartite.jsp">Elenco partite</a></li>
+									<li><a href="${pageContext.request.contextPath}/views/evento/bachecaPartite.jsp">Elenco partite</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/titles/leMieIscrizioni.jsp">Iscrizioni</a></li>
+									<li><a href="${pageContext.request.contextPath}/views/profilo/leMieIscrizioni.jsp">Iscrizioni</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/titles/creaPartita.jsp">Crea partita</a></li>
+									<li><a href="${pageContext.request.contextPath}/views/evento/creaPartita.jsp">Crea partita</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/titles/bachecaAnnunci.jsp">Bacheca annunci</a></li>
+									<li><a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci.jsp">Bacheca annunci</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/titles/creaAnnuncio.jsp">Crea annuncio</a></li>
+									<li><a href="${pageContext.request.contextPath}/views/annuncio/creaAnnuncio.jsp">Crea annuncio</a></li>
 								</ul>
 							</li>
-							<li ><a class="ultimoNavbarStretta" href="${pageContext.request.contextPath}/titles/profilo.jsp">Profilo</a></li>
+							<li ><a class="ultimoNavbarStretta" href="${pageContext.request.contextPath}/views/profilo/profilo.jsp">Profilo</a></li>
 						</ul>
 					</div>
 				</div>
