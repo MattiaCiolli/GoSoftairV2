@@ -5,12 +5,18 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import it.univaq.disim.gosoftair.business.BusinessException;
 import it.univaq.disim.gosoftair.business.PostService;
 import it.univaq.disim.gosoftair.business.model.Post;
+import it.univaq.disim.gosoftair.business.model.Utente;
 
 public class JDBCPostService implements PostService {
 	private String url;
@@ -24,17 +30,20 @@ public class JDBCPostService implements PostService {
 		this.password = password;
 	}
 	
-	public List<Post> cercaPostsByEventoPK(long id) throws BusinessException {
+	public List<Post> cercaPostsByEventoPK(long idEvento) throws BusinessException {
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;
 		List<Post> posts = new ArrayList<Post>();
+		Utente utente;
+		Post post;
 		
 		try {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT utente.*, utente_evento.ID, utente_evento.numsquadra FROM utente, utente_evento, evento WHERE utente.id=utente_evento.idutente AND evento.id=utente_evento.idevento AND evento.id=" + id);
+			rs = st.executeQuery("SELECT utente.*, post.id as idpost, post.testo, post.data FROM utente JOIN post ON post.idutente=utente.id WHERE post.idevento=" + idEvento);
 			while(rs.next()) {
+				long idUser = Long.parseLong(rs.getString("id"));
 				String nome = rs.getString("nome");
 				String cognome = rs.getString("cognome");
 				String email = rs.getString("email");
@@ -42,7 +51,21 @@ public class JDBCPostService implements PostService {
 				String password = rs.getString("password");
 				String documentoValido = rs.getString("documentovalido");
 				String immagineProfilo = rs.getString("immagineprofilo");
-				Post post = new Post(id, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
+				
+				utente = new Utente(idUser, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
+				
+				long idPost = Long.parseLong(rs.getString("idPost"));
+				String messaggio = rs.getString("testo");
+				DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.S", Locale.ITALIAN);
+				Date data = new Date();
+				try {
+					data = format.parse(rs.getString("data"));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+				
+				post = new Post(idPost, utente, messaggio, data);
+				posts.add(post);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

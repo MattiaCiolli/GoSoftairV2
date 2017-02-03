@@ -12,6 +12,8 @@ public abstract class GosoftairBusinessFactory {
 	
 	public abstract SquadreService getSquadreService();
 	
+	public abstract PostService getPostService();
+	
 	public static GosoftairBusinessFactory getInstance() {
 		return new JDBCGosoftairBusinessFactory();
 	}

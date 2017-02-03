@@ -193,6 +193,17 @@
 						</form>
 					</div>
 				</div>
+				<c:forEach items="${evento.posts}" var="post">
+					<div class="row">
+						<div class="col-md-1">
+							<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
+						</div>
+						<div class="col-md-9">
+							<p>${post.utente.nickname}</p><span>${post.data}</span>
+							<p>${post.messaggio}</p>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 		</section>
 		
