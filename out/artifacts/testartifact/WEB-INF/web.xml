@@ -20,9 +20,8 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>eventview</servlet-name>
-    <url-pattern>/titles/evento</url-pattern>
+    <url-pattern>/views/evento/dettagli</url-pattern>
   </servlet-mapping>
-
 
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>
@@ -30,7 +29,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CreaUtenteServlet</servlet-name>
-    <url-pattern>/titles/creautente</url-pattern>
+    <url-pattern>/views/profilo/nuovo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CreaAnnuncioServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CreaAnnuncioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreaAnnuncioServlet</servlet-name>
+    <url-pattern>/views/annuncio/nuovo</url-pattern>
   </servlet-mapping>
 
 

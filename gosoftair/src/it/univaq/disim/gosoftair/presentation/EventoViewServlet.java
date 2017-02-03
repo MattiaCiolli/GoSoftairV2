@@ -23,9 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class EventoViewServlet
  */
-@WebServlet("/EventoViewServlet")
 public class EventoViewServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L; ma che cazzo è sto rigo che mi blocca tutto????
 
     /**
      * Default constructor. 
@@ -41,7 +40,7 @@ public class EventoViewServlet extends HttpServlet {
 
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		EventoService eventoService = factory.getEventoService();
-		Evento evento = eventoService.findEventoByPK(Long.parseLong(request.getParameter("idEvento")));
+		Evento evento = eventoService.findEventoByPK(0/*Long.parseLong(request.getParameter("idEvento"))*/);
 		SquadreService squadreService = factory.getSquadreService();
 		Squadre squadre = squadreService.cercaSquadreByEventoPK(evento.getId());
 		PostService postService = factory.getPostService();

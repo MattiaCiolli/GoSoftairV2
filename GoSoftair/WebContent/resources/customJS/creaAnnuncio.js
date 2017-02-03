@@ -22,7 +22,7 @@ $(document)
 										removeTitle : 'Cancel or reset changes',
 										elErrorContainer : '#kv-avatar-errors-2',
 										msgErrorClass : 'alert alert-block alert-danger',
-										defaultPreviewContent : '<img src="resources/img/uploadicon.png" id="imginput" alt="Immagine annuncio">',
+										defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine annuncio">',
 										layoutTemplates : {
 											main2 : '{preview}{browse} {remove}'
 										},
