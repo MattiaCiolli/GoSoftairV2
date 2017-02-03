@@ -146,21 +146,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="team_select_card">
+						<div class="team_select_card" id="squadra1">
 							<h1 class="squadra text-center">Squadra 1</h1>
-							<ul>
+							<ul id="squadra1List">
 								<c:forEach items="${evento.squadre.squadra1}" var="utente">
-									<li class="team-member">${utente.nome}</li>
+									<li class="team-member">${utente.nickname}</li>
 								</c:forEach>
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<div class="team_select_card">
+						<div class="team_select_card" id="squadra2">
 							<h1 class="squadra text-center">Squadra 2</h1>
-							<ul>
+							<ul id="squadra2List">
 								<c:forEach items="${evento.squadre.squadra2}" var="utente">
-									<li class="team-member">${utente.nome}</li>
+									<li class="team-member">${utente.nickname}</li>
 								</c:forEach>
 							</ul>
 						</div>
@@ -231,6 +231,27 @@
 	            //icon: '${pageContext.request.contextPath}/resources/img/profile.jpg'
 		    });
 	   	}
+		
+		var squadra1 = document.getElementById('squadra1');
+		squadra1.onclick = function() {
+			var name = "<%= session.getAttribute("nickname") %>";
+			var matches = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')' );
+			if(matches.length = 0) {
+				String data = "<%= session.getAttribute("nickname") %>" + " 1";
+				$.post("/views/evento/dettagli", {data: data}, function(result){
+					if(result) {
+				    	console.log("tutto funge");
+				    };
+				});
+			}
+		}
+		
+		var squadra1 = document.getElementById('squadra2');
+		squadra1.onclick = function() {
+			var name = "<%= session.getAttribute("nickname") %>";
+			var matches = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')' );
+			console.log(matches.length);
+		}
 	</script>
 </html>
 
