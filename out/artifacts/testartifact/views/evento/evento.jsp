@@ -28,7 +28,7 @@
 	</head>
 	<body>
 		<%@include file="/layout/navbar.jsp"%>
-		<section style="margin-top:60px;">
+		<section style="margin-top:10px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
@@ -146,21 +146,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="team_select_card">
+						<div class="team_select_card" id="squadra1">
 							<h1 class="squadra text-center">Squadra 1</h1>
-							<ul>
+							<ul id="squadra1List">
 								<c:forEach items="${evento.squadre.squadra1}" var="utente">
-									<li class="team-member">${utente.nome}</li>
+									<li class="team-member">${utente.nickname}</li>
 								</c:forEach>
 							</ul>
 						</div>
 					</div>
 					<div class="col-md-6">
-						<div class="team_select_card">
+						<div class="team_select_card" id="squadra2">
 							<h1 class="squadra text-center">Squadra 2</h1>
-							<ul>
+							<ul id="squadra2List">
 								<c:forEach items="${evento.squadre.squadra2}" var="utente">
-									<li class="team-member">${utente.nome}</li>
+									<li class="team-member">${utente.nickname}</li>
 								</c:forEach>
 							</ul>
 						</div>
@@ -185,14 +185,25 @@
 						<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
 					</div>
 					<div class="col-md-7">
-						<form action="action_page.php">
+						<form action="${pageContext.request.contextPath}/post/crea-post" method="post">
 							<input type="text" name="postText" placeholder="Insersci un commento">
-  							<input type="text" name="idUtente" value="" hidden>
-  							<input type="text" name="idEvento" value="" hidden>
+  							<input type="text" name="idUtente" value="<%= session.getAttribute("idUtente") %>" hidden>
+  							<input type="text" name="idEvento" value="${evento.id}" hidden>
   							<input type="submit" value="Inserisci">
 						</form>
 					</div>
 				</div>
+				<c:forEach items="${evento.posts}" var="post">
+					<div class="row">
+						<div class="col-md-1">
+							<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
+						</div>
+						<div class="col-md-9">
+							<p>${post.utente.nickname}</p><span>${post.data}</span>
+							<p>${post.messaggio}</p>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 		</section>
 		
@@ -220,6 +231,42 @@
 	            //icon: '${pageContext.request.contextPath}/resources/img/profile.jpg'
 		    });
 	   	}
+		
+		var squadra1 = document.getElementById('squadra1');
+		squadra1.onclick = function() {
+			var name = "<%= session.getAttribute("nickname") %>";
+			var matches = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')' );
+			if(matches.length == 0) {
+				var data = "<%= session.getAttribute("idUtente") %>" + " 1";
+				$.post("${pageContext.request.contextPath}/post/scegli-squadra", {data: data}, function(result){
+					if(result == 1) {
+						$('ul#squadra1List').append('<li class="team-member">' + name + '</li>');
+						var elementToRemove = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')');
+						if(elementToRemove.length == 1) {
+							elementToRemove.remove();
+						}
+				    };
+				});
+			}
+		}
+		
+		var squadra2 = document.getElementById('squadra2');
+		squadra2.onclick = function() {
+			var name = "<%= session.getAttribute("nickname") %>";
+			var matches = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')' );
+			if(matches.length == 0) {
+				var data = "<%= session.getAttribute("idUtente") %>" + " 2";
+				$.post("${pageContext.request.contextPath}/post/scegli-squadra", {data: data}, function(result){
+					if(result == 1) {
+						$('ul#squadra2List').append('<li class="team-member">' + name + '</li>');
+						var elementToRemove = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')');
+						if(elementToRemove.length == 1) {
+							elementToRemove.remove();
+						}
+				    };
+				});
+			}
+		}
 	</script>
 </html>
 

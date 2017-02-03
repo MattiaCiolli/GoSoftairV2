@@ -156,7 +156,7 @@
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<div class="form-group">
-							<label for="Decrizione">Descrizione:</label>
+							<label for="Descrizione">Descrizione:</label>
 							<textarea rows="5" class="form-control" id="descrizione"
 								name="descrizione"></textarea>
 						</div>

@@ -34,7 +34,8 @@
       <br>
         <img src="http://placehold.it/140x140" class="img-thumbnail img-thumbnail" alt="fotoProfilo">
         <h6>Modifica la foto del tuo profilo</h6>
-        <input type="file" class="text-center center-block well well-sm">
+        <input id="immagine" name="immagine" type="file"
+               class="file-loading">>
       </div>
     </div>
     </aside>
@@ -48,27 +49,27 @@
         <div class="form-group" style="margin-top:2%">
           <label class="col-lg-3 control-label personalLabel">Nome:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="Niccolò" type="text">
+            <input class="form-control" id="nome" readonly="text">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label personalLabel">Cognome:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="asd" type="text">
+            <input class="form-control" id="cognome" readonly="text">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-lg-3 control-label personalLabel">Data di Nascita:</label>
+          <label class="col-lg-3 control-label personalLabel">Nickname</label>
           <div class="col-lg-8">
-            <input class="form-control" value="09/07/1934" type="text">
+            <input class="form-control" id="nickname" readonly="text">
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-md-3 control-label personalLabel">Email:</label>
           <div class="col-md-8">
-            <input class="form-control" value="asdasd@asd.it" type="text">
+            <input class="form-control" id="email" readonly="text">
           </div>
         </div>
         <div class="form-group">

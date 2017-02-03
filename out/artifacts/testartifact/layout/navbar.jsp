@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
-					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/titles/registrazione.jsp">REGISTRATI</a>
+					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/views/profilo/registrazione.jsp">REGISTRATI</a>
 					<span class="separatore"></span>
 					<a href="#" class="linkBarraAlta dropdown-toggle"  data-toggle="dropdown">Login</a>
 					<ul id="login-dp" class="dropdown-menu">

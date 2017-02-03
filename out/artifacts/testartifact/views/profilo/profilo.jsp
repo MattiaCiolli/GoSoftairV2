@@ -242,7 +242,7 @@
                     			<span>Nome: </span>
                     		</div>
                     		<div class="span-master-2 col-md-8">
-                    			<span>Niccolò</span>
+                    			<span>${utente.nome}</span>
                     		</div>
                     	</div>
                            <div class="row event-description">
@@ -250,15 +250,15 @@
                     			<span>Cognome: </span>
                     		</div>
                     		<div class="span-master-2 col-md-8">
-                    			<span>Campriani</span>
+                    			<span>${utente.cognome}</span>
                     		</div>
                     	</div>
                     	<div class="row event-description">
                     		<div class="span-master col-md-6">
-                    			<span>Data di Nascita: </span>
+                    			<span>Nickname</span>
                     		</div>
                     		<div class="span-master-2 col-md-6">
-                    			<span>11/03/1992 </span>
+                    			<span>${utente.nickname}</span>
                     		</div>
                     	</div>
                     	<div class="row event-description">
@@ -266,7 +266,7 @@
                     			<span>Email: </span>
                     		</div>
                     		<div class="span-master-2 col-md-8">
-                    			<span>NiccoloCampriani@gmail.com</span>
+                    			<span>${utente.email}</span>
                     		</div>
                     	</div>
                         </div>
