@@ -41,14 +41,6 @@ public class Utente implements java.io.Serializable {
 		this.immagineProfilo = immagineProfilo;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-	
 	public String getNome() {
 		return nome;
 	}

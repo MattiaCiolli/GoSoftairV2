@@ -1,14 +1,12 @@
 package it.univaq.disim.gosoftair.business.impl;
 
 import it.univaq.disim.gosoftair.business.EventoService;
-import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Utente;
 import it.univaq.disim.gosoftair.business.BusinessException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,43 +29,8 @@ public class JDBCEventoService implements EventoService {
 		this.password = password;
 	}
 	
-	public void create(Evento evento){
-        Connection con = null;
-        PreparedStatement st = null;
-        try {
-            con = DriverManager.getConnection(url, username, password);
-            String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, ORA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDSQUADRA1, IDSQUADRA2, IDUTENTE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
-            st = con.prepareStatement(sql);    
-            st.setString(1, evento.getTitolo());
-            st.setString(2, evento.getDescrizione());
-            st.setDate(3, (java.sql.Date) evento.getData());
-            st.setDate(4, (java.sql.Date) evento.getOra());
-            st.setString(5, evento.getPuntoIncontro());
-            st.setString(6, evento.getTipologia());
-            st.setInt(7, evento.getNumMaxPartecipanti());
-            st.setInt(8, evento.getStato());
-            st.setLong(9, evento.getSquadre().getId());
-            st.setLong(10, evento.getSquadre().getId());
-            st.setLong(11, evento.getOrganizzatore().getId());
-            st.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new BusinessException("Errore durante la creazione dell'evento",e);
-        } finally {
-            if (st!=null) {
-                try {
-                    st.close();
-                } catch (SQLException e) {}
-            }
-            if (con!=null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {}
-            }
-
-        }
-
-    }
+	public void create(Evento evento) throws BusinessException {
+	}
 	
 	public Evento findEventoByPK(long id) throws BusinessException {
 		Connection con = null;
@@ -76,7 +39,7 @@ public class JDBCEventoService implements EventoService {
 		try {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT titolo, descrizione, data, ora, puntoincontro, tipologia, nmaxpartecipanti, stato FROM evento WHERE id=" + id);
+			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato FROM evento WHERE id=" + id);
 			if (rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -87,19 +50,11 @@ public class JDBCEventoService implements EventoService {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				
-				Date ora = new Date();
-				try {
-					ora = format.parse(rs.getString("ora"));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				
 				String puntoIncontro = rs.getString("puntoincontro");
 				String tipologia = rs.getString("tipologia");
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
-				Evento evento = new Evento(titolo, descrizione, data, ora, puntoIncontro, tipologia, numMaxPartecipanti, stato);
+				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato);
 				return evento;
 			}else{
 				System.out.print("Il result set non ha elementi");

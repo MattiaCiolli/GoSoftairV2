@@ -8,7 +8,6 @@ public class Evento implements java.io.Serializable {
 	private String titolo;
 	private String descrizione;
 	private Date data;
-	private Date ora;
 	private String puntoIncontro;
 	private String tipologia;
 	private int numMaxPartecipanti;
@@ -21,25 +20,23 @@ public class Evento implements java.io.Serializable {
 		super();
 	}
 	
-	public Evento(long id, String titolo, String descrizione, Date data, Date ora, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
+	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
 		super();
 		this.id = id;
 		this.titolo = titolo;
 		this.descrizione = descrizione;
 		this.data = data;
-		this.ora = ora;
 		this.puntoIncontro = puntoIncontro;
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
 		this.setStato(stato);
 	}
 	
-	public Evento(String titolo, String descrizione, Date data, Date ora, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
+	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
 		this.data = data;
-		this.ora = ora;
 		this.puntoIncontro = puntoIncontro;
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
@@ -68,15 +65,6 @@ public class Evento implements java.io.Serializable {
 
 	public void setData(Date data) {
 		this.data = data;
-	}
-	
-	
-	public Date getOra() {
-		return ora;
-	}
-
-	public void setOra(Date ora) {
-		this.ora = ora;
 	}
 
 	public String getPuntoIncontro() {
