@@ -28,7 +28,7 @@
 	</head>
 	<body>
 		<%@include file="/layout/navbar.jsp"%>
-		<section style="margin-top:60px;">
+		<section style="margin-top:10px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
@@ -236,21 +236,36 @@
 		squadra1.onclick = function() {
 			var name = "<%= session.getAttribute("nickname") %>";
 			var matches = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')' );
-			if(matches.length = 0) {
-				String data = "<%= session.getAttribute("nickname") %>" + " 1";
-				$.post("/views/evento/dettagli", {data: data}, function(result){
-					if(result) {
-				    	console.log("tutto funge");
+			if(matches.length == 0) {
+				var data = "<%= session.getAttribute("idUtente") %>" + " 1";
+				$.post("http://localhost:8080/gosoftair/post/scegli-squadra", {data: data}, function(result){
+					if(result == 1) {
+						$('ul#squadra1List').append('<li class="team-member">' + name + '</li>');
+						var elementToRemove = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')');
+						if(elementToRemove.length == 1) {
+							elementToRemove.remove();
+						}
 				    };
 				});
 			}
 		}
 		
-		var squadra1 = document.getElementById('squadra2');
-		squadra1.onclick = function() {
+		var squadra2 = document.getElementById('squadra2');
+		squadra2.onclick = function() {
 			var name = "<%= session.getAttribute("nickname") %>";
 			var matches = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')' );
-			console.log(matches.length);
+			if(matches.length == 0) {
+				var data = "<%= session.getAttribute("idUtente") %>" + " 2";
+				$.post("http://localhost:8080/gosoftair/post/scegli-squadra", {data: data}, function(result){
+					if(result == 1) {
+						$('ul#squadra2List').append('<li class="team-member">' + name + '</li>');
+						var elementToRemove = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')');
+						if(elementToRemove.length == 1) {
+							elementToRemove.remove();
+						}
+				    };
+				});
+			}
 		}
 	</script>
 </html>

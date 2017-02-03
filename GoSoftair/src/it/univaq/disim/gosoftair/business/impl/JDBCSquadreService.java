@@ -2,6 +2,7 @@ package it.univaq.disim.gosoftair.business.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -77,4 +78,29 @@ public class JDBCSquadreService implements SquadreService {
 		}
 		return squadre; 
 	}
+	
+	public void scegliSquadra(long idUtente, int numSquadra) throws BusinessException {
+		Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = DriverManager.getConnection(url, username, password);            
+            String sql = "UPDATE utente_evento SET numsquadra=" + numSquadra + "WHERE idutente=" + idUtente;
+            st = con.prepareStatement(sql);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante aggiornamento della squadra", e);
+        } finally {
+            if (st!=null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {}
+            }
+            if (con!=null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {}
+            }
+        }
+    }
 }
