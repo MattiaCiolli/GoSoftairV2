@@ -21,7 +21,6 @@ public class CreaPostServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		PostService postService = factory.getPostService();
-		postService.scegliSquadra(idUtente, numSquadra);
 		PrintWriter out = response.getWriter();
 		out.println(1);
 	}
