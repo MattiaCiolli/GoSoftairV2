@@ -7,11 +7,21 @@ public class Post implements java.io.Serializable {
 	private Utente utente;
 	private String messaggio;
 	private Date data;
+	private long idEvento;
 	
 	public Post() {
 		super();
 	}
 
+	public Post(long id, Utente utente, String messaggio, Date data, long idEvento) {
+		super();
+		this.id = id;
+		this.utente = utente;
+		this.messaggio = messaggio;
+		this.data = data;
+		this.idEvento = idEvento;
+	}
+	
 	public Post(long id, Utente utente, String messaggio, Date data) {
 		super();
 		this.id = id;
@@ -20,11 +30,12 @@ public class Post implements java.io.Serializable {
 		this.data = data;
 	}
 	
-	public Post(Utente utente, String messaggio, Date data) {
+	public Post(Utente utente, String messaggio, Date data, long idEvento) {
 		super();
 		this.utente = utente;
 		this.messaggio = messaggio;
 		this.data = data;
+		this.idEvento = idEvento;
 	}
 
 	public Utente getUtente() {
@@ -57,6 +68,14 @@ public class Post implements java.io.Serializable {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public long getIdEvento() {
+		return idEvento;
+	}
+
+	public void setIdEvento(long idEvento) {
+		this.idEvento = idEvento;
 	}
 }
 

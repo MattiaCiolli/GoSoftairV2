@@ -2,6 +2,7 @@ package it.univaq.disim.gosoftair.business.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,6 +29,35 @@ public class JDBCPostService implements PostService {
 		this.url = url;
 		this.username = username;
 		this.password = password;
+	}
+	
+	public void create (Post post) throws BusinessException {
+		Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = DriverManager.getConnection(url, username, password);
+            String sql = "INSERT INTO post (id, idutente, idevento, testo, data) VALUES (INCREMENTIDPOST.NEXTVAL,?,?,?,?)";
+            st = con.prepareStatement(sql);
+            st.setLong(1, post.getUtente().getId());
+            st.setLong(2, post.getIdEvento());
+            st.setString(3, post.getMessaggio());
+           // st.setDate(4, post.getData());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante la creazione del post",e);
+        } finally {
+            if (st!=null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {}
+            }
+            if (con!=null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {}
+            }
+        }
 	}
 	
 	public List<Post> cercaPostsByEventoPK(long idEvento) throws BusinessException {
