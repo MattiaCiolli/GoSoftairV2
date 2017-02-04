@@ -56,4 +56,14 @@
     <servlet-name>CreaPostServlet</servlet-name>
     <url-pattern>/post/crea-post</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HomeViewServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.HomeViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeViewServlet</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+
 </web-app>

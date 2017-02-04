@@ -21,6 +21,7 @@ a:hover {
 	padding-right: 0px;
 	padding-left: 0px;
 	border-radius: 0px;
+	max-height: 520px;
 }
 
 .jumbotron {
@@ -31,8 +32,8 @@ a:hover {
 	background-size: cover;
 	background-color: inherit;
 	color: #fff;
-	padding-bottom: 3%;
-	padding-top: 30%;
+	padding-bottom: 20%;
+	padding-top: 20%;
 	margin-top: auto;
 	display: block;
 	max-width: 100%;
@@ -140,6 +141,11 @@ a:hover {
 	color: #ffffff;
 }
 
+.bordino{
+	border-style: solid;
+	border-color: #A6B71B;
+	border-width: 1px;
+}
 
 /* Sezione annunci*/
 .SezAnnunci {

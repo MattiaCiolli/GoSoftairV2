@@ -1,5 +1,6 @@
 package it.univaq.disim.gosoftair.business;
 
+import java.util.Date;
 import java.util.List;
 import it.univaq.disim.gosoftair.business.model.Evento;
 
@@ -16,4 +17,6 @@ public interface EventoService {
 	Evento findEventoByPK(long id) throws BusinessException;
 	
 	//List<TitleKind> findAllTitleKinds() throws BusinessException;
+
+	List<Evento> findLastEvent(Date oggi, int quantità) throws BusinessException;
 }
