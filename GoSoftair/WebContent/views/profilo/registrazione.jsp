@@ -34,7 +34,7 @@
       <br>
         <img src="http://placehold.it/140x140" class="img-thumbnail img-thumbnail" alt="fotoProfilo">
         <h6>Modifica la foto del tuo profilo</h6>
-        <input id="immagine" name="immagine" type="file" class="file-loading">
+        <input id="immagine" name="immagineProfilo" type="file" class="file-loading">
       </div>
     </div>
     </aside>

@@ -33,33 +33,20 @@ public class CreaUtenteServlet extends HttpServlet {
         UtenteService utenteService=factory.getUtenteService();
         utenteService.create(utente);
 
+        resp.sendRedirect(req.getContextPath() + "/views/profilo/nuovo");
+
 
     }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nome = "nome" ;
-        String cognome = "cognome";
-        String email = "email" ;
-        String nickname = "nickname";
-        String password = "password" ;
-        String documentoValido = "documento valido";
-        String immagineProfilo = "immagine profilo" ;
+            GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+            UtenteService utenteService = factory.getUtenteService();
 
-        Utente utente=new Utente(nome,cognome, email, nickname, password, documentoValido, immagineProfilo);
-        GosoftairBusinessFactory factory=GosoftairBusinessFactory.getInstance();
-        UtenteService utenteService=factory.getUtenteService();
-        utenteService.create(utente);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/views/profilo/registrazione.jsp");
+            dispatcher.forward(req, resp);
 
-
-        /*
-        Title title = new Title(name, author, description, isbn, publicationYear, editor, titleKind);
-        LibraryBusinessFactory factory = LibraryBusinessFactory.getInstance();
-        TitleService titleService = factory.getTitleService();
-        titleService.create(title);
-
-        resp.sendRedirect(req.getContextPath() + "/titles/view");
-        */
     }
-}
+
+

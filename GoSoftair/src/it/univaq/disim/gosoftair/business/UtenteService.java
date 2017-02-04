@@ -9,7 +9,7 @@ public interface UtenteService {
 
     void create(Utente utente) throws BusinessException;
     //void delete(Utente utente) throws BusinessException;
-    //void update(Utente Utente) throws BusinessException;
+    void update(Utente Utente) throws BusinessException;
     Utente findUserByPK(long id) throws BusinessException;
 
 
@@ -18,7 +18,6 @@ public interface UtenteService {
     List<TitleKind> findAllTitleKinds() throws BusinessException;
     */
 
-    //////////ignorami
 
 
 }

@@ -106,4 +106,40 @@ public class JDBCUtenteService implements UtenteService{
 		}
 		return null;
     }
+
+    @Override
+    public void update(Utente utente) throws BusinessException {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {
+            con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("update titles set nome=?, cognome=?, nickname=?, password=?, documentoValido=?, immagineProfilo=?, where id=?");
+            st.setString(1, utente.getNome());
+            st.setString(2, utente.getCognome());
+            st.setString(3, title.getNickname());
+            st.setString(4, title.getPassword());
+            st.setString(5, title.getDocumentoValido());
+            st.setString(6, title.getImmagineProfilo());
+
+            st.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException(e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+
+        }
+    }
 }

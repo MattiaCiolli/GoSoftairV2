@@ -45,37 +45,37 @@
     <section>
     <div class="col-md-7 col-xs-12">
       <h3>Informazioni personali</h3>
-      <form class="form-horizontal contenitoreForm " role="form">
+      <form class="form-horizontal contenitoreForm " role="form" action="${pageContext.request.contextPath}/views/profilo/modificaProfilo" method="post">
         <div class="form-group" style="margin-top:2%">
           <label class="col-lg-3 control-label personalLabel">Nome:</label>
           <div class="col-lg-8">
-            <input class="form-control" id="nome" readonly="text">
+            <input class="form-control" id="nome" name="nome" readonly="text">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label personalLabel">Cognome:</label>
           <div class="col-lg-8">
-            <input class="form-control" id="cognome" readonly="text">
+            <input class="form-control" id="cognome" name="cognome" readonly="text">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-lg-3 control-label personalLabel">Nickname</label>
           <div class="col-lg-8">
-            <input class="form-control" id="nickname" readonly="text">
+            <input class="form-control" id="nickname" name="nickname" readonly="text">
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-md-3 control-label personalLabel">Email:</label>
           <div class="col-md-8">
-            <input class="form-control" id="email" readonly="text">
+            <input class="form-control" id="email" name="email" readonly="text">
           </div>
         </div>
         <div class="form-group">
           <label class="col-md-3 control-label personalLabel">Password:</label>
           <div class="col-md-8">
-            <input class="form-control" value="11111122333" type="password">
+            <input class="form-control" id="password" name="password" type="password">
           </div>
         </div>
         <div class="form-group">
