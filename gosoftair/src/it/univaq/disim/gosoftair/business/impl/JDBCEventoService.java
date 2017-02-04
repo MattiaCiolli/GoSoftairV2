@@ -173,7 +173,7 @@ public class JDBCEventoService implements EventoService {
 	}
 
 	@Override
-	public List<Evento> findLastEvent(Date oggi, int quantità) throws BusinessException {
+	public List<Evento> findLastEvent(Date oggi, int quantita) throws BusinessException {
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;
@@ -187,7 +187,7 @@ public class JDBCEventoService implements EventoService {
 			String oggiFormattato= DBformat.format(oggi);
 
 			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato FROM evento WHERE data >"+ "'"+oggiFormattato+"'");
-			while(rs.next() && contatore < quantità+1) {
+			while(rs.next() && contatore < quantita+1) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
 				DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.S", Locale.ITALIAN);

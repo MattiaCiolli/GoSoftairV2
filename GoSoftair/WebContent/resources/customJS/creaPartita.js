@@ -1,191 +1,272 @@
- function initMap() {
-	      var uluru = {lat: 42.368943, lng: 13.349799};
-	      var map = new google.maps.Map(document.getElementById('mapcont'), {
-	       zoom: 16,
-	          center: uluru
-	      });
-
-	         //var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-	         
-	      var marker = new google.maps.Marker({
-	       position: uluru,
-	          map: map
-	             //icon: '${pageContext.request.contextPath}/resources/img/profile.jpg'
-	      });
-	     }
- 
-$(document).ready(function()
-
-{
-	//initMap();
-	 
-	
-//attiva datepicker
-
-$(function() {
-	$('#datetimepicker1').datetimepicker({
-		locale:"it"
+var markers = [];
+function initAutocomplete() {
+	var map = new google.maps.Map(document.getElementById('mapcont'), {
+		center : {
+			lat : 42.368943,
+			lng : 13.349799
+		},
+		zoom : 8,
+		mapTypeId : 'roadmap'
 	});
-});
+	// Create the search box and link it to the UI element.
+	var input = document.getElementById('pac-input');
+	var searchBox = new google.maps.places.SearchBox(input);
+	map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+	// Bias the SearchBox results towards current map's viewport.
+	map.addListener('bounds_changed', function() {
+		searchBox.setBounds(map.getBounds());
+	});
 
-//permette upload immagine
-$("#Immagine")
-.fileinput(
-		{
-			overwriteInitial : true,
-			minFileSize : 1,
-			maxFileSize : 1000,
-			showClose : false,
-			showCaption : false,
-			showBrowse : true,
-			browseOnZoneClick : true,
-			browseLabel : '',
-			removeLabel : '',
-			browseIcon : '<i class="glyphicon glyphicon-folder-open"></i>',
-			removeIcon : '<i class="glyphicon glyphicon-remove"></i>',
-			removeTitle : 'Cancel or reset changes',
-			elErrorContainer : '#kv-avatar-errors-2',
-			msgErrorClass : 'alert alert-block alert-danger',
-			defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine partita">',
-			layoutTemplates : {
-				main2 : '{preview}{browse} {remove}'
-			},
-			allowedFileExtensions : [ "jpg", "png",
-					"gif" ]
+	// Listen for the event fired when the user selects a prediction and
+	// retrieve
+	// more details for that place.
+	searchBox.addListener('places_changed', function() {
+		var places = searchBox.getPlaces();
+		if (places.length == 0) {
+			return;
+		}
+		// Clear out the old markers.
+		markers.forEach(function(marker) {
+			marker.setMap(null);
 		});
+		markers = [];
+		// For each place, get the icon, name and location.
+		var bounds = new google.maps.LatLngBounds();
+		places.forEach(function(place) {
+			if (!place.geometry) {
+				console.log("Returned place contains no geometry");
+				return;
+			}
+			var icon = {
+				url : place.icon,
+				size : new google.maps.Size(71, 71),
+				origin : new google.maps.Point(0, 0),
+				anchor : new google.maps.Point(17, 34),
+				scaledSize : new google.maps.Size(25, 25)
+			};
+			// Create a marker for each place.
+			markers.push(new google.maps.Marker({
+				map : map,
+				icon : icon,
+				title : place.name,
+				draggable : true,
+				position : place.geometry.location
+			}));
 
-	
-	//evita valori negativi
+			google.maps.event.addListener(markers[0], 'dragend',
+					function(event) {
+						var lat = markers[0].getPosition().lat();
+						var lng = markers[0].getPosition().lng();
+						$("#Posizione").val("Lat: " + lat + "  Long: " + lng);
+					});
 
-	jQuery.validator.addMethod("greaterthan", function(value, element, param) {
+			// Shows instantly the coordinates of the selected place
+			var lat = markers[0].getPosition().lat();
+			var lng = markers[0].getPosition().lng();
+			$("#Posizione").val("Lat: " + lat + "  Long: " + lng);
 
-	  return this.optional(element) || value > param;
-
-	}, "Inserire un numero realistico");
-
-
-
-	// valida l'input, se corretto lo invia
-
-		$("#partitaform").validate({
-
-			rules: {
-
-				NomeEvento: {
-
-					required: true,
-
-					minlength: 3,
-
-					maxlength: 20
-
-				},
-
-
-
-				Tipologia: {
-
-					required: true,
-
-				},
-
-
-
-				NumPartecipanti: {
-
-					required: true,
-
-					maxlength: 3,
-
-					number: true,
-					
-					greaterthan: 0
-
-				},
-
-
-			},
-
-			messages: {
-
-				NomeEvento: {
-
-					required: "Inserisci un nome evento",
-
-					minlength: "Almeno 3 caratteri",
-
-					maxlength: "Massimo 20 caratteri"
-
-				},
-
-
-
-				Tipologia: {
-
-					required: "Seleziona una tipologia",
-
-				},
-
-
-
-				NumPartecipanti: {
-
-					required: "Inserisci quanti partecipanti",
-
-					maxlength: "Inserisci un numero realistico",
-
-					number: "Solo numeri"
-
-				},
-
-
-			},
-			
-			highlight: function(element) {
-
-	            $(element).closest('.form-group').addClass('has-error');
-
-	        },
-
-	        unhighlight: function(element) {
-
-	            $(element).closest('.form-group').removeClass('has-error');
-
-	        },
-
-	        errorElement: 'span',
-
-	        errorClass: 'help-block',
-
-	        errorPlacement: function(error, element) {
-
-	            if(element.parent('.input-group').length) {
-
-	                error.insertAfter(element.parent());
-
-	            } else {
-
-	                error.insertAfter(element);
-
-	            }
-
-	        }
-
+			if (place.geometry.viewport) {
+				// Only geocodes have viewport.
+				bounds.union(place.geometry.viewport);
+			} else {
+				bounds.extend(place.geometry.location);
+			}
 		});
+		map.fitBounds(bounds);
+	});
+}
 
-		$("#creapartita").click(function()
+$(document)
+		.ready(
+				function()
 
-		{
+				{
 
-			if($("#partitaform").valid())
+					// attiva datepicker
 
-			{
+					$(function() {
+						var startdate = new Date();//today
+						startdate.setDate(startdate.getDate() + 1);//tomorrow
+						$('#datetimepicker1').datetimepicker({
+							locale : "it",
+							minDate : startdate,
+						});
+					});
 
-				document.getElementById("partitaform").submit();
+					// permette upload immagine
+					$("#Immagine")
+							.fileinput(
+									{
+										overwriteInitial : true,
+										minFileSize : 1,
+										maxFileSize : 1000,
+										showClose : false,
+										showCaption : false,
+										showBrowse : true,
+										browseOnZoneClick : true,
+										browseLabel : '',
+										removeLabel : '',
+										browseIcon : '<i class="glyphicon glyphicon-folder-open"></i>',
+										removeIcon : '<i class="glyphicon glyphicon-remove"></i>',
+										removeTitle : 'Cancel or reset changes',
+										elErrorContainer : '#kv-avatar-errors-2',
+										msgErrorClass : 'alert alert-block alert-danger',
+										defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine partita">',
+										layoutTemplates : {
+											main2 : '{preview}{browse} {remove}'
+										},
+										allowedFileExtensions : [ "jpg", "png",
+												"gif" ]
+									});
 
-		    }
+					// evita valori negativi
 
-		});
-		
-});
+					jQuery.validator.addMethod("greaterthan", function(value,
+							element, param) {
 
+						return this.optional(element) || value > param;
+
+					}, "Inserire un numero realistico");
+
+					// valida l'input, se corretto lo invia
+
+					$("#partitaform")
+							.validate(
+									{
+
+										rules : {
+
+											NomeEvento : {
+
+												required : true,
+
+												minlength : 3,
+
+												maxlength : 20
+
+											},
+
+											Tipologia : {
+
+												required : true,
+
+											},
+
+											DataOra : {
+
+												required : true,
+
+											},
+
+											Posizione : {
+
+												minlength : 12,
+
+											},
+
+											NumPartecipanti : {
+
+												required : true,
+
+												maxlength : 3,
+
+												number : true,
+
+												greaterthan : 0
+
+											},
+
+										},
+
+										messages : {
+
+											NomeEvento : {
+
+												required : "Inserisci un nome evento",
+
+												minlength : "Almeno 3 caratteri",
+
+												maxlength : "Massimo 20 caratteri"
+
+											},
+
+											Tipologia : {
+
+												required : "Seleziona una tipologia",
+
+											},
+
+											Posizione : {
+
+												minlength : "Inserisci una posizione",
+
+											},
+
+											DataOra : {
+
+												required : "Inserisci una data ed un orario",
+
+											},
+
+											NumPartecipanti : {
+
+												required : "Inserisci quanti partecipanti",
+
+												maxlength : "Inserisci un numero realistico",
+
+												number : "Solo numeri"
+
+											},
+
+										},
+
+										highlight : function(element) {
+
+											$(element).closest('.form-group')
+													.addClass('has-error');
+
+										},
+
+										unhighlight : function(element) {
+
+											$(element).closest('.form-group')
+													.removeClass('has-error');
+
+										},
+
+										errorElement : 'span',
+
+										errorClass : 'help-block',
+
+										errorPlacement : function(error,
+												element) {
+
+											if (element.parent('.input-group').length) {
+
+												error.insertAfter(element
+														.parent());
+
+											} else {
+
+												error.insertAfter(element);
+
+											}
+
+										}
+
+									});
+
+					$("#creapartita").click(function()
+
+					{
+						if ($("#partitaform").valid())
+
+						{
+
+							document.getElementById("partitaform").submit();
+
+						}
+
+					});
+
+				});
