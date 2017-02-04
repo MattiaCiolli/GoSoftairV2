@@ -32,30 +32,20 @@
     <servlet-name>CreaAnnuncioServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaAnnuncioServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>UtenteViewServlet</servlet-name>
-    <servlet-class>it.univaq.disim.gosoftair.presentation.UtenteViewServlet</servlet-class>
-  </servlet>
   <servlet-mapping>
     <servlet-name>CreaAnnuncioServlet</servlet-name>
     <url-pattern>/views/annuncio/nuovo</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-   <servlet>
+
+  <servlet>
   <servlet-name>ScegliSquadraServlet</servlet-name>
   <servlet-class>it.univaq.disim.gosoftair.presentation.ScegliSquadraServlet</servlet-class>
 </servlet>
-=======
-  <servlet>
-    <servlet-name>ScegliSquadraServlet</servlet-name>
-    <servlet-class>it.univaq.disim.gosoftair.presentation.ScegliSquadraServlet</servlet-class>
-  </servlet>
->>>>>>> origin/master
   <servlet-mapping>
     <servlet-name>ScegliSquadraServlet</servlet-name>
     <url-pattern>/post/scegli-squadra</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
+
   <servlet>
     <servlet-name>UtenteView</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.UtenteViewServlet</servlet-class>
@@ -64,7 +54,7 @@
     <servlet-name>UtenteView</servlet-name>
     <url-pattern>/views/profilo/profilo</url-pattern>
   </servlet-mapping>
-=======
+
    <servlet>
     <servlet-name>CreaPostServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaPostServlet</servlet-class>
@@ -83,5 +73,5 @@
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
 
->>>>>>> origin/master
+
 </web-app>
