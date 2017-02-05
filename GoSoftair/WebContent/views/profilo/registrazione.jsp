@@ -44,7 +44,7 @@
     <section>
     <div class="col-md-7 col-xs-12">
       <h3>Informazioni personali</h3>
-      <form class="form-horizontal contenitoreForm " role="form" action="${pageContext.request.contextPath}/views/profilo/nuovo" method="post">
+      <form id="formRegistrazione" class="form-horizontal contenitoreForm " role="form" action="${pageContext.request.contextPath}/views/profilo/nuovo" method="post">
         <div class="form-group" style="margin-top:2%">
           <label class="col-lg-3 control-label personalLabel">Nome:</label>
           <div class="col-lg-8">
@@ -107,5 +107,45 @@
     <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
     <script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/resources/customJS/registrazione.js"></script>
 </body>
 </html>
+
+
+<!--
+<html>
+<head>
+<title>Inserire e verificare la password</title>
+<script language=javascript type="text/javascript">
+
+//Hide script from older browsers
+
+function validazioneModulo(pswdModulo) {
+if (pswdModulo.pswd1.value == "") {
+alert ("Attenzione!!! Hai dimenticato di inserire la password!")
+pswdModulo.pswd1.focus()
+return false
+}
+if (pswdModulo.pswd1.value != pswdModulo.pswd2.value) {
+alert ("Inserisci le password è importante!")
+pswdModulo.pswd1.focus()
+pswdModulo.pswd1.select()
+return false
+}
+return true
+}
+//End hiding script
+
+</script>
+</head>
+<body>
+<form onSubmit="return validazioneModulo(this)" action="azione.cgi">
+Nome: <input type=text size=30>
+<p>Password: <input type=password name="pswd1">
+<p>Conferma password: <input type=password name="pswd2">
+<input type=submit value="Invia">&nbsp;<input type=reset>
+</form>
+</body>
+</html>
+-->

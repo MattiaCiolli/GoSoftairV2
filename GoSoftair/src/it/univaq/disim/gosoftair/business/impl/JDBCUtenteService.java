@@ -31,6 +31,8 @@ public class JDBCUtenteService implements UtenteService{
         this.password = password;
     }
 
+
+    //funzione che consente la registrazione dell'utente
     public void create(Utente utente){
         Connection con = null;
         PreparedStatement st = null;
@@ -62,7 +64,9 @@ public class JDBCUtenteService implements UtenteService{
             }
         }
     }
-    
+
+
+    //funzione che consente di trovare all'interno del database tramite la sua chiave privata l'utente con tutte le sue informazioni
     public Utente findUserByPK(long id) throws BusinessException {
     	Connection con = null;
 		Statement st = null;
@@ -77,8 +81,8 @@ public class JDBCUtenteService implements UtenteService{
 				String email = rs.getString("email");
 				String nickname = rs.getString("nickname");
 				String password = rs.getString("password");
-				String documentoValido = rs.getString("documentovalido");
-				String immagineProfilo = rs.getString("immagineprofilo");
+				String documentoValido = rs.getString("documentoValido");
+				String immagineProfilo = rs.getString("immagineProfilo");
 				Utente utente = new Utente(id, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
 				return utente;
 			}else {
@@ -86,7 +90,7 @@ public class JDBCUtenteService implements UtenteService{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new BusinessException("Errore durante la creazione dell'utente",e);
+			throw new BusinessException("Errore durante la ricerca dell'utente",e);
 		} finally {
 			if (rs!=null) {
 				try {
@@ -107,6 +111,10 @@ public class JDBCUtenteService implements UtenteService{
 		return null;
     }
 
+
+
+
+    // funzione che modifica alcune informazioni nel profilo dell'utente, tra i quali la password
     @Override
     public void update(Utente utente) throws BusinessException {
         Connection con = null;
@@ -116,10 +124,10 @@ public class JDBCUtenteService implements UtenteService{
             st = con.prepareStatement("update titles set nome=?, cognome=?, nickname=?, password=?, documentoValido=?, immagineProfilo=?, where id=?");
             st.setString(1, utente.getNome());
             st.setString(2, utente.getCognome());
-            st.setString(3, title.getNickname());
-            st.setString(4, title.getPassword());
-            st.setString(5, title.getDocumentoValido());
-            st.setString(6, title.getImmagineProfilo());
+            st.setString(3, utente.getNickname());
+            st.setString(4, utente.getPassword());
+            st.setString(5, utente.getDocumentoValido());
+            st.setString(6, utente.getImmagineProfilo());
 
             st.executeUpdate();
 

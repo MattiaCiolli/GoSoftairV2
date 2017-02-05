@@ -45,31 +45,31 @@
     <section>
     <div class="col-md-7 col-xs-12">
       <h3>Informazioni personali</h3>
-      <form class="form-horizontal contenitoreForm " role="form" action="${pageContext.request.contextPath}/views/profilo/modificaProfilo" method="post">
+      <form id="formRegistrazione" class="form-horizontal contenitoreForm " role="form" action="${pageContext.request.contextPath}/views/profilo/modificaProfilo" method="post">
         <div class="form-group" style="margin-top:2%">
           <label class="col-lg-3 control-label personalLabel">Nome:</label>
           <div class="col-lg-8">
-            <input class="form-control" id="nome" name="nome" readonly="text">
+            <input class="form-control" id="nome" name="nome" type="text">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label personalLabel">Cognome:</label>
           <div class="col-lg-8">
-            <input class="form-control" id="cognome" name="cognome" readonly="text">
+            <input class="form-control" id="cognome" name="cognome" type="text">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-lg-3 control-label personalLabel">Nickname</label>
           <div class="col-lg-8">
-            <input class="form-control" id="nickname" name="nickname" readonly="text">
+            <input class="form-control" id="nickname" name="nickname" type="text">
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-md-3 control-label personalLabel">Email:</label>
           <div class="col-md-8">
-            <input class="form-control" id="email" name="email" readonly="text">
+            <input class="form-control" id="email" name="email" type="text">
           </div>
         </div>
         <div class="form-group">
@@ -105,5 +105,6 @@
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
   <script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
   <script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/customJS/registrazione.js"></script>
 </body>
 </html>
