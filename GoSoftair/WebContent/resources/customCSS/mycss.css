@@ -29,6 +29,10 @@
 	font-family: 'oswaldRegular';
 }
 
+#Posizione {
+	margin-top: 9px;
+}
+
 #sfondochiaro {
 	font-family: 'oswaldRegular';
 }
@@ -95,6 +99,11 @@
 	max-width: 220px;
 }
 
+#kv-avatar-errors-2 {
+	margin-top: 9px;
+	background: white;
+}
+
 .limit {
 	max-width: 230px;
 	margin-top: 17px;
@@ -133,7 +142,7 @@
 		margin: 0 auto auto 165px;
 	}
 	.limit {
-		max-width: 230px;
+		max-width: 300px;
 		margin-top: -1px;
 	}
 	#mapcont {

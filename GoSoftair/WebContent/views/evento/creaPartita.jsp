@@ -53,7 +53,8 @@
 	src="${pageContext.request.contextPath}/resources/jquery/jquery.validate.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
-
+<script
+	src="${pageContext.request.contextPath}/resources/fileinput/js//locales/it.js"></script>
 <!-- js delle pagine crea partita e annuncio -->
 
 <script
@@ -61,8 +62,6 @@
 	async defer></script>
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/creaPartita.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/customJS/creaAnnuncio.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
 
@@ -104,8 +103,8 @@
 						<div class="form-group">
 							<label for="DataOra">Data e ora:</label>
 							<div class='input-group date' id='datetimepicker1'>
-								<input type='text' class="form-control" name="DataOra" id="DataOra"
-									data-format="dd/mm/yyyy hh:mm" /> <span
+								<input type='text' class="form-control" name="DataOra"
+									id="DataOra" data-format="dd/mm/yyyy hh:mm" /> <span
 									class="input-group-addon"> <span
 									class="glyphicon glyphicon-calendar"></span>
 								</span>
@@ -126,11 +125,12 @@
 
 				<div class="row">
 					<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
-					<div class="form-group">
-						<label for="Posizione">Posizione:</label> <input id="pac-input"
-							class="controls" type="text" placeholder="Search Box">  
-						<div id="mapcont"></div>
-						<input type="text"	class="form-control" name="Posizione" id="Posizione" value="Lat:  Long:" readonly>
+						<div class="form-group">
+							<label for="Posizione">Posizione:</label> <input id="pac-input"
+								class="controls" type="text" placeholder="Search Box">  
+							<div id="mapcont"></div>
+							<input type="text" class="form-control" name="Posizione"
+								id="Posizione" value="Lat:  Long:" readonly>
 						</div>
 					</div>
 				</div>
@@ -138,11 +138,11 @@
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4 limit'>
 						<label for="Immagine">Immagine:</label>
-						<div id="kv-avatar-errors-2" class="center-block"></div>
 						<div class="kv-avatar center-block">
 							<input id="Immagine" name="Immagine" type="file"
 								class="file-loading">
 						</div>
+						<div id="kv-avatar-errors-2" class="center-block"></div>
 					</div>
 				</div>
 

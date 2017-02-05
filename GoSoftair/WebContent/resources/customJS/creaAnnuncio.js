@@ -8,8 +8,9 @@ $(document)
 					$("#immagine")
 							.fileinput(
 									{
+										language:'it',
 										overwriteInitial : true,
-										minFileSize : 1,
+										minFileCount: 1,
 										maxFileSize : 1000,
 										showClose : false,
 										showCaption : false,
