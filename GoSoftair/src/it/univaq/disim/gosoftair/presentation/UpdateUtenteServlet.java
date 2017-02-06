@@ -4,6 +4,7 @@ import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.Utente;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,13 +20,15 @@ public class UpdateUtenteServlet extends HttpServlet {
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService service = factory.getUtenteService();
         long id = Long.parseLong(req.getParameter("id"));
+
+        /*
         Utente utente = service.findUtenteByPK(id);
 
         req.setAttribute("nickname", nickname); //modificaNick
         req.setAttribute("password", password); //modificaPsw
         req.setAttribute("documentoValido", documentoValido);
         req.setAttribute("immagineProfilo", immagineProfilo); //modificaImmProfilo
-
+        */
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/profilo/modificaProfilo.jsp");
         dispatcher.forward(req, resp);
@@ -51,8 +54,9 @@ public class UpdateUtenteServlet extends HttpServlet {
 
         Utente utente = new Utente(id, nome, cognome, nickname, email, password, documentoValido, immagineProfilo );
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+        /*
         UtenteService utente = factory.getUtenteService();
-        service.update(utente);
+        service.update(utente);*/
 
         resp.sendRedirect(req.getContextPath() + "/views/profilo/profilo");
 

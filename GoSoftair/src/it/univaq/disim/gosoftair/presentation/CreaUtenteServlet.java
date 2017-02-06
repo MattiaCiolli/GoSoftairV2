@@ -28,12 +28,12 @@ public class CreaUtenteServlet extends HttpServlet {
         String immagine = "url";
 
 
-        Utente utente =new Utente(nome,cognome, email, nickname, password, documentoValido, immagine);
-        GosoftairBusinessFactory factory=GosoftairBusinessFactory.getInstance();
-        UtenteService utenteService=factory.getUtenteService();
+        Utente utente = new Utente(nome, cognome, email, nickname, password, documentoValido, immagine);
+        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+        UtenteService utenteService = factory.getUtenteService();
         utenteService.create(utente);
 
-        resp.sendRedirect(req.getContextPath() + "/views/profilo/nuovo");
+        //resp.sendRedirect(req.getContextPath() + "/views/profilo/nuovo");
 
 
     }
@@ -41,12 +41,13 @@ public class CreaUtenteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-            UtenteService utenteService = factory.getUtenteService();
+        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+        UtenteService utenteService = factory.getUtenteService();
 
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/views/profilo/registrazione.jsp");
-            dispatcher.forward(req, resp);
+        //RequestDispatcher dispatcher = req.getRequestDispatcher("/views/profilo/registrazione.jsp");
+        //dispatcher.forward(req, resp);
 
     }
+}
 
 
