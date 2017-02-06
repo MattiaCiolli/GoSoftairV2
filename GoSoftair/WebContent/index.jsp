@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+		 pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -57,24 +58,30 @@
 								</div>
 							</a>
 						</div>
+
+
+						<c:forEach items="${eventi}" var="evento">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=0">
+							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
 								<div class="carta">
 									<img
-										src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
+										src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
 										class="img-responsive bordino ">
 									<div class="contenuto">
 										<div>
-											<p class="nome">Partita 2</p>
+											<p class="nome">${evento.titolo}</p>
 										</div>
 										<div>
-											<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+											<p class="descrizione">${evento.descrizione}</p>
 										</div>
 									</div>
 
 								</div>
 							</a>
 						</div>
+						</c:forEach>
+
+
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=0">
 								<div class="carta">

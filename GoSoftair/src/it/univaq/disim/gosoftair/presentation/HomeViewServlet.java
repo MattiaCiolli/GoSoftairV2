@@ -33,13 +33,9 @@ public class HomeViewServlet extends HttpServlet {
         Date oggi=new Date();
         List<Evento> eventi = new ArrayList<>();
         eventi = eventoService.findLastEvent(oggi, 2);
-        for (Evento e:eventi){
-            System.out.println("Evento");
-            System.out.println(e.getTitolo());
-            System.out.println(e.getDescrizione());
-        }
-        //request.setAttribute("eventi", eventi);
-        //RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-        //dispatcher.forward(request, response);
+
+        request.setAttribute("eventi", eventi);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+        dispatcher.forward(request, response);
     }
 }

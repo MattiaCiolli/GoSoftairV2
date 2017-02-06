@@ -16,8 +16,11 @@ public class Evento implements java.io.Serializable {
 	private Utente organizzatore;
 	private List<Post> posts;
 	private Squadre squadre;
-	
-	public Evento() { 
+	private String immagine;
+
+
+
+	public Evento() {
 		super();
 	}
 	
@@ -32,6 +35,20 @@ public class Evento implements java.io.Serializable {
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
 		this.setStato(stato);
+	}
+
+	//costruttore con immagine, non ho voluto metterlo nel costruttore di sotto perchè non so se qualcuno di voi lo stava usando
+	public Evento(String titolo, String descrizione, Date data, Date ora, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine) {
+		super();
+		this.titolo = titolo;
+		this.descrizione = descrizione;
+		this.data = data;
+		this.ora = ora;
+		this.puntoIncontro = puntoIncontro;
+		this.tipologia = tipologia;
+		this.numMaxPartecipanti = numMaxPartecipanti;
+		this.setStato(stato);
+		this.immagine = immagine;
 	}
 	
 	public Evento(String titolo, String descrizione, Date data, Date ora, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
@@ -146,6 +163,12 @@ public class Evento implements java.io.Serializable {
 	public void setSquadre(Squadre squadre) {
 		this.squadre = squadre;
 	}
-	
-	
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
+	}
 }
