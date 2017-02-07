@@ -185,11 +185,11 @@
 						<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
 					</div>
 					<div class="col-md-7">
-						<form action="${pageContext.request.contextPath}/post/crea-post" method="post">
+						<form id="myForm">
 							<input type="text" name="postText" placeholder="Insersci un commento">
   							<input type="text" name="idUtente" value="<%= session.getAttribute("idUtente") %>" hidden>
   							<input type="text" name="idEvento" value="${evento.id}" hidden>
-  							<input type="submit" value="Inserisci">
+  							<input type="submit" value="Inserisci" id="submitButton">
 						</form>
 					</div>
 				</div>
@@ -267,6 +267,18 @@
 				});
 			}
 		}
+		
+		$('input#submitButton').click( function() {
+		    $.ajax({
+		        url: '${pageContext.request.contextPath}/post/crea-post',
+		        type: 'post',
+		        dataType: 'json',
+		        data: $('form#myForm').serialize(),
+		        success: function(data) {
+		        	console.log("tutto è andato bene");
+		   		}
+		    });
+		});
 	</script>
 </html>
 

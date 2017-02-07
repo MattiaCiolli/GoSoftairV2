@@ -31,7 +31,7 @@ public class JDBCPostService implements PostService {
 		this.password = password;
 	}
 	
-	public void create (Post post) throws BusinessException {
+	public void create (Post post, long idEvento) throws BusinessException {
 		Connection con = null;
         PreparedStatement st = null;
         try {
@@ -39,10 +39,11 @@ public class JDBCPostService implements PostService {
             String sql = "INSERT INTO post (id, idutente, idevento, testo, data) VALUES (INCREMENTIDPOST.NEXTVAL,?,?,?,?)";
             st = con.prepareStatement(sql);
             st.setLong(1, post.getUtente().getId());
-            st.setLong(2, post.getIdEvento());
+            st.setLong(2, idEvento);
             st.setString(3, post.getMessaggio());
-           // st.setDate(4, post.getData());
+            st.setDate(4, new java.sql.Date(post.getData().getTime()));
             st.executeUpdate();
+            
         } catch (SQLException e) {
             e.printStackTrace();
             throw new BusinessException("Errore durante la creazione del post",e);

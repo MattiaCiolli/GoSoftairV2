@@ -14,12 +14,12 @@
     <listener-class>it.univaq.disim.gosoftair.common.startup.GosoftairServletContextListener</listener-class>
   </listener>
   <servlet>
-    <servlet-name>eventview</servlet-name>
+    <servlet-name>EventoView</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.EventoViewServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>eventview</servlet-name>
-    <url-pattern>/views/evento/dettagli</url-pattern>
+    <servlet-name>EventoView</servlet-name>
+    <url-pattern>/views/evento/evento</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>
