@@ -286,3 +286,5 @@ out/
 GoSoftair/.idea/misc.xml
 
 GoSoftair/.idea/workspace.xml
+GoSoftair/GoSoftair.iml
+.idea/artifacts/testartifact.xml
