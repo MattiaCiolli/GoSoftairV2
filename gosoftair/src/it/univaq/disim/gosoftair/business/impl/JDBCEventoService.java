@@ -35,17 +35,17 @@ public class JDBCEventoService implements EventoService {
         PreparedStatement st = null;
         try {
             con = DriverManager.getConnection(url, username, password);
-            String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDUTENTE, IMMAGINE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDUTENTE, IMMAGINE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?)";
             st = con.prepareStatement(sql);    
             st.setString(1, evento.getTitolo());
             st.setString(2, evento.getDescrizione());
-            st.setDate(3, new java.sql.Date(evento.getData().getDate()));
-            st.setString(5, evento.getPuntoIncontro());
-            st.setString(6, evento.getTipologia());
-            st.setInt(7, evento.getNumMaxPartecipanti());
-            st.setInt(8, evento.getStato());
-            st.setLong(9, evento.getOrganizzatore().getId());
-            st.setString(10, evento.getImmagine());
+            st.setDate(3, new java.sql.Date(evento.getData().getTime()));
+            st.setString(4, evento.getPuntoIncontro());
+            st.setString(5, evento.getTipologia());
+            st.setInt(6, evento.getNumMaxPartecipanti());
+            st.setInt(7, evento.getStato());
+            st.setLong(8, evento.getOrganizzatore().getId());
+            st.setString(9, evento.getImmagine());
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -185,13 +185,6 @@ public class JDBCEventoService implements EventoService {
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-
-				Date ora = new Date();
-				try {
-					ora = format.parse(rs.getString("data"));
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}

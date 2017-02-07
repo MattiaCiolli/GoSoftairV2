@@ -45,7 +45,7 @@ public class CreaEventoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Tipologia");
-		
+		System.out.println(request.getParameter("DataOra"));
 		Date data = null;
 		try {
 			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
@@ -53,6 +53,7 @@ public class CreaEventoServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		System.out.println(data);
 
 		String tipologia = request.getParameter("Tipologia");
 		String puntoIncontro = "latlong";
