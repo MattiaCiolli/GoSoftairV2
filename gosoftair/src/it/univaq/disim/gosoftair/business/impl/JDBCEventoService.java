@@ -193,7 +193,7 @@ public class JDBCEventoService implements EventoService {
 				String tipologia = rs.getString("tipologia");
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
-				String immagine = rs.getString("immagine");
+			    String immagine = rs.getString("immagine");
 				Utente idutente=new Utente();
 				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente);
 				risultati.add(evento);

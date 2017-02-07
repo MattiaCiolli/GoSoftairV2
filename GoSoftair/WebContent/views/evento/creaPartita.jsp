@@ -74,7 +74,7 @@
 		<div class="card" id="bianco">
 			<form id="partitaform"
 				action="${pageContext.request.contextPath}/CreaEventoServlet"
-				method="post">
+				method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<div class="form-group">
