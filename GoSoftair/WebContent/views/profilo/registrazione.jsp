@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset=UTF-8">
     <title>GoSoftair</title>
@@ -11,10 +11,8 @@
     <link href="${pageContext.request.contextPath}/resources/customCSS/profilo.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/registrazione.css" rel="stylesheet">
     <script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-    <script
-            src="${pageContext.request.contextPath}/resources/jquery/jquery.validate.min.js"></script>
-    <script
-            src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/jquery/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 

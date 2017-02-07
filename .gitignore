@@ -7,10 +7,11 @@
 artifacts\*
 *.pydevproject
 .idea\*
+.idea/*
+.idea/**
+.idea/
 .settings\*
 META-INF\*
-*.iml
-.project
 .metadata
 bin/
 tmp/
@@ -19,8 +20,6 @@ tmp/
 *.swp
 *~.nib
 local.properties
-.classpath
-.settings/
 .loadpath
 
 # External tool builders
@@ -284,3 +283,6 @@ fabric.properties
 out\**.css
 out\
 out/
+GoSoftair/.idea/misc.xml
+
+GoSoftair/.idea/workspace.xml
