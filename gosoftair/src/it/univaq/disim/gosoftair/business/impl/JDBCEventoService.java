@@ -35,19 +35,17 @@ public class JDBCEventoService implements EventoService {
         PreparedStatement st = null;
         try {
             con = DriverManager.getConnection(url, username, password);
-            String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, ORA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDSQUADRA1, IDSQUADRA2, IDUTENTE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDUTENTE, IMMAGINE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
             st = con.prepareStatement(sql);    
             st.setString(1, evento.getTitolo());
             st.setString(2, evento.getDescrizione());
-            st.setDate(3, (java.sql.Date) evento.getData());
-            st.setDate(4, (java.sql.Date) evento.getOra());
+            st.setDate(3, new java.sql.Date(evento.getData().getDate()));
             st.setString(5, evento.getPuntoIncontro());
             st.setString(6, evento.getTipologia());
             st.setInt(7, evento.getNumMaxPartecipanti());
             st.setInt(8, evento.getStato());
-            st.setLong(9, evento.getSquadre().getId());
-            st.setLong(10, evento.getSquadre().getId());
-            st.setLong(11, evento.getOrganizzatore().getId());
+            st.setLong(9, evento.getOrganizzatore().getId());
+            st.setString(10, evento.getImmagine());
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,7 +73,7 @@ public class JDBCEventoService implements EventoService {
 		try {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT titolo, descrizione, data, ora, puntoincontro, tipologia, nmaxpartecipanti, stato FROM evento WHERE id=" + id);
+			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato FROM evento WHERE id=" + id);
 			if (rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -87,18 +85,11 @@ public class JDBCEventoService implements EventoService {
 					e.printStackTrace();
 				}
 				
-				Date ora = new Date();
-				try {
-					ora = format.parse(rs.getString("ora"));
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				
 				String puntoIncontro = rs.getString("puntoincontro");
 				String tipologia = rs.getString("tipologia");
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
-				Evento evento = new Evento(titolo, descrizione, data, ora, puntoIncontro, tipologia, numMaxPartecipanti, stato);
+				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato);
 				return evento;
 			}else{
 				System.out.print("Il result set non ha elementi");
@@ -210,7 +201,8 @@ public class JDBCEventoService implements EventoService {
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
 				String immagine = rs.getString("immagine");
-				Evento evento = new Evento(titolo, descrizione, data, ora, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine);
+				Utente idutente=new Utente();
+				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente);
 				risultati.add(evento);
 				contatore++;
 			}

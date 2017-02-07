@@ -1,10 +1,9 @@
 package it.univaq.disim.gosoftair.presentation;
 
-import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.EventoService;
-import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
+import it.univaq.disim.gosoftair.business.model.Utente;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -46,33 +45,22 @@ public class CreaEventoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Tipologia");
-		String[] parts = {
-				request.getParameter("DataOra").substring(0, 10),
-				request.getParameter("DataOra").substring(10),
-		};
-		System.out.println(parts[0]+"  "+parts[1]);
+		
 		Date data = null;
 		try {
-			data = new SimpleDateFormat("dd-mm-yyyy").parse(parts[0]);
+			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		Date ora = new Date();
-		try {
-			ora = new SimpleDateFormat("HH:mm").parse(parts[1]);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		String tipologia = request.getParameter("Tipologia");
 		String puntoIncontro = "latlong";
 		int numPartecipanti = Integer.parseInt(request.getParameter("NumPartecipanti"));
-		//String immagine = "asdasd";
-		Integer idutente=1;
-		
-	
-		Evento evento=new Evento(titolo, descrizione, data, ora, puntoIncontro, tipologia, numPartecipanti, 1);
+		String immagine = "asdasd";
+		Utente organizzatore=new Utente(1, "aldo", "aldi", "asdad@asd", "alduccio", "qweqwe", "adsads", "dfgdfg");
+			
+		Evento evento=new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numPartecipanti, 1, immagine, organizzatore);
         GosoftairBusinessFactory factory=GosoftairBusinessFactory.getInstance();
         EventoService eventoService=factory.getEventoService();
         eventoService.create(evento);
