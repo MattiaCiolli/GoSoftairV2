@@ -28,7 +28,7 @@ public class JDBCAnnuncioService implements AnnuncioService{
         PreparedStatement st = null;
         try {
             con = DriverManager.getConnection(url, username, password);
-            String sql = "INSERT INTO ANNUNCIO (ID, TITOLO, DESCRIZIONE, IMMAGINE, PREZZO, NUMEROTELEFONO, EMAIL, IDUTENTE) VALUES (INCREMENTIDANNUNCIO.NEXTVAL,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO ANNUNCIO (ID, TITOLO, DESCRIZIONE, IMMAGINE, PREZZO, NUMEROTELEFONO, EMAIL, IDUTENTE, DATA) VALUES (INCREMENTIDANNUNCIO.NEXTVAL,?,?,?,?,?,?,?,?)";
             st = con.prepareStatement(sql);
     
             st.setString(1, annuncio.getTitolo());
@@ -38,6 +38,7 @@ public class JDBCAnnuncioService implements AnnuncioService{
             st.setString(5, annuncio.getNumeroTelefono());
             st.setString(6, annuncio.getEmail());
             st.setLong(7, annuncio.getInsertore().getId());//idutente
+            st.setDate(8,  new java.sql.Date(annuncio.getDatainserzione().getTime()));
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

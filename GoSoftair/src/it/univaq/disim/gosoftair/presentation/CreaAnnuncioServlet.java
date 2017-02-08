@@ -10,6 +10,9 @@ import it.univaq.disim.gosoftair.business.model.Utente;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -73,6 +76,7 @@ public class CreaAnnuncioServlet extends HttpServlet {
 		String prezzo = request.getParameter("Prezzo");
 		String numeroTelefono = request.getParameter("NumTelefono");
 		String email = request.getParameter("Email");
+		Date data = new Date();
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		UtenteService utenteService = factory.getUtenteService();
 		Utente insertore = utenteService.findUserByPK(0);
@@ -84,7 +88,7 @@ public class CreaAnnuncioServlet extends HttpServlet {
 		eventoService.create(myEvento);
 		*/
 		//doGet(request, response);
-		Annuncio annuncio=new Annuncio(titolo,descrizione, immagine, prezzo, numeroTelefono, email, insertore);
+		Annuncio annuncio=new Annuncio(titolo,descrizione, immagine, prezzo, numeroTelefono, email, insertore, data);
         AnnuncioService annuncioService=factory.getAnnuncioService();
         annuncioService.create(annuncio);
 	}
