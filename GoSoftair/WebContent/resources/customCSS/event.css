@@ -183,3 +183,16 @@ body {
 .team-member {
 	font-size: 1.5em;
 }
+
+.post {
+	margin-top: 10px;
+	background-color: #f2f2f2;
+}
+
+.img-post {
+	margin: 5px 0px 5px 0px;
+}
+
+.post-content {
+	padding: 5px 0px 5px 0px;
+}

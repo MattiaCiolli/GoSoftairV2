@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -175,7 +174,7 @@
 				</div>
 			</div>
 		</section>
-		<section style="margin-top:60px">
+		<section style="margin-top:60px; margin-bottom:10px;">
 			<div class="container">
 				<div class="row text-center">
 					<h3>Leave a comment</h3>
@@ -194,12 +193,13 @@
 					</div>
 				</div>
 				<c:forEach items="${evento.posts}" var="post">
-					<div class="row">
+					<div class="row post">
 						<div class="col-md-1">
-							<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
+							<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive img-post">
 						</div>
-						<div class="col-md-9">
-							<p>${post.utente.nickname}</p><span>${post.data}</span>
+						<div class="col-md-9 post-content">
+							<span>${post.utente.nickname}</span>
+							<span>- ${post.data}</span>
 							<p>${post.messaggio}</p>
 						</div>
 					</div>

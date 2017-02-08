@@ -33,7 +33,8 @@ public class CreaPostServlet extends HttpServlet {
 		Utente utente = utenteService.findUserByPK(Long.parseLong(request.getParameter("idUtente")));
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
+        Date date = dateFormat.getCalendar().getTime();
+       
 		Post post = new Post(utente, request.getParameter("postText"), date);
 		
 		long idEvento = Long.parseLong(request.getParameter("idEvento"));
