@@ -147,18 +147,19 @@
 					<div class="titoloSezione">
 						Annunci
 					</div>
+
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a href="#">
 							<div class="cartaScura">
 								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo2.jpg"
+									src="${pageContext.request.contextPath}/resources/img/${annunci[0].immagine}"
 									class="img-responsive ">
 								<div class="contenuto">
 									<div>
-										<p class="nome">Articolo 1</p>
+										<p class="nome">${annunci[0].titolo}</p>
 									</div>
 									<div>
-										<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<p class="descrizione">${annunci[0].descrizione}</p>
 									</div>
 								</div>
 							</div>
@@ -168,14 +169,14 @@
 						<a href="#">
 							<div class="cartaScura">
 								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
+									src="${pageContext.request.contextPath}/resources/img/${annunci[1].immagine}"
 									class="img-responsive ">
 								<div class="contenuto">
 									<div>
-										<p class="nome">Articolo 2</p>
+										<p class="nome">${annunci[1].titolo}</p>
 									</div>
 									<div>
-										<p class="descrizione">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+										<p class="descrizione">${annunci[1].descrizione}</p>
 									</div>
 								</div>
 							</div>

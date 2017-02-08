@@ -3,11 +3,17 @@ package it.univaq.disim.gosoftair.business.impl;
 import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.BusinessException;
 import it.univaq.disim.gosoftair.business.model.Annuncio;
+import it.univaq.disim.gosoftair.business.model.Evento;
+import it.univaq.disim.gosoftair.business.model.Utente;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 
 public class JDBCAnnuncioService implements AnnuncioService{
@@ -57,6 +63,73 @@ public class JDBCAnnuncioService implements AnnuncioService{
 
         }
 
+    }
+
+    @Override
+    public List<Annuncio> findLastAnnunci(Date oggi, int quantita) throws BusinessException {
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
+        int contatore=0;
+        List<Annuncio> risultati = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url, username, password);
+            st = con.createStatement();
+
+            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+            String oggiFormattato= DBformat.format(oggi);
+
+            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >"+ "'"+oggiFormattato+"'ORDER BY data");
+            while(rs.next() && contatore < quantita) {
+                Long id =rs.getLong("id");
+                String titolo = rs.getString("titolo");
+                String descrizione = rs.getString("descrizione");
+                String immagine = rs.getString("immagine");
+                String prezzo = rs.getString("prezzo");
+                String numeroTelefono = rs.getString("numeroTelefono");
+                String email = rs.getString("email");
+                Long idutente = rs.getLong("idutente");
+
+                DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.S", Locale.ITALIAN);
+                Date datainserzione = new Date();
+                try {
+                    datainserzione = format.parse(rs.getString("data"));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Utente insertore =new Utente();     // ????? VA BENE?????
+                insertore.setId(idutente);
+
+                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);
+                risultati.add(annuncio);
+                contatore++;
+            }
+            if(contatore == 0){
+                System.out.print("Il result set non ha elementi");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante la ricerca degli annunci",e);
+        } finally {
+            if (rs!=null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {}
+            }
+            if (st!=null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {}
+            }
+            if (con!=null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {}
+            }
+        }
+        return risultati;
     }
 }
 

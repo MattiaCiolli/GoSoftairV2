@@ -1,9 +1,7 @@
 package it.univaq.disim.gosoftair.presentation;
 
-import it.univaq.disim.gosoftair.business.EventoService;
-import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
-import it.univaq.disim.gosoftair.business.PostService;
-import it.univaq.disim.gosoftair.business.SquadreService;
+import it.univaq.disim.gosoftair.business.*;
+import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Post;
 import it.univaq.disim.gosoftair.business.model.Squadre;
@@ -30,11 +28,22 @@ public class HomeViewServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-        EventoService eventoService = factory.getEventoService();
+
         Date oggi=new Date();
+
+        //il 2 in findLastEvent è il numero di eventi da cercare di caricare dal DB
+        EventoService eventoService = factory.getEventoService();
         List<Evento> eventi = new ArrayList<>();
         eventi = eventoService.findLastEvent(oggi, 2);
         request.setAttribute("eventi", eventi);
+
+        AnnuncioService annuncioService = factory.getAnnuncioService();
+        List<Annuncio> annunci = new ArrayList<>();
+        //il 2 in findLastAnnunci è il numero di annunci da cercare di caricare dal DB
+        annunci = annuncioService.findLastAnnunci(oggi, 2);
+        request.setAttribute("annunci", annunci);
+
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
     }
