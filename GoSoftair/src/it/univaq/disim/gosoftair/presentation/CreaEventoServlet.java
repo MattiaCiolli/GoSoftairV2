@@ -25,7 +25,7 @@ import javax.servlet.http.Part;
  * Servlet implementation class CreaEventoServlet
  */
 @WebServlet("/CreaEventoServlet")
-@MultipartConfig(maxFileSize = 16177215)
+@MultipartConfig(maxFileSize = 1048576)
 public class CreaEventoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -81,7 +81,6 @@ public class CreaEventoServlet extends HttpServlet {
 		int numPartecipanti = Integer.parseInt(request
 				.getParameter("NumPartecipanti"));
 		String appPath = request.getServletContext().getRealPath("/");
-		System.out.println(appPath);
 		// constructs path of the directory to save uploaded file
 		String savePath = appPath + File.separator +"resources"+ File.separator +"img";
 		String immagine = null; // input stream of the upload file

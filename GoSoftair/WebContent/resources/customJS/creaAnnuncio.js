@@ -5,7 +5,7 @@ $(document)
 				{
 
 					// permette upload immagine
-					$("#immagine")
+					$("#Immagine")
 							.fileinput(
 									{
 										language:'it',
@@ -47,7 +47,7 @@ $(document)
 
 								rules : {
 
-									titolo : {
+									Titolo : {
 
 										required : true,
 
@@ -57,7 +57,7 @@ $(document)
 
 									},
 
-									descrizione : {
+									Descrizione : {
 
 										required : true,
 
@@ -67,7 +67,7 @@ $(document)
 
 									},
 
-									prezzo : {
+									Prezzo : {
 
 										required : true,
 
@@ -77,13 +77,13 @@ $(document)
 
 									},
 									
-									email : {
+									Email : {
 
 										required : true
 
 									},
 									
-									numTelefono : {
+									NumTelefono : {
 
 										required : true,
 										
@@ -95,7 +95,7 @@ $(document)
 
 								messages : {
 
-									titolo : {
+									Titolo : {
 
 										required : "Inserisci un titolo",
 
@@ -105,7 +105,7 @@ $(document)
 
 									},
 
-									descrizione : {
+									Descrizione : {
 
 										required : "Inserisci una descrizione",
 
@@ -115,7 +115,7 @@ $(document)
 
 									},
 
-									prezzo : {
+									Prezzo : {
 
 										required : "Inserisci un prezzo",
 
@@ -123,13 +123,13 @@ $(document)
 
 									},
 									
-									email : {
+									Email : {
 
 										required : "Inserisci una mail"
 
 									},
 									
-									numTelefono : {
+									NumTelefono : {
 
 										required : "Inserisci un numero di telefono",
 

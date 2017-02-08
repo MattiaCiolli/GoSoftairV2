@@ -37,7 +37,7 @@ public class JDBCAnnuncioService implements AnnuncioService{
             st.setString(4, annuncio.getPrezzo());
             st.setString(5, annuncio.getNumeroTelefono());
             st.setString(6, annuncio.getEmail());
-            st.setInt(7, annuncio.getIdUtente());//idutente
+            st.setLong(7, annuncio.getInsertore().getId());//idutente
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -8,13 +8,13 @@ public class Annuncio implements java.io.Serializable {
 	private String prezzo;
 	private String numeroTelefono;
 	private String email;
-	private Integer idutente;
+	private Utente insertore;
 
 	public Annuncio() {
 		super();
 	}
 	
-	public Annuncio(long id, String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Integer idutente) {
+	public Annuncio(long id, String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Utente insertore) {
 		super();
 		this.id = id;
 		this.titolo = titolo;
@@ -23,10 +23,10 @@ public class Annuncio implements java.io.Serializable {
 		this.prezzo = prezzo;
 		this.numeroTelefono = numeroTelefono;
 		this.email = email;
-		this.idutente = idutente;
+		this.insertore = insertore;
 	}
 	
-	public Annuncio(String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Integer idutente) {
+	public Annuncio(String titolo, String descrizione, String immagine, String prezzo, String numeroTelefono, String email, Utente insertore) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
@@ -34,7 +34,7 @@ public class Annuncio implements java.io.Serializable {
 		this.prezzo = prezzo;
 		this.numeroTelefono = numeroTelefono;
 		this.email = email;
-		this.idutente = idutente;
+		this.insertore = insertore;
 	}
 
 	public String getTitolo() {
@@ -85,11 +85,11 @@ public class Annuncio implements java.io.Serializable {
 		this.email = email;
 	}
 	
-	public Integer getIdUtente() {
-		return idutente;
+	public Utente getInsertore() {
+		return insertore;
 	}
 
-	public void setIdUtente(Integer idutente) {
-		this.idutente = idutente;
+	public void setInsertore(Utente insertore) {
+		this.insertore = insertore;
 	}
 }

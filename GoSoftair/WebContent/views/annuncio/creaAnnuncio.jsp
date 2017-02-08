@@ -70,12 +70,12 @@
 					<div class="card" id="bianco">
 						<form id="annuncioform"
 							action="${pageContext.request.contextPath}/views/annuncio/nuovo"
-							method="post">
+							method="post" enctype="multipart/form-data">
 							<div class="row">
 								<div class='col-sm-4 col-md-4 col-lg-4'>
 									<div class="form-group">
 										<label for="Titolo">Titolo:</label> <input type="text"
-											class="form-control" id="titolo" name="titolo">
+											class="form-control" id="Titolo" name="Titolo">
 									</div>
 								</div>
 							</div>
@@ -84,8 +84,8 @@
 								<div class='col-sm-4 col-md-4 col-lg-4'>
 									<div class="form-group">
 										<label for="Descrizione">Descrizione:</label>
-										<textarea rows="5" class="form-control" id="descrizione"
-											name="descrizione"></textarea>
+										<textarea rows="5" class="form-control" id="Descrizione"
+											name="Descrizione"></textarea>
 									</div>
 								</div>
 							</div>
@@ -96,8 +96,8 @@
 									<div class="form-group">
 										<label for="Prezzo">Prezzo:</label>
 										<div class="input-group">
-											<input type="number" class="form-control" id="prezzo"
-												name="prezzo" /> <span class="input-group-addon">$</span>
+											<input type="number" class="form-control" id="Prezzo"
+												name="Prezzo" /> <span class="input-group-addon">$</span>
 										</div>
 									</div>
 								</div>
@@ -106,9 +106,9 @@
 							<div class="row">
 								<div class='col-sm-4 col-md-4 col-lg-4'>
 									<div class="form-group">
-										<label for="Prezzo">Telefono:</label>									
-											<input type="number" class="form-control" id="numTelefono"
-												name="numTelefono" />
+										<label for="NumTelefono">Telefono:</label>									
+											<input type="number" class="form-control" id="NumTelefono"
+												name="NumTelefono" />
 										</div>
 									</div>
 								</div>
@@ -117,9 +117,9 @@
 							<div class="row">
 								<div class='col-sm-4 col-md-4 col-lg-4'>
 									<div class="form-group">
-										<label for="Prezzo">E-Mail:</label>
-											<input type="email" class="form-control" id="email"
-												name="email" />
+										<label for="Email">E-Mail:</label>
+											<input type="Email" class="form-control" id="Email"
+												name="Email" />
 										</div>
 									</div>
 								</div>
@@ -128,7 +128,7 @@
 								<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
 									<label for="Immagine">Immagine:</label>
 									<div class="kv-avatar center-block">
-										<input id="immagine" name="immagine" type="file"
+										<input id="Immagine" name="Immagine" type="file"
 											class="file-loading">
 									</div>
 									<div id="kv-avatar-errors-2" class="center-block"></div>
