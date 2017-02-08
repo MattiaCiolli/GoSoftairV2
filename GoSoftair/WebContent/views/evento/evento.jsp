@@ -185,10 +185,10 @@
 						<img src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg" class="img-responsive">
 					</div>
 					<div class="col-md-7">
-						<form id="myForm">
-							<input type="text" name="postText" placeholder="Insersci un commento">
-  							<input type="text" name="idUtente" value="<%= session.getAttribute("idUtente") %>" hidden>
-  							<input type="text" name="idEvento" value="${evento.id}" hidden>
+						<form id="myForm" action="${pageContext.request.contextPath}/post/crea-post">
+							<input type="text" name="postText" id="postText" placeholder="Insersci un commento">
+  							<input type="text" name="idUtente" id="idUtente" value="<%= session.getAttribute("idUtente") %>" hidden>
+  							<input type="text" name="idEvento" id="idEvento" value="${evento.id}" hidden>
   							<input type="submit" value="Inserisci" id="submitButton">
 						</form>
 					</div>
@@ -268,17 +268,21 @@
 			}
 		}
 		
-		$('input#submitButton').click( function() {
-		    $.ajax({
-		        url: '${pageContext.request.contextPath}/post/crea-post',
-		        type: 'post',
-		        dataType: 'json',
-		        data: $('form#myForm').serialize(),
-		        success: function(data) {
-		        	console.log("tutto è andato bene");
-		   		}
+		$("#myForm").submit(function(event) {
+
+		      /* stop form from submitting normally */
+		      event.preventDefault();
+				
+		      var $form = $( this ),
+	          url = $form.attr('action');
+		      				
+		      /* Send the data using post with element id name and name2*/
+		      var posting = $.post( url, { postText: $('#postText').val(), idUtente: $('#idUtente').val(), idEvento: $('#idEvento').val() }, function(result){
+		    	  if(result == 1) {
+			    	  alert('success');
+		    	  }
+		      });
 		    });
-		});
 	</script>
 </html>
 

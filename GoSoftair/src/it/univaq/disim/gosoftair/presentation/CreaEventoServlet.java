@@ -1,6 +1,7 @@
 package it.univaq.disim.gosoftair.presentation;
 
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Utente;
@@ -28,9 +29,6 @@ import javax.servlet.http.Part;
 public class CreaEventoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 *      * Extracts file name from HTTP header content-disposition      
-	 */
 	private String extractFileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
@@ -65,15 +63,13 @@ public class CreaEventoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Tipologia");
 		System.out.println(request.getParameter("DataOra"));
 		Date data = null;
 		try {
-			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request
-					.getParameter("DataOra"));
+			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
 		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -84,9 +80,10 @@ public class CreaEventoServlet extends HttpServlet {
 		String puntoIncontro = "latlong";
 		int numPartecipanti = Integer.parseInt(request
 				.getParameter("NumPartecipanti"));
-		String appPath = request.getServletContext().getRealPath("");
+		String appPath = request.getServletContext().getRealPath("/");
+		System.out.println(appPath);
 		// constructs path of the directory to save uploaded file
-		String savePath = appPath + "WebContent"+ File.separator +"resources"+ File.separator +"img";
+		String savePath = appPath + File.separator +"resources"+ File.separator +"img";
 		String immagine = null; // input stream of the upload file
 		// obtains the upload file part in this multipart request
 		Part filePart = request.getPart("Immagine");
@@ -99,16 +96,13 @@ public class CreaEventoServlet extends HttpServlet {
 			// obtains input stream of the upload file
 			immagine = fileName;
 		}
-
-		// String immagine = "asdasd";
-		Utente organizzatore = new Utente(1, "aldo", "aldi", "asdad@asd",
-				"alduccio", "qweqwe", "adsads", "dfgdfg");
-
-		Evento evento = new Evento(titolo, descrizione, data, puntoIncontro,
-				tipologia, numPartecipanti, 1, immagine, organizzatore);
-		GosoftairBusinessFactory factory = GosoftairBusinessFactory
-				.getInstance();
+		
+		
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+		UtenteService utenteService = factory.getUtenteService();
+		Utente organizzatore = utenteService.findUserByPK(0);
 		EventoService eventoService = factory.getEventoService();
+		Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numPartecipanti, 1, immagine, organizzatore);
 		eventoService.create(evento);
 	}
 
