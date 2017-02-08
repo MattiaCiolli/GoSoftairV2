@@ -6,29 +6,30 @@ $(document)
 
 					// permette upload immagine
 					$("#immagine")
-							.fileinput(
-									{
-										overwriteInitial : true,
-										minFileSize : 1,
-										maxFileSize : 1000,
-										showClose : false,
-										showCaption : false,
-										showBrowse : true,
-										browseOnZoneClick : true,
-										browseLabel : '',
-										removeLabel : '',
-										browseIcon : '<i class="glyphicon glyphicon-folder-open"></i>',
-										removeIcon : '<i class="glyphicon glyphicon-remove"></i>',
-										removeTitle : 'Cancel or reset changes',
-										elErrorContainer : '#kv-avatar-errors-2',
-										msgErrorClass : 'alert alert-block alert-danger',
-										defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine annuncio">',
-										layoutTemplates : {
-											main2 : '{preview}{browse} {remove}'
-										},
-										allowedFileExtensions : [ "jpg", "png", "jpeg",
-												"gif" ]
-									});
+					.fileinput(
+							{
+								language:'it',
+								overwriteInitial : true,
+								minFileCount: 1,
+								maxFileSize : 1000,
+								showClose : false,
+								showCaption : false,
+								showBrowse : true,
+								browseOnZoneClick : true,
+								browseLabel : '',
+								removeLabel : '',
+								browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+								removeIcon : '<i class="glyphicon glyphicon-remove"></i>',
+								removeTitle : 'Cancel or reset changes',
+								elErrorContainer : '#kv-avatar-errors-2',
+								msgErrorClass : 'alert alert-block alert-danger',
+								defaultPreviewContent : '<img src="../../resources/img/uploadicon.png" id="imginput" alt="Immagine partita">',
+								layoutTemplates : {
+									main2 : '{preview}{browse} {remove}'
+								},
+								allowedFileExtensions : [ "jpg", "png",
+										"gif" ]
+							});
 
 					// evita valori negativi
 
@@ -78,7 +79,7 @@ $(document)
 
                                 },
 
-                                nickname: {
+                                username: {
 
                                     required: true,
 
@@ -138,9 +139,9 @@ $(document)
 
                                 },
 
-                                nickname: {
+                                username: {
 
-                                    required: "Inserisci il tuo nickname",
+                                    required: "Inserisci il tuo username",
 
                                     minlength: "Almeno 3 caratteri",
 

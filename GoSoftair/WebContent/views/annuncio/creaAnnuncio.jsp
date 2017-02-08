@@ -118,7 +118,7 @@
 								<div class='col-sm-4 col-md-4 col-lg-4'>
 									<div class="form-group">
 										<label for="Email">E-Mail:</label>
-											<input type="Email" class="form-control" id="Email"
+											<input type="email" class="form-control" id="Email"
 												name="Email" />
 										</div>
 									</div>
