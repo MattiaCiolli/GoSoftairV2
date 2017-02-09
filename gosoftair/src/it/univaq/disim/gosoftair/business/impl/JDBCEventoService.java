@@ -238,7 +238,7 @@ public class JDBCEventoService implements EventoService {
 	}
 
 
-	public List<Evento> findLastEventByUserID(long id, Date oggi) {
+	public List<Evento> findUltimiByUserID(Date oggi, long id) {
 
 		Connection con = null;
 		Statement st = null;
