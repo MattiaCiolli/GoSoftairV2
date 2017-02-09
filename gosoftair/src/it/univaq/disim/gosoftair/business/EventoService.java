@@ -16,7 +16,7 @@ public interface EventoService {
 	*/
 	Evento findEventoByPK(long id) throws BusinessException;
 
-	//List<Evento> findUltimiByUserId (long id) throws BusinessException;
+	List<Evento> findUltimiByUserID (Date oggi, long id) throws BusinessException;
 	
 	//List<TitleKind> findAllTitleKinds() throws BusinessException;
 
