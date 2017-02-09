@@ -21,4 +21,6 @@ public interface EventoService {
 	//List<TitleKind> findAllTitleKinds() throws BusinessException;
 
 	List<Evento> findLastEvent(Date oggi, int quantita) throws BusinessException;
+
+	List<Evento> findAllMySubscription(Date oggi, long idUtente);
 }

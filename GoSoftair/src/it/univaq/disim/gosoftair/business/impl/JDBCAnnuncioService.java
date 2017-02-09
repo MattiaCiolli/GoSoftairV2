@@ -90,7 +90,7 @@ public class JDBCAnnuncioService implements AnnuncioService{
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
 
-                DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.S", Locale.ITALIAN);
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
                 Date datainserzione = new Date();
                 try {
                     datainserzione = format.parse(rs.getString("data"));

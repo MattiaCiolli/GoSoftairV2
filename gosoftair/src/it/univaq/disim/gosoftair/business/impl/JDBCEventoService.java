@@ -181,7 +181,7 @@ public class JDBCEventoService implements EventoService {
 			while(rs.next() && contatore < quantita) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
-				DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));
@@ -196,6 +196,70 @@ public class JDBCEventoService implements EventoService {
 			    String immagine = rs.getString("immagine");
 				Utente idutente=new Utente();
 				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente);
+				risultati.add(evento);
+				contatore++;
+			}
+			if(contatore == 0){
+				System.out.print("Il result set non ha elementi");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BusinessException("Errore durante la ricerca degli eventi",e);
+		} finally {
+			if (rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			}
+			if (st!=null) {
+				try {
+					st.close();
+				} catch (SQLException e) {}
+			}
+			if (con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {}
+			}
+		}
+		return risultati;
+	}
+
+	@Override
+	public List<Evento> findAllMySubscription(Date oggi, long idUtente) {
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		int contatore=0;
+
+		List<Evento> risultati = new ArrayList<>();
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			st = con.createStatement();
+
+			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+			String oggiFormattato= DBformat.format(oggi);
+
+			rs = st.executeQuery("SELECT evento.id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine FROM evento, utente_evento WHERE evento.id = utente_evento.idevento AND utente_evento.idutente ="+idUtente+" AND data >"+ "'"+oggiFormattato+"' ORDER BY data");
+			while(rs.next()) {
+				String titolo = rs.getString("titolo");
+				String descrizione = rs.getString("descrizione");
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				Date data = new Date();
+				try {
+					data = format.parse(rs.getString("data"));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+				String puntoIncontro = rs.getString("puntoIncontro");
+				String tipologia = rs.getString("tipologia");
+				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
+				int stato = Integer.parseInt(rs.getString("stato"));
+				String immagine = rs.getString("immagine");
+				long id= rs.getLong("id");
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine);
 				risultati.add(evento);
 				contatore++;
 			}

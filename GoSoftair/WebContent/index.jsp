@@ -46,7 +46,7 @@
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
-										class="img-responsive bordino ">
+										class="img-responsive bordino largo">
 									<div class="contenuto">
 										<div>
 											<p class="nome">Partita 1</p>
@@ -66,7 +66,7 @@
 									<div class="carta">
 										<img
 											src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
-											class="img-responsive bordino ">
+											class="img-responsive bordino largo">
 										<div class="contenuto">
 											<div>
 												<p class="nome">${evento.titolo}</p>
@@ -87,7 +87,7 @@
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
-										class="img-responsive bordino">
+										class="img-responsive bordino largo">
 									<div class="contenuto">
 										<div>
 											<p class="nome">Partita 3</p>
@@ -104,7 +104,7 @@
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
-										class="img-responsive bordino">
+										class="img-responsive bordino largo">
 									<div class="contenuto">
 										<div>
 											<p class="nome">Partita 4</p>
@@ -121,7 +121,7 @@
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"
-										class="img-responsive bordino">
+										class="img-responsive bordino largo">
 									<div class="contenuto">
 										<div>
 											<p class="nome">Partita 5</p>
@@ -151,11 +151,11 @@
 
 					<c:forEach items="${annunci}" var="annuncio" varStatus="loop">
 						<div class="${classeGrafica[loop.index]} col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}views/annuncio/bachecaAnnunci.jsp?idAnnuncio=${annuncio.id}">
+							<a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci.jsp?idAnnuncio=${annuncio.id}">
 								<div class="cartaScura">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
-										class="img-responsive ">
+										class="img-responsive largo">
 									<div class="contenuto">
 										<div>
 											<p class="nome">${annuncio.titolo}</p>

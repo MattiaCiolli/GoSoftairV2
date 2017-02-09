@@ -35,6 +35,19 @@ public class Evento implements java.io.Serializable {
 		this.setStato(stato);
 	}
 
+	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine) {
+		super();
+		this.id = id;
+		this.titolo = titolo;
+		this.descrizione = descrizione;
+		this.data = data;
+		this.puntoIncontro = puntoIncontro;
+		this.tipologia = tipologia;
+		this.numMaxPartecipanti = numMaxPartecipanti;
+		this.setStato(stato);
+		this.immagine = immagine;
+	}
+
 	//costruttore con immagine, non ho voluto metterlo nel costruttore di sotto perche non so se qualcuno di voi lo stava usando
 	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine, Utente organizzatore) {
 		super();
