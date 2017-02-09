@@ -77,7 +77,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci.jsp">Bacheca annunci</a></li>
+									<li><a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci">Bacheca annunci</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/views/annuncio/creaAnnuncio.jsp">Crea annuncio</a></li>
 								</ul>

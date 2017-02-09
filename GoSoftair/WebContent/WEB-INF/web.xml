@@ -69,4 +69,12 @@
     <servlet-name>HomeViewServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>BachecaAnnunciViewServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.BachecaAnnunciViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BachecaAnnunciViewServlet</servlet-name>
+    <url-pattern>/views/annuncio/bachecaAnnunci</url-pattern>
+  </servlet-mapping>
 </web-app>

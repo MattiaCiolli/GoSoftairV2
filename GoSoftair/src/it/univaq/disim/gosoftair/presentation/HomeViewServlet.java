@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,16 +35,25 @@ public class HomeViewServlet extends HttpServlet {
 
         //il 2 in findLastEvent è il numero di eventi da cercare di caricare dal DB
         EventoService eventoService = factory.getEventoService();
-        List<Evento> eventi = new ArrayList<>();
+        List<Evento> eventi;
         eventi = eventoService.findLastEvent(oggi, 2);
         request.setAttribute("eventi", eventi);
 
         AnnuncioService annuncioService = factory.getAnnuncioService();
-        List<Annuncio> annunci = new ArrayList<>();
+        List<Annuncio> annunci;
+        Calendar data = Calendar.getInstance();
+        data.setTime(oggi);
+        data.add(Calendar.MONTH, -3);
+        Date oggiMeno3Mesi = data.getTime();
         //il 2 in findLastAnnunci è il numero di annunci da cercare di caricare dal DB
-        annunci = annuncioService.findLastAnnunci(oggi, 2);
+        annunci = annuncioService.findLastAnnunci(oggiMeno3Mesi, 2);
         request.setAttribute("annunci", annunci);
 
+        List<String> classeGrafica = new ArrayList<>();
+        classeGrafica.add("");
+        classeGrafica.add("hidden-xs");
+        classeGrafica.add("hidden-md  hidden-xs hidden-sm");
+        request.setAttribute("classeGrafica",classeGrafica);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);

@@ -61,24 +61,24 @@
 
 
 						<c:forEach items="${eventi}" var="evento">
-						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
-								<div class="carta">
-									<img
-										src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
-										class="img-responsive bordino ">
-									<div class="contenuto">
-										<div>
-											<p class="nome">${evento.titolo}</p>
+							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+								<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
+									<div class="carta">
+										<img
+											src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+											class="img-responsive bordino ">
+										<div class="contenuto">
+											<div>
+												<p class="nome">${evento.titolo}</p>
+											</div>
+											<div>
+												<p class="descrizione">${evento.descrizione}</p>
+											</div>
 										</div>
-										<div>
-											<p class="descrizione">${evento.descrizione}</p>
-										</div>
-									</div>
 
-								</div>
-							</a>
-						</div>
+									</div>
+								</a>
+							</div>
 						</c:forEach>
 
 
@@ -148,41 +148,28 @@
 						Annunci
 					</div>
 
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a href="#">
-							<div class="cartaScura">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/${annunci[0].immagine}"
-									class="img-responsive ">
-								<div class="contenuto">
-									<div>
-										<p class="nome">${annunci[0].titolo}</p>
-									</div>
-									<div>
-										<p class="descrizione">${annunci[0].descrizione}</p>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="hidden-xs col-lg-4 col-md-6 col-sm-6">
-						<a href="#">
-							<div class="cartaScura">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/${annunci[1].immagine}"
-									class="img-responsive ">
-								<div class="contenuto">
-									<div>
-										<p class="nome">${annunci[1].titolo}</p>
-									</div>
-									<div>
-										<p class="descrizione">${annunci[1].descrizione}</p>
+
+					<c:forEach items="${annunci}" var="annuncio" varStatus="loop">
+						<div class="${classeGrafica[loop.index]} col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a href="${pageContext.request.contextPath}views/annuncio/bachecaAnnunci.jsp?idAnnuncio=${annuncio.id}">
+								<div class="cartaScura">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
+										class="img-responsive ">
+									<div class="contenuto">
+										<div>
+											<p class="nome">${annuncio.titolo}</p>
+										</div>
+										<div>
+											<p class="descrizione">${annuncio.descrizione}</p>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					</div>
-					<div class="hidden-md  hidden-xs hidden-sm  col-lg-4">
+							</a>
+						</div>
+					</c:forEach>
+
+					<div class="${classeGrafica[2]}  col-lg-4">
 						<a href="#">
 							<div class="cartaScura">
 								<img
@@ -199,6 +186,7 @@
 							</div>
 						</a>
 					</div>
+
 				</div>
 			</div>
 		</div>

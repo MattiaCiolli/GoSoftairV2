@@ -16,6 +16,10 @@ a:hover {
 	text-decoration: none;
 }
 
+.img-responsive{
+	width: 100%;
+}
+
 /* Jumbotron */
 .jumboPadding {
 	padding-right: 0px;
