@@ -5,6 +5,7 @@ import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Post;
 import it.univaq.disim.gosoftair.business.model.Squadre;
+import it.univaq.disim.gosoftair.utility.ReadXMLFile;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,6 +55,9 @@ public class HomeViewServlet extends HttpServlet {
         classeGrafica.add("hidden-xs");
         classeGrafica.add("hidden-md  hidden-xs hidden-sm");
         request.setAttribute("classeGrafica",classeGrafica);
+
+        //ReadXMLFile f= new ReadXMLFile();
+        //f.leggiDatiMeteo();
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);

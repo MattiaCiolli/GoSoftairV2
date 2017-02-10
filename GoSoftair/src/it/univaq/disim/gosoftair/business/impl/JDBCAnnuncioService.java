@@ -83,6 +83,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
 
             rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
             while (rs.next() && contatore < quantita) {
+                contatore++;
                 Long id = rs.getLong("id");
                 String titolo = rs.getString("titolo");
                 String descrizione = rs.getString("descrizione");
@@ -100,15 +101,14 @@ public class JDBCAnnuncioService implements AnnuncioService {
                     e.printStackTrace();
                 }
 
-                Utente insertore = new Utente();     // ????? VA BENE?????
-                insertore.setId(idutente);
+                Utente insertore = new Utente();     // ????? VA BENE?????  //togliere
+                insertore.setId(idutente);                                  //togliere
 
-                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);
-                risultati.add(annuncio);
-                contatore++;
+                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);  //togliere insertore creando un nuovo construttore che non ne ha bisogno
+                risultati.add(annuncio);                                                                                        //costruire poi l'utente dalla servlet che richiama l'annucnio                contatore++;
             }
             if (contatore == 0) {
-                System.out.print("Il result set non ha elementi");
+                System.out.print("Il result set non ha elementi ultimi annunci");
             }
 
         } catch (SQLException e) {

@@ -208,7 +208,7 @@ public class JDBCEventoService implements EventoService {
 				contatore++;
 			}
 			if (contatore == 0) {
-				System.out.print("Il result set non ha elementi");
+				System.out.print("Il result set non ha elementi ultimi eventi");
 			}
 
 		} catch (SQLException e) {
