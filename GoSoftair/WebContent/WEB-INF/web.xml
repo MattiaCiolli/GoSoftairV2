@@ -20,7 +20,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>EventoView</servlet-name>
-    <url-pattern>/views/evento/evento</url-pattern>
+    <url-pattern>/views/evento/dettagli</url-pattern>
   </servlet-mapping>
 
   <servlet>
