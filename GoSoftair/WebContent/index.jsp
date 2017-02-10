@@ -151,7 +151,7 @@
 
 					<c:forEach items="${annunci}" var="annuncio" varStatus="loop">
 						<div class="${classeGrafica[loop.index]} col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci.jsp?idAnnuncio=${annuncio.id}">
+							<a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci?idAnnuncio=${annuncio.id}">
 								<div class="cartaScura">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"

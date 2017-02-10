@@ -23,6 +23,15 @@
     <url-pattern>/views/evento/dettagli</url-pattern>
   </servlet-mapping>
 
+ <servlet>
+    <servlet-name>EventoInCorso</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.AggiornaPosizioniServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EventoInCorso</servlet-name>
+    <url-pattern>/views/evento/incorso</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteServlet</servlet-class>
