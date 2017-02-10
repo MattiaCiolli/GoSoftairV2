@@ -64,6 +64,7 @@
                 </button>
             </div>
         </div>
+		<div id="out"></div>
     </div>
 </section>
 <%@include file="/layout/footer.jsp" %>
@@ -143,6 +144,39 @@
             radius: 15,
         });
     }
+    
+    var intervalID = setInterval( function() 
+    	{
+	    	var output = document.getElementById("out");
+	
+	  	  	if (!navigator.geolocation){
+	  	    	output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+	  	    	return;
+	  	  	}
+	
+	  	  	function success(position) {
+	  	    	var latitude  = position.coords.latitude;
+	  	    	var longitude = position.coords.longitude;
+	  	    	var url = "${pageContext.request.contextPath}/views/evento/incorso";
+	  	    	
+	  	    	$.post( 
+	  	    		url, 
+	  	    		{ lat: latitude, lon: longitude, idUtente: <%= session.getAttribute("idUtente") %>, idEvento: 0 }, 
+	  	    		function(result){
+						console.log(results);
+	  	  			}
+	  	    	);
+	  	  	}
+	  	  	
+	  	  	function error() {
+	  	   		output.innerHTML = "Unable to retrieve your location";
+	  	  	}
+	
+	  	  	output.innerHTML = "<p>Locating…</p>";
+	  	  	navigator.geolocation.getCurrentPosition(success, error);
+	  	  	
+    	}, 5000);
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
 

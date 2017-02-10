@@ -6,7 +6,7 @@ public class PosizioneGiocatore implements java.io.Serializable {
 	
 	private double lat;
 	private double lon;
-	private Utente giocatore;
+	private long idGiocatore;
 	
 	public PosizioneGiocatore() {}
 
@@ -26,11 +26,11 @@ public class PosizioneGiocatore implements java.io.Serializable {
 		this.lon = lon;
 	}
 
-	public Utente getGiocatore() {
-		return giocatore;
+	public long getIdGiocatore() {
+		return idGiocatore;
 	}
 
-	public void setGiocatore(Utente giocatore) {
-		this.giocatore = giocatore;
+	public void setGiocatore(long idGiocatore) {
+		this.idGiocatore = idGiocatore;
 	};
 }

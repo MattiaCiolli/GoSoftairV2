@@ -24,11 +24,11 @@
   </servlet-mapping>
 
  <servlet>
-    <servlet-name>EventoInCorso</servlet-name>
-    <servlet-class>it.univaq.disim.gosoftair.presentation.AggiornaPosizioniServlet</servlet-class>
+    <servlet-name>PartitaInCorso</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.PartitaInCorsoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>EventoInCorso</servlet-name>
+    <servlet-name>PartitaInCorso</servlet-name>
     <url-pattern>/views/evento/incorso</url-pattern>
   </servlet-mapping>
   
