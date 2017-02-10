@@ -42,16 +42,39 @@ $(document)
 
 
 					//valida il formato della email inserita
-					jQuery.validator.addMethod("emailValida", function validaEmail(email) {
-						var regexp = /^(([^<>;()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
-						return regexp.test(email);
-					}, "Email non valida");
+
+					function validazione_email(email) {
+
+						var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+						val=reg.test(email);
+						if (!val) Window.Alert="Attenzione, hai inserito una email non valida";
+						return val;
+					};
 
                     //valida il formato del numero di documento inserito (2 lettere e 7 numeri)
-                    jQuery.validator.addMethod("documentoValido", function documentoValido(documentoValido) {
-                        var regexp = /[A-Z]{2}[0-9]{7}/ ;
-                        return regexp.test(documentoValido);
-                    }, "Numero di documento non valido");
+					function validazione_documento(documentoValido) {
+                        var reg = /[A-Z]{2}[0-9]{7}/ ;
+						val1=reg.test(documentoValido);
+                        if(!val1) Window.Alert="Attenzione, hai inserito un documento non valido";
+						return val1;
+                    };
+
+
+
+                    //conferma psw
+
+                    function confermapsw(password,confermaPassword) {
+                    if(password==confermaPassword)
+                    	val2=true;
+					else {
+						val2=false;
+						Window.Alert="Attenzione, hai inserito due password diverse"
+					}
+					return val2;
+                    };
+
+
+
 
 					// valida l'input, se corretto lo invia
 					$("#formRegistrazione").validate(
@@ -91,7 +114,10 @@ $(document)
 
                                 email: {
 
-                                    required: true
+                                    required: true,
+
+									val: true
+
 
                                 },
 
@@ -107,13 +133,29 @@ $(document)
 
                                 },
 
+
+								confermaPassword: {
+
+									required: true,
+
+									minlenght: 8,
+
+									maxlenght: 20,
+
+									val2: true
+
+
+								},
+
                                 documentoValido: {
 
                                     required: true,
 
                                     minlenght: 9,
 
-                                    maxlenght: 9
+                                    maxlenght: 9,
+
+									val1: true
                                 },
                             },
 
@@ -154,6 +196,18 @@ $(document)
                                     required: "Inserisci la tua mail"
 
                                 },
+
+								password: {
+
+									required: "Inserisci la password"
+
+								},
+
+								confermaPassword: {
+
+									required: "Conferma la tua password"
+
+								},
 
                                 documentoValido: {
 

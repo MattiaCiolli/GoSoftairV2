@@ -1,8 +1,11 @@
 package it.univaq.disim.gosoftair.presentation;
 
+import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.model.Annuncio;
+import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Utente;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Faith on 03/02/17.
@@ -22,14 +27,22 @@ public class UtenteViewServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //fittizio
-        long id = 0;
+        long id = 0; //deve essere settato nel login
+        Date oggi=new Date();
+
 
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService utenteService = factory.getUtenteService();
-        Utente utente = utenteService.findUserByPK(id);
-        request.setAttribute("utente", utente);
+        AnnuncioService annuncioservice = factory.getAnnuncioService();
+        EventoService eventoService= factory.getEventoService();
 
+        List<Annuncio> ultimiAnnunci = annuncioservice.findLastAnnunciByUserID(oggi, id);
+        List<Evento> ultimiEventi = eventoService.findUltimiByUserID(oggi, id);
+        Utente utente = utenteService.findUserByPK(id);
+
+        request.setAttribute("utente", utente);
+        request.setAttribute("ultimiAnnunci", ultimiAnnunci);
+        request.setAttribute("ultimiEventi", ultimiEventi);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
         dispatcher.forward(request, response);

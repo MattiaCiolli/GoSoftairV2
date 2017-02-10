@@ -233,7 +233,7 @@
 			<div class="panel panel-default">
   				<div class="panel-body">
     				<div class="col-xs-12 col-sm-4">
-                              <img class="img-thumbnail img-responsive " alt="Foto Profilo" src="${pageContext.request.contextPath}/resources/img/niccolo.png">
+                              <img class="img-thumbnail img-responsive " alt="Foto Profilo" src="${pageContext.request.contextPath}/resources/img/${utente.immagineProfilo}">
                      </div>
                      <div class="contenitoreProfilo">
                     <div class="col-xs-12 col-sm-8">
@@ -277,58 +277,73 @@
 		</div>
 	</div>
 </div>
-<!-- Inizio Sezione ultimi eventi -->	
+
+<!-- Inizio Sezione ultimi eventi -->
 <section>	
 <div class="container-fluid">
 	<div class="row UltimiEventi">
 		<h1 class="text-center titolo"> Ultime Partite </h1>
-  			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
-    			<a href="${pageContext.request.contextPath}/views/evento/dettagli">
-    				<div class="carta">
-      					<img src="${pageContext.request.contextPath}${evento.immagine}" class="img-carta"alt="foto evento">
-      						<div class="caption">
-        						<h3 style="text-align:center">${evento.nome}</h3>
-									<p class="descrizione fontStencil">${evento.descrizione}</p>
-      						</div>
-    				</div>
-    			</a>
-  		</div>
-  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-    	<a href="#">
-    		<div class="carta">
-      			<img src="${pageContext.request.contextPath}/resources/img/evento2.jpeg" class="img-carta"alt="foto evento">
-      				<div class="caption">
-       	 				<h3 style="text-align:center">Roio Deathmatch</h3>
-							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      				</div>
-    		</div>
-    	</a>
-  	</div>
-  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
-    	<a href="#">
-    		<div class="carta">
-      			<img src="${pageContext.request.contextPath}${evento.immagine}" class="img-carta" alt="foto evento" >
-      				<div class="caption">
-        				<h3 style="text-align:center">Mezzanotte di fuoco a Coppito</h3>
-							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        			</div>
- 			</div>
- 		</a>
-  	</div>
+
+		<c:forEach items="${requestScope.ultimiEventi}" var="evento">
+			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+				<a href="${pageContext.request.contextPath}/views/profilo/profilo.jsp">
+					<div class="cartaScura">
+						<img
+								src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+								class="img-responsive largo">
+						<div class="contenuto">
+							<div>
+								<p class="nome">${evento.titolo}</p>
+							</div>
+							<div>
+								<p class="descrizione">${evento.descrizione}</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</c:forEach>
+
+		-->
 </div>
 </div>
 </section>
 <!-- fine sezione ultimi eventi -->
 
 <!-- Inizio Sezione ultimi annunci -->	
-<section>	
+
+
+<section>
 <div class="container-fluid">
 	<div class="row UltimiAnnunci">
 		<h5 class="text-center"> Ultimi Annunci </h5>
-  			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"style="margin-bottom:3%">
+
+		<c:forEach items="${ultimiAnnunci}" var="annuncio">
+			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+				<a href="${pageContext.request.contextPath}/views/profilo/profilo.jsp">
+					<div class="cartaScura">
+						<img
+								src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
+								class="img-responsive largo">
+						<div class="contenuto">
+							<div>
+								<p class="nome">${annuncio.titolo}</p>
+							</div>
+							<div>
+								<p class="descrizione">${annuncio.descrizione}</p>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</c:forEach>
+
+
+  		<!--
+		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"style="margin-bottom:3%">
     			<a data-toggle="modal" data-target="#modal">
     				<div class="cartaScura">
-      					<img src="${pageContext.request.contextPath}/resources/img/arma1.gif" class="img-carta"alt="foto articolo">
+      					<img src="/resources/img/arma1.gif" class="img-carta"alt="foto articolo">
       						<div class="caption">
         						<h3 style="text-align:center">Arma 1</h3>
 									<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -340,7 +355,7 @@
   	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
     	<a data-toggle="modal" data-target="#modal2">
     		<div class="cartaScura">
-      			<img src="${pageContext.request.contextPath}/resources/img/arma2.jpg" class="img-carta"alt="foto articolo">
+      			<img src="/resources/img/arma2.jpg" class="img-carta"alt="foto articolo">
       				<div class="caption">
        	 				<h3 style="text-align:center">Arma 2</h3>
 											<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -351,7 +366,7 @@
   	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
     	<a data-toggle="modal" data-target="#modal3">
     		<div class="cartaScura">
-      			<img src="${pageContext.request.contextPath}/resources/img/arma3.jpg" class="img-carta" alt="foto articolo" >
+      			<img src="/resources/img/arma3.jpg" class="img-carta" alt="foto articolo" >
       				<div class="caption">
         				<h3 style="text-align:center">Arma 3</h3>
 							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -359,6 +374,7 @@
  			</div>
  		</a>
   	</div>
+		-->
 	</div>
 </div>
 </section>
