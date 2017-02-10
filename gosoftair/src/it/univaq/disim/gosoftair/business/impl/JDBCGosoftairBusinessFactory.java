@@ -6,6 +6,7 @@ import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.SquadreService;
 import it.univaq.disim.gosoftair.business.PostService;
+import it.univaq.disim.gosoftair.business.PosizioniGiocatoriService;
 
 public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 
@@ -36,5 +37,12 @@ public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 	@Override 
 	public PostService getPostService() {
 		return new JDBCPostService(url, username, password);
+	}
+	
+	@Override 
+	public PosizioniGiocatoriService getPosizioniGiocatoriService() {
+		System.out.println("ritorno posizioni giocatori");
+
+		return new JDBCPosizioniGiocatoriService(url, username, password);
 	}
 }
