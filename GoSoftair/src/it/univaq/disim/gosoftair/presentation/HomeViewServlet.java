@@ -16,10 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Davide on 03/02/2017.
@@ -56,8 +53,19 @@ public class HomeViewServlet extends HttpServlet {
         classeGrafica.add("hidden-md  hidden-xs hidden-sm");
         request.setAttribute("classeGrafica",classeGrafica);
 
-        //ReadXMLFile f= new ReadXMLFile();
-        //f.leggiDatiMeteo();
+
+        /*
+        ReadXMLFile lettore= new ReadXMLFile();
+        String dataEvento="20170210";
+        String oraEvento="14:00";
+        String urlMeteoAQ="http://api.ilmeteo.net/index.php?api_lang=it&localidad=30072&affiliate_id=xh29u2qrnhr88&v=2.0&h=1";
+        Map<String, Collection<String>> meteo = lettore.leggiDatiMeteo(dataEvento, oraEvento, urlMeteoAQ);
+        ArrayList<String> ora1 = (ArrayList<String>) meteo.get("ora1");
+        System.out.println(ora1.get(0));
+        System.out.println(meteo.get("ora1"));
+        System.out.println(meteo.get("ora2"));
+        System.out.println(meteo.get("ora3"));
+        */
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
