@@ -10,14 +10,14 @@
 						<li>
 							<div class="row">
 								<div class="col-md-12 loginTradizionale">
-									<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+									<form class="form" role="form" action="${pageContext.request.contextPath}/login" method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											<label class="sr-only" for="exampleInputEmail2">Username</label>
-											<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Indirizzo e-mail" required>
+											<input type="email" class="form-control" id="email" name="email" placeholder="Indirizzo e-mail" required>
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="exampleInputPassword2">Password</label>
-											<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+											<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 											<div class="help-block text-right"><a class="linkSfondoBianco pwdimenticata" href="">PASSWORD DIMENTICATA?</a></div>
 										</div>
 										<div class="form-group">

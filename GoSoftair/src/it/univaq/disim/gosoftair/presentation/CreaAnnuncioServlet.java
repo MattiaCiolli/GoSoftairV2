@@ -9,13 +9,14 @@ import it.univaq.disim.gosoftair.business.model.Utente;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 @WebServlet("/CreaAnnuncioServlet")
@@ -86,6 +87,11 @@ public class CreaAnnuncioServlet extends HttpServlet {
 		Annuncio annuncio=new Annuncio(titolo,descrizione, immagine, prezzo, numeroTelefono, email, insertore, data);
         AnnuncioService annuncioService=factory.getAnnuncioService();
         annuncioService.create(annuncio);
+        
+        //TEST sessione
+        PrintWriter out=response.getWriter();
+        HttpSession session=request.getSession();
+        out.print("Welcome, "+session.getAttribute("email"));
 	}
 
 }
