@@ -41,39 +41,18 @@ $(document)
 					}, "Inserire un numero realistico");
 
 
-					//valida il formato della email inserita
-
-					function validazione_email(email) {
-
+					jQuery.validator.addMethod("validazione_email", function(value) {
 						var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-						val=reg.test(email);
-						if (!val) Window.Alert="Attenzione, hai inserito una email non valida";
-						return val;
-					};
-
-                    //valida il formato del numero di documento inserito (2 lettere e 7 numeri)
-					function validazione_documento(documentoValido) {
-                        var reg = /[A-Z]{2}[0-9]{7}/ ;
-						val1=reg.test(documentoValido);
-                        if(!val1) Window.Alert="Attenzione, hai inserito un documento non valido";
-						return val1;
-                    };
+						return value.match(reg);
+					}, "Attenzione, hai inserito una email non valida");
 
 
 
-                    //conferma psw
 
-                    function confermapsw(password,confermaPassword) {
-                    if(password==confermaPassword)
-                    	val2=true;
-					else {
-						val2=false;
-						Window.Alert="Attenzione, hai inserito due password diverse"
-					}
-					return val2;
-                    };
-
-
+					jQuery.validator.addMethod("validazione_documento", function(value) {
+						var regex = /[A-Z]{2}[0-9]{7}/;
+						return value.match(regex);
+					}, "Attenzione, hai inserito un numero di documento non valido");
 
 
 					// valida l'input, se corretto lo invia
@@ -116,7 +95,7 @@ $(document)
 
                                     required: true,
 
-									val: true
+									validazione_email: true
 
 
                                 },
@@ -136,14 +115,7 @@ $(document)
 
 								confermaPassword: {
 
-									required: true,
-
-									minlenght: 8,
-
-									maxlenght: 20,
-
-									val2: true
-
+									equalTo: "#password"
 
 								},
 
@@ -155,7 +127,7 @@ $(document)
 
                                     maxlenght: 9,
 
-									val1: true
+									validazione_documento: true
                                 },
                             },
 
@@ -205,7 +177,9 @@ $(document)
 
 								confermaPassword: {
 
-									required: "Conferma la tua password"
+									required: "Conferma la tua password",
+
+									equalTo: "Attenzione, hai inserito due password differenti"
 
 								},
 

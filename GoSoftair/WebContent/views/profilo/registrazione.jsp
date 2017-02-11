@@ -138,7 +138,7 @@
 								<label class="col-md-3 control-label personalLabel">Conferma
 									password:</label>
 								<div class="col-md-8">
-									<input class="form-control" id="confermaPassword" type="password">
+									<input class="form-control" id="confermaPassword" name="confermaPassword" type="password">
 								</div>
 							</div>
 						</div>
