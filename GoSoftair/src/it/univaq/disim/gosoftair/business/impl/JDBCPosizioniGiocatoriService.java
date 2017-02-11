@@ -23,8 +23,6 @@ public class JDBCPosizioniGiocatoriService implements PosizioniGiocatoriService 
 		this.url = url;
 		this.username = username;
 		this.password = password;
-		System.out.println("creato poisizioni giocatori service");
-
 	}
 	
 	public void update(PosizioneGiocatore posizione) throws BusinessException {
@@ -38,9 +36,7 @@ public class JDBCPosizioniGiocatoriService implements PosizioniGiocatoriService 
 			st.setLong(1, posizione.getIdGiocatore());
 			st.setDouble(2, posizione.getLat());
 			st.setDouble(3, posizione.getLon());
-			System.out.println("tra poco eseguo");
 			st.executeUpdate();
-			System.out.println("eseguito");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new BusinessException("Errore durante l'update delle posizioni", e);

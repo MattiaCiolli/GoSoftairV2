@@ -74,9 +74,14 @@
 <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
 <script>
+	var map;
+	var bounds;
+	var infoWindow;
+	var markers = {};
+	
     function initMap() {
-        var map;
-        var bounds = new google.maps.LatLngBounds();
+    	
+        bounds = new google.maps.LatLngBounds();
         var mapOptions = {
             mapTypeId: 'roadmap'
         };
@@ -85,52 +90,11 @@
         map = new google.maps.Map(document.getElementById("map"), mapOptions);
         map.setTilt(45);
 
-        // Multiple Markers
-        var markers = [
-            ['Davide', 42.368943, 13.349999, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Mattia', 42.368744,13.349799, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Federica', 42.3685745, 13.349599, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Matteo', 42.368636, 13.349399, '${pageContext.request.contextPath}/resources/img/profile.jpg'],
-            ['Mille!!!', 42.368147, 13.349299, '${pageContext.request.contextPath}/resources/img/profile.jpg']
-        ];
-
         // Display multiple markers on a map
-        var infoWindow = new google.maps.InfoWindow(), marker, i;
-
-        // Loop through our array of markers & place each one on the map
-        for( i = 0; i < markers.length; i++ ) {
-            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-            bounds.extend(position);
-            marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                title: markers[i][0],
-                icon: markers[i][3]
-            }, "<h1>Marker 0</h1><p>This is the home marker.</p>");
-
-            // Allow each marker to have an info window
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                return function() {
-                    infoWindow.setContent(infoWindowContent[i][0]);
-                    infoWindow.open(map, marker);
-                }
-            })(marker, i));
-
-            // Automatically center the map fitting all markers on the screen
-            map.fitBounds(bounds);
-        }
-
-        for( i = 0; i < markers.length; i++ ) {
-            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-            bounds.extend(position);
-            marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                title: markers[i][0]
-            });
-        }
-        document.getElementById("attach").onclick = function() {attach(map)};
+        //infoWindow = new google.maps.InfoWindow(), marker, i;
     }
+    
+    document.getElementById("attach").onclick = function() {attach(map)};
 
     function attach(mappa) {
         var addAttach = new google.maps.Circle({
@@ -162,9 +126,40 @@
 	  	    	$.post( 
 	  	    		url, 
 	  	    		{ lat: latitude, lon: longitude, idUtente: <%= session.getAttribute("idUtente") %>, idEvento: 0 }, 
-	  	    		function(result){
-						console.log(results);
-	  	  			}
+	  	    		function(results) {
+	  	    			results = JSON.parse(results);	  	    			
+	  	    			jQuery.each(results.coordinates, function(i, val) {
+	  	    				if(markers[val.idGiocatore] == undefined) 
+	  	    				{
+	  	    					var position = new google.maps.LatLng(val.lat, val.lon);
+		  	    				bounds.extend(position);
+		  	    				
+		  	    			  	var marker = new google.maps.Marker({
+		  	    	            	position: position,
+		  	    	                map: map,
+		  	    	                title: val.idGiocatore,
+		  	    	                icon: '${pageContext.request.contextPath}/resources/img/profile.jpg'
+		  	    	            }, "<h1>Marker 0</h1><p>This is the home marker.</p>");
+		  	    			  	
+		  	    			  	// Allow each marker to have an info window
+		  	    	            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		  	    	                return function() {
+		  	    	                    infoWindow.setContent(infoWindowContent[i][0]);
+		  	    	                    infoWindow.open(map, marker);
+		  	    	                }
+		  	    	            })(marker, i));
+
+		  	    	            // Automatically center the map fitting all markers on the screen
+		  	    	            map.fitBounds(bounds);
+		  	    	            
+		  	    	            markers[val.idGiocatore] = marker;
+	  	    				}else {
+	  	    					var position = new google.maps.LatLng(val.lat, val.lon);
+		  	    	            markers[val.idGiocatore].location = position;
+
+	  	    				}
+	  	    			});
+	  	    		}
 	  	    	);
 	  	  	}
 	  	  	

@@ -41,8 +41,6 @@ public class JDBCGosoftairBusinessFactory extends GosoftairBusinessFactory {
 	
 	@Override 
 	public PosizioniGiocatoriService getPosizioniGiocatoriService() {
-		System.out.println("ritorno posizioni giocatori");
-
 		return new JDBCPosizioniGiocatoriService(url, username, password);
 	}
 }

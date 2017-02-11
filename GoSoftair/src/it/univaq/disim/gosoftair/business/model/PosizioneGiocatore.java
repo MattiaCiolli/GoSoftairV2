@@ -32,5 +32,9 @@ public class PosizioneGiocatore implements java.io.Serializable {
 
 	public void setGiocatore(long idGiocatore) {
 		this.idGiocatore = idGiocatore;
-	};
+	}
+	
+	public String toString() {
+		return "{\"idGiocatore\":" + this.idGiocatore + ", \"lat\":" + this.lat + ", \"lon\":" + this.lon + "}";
+	}
 }

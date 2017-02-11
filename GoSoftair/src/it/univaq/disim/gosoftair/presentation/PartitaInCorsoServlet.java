@@ -3,6 +3,7 @@ package it.univaq.disim.gosoftair.presentation;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -44,12 +45,24 @@ public class PartitaInCorsoServlet extends HttpServlet {
 		position.setLat(lat);
 		position.setLon(lon);
 		position.setGiocatore(idGiocatore);
-		System.out.println(position.getIdGiocatore() + " " + position.getLat() + " " + position.getLon());
 		posizioneGiocatoreService.update(position);
 		
 		List<PosizioneGiocatore> posizioniGiocatori =  posizioneGiocatoreService.posizioniAggiornate(idEvento, idGiocatore);
+		
+		String json = "{\"coordinates\":[";
+		String elements = "";
+		
+		for (int i = 0; i < posizioniGiocatori.size(); i++) {
+			if( i ==  posizioniGiocatori.size() - 1)
+				elements = elements + posizioniGiocatori.get(i).toString();
+			else
+				elements = elements + posizioniGiocatori.get(i).toString() + ",";
+		}
+		
+		json = json + elements + "]}"; 		
+		
 		PrintWriter out = response.getWriter();
-		out.println(1);		
+		out.println(json);		
 	}
 
 }
