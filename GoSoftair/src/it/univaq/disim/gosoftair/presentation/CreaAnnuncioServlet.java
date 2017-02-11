@@ -3,15 +3,11 @@ package it.univaq.disim.gosoftair.presentation;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.AnnuncioService;
-import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.model.Annuncio;
-import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Utente;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -69,9 +65,8 @@ public class CreaAnnuncioServlet extends HttpServlet {
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
 			filePart.write(savePath + File.separator + fileName);
-
-			// obtains input stream of the upload file
 			immagine = fileName;
+			
 		}
 		String prezzo = request.getParameter("Prezzo");
 		String numeroTelefono = request.getParameter("NumTelefono");

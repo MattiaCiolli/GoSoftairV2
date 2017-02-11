@@ -3,6 +3,7 @@ package it.univaq.disim.gosoftair.presentation;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.Utente;
+import it.univaq.disim.gosoftair.utility.ImagesMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -51,10 +52,9 @@ public class CreaUtenteServlet extends HttpServlet {
 			String fileName = extractFileName(filePart);
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
-			filePart.write(savePath + File.separator + fileName);
-
-			// obtains input stream of the upload file
+			filePart.write(savePath + File.separator + "original" + fileName);
 			immagine = fileName;
+			ImagesMap.generateImagesMap(savePath, fileName);
 		}
 
 
