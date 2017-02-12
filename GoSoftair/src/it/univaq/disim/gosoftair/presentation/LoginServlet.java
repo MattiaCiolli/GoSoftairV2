@@ -1,6 +1,11 @@
 package it.univaq.disim.gosoftair.presentation;
+import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.model.Utente;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +19,18 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
           
-        String email=request.getParameter("email");
+        String username=request.getParameter("username");
         String password=request.getParameter("password");
-          
-        if(password.equals("admin123")){
+        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance(); 
+        UtenteService utenteService=factory.getUtenteService();
+        Utente logger=new Utente();
+        logger=utenteService.login(username);
+        
+        if(password.equals(logger.getPassword())){
         
         HttpSession session=request.getSession();
-        session.setAttribute("email",email); 
-        out.print("Welcome, "+session.getAttribute("email"));
+        session.setAttribute("username",logger.getNickname()); 
+        out.print("Welcome, "+session.getAttribute("username"));
         }  
         else{  
             out.print("Sorry, username or password error!");

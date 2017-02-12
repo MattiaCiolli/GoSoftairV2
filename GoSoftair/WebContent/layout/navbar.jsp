@@ -1,3 +1,8 @@
+<%
+                String username= (String) session.getAttribute("username");                     
+                if (username == null) {
+%>
+
 <header>
 	<div class="container-fluid">
 		<div class="row">
@@ -12,11 +17,11 @@
 								<div class="col-md-12 loginTradizionale">
 									<form class="form" role="form" action="${pageContext.request.contextPath}/login" method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
-											<label class="sr-only" for="exampleInputEmail2">Username</label>
-											<input type="email" class="form-control" id="email" name="email" placeholder="Indirizzo e-mail" required>
+											<label class="sr-only" for="username">Username</label>
+											<input type="text" class="form-control" id="email" name="username" placeholder="Username" required>
 										</div>
 										<div class="form-group">
-											<label class="sr-only" for="exampleInputPassword2">Password</label>
+											<label class="sr-only" for="pwd">Password</label>
 											<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 											<div class="help-block text-right"><a class="linkSfondoBianco pwdimenticata" href="">PASSWORD DIMENTICATA?</a></div>
 										</div>
@@ -47,6 +52,11 @@
 		</div>
 	</div>
 </header>
+<% } else {
+         %>
+            <li>Hi, <%=username %>  (<a href="/logout.jsp">Logout</a>)</li>
+<% }%>
+
 
 <nav>
 	<div class="container" style="padding: 20px 0px 20px 0px">

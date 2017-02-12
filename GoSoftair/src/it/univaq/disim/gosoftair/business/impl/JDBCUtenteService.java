@@ -65,7 +65,51 @@ public class JDBCUtenteService implements UtenteService{
         }
     }
 
-
+  //funzione che consente di trovare all'interno del database tramite la sua email un utente
+    public Utente login(String nickname) throws BusinessException {
+    	Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			st = con.createStatement();
+			rs = st.executeQuery("SELECT * FROM gosoftair.UTENTE WHERE NICKNAME='" + nickname + "'");
+			if(rs.next()){
+				String nome = rs.getString("nome");
+				String cognome = rs.getString("cognome");
+				String email = rs.getString("email");
+				String nick = rs.getString("nickname");
+				String password = rs.getString("password");
+				String documentoValido = rs.getString("documentoValido");
+				String immagineProfilo = rs.getString("immagineProfilo");
+				Utente utente = new Utente(nome, cognome, email, nick, password, documentoValido, immagineProfilo);
+				return utente;
+			}else {
+				System.out.print("Il result set non ha elementi");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BusinessException("Errore durante la ricerca dell'utente",e);
+		} finally {
+			if (rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			}
+			if (st!=null) {
+				try {
+					st.close();
+				} catch (SQLException e) {}
+			}
+			if (con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {}	
+			}	
+		}
+		return null;
+    }
+    
     //funzione che consente di trovare all'interno del database tramite la sua chiave privata l'utente con tutte le sue informazioni
     public Utente findUserByPK(long id) throws BusinessException {
     	Connection con = null;
