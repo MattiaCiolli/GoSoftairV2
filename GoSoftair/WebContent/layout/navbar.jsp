@@ -108,7 +108,7 @@
 		<div class="row">
 			<div class="col-lg-12 navigazione">
 				<p>
-					Home > Percorso pagina
+					Home > ${percorso}
 				</p>
 			</div>
 		</div>

@@ -101,4 +101,13 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MiePartiteViewServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.MiePartiteViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MiePartiteViewServlet</servlet-name>
+    <url-pattern>/views/profilo/leMiePartite</url-pattern>
+  </servlet-mapping>
 </web-app>

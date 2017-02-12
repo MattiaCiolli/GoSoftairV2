@@ -13,29 +13,25 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Davide on 09/02/2017.
+ * Created by Davide on 12/02/2017.
  */
-public class MieIscrizioniViewServlet extends HttpServlet {
+public class MiePartiteViewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-
-        Date oggi=new Date();
-
-        //il 2 in findLastEvent è il numero di eventi da cercare di caricare dal DB
         EventoService eventoService = factory.getEventoService();
         List<Evento> eventi;
-        long idUtente = 0;
-        eventi = eventoService.findAllMySubscription(oggi, idUtente );
-        request.setAttribute("eventi", eventi);
 
+        //per ora l'id è messo a mano
+        long idUtente = 0;
+        eventi = eventoService.trovaTuttePartiteCreateDaMe(idUtente);
+        request.setAttribute("eventi", eventi);
 
         DateFormat FormatoData = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat FormatoOre = new SimpleDateFormat("HH:mm:ss");
@@ -48,8 +44,9 @@ public class MieIscrizioniViewServlet extends HttpServlet {
         request.setAttribute("ore",ore);
         request.setAttribute("date",date);
 
-        request.setAttribute("percorso", "Profilo > Le mie iscrizioni");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/leMieIscrizioni.jsp");
+        request.setAttribute("percorso", "Profilo > Le mie partite");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/leMiePartite.jsp");
         dispatcher.forward(request, response);
+
     }
 }

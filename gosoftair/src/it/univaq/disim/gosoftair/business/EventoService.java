@@ -23,4 +23,6 @@ public interface EventoService {
 	List<Evento> findLastEvent(Date oggi, int quantita) throws BusinessException;
 
 	List<Evento> findAllMySubscription(Date oggi, long idUtente);
+
+	List<Evento> trovaTuttePartiteCreateDaMe(long idUtente);
 }
