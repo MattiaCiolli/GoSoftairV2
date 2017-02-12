@@ -71,60 +71,77 @@
 								<span>${evento.tipologia}</span>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-sm-12">
-									<div class="days">
-										<div class="row row-no-gutter">
-											<div class="col-md-4">
-												<div class="card-weather">
-													<div class="info">
-														<div class="night">9:00-10:00</div>
-														<div class="temp">3°</div>
-														<div class="wind">
-															<i class="wi wi-strong-wind"></i>
-															<span>25 km/h</span>
-															<i class="wi wi-wind wi-towards-ne"></i>
+						<c:choose>
+							<c:when test="${meteoDisponibile}">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="days">
+											<div class="row row-no-gutter">
+												<div class="col-md-4">
+													<div class="card-weather">
+														<div class="info">
+															<div class="night">${primoOrario[0]}</div>
+															<div class="temp">${primoOrario[1]}°</div>
+															<div class="wind">
+																<i class="wi wi-strong-wind"></i>
+																<span>${primoOrario[4]} km/h</span>
+																<i class="wi wi-wind ${primoOrario[5]}"></i>
+															</div>
 														</div>
-													</div>
-													<div class="icon">
-														<i class="wi wi-day-sunny"></i>
+														<div class="icon">
+															<i class="wi ${primoOrario[2]}" title="${primoOrario[3]}"></i>
+														</div>
 													</div>
 												</div>
-											</div>
-											<div class="col-md-4 divisor">
-												<div class="card-weather">
-													<div class="info">
-														<div class="night">10:00-11:00</div>
-														<div class="temp">2°</div>
-														<div class="wind">
-															<i class="wi wi-strong-wind"></i>
-															<span>25 km/h</span>
+												<div class="col-md-4 divisor">
+													<div class="card-weather">
+														<div class="info">
+															<div class="night">${secondoOrario[0]}</div>
+															<div class="temp">${secondoOrario[1]}°</div>
+															<div class="wind">
+																<i class="wi wi-strong-wind"></i>
+																<span>${secondoOrario[4]} km/h</span>
+																<i class="wi wi-wind ${secondoOrario[5]}"></i>
+															</div>
 														</div>
-													</div>
-													<div class="icon">
-														<i class="wi wi-day-cloudy"></i>
+														<div class="icon">
+															<i class="wi ${secondoOrario[2]}" title="${secondoOrario[3]}"></i>
+														</div>
 													</div>
 												</div>
-											</div>
-				
-											<div class="col-md-4">
-												<div class="card-weather">
-													<div class="info">
-														<div class="night">11:00-12:00</div>
-														<div class="temp">2°</div>
-														<div class="wind">
-															<i class="wi wi-strong-wind"></i>
-															<span>25 km/h</span>
+
+												<div class="col-md-4">
+													<div class="card-weather">
+														<div class="info">
+															<div class="night">${terzoOrario[0]}</div>
+															<div class="temp">${terzoOrario[1]}°</div>
+															<div class="wind">
+																<i class="wi wi-strong-wind"></i>
+																<span>${terzoOrario[4]} km/h</span>
+																<i class="wi wi-wind ${secondoOrario[5]}"></i>
+															</div>
 														</div>
-													</div>
-													<div class="icon">
-														<i class="wi wi-day-cloudy"></i>
+														<div class="icon">
+															<i class="wi ${terzoOrario[2]}" title="${terzoOrario[3]}"></i>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="row meteoNonSidponibile">
+									<p>Meteo disponibile a partire da 4 giorni prima della partita</p>
+								</div>
+							</c:otherwise>
+						</c:choose>
+
+
+						<div class="row">
+							<div class="linkmeteo">
+								<a id="linkMeteo" href="http://www.ilmeteo.net" title="Il Meteo">ilmeteo.net</a>
 							</div>
 						</div>
 					</div>

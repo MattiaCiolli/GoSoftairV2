@@ -13,10 +13,7 @@ import it.univaq.disim.gosoftair.business.model.Post;
 import it.univaq.disim.gosoftair.utility.ReadXMLFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,30 +50,38 @@ public class EventoViewServlet extends HttpServlet {
 		session.setAttribute("nickname", "netrider");
 
 
-		// per vedere il meteo dell'evento manca solo formattare i dati dell'evento in modo che sia
-		// utilizzabili dalla classe ReadXMLFile e passare poi i dati finali al jsp.
-		// nel jsp va anche aggiunto ancora il link per il sito del meteo e il controllo
-		// che faccia apparire "Meteo ancora no disponibile" prima di 5 giorni dall'evento
-		
-		ReadXMLFile lettore= new ReadXMLFile();
 
-		String provincia = "Teramo";
-		String comune =  "Arsita";
-		String dataEvento="20170212";
-		String oraEvento="14:00";
+		// Sezione di codice necessario per il meteo
+		String provincia = "L'Aquila";
+		String comune =  "L'Aquila";
 
-		String urlMeteo = lettore.calcolaUrlMeteo(provincia, comune);
-		Map<String, Collection<String>> meteo = lettore.leggiDatiMeteo(dataEvento, oraEvento, urlMeteo);
-		ArrayList<String> ora1 = (ArrayList<String>) meteo.get("ora1");
-		System.out.println("Simbolo: "+lettore.recuperaSimbolo(ora1.get(2)));
-		System.out.println("Simbolo direzione vento: "+lettore.recuperaSimbolo(ora1.get(5)));
-		System.out.println(meteo.get("ora1"));
-        /*
-        System.out.println(meteo.get("ora2"));
-        System.out.println(meteo.get("ora3"));
-        */
+		Date dataEvento = evento.getData();
+		Date oggi=new Date();
+
+		Calendar data = Calendar.getInstance();
+		data.setTime(dataEvento);
+		data.add(Calendar.DATE, -4);
+		Date dataEventoMeno4Giorni = data.getTime();
+		Boolean meteoDisponibile = false;
 
 
+		if(!(oggi.after(dataEvento)) && (!oggi.before(dataEventoMeno4Giorni))) {
+			ReadXMLFile lettore= new ReadXMLFile();
+			meteoDisponibile = true;
+			String urlMeteo = lettore.calcolaUrlMeteo(provincia, comune);
+			Map<String, Collection<String>> meteo = lettore.leggiDatiMeteo(dataEvento, urlMeteo);
+
+			ArrayList<String> ora1 = (ArrayList<String>) meteo.get("ora1");
+			ArrayList<String> ora2 = (ArrayList<String>) meteo.get("ora2");
+			ArrayList<String> ora3 = (ArrayList<String>) meteo.get("ora3");
+
+			request.setAttribute("primoOrario", ora1);
+			request.setAttribute("secondoOrario", ora2);
+			request.setAttribute("terzoOrario", ora3);
+
+		}
+
+		request.setAttribute("meteoDisponibile", meteoDisponibile);
 
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");

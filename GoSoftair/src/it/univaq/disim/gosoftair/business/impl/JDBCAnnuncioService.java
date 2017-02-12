@@ -81,7 +81,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
             String oggiFormattato = DBformat.format(oggi);
 
-            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
+            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
             while (rs.next() && contatore < quantita) {
                 contatore++;
                 Long id = rs.getLong("id");
@@ -101,11 +101,12 @@ public class JDBCAnnuncioService implements AnnuncioService {
                     e.printStackTrace();
                 }
 
-                Utente insertore = new Utente();     // ????? VA BENE?????  //togliere
-                insertore.setId(idutente);                                  //togliere
+                Utente insertore = new Utente();
+                insertore.setId(idutente);
 
-                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);  //togliere insertore creando un nuovo construttore che non ne ha bisogno
-                risultati.add(annuncio);                                                                                        //costruire poi l'utente dalla servlet che richiama l'annucnio                contatore++;
+                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);
+                annuncio.setDatainserzione(datainserzione);
+                risultati.add(annuncio);
             }
             if (contatore == 0) {
                 System.out.print("Il result set non ha elementi ultimi annunci");

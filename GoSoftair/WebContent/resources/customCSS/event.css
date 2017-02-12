@@ -196,3 +196,19 @@ body {
 .post-content {
 	padding: 5px 0px 5px 0px;
 }
+
+#linkMeteo{
+	color: #767a70 !important;
+	text-decoration: none;
+}
+
+.linkmeteo{
+	margin-top: 2%;
+	text-align: right;
+}
+
+.meteoNonSidponibile{
+	text-align: center;
+	margin-top: 8%;
+}
+

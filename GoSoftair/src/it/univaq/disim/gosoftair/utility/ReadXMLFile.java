@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -19,9 +20,10 @@ import java.util.*;
 public class ReadXMLFile {
 
 
-    // String dataEvento="20170210";
-    // String oraEvento="14:00";
-    public static Map<String, Collection<String>> leggiDatiMeteo(String dataEvento, String oraEvento, String urlMeteo){
+    public  Map<String, Collection<String>> leggiDatiMeteo(Date dataEventoCompleta, String urlMeteo){
+
+        String dataEvento = new SimpleDateFormat("yyyyMMdd").format(dataEventoCompleta);
+        String oraEvento = new SimpleDateFormat("kk").format(dataEventoCompleta)+":00";
 
          Map<String, Collection<String>> meteo = new HashMap<String, Collection<String>>();
 
@@ -30,7 +32,6 @@ public class ReadXMLFile {
             URL facultyURL = new URL(urlMeteo);
             InputStream is = facultyURL.openStream();
 
-            //File fXmlFile = new File("C:/Users/Davide/Desktop/meteoAQ.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(is);
@@ -80,10 +81,10 @@ public class ReadXMLFile {
                             Collection<String> meteoOrario= new ArrayList<>();
                             meteoOrario.add(ora);
                             meteoOrario.add(temperatura);
-                            meteoOrario.add(simbolo);
+                            meteoOrario.add(this.recuperaSimbolo(simbolo));
                             meteoOrario.add(descrizione);
                             meteoOrario.add(ventoVelocita);
-                            meteoOrario.add(ventoDirezione);
+                            meteoOrario.add(this.recuperaSimbolo(ventoDirezione));
                             meteo.put("ora"+contatoreOre, meteoOrario);
                             contatoreOre++;
                         }
@@ -159,7 +160,7 @@ public class ReadXMLFile {
         return  codiceTrovato;
     }
 
-    public static String recuperaSimbolo(String simbolo){
+    public String recuperaSimbolo(String simbolo){
 
         Map<String, String> simboli = new HashMap<>();
         String classeSimbolo = "";
