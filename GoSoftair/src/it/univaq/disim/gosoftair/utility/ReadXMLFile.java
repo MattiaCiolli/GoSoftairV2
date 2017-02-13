@@ -1,6 +1,9 @@
 package it.univaq.disim.gosoftair.utility;
 
+import com.sun.deploy.net.URLEncoder;
 import oracle.jdbc.OracleTypeMetaData;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -8,6 +11,7 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.soap.SAAJResult;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
@@ -199,5 +203,88 @@ public class ReadXMLFile {
         classeSimbolo = simboli.get(simbolo);
         return classeSimbolo;
     }
+
+
+    public ArrayList<String> geocoding(String lat, String lng) {
+
+
+        ArrayList<String> risultati= new ArrayList<>();
+        // build a URL
+        String s = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I";
+        try {
+            URL url = new URL(s);
+            // read from the URL
+            Scanner scan = new Scanner(url.openStream());
+            String str = new String();
+            while (scan.hasNext())
+                str += scan.nextLine();
+            scan.close();
+            // build a JSON object
+            JSONObject obj = new JSONObject(str);
+            if (obj.getString("status").equals("OK")) {
+                // get the first result
+                JSONObject res = obj.getJSONArray("results").getJSONObject(0);
+                JSONArray address = res.getJSONArray("address_components");
+                String comune = "";
+                String provincia = "";
+                for (int i = 0; i < address.length(); i++) {
+                    JSONObject oggetto = res.getJSONArray("address_components").getJSONObject(i);
+
+                    if (oggetto.getJSONArray("types").get(0).toString().contentEquals("administrative_area_level_3")) {
+                        comune = oggetto.get("long_name").toString();
+                    }
+                    if (oggetto.getJSONArray("types").get(0).toString().contentEquals("administrative_area_level_2")) {
+                        provincia = oggetto.get("long_name").toString();
+                    }
+                }
+
+
+                ArrayList<String> provincieAtipiche = new ArrayList<>();
+                provincieAtipiche.add("Provincia di Ascoli Piceno");
+                provincieAtipiche.add("Provincia della spezia");
+                provincieAtipiche.add("Provincia dell'Aquila");
+                provincieAtipiche.add("Provincia di Massa e Carrara");
+                provincieAtipiche.add("Provincia di Monza e della Brianza");
+                provincieAtipiche.add("Provincia di Pesaro e Urbino");
+                provincieAtipiche.add("Provincia di Reggio Calabria");
+                provincieAtipiche.add("Provincia di Reggio Emilia");
+
+                ArrayList<String> provicieAtipicheGiuste = new ArrayList<>();
+                provicieAtipicheGiuste.add("Ascoli Piceno");
+                provicieAtipicheGiuste.add("La spezia");
+                provicieAtipicheGiuste.add("L'Aquila");
+                provicieAtipicheGiuste.add("Massa e Carrara");
+                provicieAtipicheGiuste.add("Monza e Brianza");
+                provicieAtipicheGiuste.add("Pesaro e Urbino");
+                provicieAtipicheGiuste.add("Reggio di Calabria");
+                provicieAtipicheGiuste.add("Reggio nell'Emilia");
+
+                Map<String, String> provincieStrane = new HashMap<>();
+                for(int i=0; i<8; i++ ){
+                    provincieStrane.put(provincieAtipiche.get(i),provicieAtipicheGiuste.get(i));
+                }
+
+                if(provincieAtipiche.contains(provincia)){
+                    provincia = provincieStrane.get(provincia);
+                }else{
+                    String [] splits = provincia.split("[\\s']");
+                    provincia = splits[2];
+
+                }
+
+
+
+                risultati.add(provincia);
+                risultati.add(comune);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        return risultati;
+    }
+
 
 }

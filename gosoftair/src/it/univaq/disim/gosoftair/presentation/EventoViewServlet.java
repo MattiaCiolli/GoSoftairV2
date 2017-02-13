@@ -38,13 +38,13 @@ public class EventoViewServlet extends HttpServlet {
 		Squadre squadre = squadreService.cercaSquadreByEventoPK(evento.getId());
 		PostService postService = factory.getPostService();
 		List<Post> posts = postService.cercaPostsByEventoPK(evento.getId());
-		
+
 		evento.setSquadre(squadre);
 		evento.setPosts(posts);
 		request.setAttribute("evento", evento);
-		
+
 		HttpSession session = request.getSession();
-		
+
 		//Per ora li setto manualmente ma questo andrà fatto nel login
 		session.setAttribute("idUtente", 0);
 		session.setAttribute("nickname", "netrider");
@@ -52,8 +52,8 @@ public class EventoViewServlet extends HttpServlet {
 
 
 		// Sezione di codice necessario per il meteo
-		String provincia = "L'Aquila";
-		String comune =  "L'Aquila";
+		String provincia = "";
+		String comune =  "";
 
 		Date dataEvento = evento.getData();
 		Date oggi=new Date();
@@ -68,6 +68,16 @@ public class EventoViewServlet extends HttpServlet {
 		if(!(oggi.after(dataEvento)) && (!oggi.before(dataEventoMeno4Giorni))) {
 			ReadXMLFile lettore= new ReadXMLFile();
 			meteoDisponibile = true;
+
+			//lat e lon vanno recuperati da DB una volta che ci stanno
+			String lat="42.470088";
+			String lon="13.783990";
+
+			ArrayList<String> provinciaComune=new ArrayList<>();
+			provinciaComune = lettore.geocoding(lat, lon);
+			provincia = provinciaComune.get(0);
+			comune = provinciaComune.get(1);
+
 			String urlMeteo = lettore.calcolaUrlMeteo(provincia, comune);
 			Map<String, Collection<String>> meteo = lettore.leggiDatiMeteo(dataEvento, urlMeteo);
 
@@ -83,6 +93,7 @@ public class EventoViewServlet extends HttpServlet {
 
 		request.setAttribute("meteoDisponibile", meteoDisponibile);
 		request.setAttribute("percorso", "Dettaglio partita");
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");
 		dispatcher.forward(request, response);
