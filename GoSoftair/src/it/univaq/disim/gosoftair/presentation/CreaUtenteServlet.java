@@ -5,6 +5,7 @@ import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.Utente;
 import it.univaq.disim.gosoftair.utility.ImagesMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -71,11 +72,9 @@ public class CreaUtenteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-        UtenteService utenteService = factory.getUtenteService();
-
-        //RequestDispatcher dispatcher = req.getRequestDispatcher("/views/profilo/registrazione.jsp");
-        //dispatcher.forward(req, resp);
+    	request.setAttribute("percorso", "Registrazione");
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/registrazione.jsp");
+        dispatcher.forward(request, response);
 
     }
 }

@@ -8,14 +8,14 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
-					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/views/profilo/registrazione.jsp">REGISTRATI</a>
+					<a class="linkBarraAlta" href="${pageContext.request.contextPath}/registrazione">REGISTRATI</a>
 					<span class="separatore"></span>
 					<a href="#" class="linkBarraAlta dropdown-toggle"  data-toggle="dropdown">Login</a>
 					<ul id="login-dp" class="dropdown-menu">
 						<li>
 							<div class="row">
 								<div class="col-md-12 loginTradizionale">
-									<form class="form" role="form" action="${pageContext.request.contextPath}/login" method="post" accept-charset="UTF-8" id="login-nav">
+									<form class="form" role="form" action="${pageContext.request.contextPath}/logged/home" method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											<label class="sr-only" for="username">Username</label>
 											<input type="text" class="form-control" id="email" name="username" placeholder="Username" required>
@@ -54,7 +54,18 @@
 </header>
 <% } else {
          %>
-            <li>Hi, <%=username %>  (<a href="/logout.jsp">Logout</a>)</li>
+         <header>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="pull-right registrazione">
+					
+            <div>Ciao, <%=username %>  <span class="separatore"></span><a class="linkBarraAlta" href="${pageContext.request.contextPath}/loggedOut/home">Logout</a></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </header>
 <% }%>
 
 
@@ -77,22 +88,22 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Partite <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/views/evento/bachecaPartite.jsp">Elenco partite</a></li>
+									<li><a href="${pageContext.request.contextPath}/bachecaPartite">Elenco partite</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/views/profilo/leMieIscrizioni.jsp">Iscrizioni</a></li>
+									<li><a href="${pageContext.request.contextPath}/profilo/leMieIscrizioni">Iscrizioni</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/views/evento/creaPartita.jsp">Crea partita</a></li>
+									<li><a href="${pageContext.request.contextPath}/evento/nuovo">Crea partita</a></li>
 								</ul>
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci">Bacheca annunci</a></li>
+									<li><a href="${pageContext.request.contextPath}/bachecaAnnunci">Bacheca annunci</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/views/annuncio/creaAnnuncio.jsp">Crea annuncio</a></li>
+									<li><a href="${pageContext.request.contextPath}/annuncio/nuovo">Crea annuncio</a></li>
 								</ul>
 							</li>
-							<li ><a class="ultimoNavbarStretta" href="${pageContext.request.contextPath}/views/profilo/profilo">Profilo</a></li>
+							<li ><a class="ultimoNavbarStretta" href="${pageContext.request.contextPath}/profilo">Profilo</a></li>
 						</ul>
 					</div>
 				</div>

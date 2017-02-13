@@ -82,7 +82,7 @@ public class EventoViewServlet extends HttpServlet {
 		}
 
 		request.setAttribute("meteoDisponibile", meteoDisponibile);
-
+		request.setAttribute("percorso", "Dettaglio partita");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");
 		dispatcher.forward(request, response);

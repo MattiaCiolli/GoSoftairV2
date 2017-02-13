@@ -19,8 +19,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>EventoView</servlet-name>
-    <url-pattern>/views/evento/dettagli</url-pattern>
+    <url-pattern>/evento/dettagli</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>PartitaInCorso</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.PartitaInCorsoServlet</servlet-class>
@@ -29,22 +30,34 @@
     <servlet-name>PartitaInCorso</servlet-name>
     <url-pattern>/views/evento/incorso</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CreaUtenteServlet</servlet-name>
-    <url-pattern>/views/profilo/nuovo</url-pattern>
+    <url-pattern>/registrazione</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>CreaAnnuncioServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaAnnuncioServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CreaAnnuncioServlet</servlet-name>
-    <url-pattern>/views/annuncio/nuovo</url-pattern>
+    <url-pattern>/annuncio/nuovo</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CreaEventoServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CreaEventoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreaEventoServlet</servlet-name>
+    <url-pattern>/evento/nuovo</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>ScegliSquadraServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.ScegliSquadraServlet</servlet-class>
@@ -53,14 +66,16 @@
     <servlet-name>ScegliSquadraServlet</servlet-name>
     <url-pattern>/post/scegli-squadra</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>UtenteView</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.UtenteViewServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UtenteView</servlet-name>
-    <url-pattern>/views/profilo/profilo</url-pattern>
+    <url-pattern>/profilo</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>CreaPostServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CreaPostServlet</servlet-class>
@@ -69,6 +84,7 @@
     <servlet-name>CreaPostServlet</servlet-name>
     <url-pattern>/post/crea-post</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>HomeViewServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.HomeViewServlet</servlet-class>
@@ -77,29 +93,41 @@
     <servlet-name>HomeViewServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>BachecaAnnunciViewServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.BachecaAnnunciViewServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BachecaAnnunciViewServlet</servlet-name>
-    <url-pattern>/views/annuncio/bachecaAnnunci</url-pattern>
+    <url-pattern>/bachecaAnnunci</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>MieIscrizioniViewServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.MieIscrizioniViewServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MieIscrizioniViewServlet</servlet-name>
-    <url-pattern>/views/profilo/leMieIscrizioni</url-pattern>
+    <url-pattern>/profilo/leMieIscrizioni</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
+    <url-pattern>/logged/home</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/loggedOut/home</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -108,6 +136,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>MiePartiteViewServlet</servlet-name>
-    <url-pattern>/views/profilo/leMiePartite</url-pattern>
+    <url-pattern>/profilo/leMiePartite</url-pattern>
   </servlet-mapping>
 </web-app>

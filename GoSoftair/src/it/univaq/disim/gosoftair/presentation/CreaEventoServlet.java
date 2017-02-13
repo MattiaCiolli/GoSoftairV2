@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -55,8 +56,9 @@ public class CreaEventoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ")
-				.append(request.getContextPath());
+		request.setAttribute("percorso", "Partite > Crea partita");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/creaPartita.jsp");
+        dispatcher.forward(request, response);
 	}
 
 	/**
@@ -64,6 +66,7 @@ public class CreaEventoServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Tipologia");
 		Date data = null;

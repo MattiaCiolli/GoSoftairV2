@@ -29,7 +29,7 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
             // che in qualche modo li possa passare al modal corrispondente
         }
         //in ogni caso prendi dal db i 9 annunci e caricali nella pagina
-
+        request.setAttribute("percorso", "Mercatino > Bacheca annunci");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/annuncio/bachecaAnnunci.jsp");
         dispatcher.forward(request, response);
 

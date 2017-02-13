@@ -75,6 +75,7 @@ public class JDBCUtenteService implements UtenteService{
 			st = con.createStatement();
 			rs = st.executeQuery("SELECT * FROM gosoftair.UTENTE WHERE NICKNAME='" + nickname + "'");
 			if(rs.next()){
+				Long id = rs.getLong("id");
 				String nome = rs.getString("nome");
 				String cognome = rs.getString("cognome");
 				String email = rs.getString("email");
@@ -82,10 +83,10 @@ public class JDBCUtenteService implements UtenteService{
 				String password = rs.getString("password");
 				String documentoValido = rs.getString("documentoValido");
 				String immagineProfilo = rs.getString("immagineProfilo");
-				Utente utente = new Utente(nome, cognome, email, nick, password, documentoValido, immagineProfilo);
+				Utente utente = new Utente(id, nome, cognome, email, nick, password, documentoValido, immagineProfilo);
 				return utente;
 			}else {
-				System.out.print("Il result set non ha elementi");
+				System.out.print("Utente non esistente");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

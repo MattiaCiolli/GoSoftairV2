@@ -42,7 +42,7 @@
 					</div>
 					<div class="autoplay">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=0">
+							<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
@@ -62,7 +62,7 @@
 
 						<c:forEach items="${eventi}" var="evento">
 							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-								<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
+								<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 									<div class="carta">
 										<img
 											src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
@@ -83,7 +83,7 @@
 
 
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=0">
+							<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
@@ -100,7 +100,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=0">
+							<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
@@ -117,7 +117,7 @@
 							</a>
 						</div>
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=0">
+							<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
 								<div class="carta">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"
@@ -151,7 +151,7 @@
 
 					<c:forEach items="${annunci}" var="annuncio" varStatus="loop">
 						<div class="${classeGrafica[loop.index]} col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a href="${pageContext.request.contextPath}/views/annuncio/bachecaAnnunci?idAnnuncio=${annuncio.id}">
+							<a href="${pageContext.request.contextPath}/bachecaAnnunci?idAnnuncio=${annuncio.id}">
 								<div class="cartaScura">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"

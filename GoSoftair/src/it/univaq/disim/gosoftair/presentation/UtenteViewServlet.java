@@ -43,7 +43,7 @@ public class UtenteViewServlet extends HttpServlet {
         request.setAttribute("utente", utente);
         request.setAttribute("ultimiAnnunci", ultimiAnnunci);
         request.setAttribute("ultimiEventi", ultimiEventi);
-
+        request.setAttribute("percorso", "Profilo");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
         dispatcher.forward(request, response);
 

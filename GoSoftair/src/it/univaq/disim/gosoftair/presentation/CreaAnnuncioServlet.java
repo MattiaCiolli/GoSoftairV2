@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +48,9 @@ public class CreaAnnuncioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setAttribute("percorso", "Mercatino > Crea annuncio");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/annuncio/creaAnnuncio.jsp");
+        dispatcher.forward(request, response);
 	}
 
 	/**
