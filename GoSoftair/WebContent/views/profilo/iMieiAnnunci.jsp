@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -79,42 +80,43 @@
 
     </div>
     <!-- fine modal 1-->
-
-    <section>
-        <div class="container-fluid">
-            <div class="row lateralPadding">
-                <a href="#" data-toggle="modal" data-target="#modal">
-                    <div class="cartaScura elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div></div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                            <img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive immagineElemento">
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <p class="titolo">Titolo annuncio 1</p>
+    <c:forEach items="${annunci}" var="annuncio">
+            <section>
+                <div class="container-fluid">
+                    <div class="row lateralPadding">
+                        <a href="${pageContext.request.contextPath}/bachecaAnnunci?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
+                            <div class="cartaScura elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div></div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <img src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}" class="img-responsive immagineElemento">
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <p class="titolo">${annuncio.titolo}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 centra">
+                                            <p class="tag">Descrione</p>
+                                            <p class="valore descrive">${annuncio.descrizione}</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 centra">
+                                            <p class="tag">Prezzo</p>
+                                            <p class="valore">${annuncio.prezzo}</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 centra">
+                                            <p class="tag">Contatti</p>
+                                            <p class="valore">${annuncio.numeroTelefono}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 centra">
-                                    <p class="tag">Descrione</p>
-                                    <p class="valore descrive">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 centra">
-                                    <p class="tag">Prezzo</p>
-                                    <p class="valore">Mille !!</p>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 centra">
-                                    <p class="tag">Contatti</p>
-                                    <p class="valore">333/3984651</p>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-        </div>
-    </section>
+                </div>
+            </section>
+    </c:forEach>
 
     <section>
         <div class="container-fluid">

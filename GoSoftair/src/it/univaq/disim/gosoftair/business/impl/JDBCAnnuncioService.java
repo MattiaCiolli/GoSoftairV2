@@ -159,7 +159,75 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 String descrizione = rs.getString("descrizione");
                 String immagine = rs.getString("immagine");
                 String prezzo = rs.getString("prezzo");
-                String numeroTelefono = rs.getString("numeroTelefono");
+                String numeroTelefono = rs.getString("numerotelefono");
+                String email = rs.getString("email");
+                Long idutente = rs.getLong("idutente");
+
+                DateFormat format = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.S", Locale.ITALIAN);
+                Date datainserzione = new Date();
+                try {
+                    datainserzione = format.parse(rs.getString("data"));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Utente insertore = new Utente();
+                insertore.setId(idutente);
+
+                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);
+                risultati.add(annuncio);
+                contatore++;
+            }
+            if (contatore == 0) {
+                System.out.print("Il result set non ha elementi");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante la ricerca degli annunci", e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return risultati;
+    }
+
+    @Override
+    public List<Annuncio> TuttiAnnunciCreatiDaMe(long idUtente) {
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
+        int contatore = 0;
+        List<Annuncio> risultati = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url, username, password);
+            st = con.createStatement();
+
+
+            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+idUtente+" ORDER BY data");
+            while (rs.next() && contatore < 10) {
+                Long id = rs.getLong("id");
+                String titolo = rs.getString("titolo");
+                String descrizione = rs.getString("descrizione");
+                String immagine = rs.getString("immagine");
+                String prezzo = rs.getString("prezzo");
+                String numeroTelefono = rs.getString("numerotelefono");
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
 

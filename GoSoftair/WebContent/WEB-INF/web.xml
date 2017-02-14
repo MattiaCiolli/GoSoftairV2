@@ -138,4 +138,14 @@
     <servlet-name>MiePartiteViewServlet</servlet-name>
     <url-pattern>/profilo/leMiePartite</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MieiAnnunciViewServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.MieiAnnunciViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MieiAnnunciViewServlet</servlet-name>
+    <url-pattern>/profilo/iMieiAnnunci</url-pattern>
+  </servlet-mapping>
+
 </web-app>

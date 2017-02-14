@@ -224,7 +224,7 @@
 		<div class="col-md-4">
 			<div class="list-group">
   			<a href="${pageContext.request.contextPath}/profilo/leMieIscrizioni" class="list-group-item">Le mie Iscrizioni</a>
-  			<a href="${pageContext.request.contextPath}/views/profilo/iMieiAnnunci.jsp" class="list-group-item">I miei Annunci</a>
+  			<a href="${pageContext.request.contextPath}/profilo/iMieiAnnunci" class="list-group-item">I miei Annunci</a>
   			<a href="${pageContext.request.contextPath}/profilo/leMiePartite" class="list-group-item">Le mie Partite</a>
   			<a href="${pageContext.request.contextPath}/views/profilo/modificaProfilo.jsp" class="list-group-item">Modifica Profilo</a>
 			</div>
