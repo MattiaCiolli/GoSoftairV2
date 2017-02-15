@@ -37,6 +37,6 @@ public class LoginServlet extends HttpServlet {
         session.setAttribute("id",logger.getId()); 
         }  
         
-        doGet(request, response);
+        response.sendRedirect(request.getContextPath() + "/home");
     }  
 }  

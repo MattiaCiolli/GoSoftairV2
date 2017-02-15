@@ -18,10 +18,6 @@ import java.util.*;
  * Created by Davide on 03/02/2017.
  */
 public class HomeViewServlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
