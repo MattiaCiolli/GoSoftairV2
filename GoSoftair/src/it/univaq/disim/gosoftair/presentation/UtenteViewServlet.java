@@ -37,6 +37,11 @@ public class UtenteViewServlet extends HttpServlet {
         EventoService eventoService= factory.getEventoService();
 
         List<Annuncio> ultimiAnnunci = annuncioservice.findLastAnnunciByUserID(oggi, id);
+
+        for (Annuncio annuncio:ultimiAnnunci){
+            annuncio.setInsertore(utenteService.findUserByPK(annuncio.getInsertore().getId()));
+        }
+
         List<Evento> ultimiEventi = eventoService.findUltimiByUserID(oggi, id);
         Utente utente = utenteService.findUserByPK(id);
 
