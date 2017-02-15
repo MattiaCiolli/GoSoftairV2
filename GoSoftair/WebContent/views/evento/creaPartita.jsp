@@ -72,11 +72,14 @@
 	<%@include file="/layout/navbar.jsp"%>
 	<div class="container-fluid immagineSfondo">
 		<div class="card" id="bianco">
-			<form id="partitaform" action="${pageContext.request.contextPath}/CreaEventoServlet" method="post" enctype="multipart/form-data">
+			<form id="partitaform"
+				action="${pageContext.request.contextPath}/CreaEventoServlet"
+				method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<div class="form-group">
-							<label for="NomeEvento">Nome evento:</label> <input type="text" class="form-control" name="NomeEvento" id="NomeEvento">
+							<label for="NomeEvento">Nome evento:</label> <input type="text"
+								class="form-control" name="NomeEvento" id="NomeEvento">
 						</div>
 					</div>
 				</div>
@@ -91,6 +94,16 @@
 								<option>Cattura la bandiera</option>
 								<option>Dominio</option>
 							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="Descrizione">Descrizione:</label>
+							<textarea rows="5" class="form-control" id="Descrizione"
+								name="Descrizione"></textarea>
 						</div>
 					</div>
 				</div>
@@ -121,13 +134,25 @@
 				</div>
 
 				<div class="row">
+					<div class='col-sm-4 col-md-4 col-lg-4'>
+						<div class="form-group">
+							<label for="NumPartecipanti">Punto di incontro:</label> <input
+								type="text" class="form-control" name="PuntoIncontro"
+								id="PuntoIncontro">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
 					<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
 						<div class="form-group">
 							<label for="Posizione">Posizione:</label> <input id="pac-input"
 								class="controls" type="text" placeholder="Search Box">  
 							<div id="mapcont"></div>
 							<input type="text" class="form-control" name="Posizione"
-								id="Posizione" value="Lat:  Long:" readonly>
+								id="Posizione" value="Lat:  Long:" readonly> <input
+								hidden type="text" name="Lat" id="Lat" value="Lat:"> <input
+								hidden type="text" name="Lon" id="Lon" value="Long:">
 						</div>
 					</div>
 				</div>

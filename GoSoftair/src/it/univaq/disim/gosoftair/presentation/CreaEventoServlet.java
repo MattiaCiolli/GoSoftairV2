@@ -68,7 +68,7 @@ public class CreaEventoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String titolo = request.getParameter("NomeEvento");
-		String descrizione = request.getParameter("Tipologia");
+		String descrizione = request.getParameter("Descrizione");
 		Date data = null;
 		try {
 			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
@@ -78,12 +78,12 @@ public class CreaEventoServlet extends HttpServlet {
 		}
 
 		String tipologia = request.getParameter("Tipologia");
-		String puntoIncontro = "latlong";
 		int numPartecipanti = Integer.parseInt(request
 				.getParameter("NumPartecipanti"));
 		String appPath = request.getServletContext().getRealPath("/");
 		// constructs path of the directory to save uploaded file
 		String savePath = appPath + File.separator +"resources"+ File.separator +"img";
+		String ptoincontro = request.getParameter("PuntoIncontro");
 		String immagine = null; // input stream of the upload file
 		// obtains the upload file part in this multipart request
 		Part filePart = request.getPart("Immagine");
@@ -97,13 +97,14 @@ public class CreaEventoServlet extends HttpServlet {
 			immagine = fileName;
 		}
 		
+		Double lat=Double.parseDouble(request.getParameter("Lat"));
+		Double lon=Double.parseDouble(request.getParameter("Lon"));
 		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		UtenteService utenteService = factory.getUtenteService();
 		Utente organizzatore = utenteService.findUserByPK(0);
 		EventoService eventoService = factory.getEventoService();
-		//HO MESSO COORDIANTE FASUELLE CHE POI VANNO AGGIUSTATE
-		Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numPartecipanti, 1, immagine, organizzatore, 44.3433, 16.3);
+		Evento evento = new Evento(titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
 		eventoService.create(evento);
 	}
 

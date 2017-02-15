@@ -57,12 +57,16 @@ function initAutocomplete() {
 					function(event) {
 						var lat = markers[0].getPosition().lat();
 						var lng = markers[0].getPosition().lng();
+						$("#Lat").val(lat);
+						$("#Lon").val(lng);
 						$("#Posizione").val("Lat: " + lat + "  Long: " + lng);
 					});
 
 			// Shows instantly the coordinates of the selected place
 			var lat = markers[0].getPosition().lat();
 			var lng = markers[0].getPosition().lng();
+			$("#Lat").val(lat);
+			$("#Lon").val(lng);
 			$("#Posizione").val("Lat: " + lat + "  Long: " + lng);
 
 			if (place.geometry.viewport) {
@@ -152,10 +156,28 @@ $(document)
 												required : true,
 
 											},
+											
+											Descrizione : {
+
+												required : true,
+
+												minlength : 3,
+
+												maxlength : 100
+
+											},
 
 											DataOra : {
 
 												required : true,
+
+											},
+											
+											PuntoIncontro : {
+
+												required : true,
+												
+												maxlength : 30
 
 											},
 
@@ -194,6 +216,24 @@ $(document)
 											Tipologia : {
 
 												required : "Seleziona una tipologia",
+
+											},
+											
+											Descrizione : {
+
+												required : "Inserisci una descrizione",
+
+												minlength : "Almeno 3 caratteri",
+
+												maxlength : "Massimo 100 caratteri"
+
+											},
+											
+											PuntoIncontro : {
+
+												required : "Descrivi dove incontrarsi",
+												
+												maxlength : "Max 30 caratteri"
 
 											},
 
