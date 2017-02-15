@@ -102,7 +102,8 @@ public class CreaEventoServlet extends HttpServlet {
 		UtenteService utenteService = factory.getUtenteService();
 		Utente organizzatore = utenteService.findUserByPK(0);
 		EventoService eventoService = factory.getEventoService();
-		Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numPartecipanti, 1, immagine, organizzatore);
+		//HO MESSO COORDIANTE FASUELLE CHE POI VANNO AGGIUSTATE
+		Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numPartecipanti, 1, immagine, organizzatore, 44.3433, 16.3);
 		eventoService.create(evento);
 	}
 

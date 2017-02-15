@@ -62,9 +62,8 @@ public class EventoViewServlet extends HttpServlet {
 			ReadXMLFile lettore= new ReadXMLFile();
 			meteoDisponibile = true;
 
-			//lat e lon vanno recuperati da DB una volta che ci stanno
-			String lat="42.470088";
-			String lon="13.783990";
+			String lat = String.valueOf(evento.getLat());
+			String lon = String.valueOf(evento.getLon());
 
 			ArrayList<String> provinciaComune=new ArrayList<>();
 			provinciaComune = lettore.geocoding(lat, lon);

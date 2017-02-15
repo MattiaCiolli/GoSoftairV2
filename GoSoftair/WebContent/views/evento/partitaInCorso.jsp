@@ -122,6 +122,7 @@
 	  	    	var latitude  = position.coords.latitude;
 	  	    	var longitude = position.coords.longitude;
 	  	    	var url = "${pageContext.request.contextPath}/views/evento/incorso";
+	  	    	console.log("ho un nuovo valore");
 	  	    	
 	  	    	$.post( 
 	  	    		url, 
