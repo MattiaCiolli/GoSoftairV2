@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,8 +9,8 @@
 	<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
-		<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
-		<link href="${pageContext.request.contextPath}/resources/customCSS/profilo.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/customCSS/profilo.css" rel="stylesheet">
 	<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
@@ -19,202 +20,57 @@
 	<%@include file="/layout/navbar.jsp" %>
 
 <!-- edit-modal 1 -->
-	<div class="modal fade" id="modal" tabindex="-1" role="dialog"
-		aria-labelledby="basicModal" aria-hidden="true">
-
+	<!-- edit-modal 1 -->
+	<div class="modal fade" data-remote="false" id="modal" tabindex="-1" role="dialog"
+		 aria-labelledby="basicModal" aria-hidden="true">
 		<div class="modal-dialog">
-
 			<div class="modal-content">
-
 				<div class="modal-header">
-
 					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-
+							aria-hidden="true">&times;</button>
 					<h4 class="modal-title" id="myModalLabel">
 						<b>Dettagli annuncio</b>
 					</h4>
-
 					<div id="loadingedit">
 						<img src='${pageContext.request.contextPath}/resources/fileinput/img/loading.gif' alt='loading...' />
 					</div>
-
 				</div>
-
 				<div class="modal-body row">
-
 					<div class="col-md-6 col-lg-6">
-
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text fontStencil">Arma 1</p>
+								<p class="list-group-item-text" id="titolo"></p>
 							</a> <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text fontStencil">molto bello sisi blabla bla
-									blablablabla blablablabl blablablabl blablablabl blablablabl</p>
-							</a> <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text fontStencil">50$</p>
-							</a>
+							<h4 class="list-group-item-heading">Descrizione:</h4>
+							<p class="list-group-item-text" id="descrizione"></p>
+						</a> <a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Prezzo:</h4>
+							<p class="list-group-item-text" id="prezzo"></p>
+						</a><a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Data inserzione:</h4>
+							<p class="list-group-item-text" id="data"></p>
+						</a>
 						</div>
-
 					</div>
-
 					<div class="col-md-6 col-lg-6">
 						<img id="imgAnnuncio"
-							src="${pageContext.request.contextPath}/resources/img/arma1.gif" />
+							 src="" />
 					</div>
-
 					<div class="col-md-12 col-lg-12">
 						<div class="list-group">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text fontStencil">3333333333</p>
+								<p class="list-group-item-text" id="telefono"></p>
+								<p class="list-group-item-text" id="emailContatti"></p>
 							</a>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 <!-- fine modal 1-->
-	
-<!-- edit-modal 2 -->
-	<div class="modal fade" id="modal2" tabindex="-1" role="dialog"
-		aria-labelledby="basicModal" aria-hidden="true">
-
-		<div class="modal-dialog">
-
-			<div class="modal-content">
-
-				<div class="modal-header">
-
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-
-					<h4 class="modal-title" id="myModalLabel">
-						<b>Dettagli annuncio</b>
-					</h4>
-
-					<div id="loadingedit">
-						<img src='${pageContext.request.contextPath}/resources/fileinput/img/loading.gif' alt='loading...' />
-					</div>
-
-				</div>
-
-				<div class="modal-body row">
-
-					<div class="col-md-6 col-lg-6">
-
-						<div class="list-group">
-							<a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text fontStencil">Arma 2</p>
-							</a> <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text fontStencil">troppo bello sisi blabla bla
-									blablablabla blablablabl blablablabl blablablabl blablablabl</p>
-							</a> <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text fontStencil">100$</p>
-							</a>
-						</div>
-
-					</div>
-
-					<div class="col-md-6 col-lg-6">
-						<img id="imgAnnuncio"
-							src="${pageContext.request.contextPath}/resources/img/arma2.jpg" />
-					</div>
-
-					<div class="col-md-12 col-lg-12">
-						<div class="list-group">
-							<a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text fontStencil">3333333333</p>
-							</a>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<!-- fine modal 2-->
-	
-	<!-- edit-modal 3 -->
-	<div class="modal fade" id="modal3" tabindex="-1" role="dialog"
-		aria-labelledby="basicModal" aria-hidden="true">
-
-		<div class="modal-dialog">
-
-			<div class="modal-content">
-
-				<div class="modal-header">
-
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-
-					<h4 class="modal-title" id="myModalLabel">
-						<b>Dettagli annuncio</b>
-					</h4>
-
-					<div id="loadingedit">
-						<img src='${pageContext.request.contextPath}/resources/fileinput/img/loading.gif' alt='loading...' />
-					</div>
-
-				</div>
-
-				<div class="modal-body row">
-
-					<div class="col-md-6 col-lg-6">
-
-						<div class="list-group">
-							<a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Titolo:</h4>
-								<p class="list-group-item-text fontStencil">G36K</p>
-							</a> <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Descrizione:</h4>
-								<p class="list-group-item-text fontStencil">molto bello sisi blabla bla
-									blablablabla blablablabl blablablabl blablablabl blablablabl</p>
-							</a> <a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Prezzo:</h4>
-								<p class="list-group-item-text fontStencil">50$</p>
-							</a>
-						</div>
-
-					</div>
-
-					<div class="col-md-6 col-lg-6">
-						<img id="imgAnnuncio"
-							src="${pageContext.request.contextPath}/resources/img/arma3.jpg" />
-					</div>
-
-					<div class="col-md-12 col-lg-12">
-						<div class="list-group">
-							<a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text fontStencil">3333333333</p>
-							</a>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<!-- fine modal3-->
 
 <!-- inizio -->
 
@@ -284,9 +140,9 @@
 	<div class="row UltimiEventi">
 		<h1 class="text-center titolo"> Ultime Partite </h1>
 
-		<c:forEach items="${requestScope.ultimiEventi}" var="evento">
+		<c:forEach items="${ultimiEventi}" var="evento">
 			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-				<a href="${pageContext.request.contextPath}/views/profilo/profilo.jsp">
+				<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 					<div class="cartaScura">
 						<img
 								src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
@@ -320,7 +176,7 @@
 
 		<c:forEach items="${ultimiAnnunci}" var="annuncio">
 			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-				<a href="${pageContext.request.contextPath}/views/profilo/profilo.jsp">
+				<a href="">
 					<div class="cartaScura">
 						<img
 								src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
@@ -337,44 +193,6 @@
 				</a>
 			</div>
 		</c:forEach>
-
-
-  		<!--
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4"style="margin-bottom:3%">
-    			<a data-toggle="modal" data-target="#modal">
-    				<div class="cartaScura">
-      					<img src="/resources/img/arma1.gif" class="img-carta"alt="foto articolo">
-      						<div class="caption">
-        						<h3 style="text-align:center">Arma 1</h3>
-									<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      						</div>
-    				</div>
-    			</a>
-  			</div>
-
-  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" >
-    	<a data-toggle="modal" data-target="#modal2">
-    		<div class="cartaScura">
-      			<img src="/resources/img/arma2.jpg" class="img-carta"alt="foto articolo">
-      				<div class="caption">
-       	 				<h3 style="text-align:center">Arma 2</h3>
-											<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      				</div>
-    		</div>
-    	</a>
-  	</div>
-  	<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" style="margin-bottom:3%">
-    	<a data-toggle="modal" data-target="#modal3">
-    		<div class="cartaScura">
-      			<img src="/resources/img/arma3.jpg" class="img-carta" alt="foto articolo" >
-      				<div class="caption">
-        				<h3 style="text-align:center">Arma 3</h3>
-							<p class="descrizione fontStencil">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		     		</div>
- 			</div>
- 		</a>
-  	</div>
-		-->
 	</div>
 </div>
 </section>
@@ -384,6 +202,7 @@
 <!-- fine -->
 
 	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </body>

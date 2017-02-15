@@ -206,7 +206,7 @@ public class JDBCEventoService implements EventoService {
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
 			String oggiFormattato = DBformat.format(oggi);
-			rs = st.executeQuery("SELECT evento.* FROM evento,utente_evento WHERE evento.id=utente_evento.idutente AND utente_evento.idutente="+id+" AND evento.data >" + "'" + oggiFormattato + "'ORDER BY data");
+			rs = st.executeQuery("SELECT evento.* FROM evento,utente_evento WHERE evento.id=utente_evento.idevento AND utente_evento.idutente="+id+" AND evento.data >" + "'" + oggiFormattato + "'ORDER BY data");
 
 			while (rs.next() && contatore < 3) {
 				long idEvento = Long.parseLong(rs.getString("id"));
