@@ -16,26 +16,14 @@ public class Evento implements java.io.Serializable {
 	private List<Post> posts;
 	private Squadre squadre;
 	private String immagine;
-
-
+	private double lat;
+	private double lon;
 
 	public Evento() {
 		super();
 	}
-	
-	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
-		super();
-		this.id = id;
-		this.titolo = titolo;
-		this.descrizione = descrizione;
-		this.data = data;
-		this.puntoIncontro = puntoIncontro;
-		this.tipologia = tipologia;
-		this.numMaxPartecipanti = numMaxPartecipanti;
-		this.setStato(stato);
-	}
 
-	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine) {
+	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine, Utente organizzatore, double lat, double lon) {
 		super();
 		this.id = id;
 		this.titolo = titolo;
@@ -46,10 +34,12 @@ public class Evento implements java.io.Serializable {
 		this.numMaxPartecipanti = numMaxPartecipanti;
 		this.setStato(stato);
 		this.immagine = immagine;
+		this.organizzatore = organizzatore;
+		this.lat = lat;
+		this.lon = lon;
 	}
 
-	//costruttore con immagine, non ho voluto metterlo nel costruttore di sotto perche non so se qualcuno di voi lo stava usando
-	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine, Utente organizzatore) {
+	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine, Utente organizzatore, double lat, double lon) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
@@ -60,9 +50,11 @@ public class Evento implements java.io.Serializable {
 		this.setStato(stato);
 		this.immagine = immagine;
 		this.organizzatore = organizzatore;
+		this.lat = lat;
+		this.lon = lon;
 	}
 	
-	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato) {
+	public Evento(String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine, double lat, double lon) {
 		super();
 		this.titolo = titolo;
 		this.descrizione = descrizione;
@@ -71,6 +63,24 @@ public class Evento implements java.io.Serializable {
 		this.tipologia = tipologia;
 		this.numMaxPartecipanti = numMaxPartecipanti;
 		this.setStato(stato);
+		this.immagine = immagine;
+		this.lat = lat;
+		this.lon = lon;
+	}
+	
+	public Evento(long id, String titolo, String descrizione, Date data, String puntoIncontro, String tipologia, int numMaxPartecipanti, int stato, String immagine, double lat, double lon) {
+		super();
+		this.id = id;
+		this.titolo = titolo;
+		this.descrizione = descrizione;
+		this.data = data;
+		this.puntoIncontro = puntoIncontro;
+		this.tipologia = tipologia;
+		this.numMaxPartecipanti = numMaxPartecipanti;
+		this.setStato(stato);
+		this.immagine = immagine;
+		this.lat = lat;
+		this.lon = lon;
 	}
 
 	public String getTitolo() {
@@ -172,4 +182,21 @@ public class Evento implements java.io.Serializable {
 	public void setImmagine(String immagine) {
 		this.immagine = immagine;
 	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLon() {
+		return lon;
+	}
+
+	public void setLon(double lon) {
+		this.lon = lon;
+	}
+	
 }

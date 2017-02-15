@@ -58,7 +58,7 @@ public class JDBCSquadreService implements SquadreService {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new BusinessException("Errore durante la creazione dell'evento",e);
+			throw new BusinessException("Errore durante la ricerca dell'evento",e);
 		} finally {
 			if (rs!=null) {
 				try {
@@ -79,14 +79,17 @@ public class JDBCSquadreService implements SquadreService {
 		return squadre; 
 	}
 	
-	public void scegliSquadra(long idUtente, int numSquadra) throws BusinessException {
+	public void scegliSquadra(long idUtente, int numSquadra, long idEvento) throws BusinessException {
 		Connection con = null;
         PreparedStatement st = null;
         try {
-            con = DriverManager.getConnection(url, username, password);            
-            String sql = "UPDATE utente_evento SET numsquadra=" + numSquadra + "WHERE idutente=" + idUtente;
+            con = DriverManager.getConnection(url, username, password);
+			String sql = "MERGE INTO utente_evento a USING (SELECT ? numsquadra, ? idutente, ? idevento FROM dual) incoming ON (a.idutente = incoming.idutente AND a.idevento = incoming.idevento) WHEN MATCHED THEN UPDATE SET a.numsquadra=incoming.numsquadra WHEN NOT MATCHED THEN INSERT (a.id, a.numsquadra, a.idutente, a.idevento) VALUES (INCREMENTIDUTENTE_EVENTO.NEXTVAL, incoming.numsquadra, incoming.idutente, incoming.idevento)";
             st = con.prepareStatement(sql);
-            st.executeUpdate();
+			st.setInt(1, numSquadra);
+			st.setLong(2, idUtente);
+			st.setLong(3, idEvento);
+			st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new BusinessException("Errore durante aggiornamento della squadra", e);

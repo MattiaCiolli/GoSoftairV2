@@ -35,7 +35,7 @@ public class JDBCEventoService implements EventoService {
 		PreparedStatement st = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDUTENTE, IMMAGINE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO EVENTO (ID, TITOLO, DESCRIZIONE, DATA, PUNTOINCONTRO, TIPOLOGIA, NMAXPARTECIPANTI, STATO, IDUTENTE, IMMAGINE, LATITUDINE, LONGITUDINE) VALUES (INCREMENTIDEVENTO.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
 			st = con.prepareStatement(sql);
 			st.setString(1, evento.getTitolo());
 			st.setString(2, evento.getDescrizione());
@@ -46,6 +46,8 @@ public class JDBCEventoService implements EventoService {
 			st.setInt(7, evento.getStato());
 			st.setLong(8, evento.getOrganizzatore().getId());
 			st.setString(9, evento.getImmagine());
+			st.setDouble(10, evento.getLat());
+			st.setDouble(11, evento.getLon());
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,9 +65,7 @@ public class JDBCEventoService implements EventoService {
 				} catch (SQLException e) {
 				}
 			}
-
 		}
-
 	}
 
 	public Evento findEventoByPK(long id) throws BusinessException {
@@ -75,7 +75,7 @@ public class JDBCEventoService implements EventoService {
 		try {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
-			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato FROM evento WHERE id=" + id);
+			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE id=" + id);
 			if (rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -86,12 +86,15 @@ public class JDBCEventoService implements EventoService {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-
 				String puntoIncontro = rs.getString("puntoincontro");
 				String tipologia = rs.getString("tipologia");
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
-				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato);
+				String immagine = rs.getString("immagine");
+				double lat = Double.parseDouble(rs.getString("latitudine"));
+				double lon = Double.parseDouble(rs.getString("longitudine"));
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, lat, lon);
+				
 				return evento;
 			} else {
 				System.out.print("Il result set non ha elementi");
@@ -122,56 +125,6 @@ public class JDBCEventoService implements EventoService {
 		return null;
 	}
 
-
-	public List<Utente> creaSquadre(long idEvento) {
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		try {
-			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT UTENTE.ID, UTENTE_EVENTO.NUMSQUADRA FROM UTENTE, UTENTE_EVENTO, EVENTO WHERE UTENTE.ID=UTENTE_EVENTO.IDUTENTE AND EVENTO.ID=UTENTE_EVENTO.IDEVENTO AND EVENTO.ID=" + idEvento);
-			if (rs.next()) {
-				long id = Long.parseLong((rs.getString("id")));
-				String nome = rs.getString("nome");
-				String cognome = rs.getString("cognome");
-				String email = rs.getString("email");
-				String nickname = rs.getString("nickname");
-				String password = rs.getString("password");
-				String documentoValido = rs.getString("documentovalido");
-				String immagineProfilo = rs.getString("immagineprofilo");
-				Utente utente = new Utente(id, nome, cognome, email, nickname, password, documentoValido, immagineProfilo);
-
-			} else {
-				System.out.print("Il result set non ha elementi");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new BusinessException("Errore durante la creazione dell'evento", e);
-		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (st != null) {
-				try {
-					st.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-				}
-			}
-		}
-		return null;
-	}
-
-	@Override
 	public List<Evento> findLastEvent(Date oggi, int quantita) throws BusinessException {
 		Connection con = null;
 		Statement st = null;
@@ -185,7 +138,7 @@ public class JDBCEventoService implements EventoService {
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
 			String oggiFormattato = DBformat.format(oggi);
 
-			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
+			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
 			while (rs.next() && contatore < quantita) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -196,14 +149,15 @@ public class JDBCEventoService implements EventoService {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-
 				String puntoIncontro = rs.getString("puntoincontro");
 				String tipologia = rs.getString("tipologia");
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
 				String immagine = rs.getString("immagine");
+				double lat = Double.parseDouble(rs.getString("longitudine"));
+				double lon = Double.parseDouble(rs.getString("latitudine"));
 				Utente idutente = new Utente();
-				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente);
+				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente, lat, lon);
 				risultati.add(evento);
 				contatore++;
 			}
@@ -255,6 +209,7 @@ public class JDBCEventoService implements EventoService {
 			rs = st.executeQuery("SELECT evento.* FROM evento,utente_evento WHERE evento.id=utente_evento.idutente AND utente_evento.idutente="+id+" AND evento.data >" + "'" + oggiFormattato + "'ORDER BY data");
 
 			while (rs.next() && contatore < 3) {
+				long idEvento = Long.parseLong(rs.getString("id"));
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
@@ -270,8 +225,10 @@ public class JDBCEventoService implements EventoService {
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
 				String immagine = rs.getString("immagine");
+				double lat = Double.parseDouble(rs.getString("latitudine"));
+				double lon = Double.parseDouble(rs.getString("longitudine"));
 				Utente idutente = new Utente();
-				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente);
+				Evento evento = new Evento(idEvento, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente, lat, lon);
 				risultati.add(evento);
 				contatore++;
 			}
@@ -320,7 +277,7 @@ public class JDBCEventoService implements EventoService {
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
 			String oggiFormattato= DBformat.format(oggi);
 
-			rs = st.executeQuery("SELECT evento.id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine FROM evento, utente_evento WHERE evento.id = utente_evento.idevento AND utente_evento.idutente ="+idUtente+" AND data >"+ "'"+oggiFormattato+"' ORDER BY data");
+			rs = st.executeQuery("SELECT evento.id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento, utente_evento WHERE evento.id = utente_evento.idevento AND utente_evento.idutente ="+idUtente+" AND data >"+ "'"+oggiFormattato+"' ORDER BY data");
 			while(rs.next() && contatore < 10) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -338,7 +295,9 @@ public class JDBCEventoService implements EventoService {
 				int stato = Integer.parseInt(rs.getString("stato"));
 				String immagine = rs.getString("immagine");
 				long id= rs.getLong("id");
-				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine);
+				double lat = Double.parseDouble(rs.getString("latitudine"));
+				double lon = Double.parseDouble(rs.getString("longitudine"));
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, lat, lon);
 				risultati.add(evento);
 				contatore++;
 			}
@@ -383,7 +342,7 @@ public class JDBCEventoService implements EventoService {
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
 
-			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine FROM evento WHERE evento.idutente = "+idUtente+" ORDER BY data desc");
+			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE evento.idutente = "+idUtente+" ORDER BY data desc");
 			while(rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -401,7 +360,9 @@ public class JDBCEventoService implements EventoService {
 				int stato = Integer.parseInt(rs.getString("stato"));
 				String immagine = rs.getString("immagine");
 				long id= rs.getLong("id");
-				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine);
+				double lat = Double.parseDouble(rs.getString("latitudine"));
+				double lon = Double.parseDouble(rs.getString("longitudine"));
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, lat, lon);
 				risultati.add(evento);
 				contatore++;
 			}

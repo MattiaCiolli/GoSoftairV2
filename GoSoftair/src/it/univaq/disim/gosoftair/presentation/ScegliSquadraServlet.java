@@ -19,12 +19,14 @@ public class ScegliSquadraServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String[] data = request.getParameter("data").split("\\s+");
-		long idUtente = Long.parseLong(data[0]);
-		int numSquadra = Integer.parseInt(data[1]);
+
+		long idUtente = Long.parseLong(request.getParameter("idUtente"));
+		int numSquadra = Integer.parseInt(request.getParameter("squadra"));
+		long idEvento = Long.parseLong(request.getParameter("idEvento"));
+
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		SquadreService squadreService = factory.getSquadreService();
-		squadreService.scegliSquadra(idUtente, numSquadra);
+		squadreService.scegliSquadra(idUtente, numSquadra, idEvento);
 		PrintWriter out = response.getWriter();
 		out.println(1);
 	}

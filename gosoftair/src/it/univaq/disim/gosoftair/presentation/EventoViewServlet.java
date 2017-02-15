@@ -45,12 +45,6 @@ public class EventoViewServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		//Per ora li setto manualmente ma questo andrà fatto nel login
-		session.setAttribute("idUtente", 0);
-		session.setAttribute("nickname", "netrider");
-
-
-
 		// Sezione di codice necessario per il meteo
 		String provincia = "";
 		String comune =  "";
@@ -63,7 +57,6 @@ public class EventoViewServlet extends HttpServlet {
 		data.add(Calendar.DATE, -4);
 		Date dataEventoMeno4Giorni = data.getTime();
 		Boolean meteoDisponibile = false;
-
 
 		if(!(oggi.after(dataEvento)) && (!oggi.before(dataEventoMeno4Giorni))) {
 			ReadXMLFile lettore= new ReadXMLFile();

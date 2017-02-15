@@ -72,14 +72,11 @@
 	<%@include file="/layout/navbar.jsp"%>
 	<div class="container-fluid immagineSfondo">
 		<div class="card" id="bianco">
-			<form id="partitaform"
-				action="${pageContext.request.contextPath}/CreaEventoServlet"
-				method="post" enctype="multipart/form-data">
+			<form id="partitaform" action="${pageContext.request.contextPath}/CreaEventoServlet" method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<div class="form-group">
-							<label for="NomeEvento">Nome evento:</label> <input type="text"
-								class="form-control" name="NomeEvento" id="NomeEvento">
+							<label for="NomeEvento">Nome evento:</label> <input type="text" class="form-control" name="NomeEvento" id="NomeEvento">
 						</div>
 					</div>
 				</div>

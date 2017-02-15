@@ -203,7 +203,7 @@
 					<div class="col-md-7">
 						<form id="myForm" action="${pageContext.request.contextPath}/post/crea-post">
 							<input type="text" name="postText" id="postText" placeholder="Insersci un commento">
-  							<input type="text" name="idUtente" id="idUtente" value="<%= session.getAttribute("idUtente") %>" hidden>
+  							<input type="text" name="idUtente" id="idUtente" value="<%= session.getAttribute("id") %>" hidden>
   							<input type="text" name="idEvento" id="idEvento" value="${evento.id}" hidden>
   							<input type="submit" value="Inserisci" id="submitButton">
 						</form>
@@ -251,11 +251,10 @@
 		
 		var squadra1 = document.getElementById('squadra1');
 		squadra1.onclick = function() {
-			var name = "<%= session.getAttribute("nickname") %>";
+			var name = "<%= session.getAttribute("username") %>";
 			var matches = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')' );
 			if(matches.length == 0) {
-				var data = "<%= session.getAttribute("idUtente") %>" + " 1";
-				$.post("${pageContext.request.contextPath}/post/scegli-squadra", {data: data}, function(result){
+				$.post("${pageContext.request.contextPath}/post/scegli-squadra", {idUtente:<%= session.getAttribute("id")  %>, squadra:"1", idEvento:$('#idEvento').val()  }, function(result){
 					if(result == 1) {
 						$('ul#squadra1List').append('<li class="team-member">' + name + '</li>');
 						var elementToRemove = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')');
@@ -269,11 +268,10 @@
 		
 		var squadra2 = document.getElementById('squadra2');
 		squadra2.onclick = function() {
-			var name = "<%= session.getAttribute("nickname") %>";
+			var name = "<%= session.getAttribute("username") %>";
 			var matches = $( 'ul#squadra2List' ).find( 'li:contains(' + name + ')' );
 			if(matches.length == 0) {
-				var data = "<%= session.getAttribute("idUtente") %>" + " 2";
-				$.post("${pageContext.request.contextPath}/post/scegli-squadra", {data: data}, function(result){
+				$.post("${pageContext.request.contextPath}/post/scegli-squadra", {idUtente : <%= session.getAttribute("id")  %>, squadra:"2", idEvento:$('#idEvento').val()  }, function(result){
 					if(result == 1) {
 						$('ul#squadra2List').append('<li class="team-member">' + name + '</li>');
 						var elementToRemove = $( 'ul#squadra1List' ).find( 'li:contains(' + name + ')');
