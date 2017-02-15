@@ -18,41 +18,59 @@ import java.util.*;
  * Created by Davide on 03/02/2017.
  */
 public class HomeViewServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
 
-    }
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		Date oggi = new Date();
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Date oggi=new Date();
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory
+				.getInstance();
+		EventoService eventoService = factory.getEventoService();
+		List<Evento> eventi;
+		eventi = eventoService.findLastEvent(oggi, 2); // il 2 in findLastEvent
+														// è il numero di
+														// eventi da cercare di
+														// caricare dal DB
+		request.setAttribute("eventi", eventi);
 
-        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-        EventoService eventoService = factory.getEventoService();
-        List<Evento> eventi;
-        eventi = eventoService.findLastEvent(oggi, 2);  //il 2 in findLastEvent è il numero di eventi da cercare di caricare dal DB
-        request.setAttribute("eventi", eventi);
+		AnnuncioService annuncioService = factory.getAnnuncioService();
+		List<Annuncio> annunci;
+		Calendar data = Calendar.getInstance();
+		data.setTime(oggi);
+		data.add(Calendar.MONTH, -3);
+		Date oggiMeno3Mesi = data.getTime();
+		annunci = annuncioService.findLastAnnunci(oggiMeno3Mesi, 2); // il 2 in
+																		// findLastAnnunci
+																		// è il
+																		// numero
+																		// di
+																		// annunci
+																		// da
+																		// cercare
+																		// di
+																		// caricare
+																		// dal
+																		// DB
 
-        AnnuncioService annuncioService = factory.getAnnuncioService();
-        List<Annuncio> annunci;
-        Calendar data = Calendar.getInstance();
-        data.setTime(oggi);
-        data.add(Calendar.MONTH, -3);
-        Date oggiMeno3Mesi = data.getTime();
-        annunci = annuncioService.findLastAnnunci(oggiMeno3Mesi, 2); //il 2 in findLastAnnunci è il numero di annunci da cercare di caricare dal DB
+		UtenteService utenteService = factory.getUtenteService();
+		for (Annuncio annuncio : annunci) {
+			annuncio.setInsertore(utenteService.findUserByPK(annuncio
+					.getInsertore().getId()));
+		}
+		request.setAttribute("annunci", annunci);
 
-        UtenteService utenteService = factory.getUtenteService();
-        for (Annuncio annuncio:annunci){
-            annuncio.setInsertore(utenteService.findUserByPK(annuncio.getInsertore().getId()));
-        }
-        request.setAttribute("annunci", annunci);
+		List<String> classeGrafica = new ArrayList<>();
+		classeGrafica.add("");
+		classeGrafica.add("hidden-xs");
+		classeGrafica.add("hidden-md  hidden-xs hidden-sm");
+		request.setAttribute("classeGrafica", classeGrafica);
 
-
-        List<String> classeGrafica = new ArrayList<>();
-        classeGrafica.add("");
-        classeGrafica.add("hidden-xs");
-        classeGrafica.add("hidden-md  hidden-xs hidden-sm");
-        request.setAttribute("classeGrafica",classeGrafica);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(request, response);
-    }
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
+	}
 }
