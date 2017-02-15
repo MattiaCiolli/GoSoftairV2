@@ -25,8 +25,6 @@ public class PartitaInCorsoServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.setAttribute("idUtente", 0);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/partitaInCorso.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -35,7 +33,9 @@ public class PartitaInCorsoServlet extends HttpServlet {
 		
 		double lat = Double.parseDouble(request.getParameter("lat"));
 		double lon = Double.parseDouble(request.getParameter("lon"));
-		long idGiocatore = Long.parseLong(request.getParameter("idUtente"));
+        HttpSession session=request.getSession();
+
+		long idGiocatore = (Long)session.getAttribute("id");
 		long idEvento = Long.parseLong(request.getParameter("idEvento"));
 				
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();

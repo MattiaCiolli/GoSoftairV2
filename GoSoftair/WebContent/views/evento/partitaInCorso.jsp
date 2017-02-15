@@ -122,11 +122,10 @@
 	  	    	var latitude  = position.coords.latitude;
 	  	    	var longitude = position.coords.longitude;
 	  	    	var url = "${pageContext.request.contextPath}/views/evento/incorso";
-	  	    	console.log("ho un nuovo valore");
 	  	    	
 	  	    	$.post( 
 	  	    		url, 
-	  	    		{ lat: latitude, lon: longitude, idUtente: <%= session.getAttribute("idUtente") %>, idEvento: 0 }, 
+	  	    		{ lat: latitude, lon: longitude, idEvento: 0 }, 
 	  	    		function(results) {
 	  	    			results = JSON.parse(results);	  	    			
 	  	    			jQuery.each(results.coordinates, function(i, val) {
@@ -156,7 +155,7 @@
 		  	    	            markers[val.idGiocatore] = marker;
 	  	    				}else {
 	  	    					var position = new google.maps.LatLng(val.lat, val.lon);
-		  	    	            markers[val.idGiocatore].location = position;
+		  	    	            markers[val.idGiocatore].setPosition(position);
 
 	  	    				}
 	  	    			});
