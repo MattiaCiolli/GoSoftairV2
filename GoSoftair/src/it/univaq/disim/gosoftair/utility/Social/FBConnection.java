@@ -16,7 +16,7 @@ package it.univaq.disim.gosoftair.utility.Social;
 public class FBConnection {
     public static final String FB_APP_ID = "1249604458409041";
     public static final String FB_APP_SECRET = "e48dc177567d9fd76c1e826ab3792ee4";
-    public static final String REDIRECT_URI = "http://localhost:8080/index.jsp";
+    public static final String REDIRECT_URI = "http://localhost:8080/gosoftair/registrazioneFB";
 
     static String accessToken = "";
 

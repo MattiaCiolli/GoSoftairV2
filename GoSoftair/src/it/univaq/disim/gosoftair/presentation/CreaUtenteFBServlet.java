@@ -22,34 +22,25 @@ public class CreaUtenteFBServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String code = request.getParameter("code");
+                
+    	if (code == null || code.equals("")) {
+    		throw new RuntimeException("ERROR: Didn't get code parameter in callback.");
+    	}
+        FBConnection fbConnection = new FBConnection();
+        String accessToken = fbConnection.getAccessToken(code);
+        FBGraph fbGraph = new FBGraph(accessToken);
+        String graph = fbGraph.getFBGraph();
+        Map<String, String> fbProfileData = fbGraph.getGraphData(graph);
+        ServletOutputStream out = response.getOutputStream();
 
-            Long serialVersionUID = 1L;
-            String code="";
-
-                code = request.getParameter("code");
-                if (code == null || code.equals("")) {
-                    throw new RuntimeException(
-                            "ERROR: Didn't get code parameter in callback.");
-                }
-                FBConnection fbConnection = new FBConnection();
-                String accessToken = fbConnection.getAccessToken(code);
-
-                FBGraph fbGraph = new FBGraph(accessToken);
-                String graph = fbGraph.getFBGraph();
-                Map<String, String> fbProfileData = fbGraph.getGraphData(graph);
-                ServletOutputStream out = response.getOutputStream();
-
-                //creare un utente che abbia come paramentri quelli recuperati da fb
-                /*
-                String nome=fbProfileData.get("first_name");
-                String cognome=fbProfileData.get("second_name");
-                String email=fbProfileData.get("email");
-
-
-                 */
-
-
-            }
-
-        }
+        //creare un utente che abbia come paramentri quelli recuperati da fb
+        
+        String nome=fbProfileData.get("first_name");
+        String cognome=fbProfileData.get("second_name");
+        String email=fbProfileData.get("email");
+        
+        System.out.println("first_name");
+   }
+}
 

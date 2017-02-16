@@ -28,8 +28,7 @@ public class FBGraph {
             String g = "https://graph.facebook.com/me?" + accessToken;
             URL u = new URL(g);
             URLConnection c = u.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    c.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
             String inputLine;
             StringBuffer b = new StringBuffer();
             while ((inputLine = in.readLine()) != null)

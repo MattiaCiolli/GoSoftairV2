@@ -2,6 +2,10 @@
                 String username= (String) session.getAttribute("username");                     
                 if (username == null) {
 %>
+<%@page import="it.univaq.disim.gosoftair.utility.Social.FBConnection"%>
+<%
+	FBConnection fbConnection = new FBConnection();
+%>
 
 <header>
 	<div class="container-fluid">
@@ -40,7 +44,7 @@
 								<div class="col-md-12">
 									<div class="social-buttons ">
 										<p class="AccedereUsando">Puoi accedere usando il tuo profilo:</p>
-										<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+										<a href="<%=fbConnection.getFBAuthUrl()%>" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
 										<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
 									</div>
 								</div>
