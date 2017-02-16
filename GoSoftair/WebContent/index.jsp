@@ -18,7 +18,7 @@
 	<%@include file="/layout/navbar.jsp"%>
 
 	<!--Immagine di compertina, jumbotron -->
-	<section>
+	<section class="sezioneImmagine">
 		<div class="container-fluid jumboPadding">
 			<row>
 			<div class="jumbotron">
@@ -32,13 +32,60 @@
 		</div>
 	</section>
 
+	<!--sezione features -->
+	<section class="sezioneFeatures">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 SezioneFeautures">
+					<div class="titoloFeatures">
+						Features
+					</div>
+					<div class="featureContenuto">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<img
+									src="${pageContext.request.contextPath}/resources/img/mac1.png"
+									class="img-responsive mac">
+							<div>
+								<p class="contenutoFeatures">Trova e partecipa a una partita</p>
+								<p class="altroContenuto">GoSoftair unisce la passione di molti giocatori di softair che spontaneamente organizzano <b><a href="${pageContext.request.contextPath}/bachecaPartite" class="link">partite</a></b>.
+									Partecipa anche tu!</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<img
+									src="${pageContext.request.contextPath}/resources/img/iphoneTagliato1.png"
+									class="img-responsive iphone">
+							<div>
+								<p class="contenutoFeatures">Partite in real time</p>
+								<p class="altroContenuto">Coordina i tuoi compagni  vedendo la loro posizione sul tuo smartphone.</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<img
+									src="${pageContext.request.contextPath}/resources/img/mac2.png"
+									class="img-responsive mac">
+							<div>
+								<p class="contenutoFeatures">Gestisci le tue iscrizioni e i tuoi annunci</p>
+								<p class="altroContenuto">Dal tuo profilo puoi gestire le tue partite ed avere accesso completo al <b><a href="${pageContext.request.contextPath}/bachecaAnnunci" class="link">mercatino</a></b>, dove puoi consultere e inserire
+								annunci di compravendita.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!--sezione eventi -->
 	<section>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12 SezEventi">
 					<div class="titoloSezione">
-						Partite
+						Prossime partite
+					</div>
+					<div class="sottotitoloSezione">
+						Vorresti provare ma non hai mai avuto occasione? Partecipa a una delle prossime partite
 					</div>
 					<div class="autoplay">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
@@ -145,7 +192,10 @@
 			<div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 SezAnnunci">
 					<div class="titoloSezione">
-						Annunci
+						Annunci recenti del mercatino
+					</div>
+					<div class="sottotitoloSezione">
+						Trova l'equipaggiamento migliore nel nostro mercatino o vendi l'attrezzatura che non usi più
 					</div>
 
 

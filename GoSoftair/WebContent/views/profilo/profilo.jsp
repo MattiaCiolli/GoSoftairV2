@@ -159,9 +159,7 @@
 				</a>
 			</div>
 		</c:forEach>
-
-		-->
-</div>
+	</div>
 </div>
 </section>
 <!-- fine sezione ultimi eventi -->

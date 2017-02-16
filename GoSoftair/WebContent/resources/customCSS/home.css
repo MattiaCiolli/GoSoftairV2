@@ -25,7 +25,6 @@ a:hover {
 	padding-right: 0px;
 	padding-left: 0px;
 	border-radius: 0px;
-	max-height: 520px;
 }
 
 .jumbotron {
@@ -41,6 +40,7 @@ a:hover {
 	margin-top: auto;
 	display: block;
 	max-width: 100%;
+	max-height: 500px;
 	height: auto;
 	margin-bottom: 0px;
 }
@@ -88,6 +88,15 @@ a:hover {
 	letter-spacing: 1px;
 	margin-bottom: 10px;
 	color: white;
+	padding-top: 3%;
+}
+
+.sottotitoloSezione{
+	color: white;
+	font-family: "Oswald",sans-serif;
+	text-align: center;
+	margin-bottom: 2%;
+	font-size: 1.7em;
 }
 
 /* Sezioni eventi*/
@@ -188,6 +197,54 @@ a:hover {
 	margin-bottom: 30px;
 	text-align: center;
 	font-size: large;
+}
+
+/*features*/
+
+.sezioneFeatures{
+	padding-bottom: 5%;
+}
+
+.titoloFeatures{
+	font-family: "Oswald",sans-serif;
+	font-size: 36px;
+	line-height: 1em;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 3%;
+	padding-bottom: 3%;
+	font-family: 'oswald_stencilbold';
+	letter-spacing: 1px;
+}
+
+.iphone, .mac{
+	margin: auto;
+	max-height: 17em;
+}
+
+.contenutoFeatures{
+	color:#a6b71b;
+	text-transform: uppercase;
+	font-family: "Oswald",sans-serif;
+	text-align: center;
+	margin-top: 1%;
+	font-size: 1.5em;
+}
+
+.altroContenuto{
+	color: #767a70;
+	font-family: "Oswald",sans-serif;
+	text-align: center;
+	margin-top: 1%;
+	font-size: 1.4em;
+}
+
+.link{
+	color: #a6b71b;
+}
+
+.link:hover{
+	color: #94a31a;
 }
 
 
