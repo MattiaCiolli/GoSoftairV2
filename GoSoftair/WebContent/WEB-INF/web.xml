@@ -148,4 +148,13 @@
     <url-pattern>/profilo/iMieiAnnunci</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>CreaUtenteFBServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CreaUtenteFBServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreaUtenteFBServlet</servlet-name>
+    <url-pattern>/registrazioneFB</url-pattern>
+  </servlet-mapping>
+
 </web-app>

@@ -28,7 +28,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
         this.password = password;
     }
 
-
+//funzione che consente la creazione di un nuovo annuncio da parte di un utente
     public void create(Annuncio annuncio) {
         Connection con = null;
         PreparedStatement st = null;
@@ -67,7 +67,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
 
     }
 
-    @Override
+  //funzione che restituisce tutti gli ultimi annunci inseriti in GoSoftair
     public List<Annuncio> findLastAnnunci(Date oggi, int quantita) throws BusinessException {
         Connection con = null;
         Statement st = null;
@@ -138,6 +138,8 @@ public class JDBCAnnuncioService implements AnnuncioService {
         return risultati;
     }
 
+
+    //funzione che restituisce gli ultimi annunci (3) inseriti dall'utente
     public List<Annuncio> findLastAnnunciByUserID(Date oggi, long userID) {
 
         Connection con = null;
@@ -210,7 +212,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
         return risultati;
     }
 
-    @Override
+//funzione che restituisce tutti gli annunci creati dall'utente
     public List<Annuncio> TuttiAnnunciCreatiDaMe(long idUtente) {
         Connection con = null;
         Statement st = null;

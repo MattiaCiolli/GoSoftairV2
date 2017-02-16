@@ -30,6 +30,8 @@ public class JDBCEventoService implements EventoService {
 		this.password = password;
 	}
 
+
+	//funzione che consente la creazione di un evento da parte di un utente
 	public void create(Evento evento) {
 		Connection con = null;
 		PreparedStatement st = null;
@@ -68,6 +70,8 @@ public class JDBCEventoService implements EventoService {
 		}
 	}
 
+
+	//funzione che restituisce un evento dato il suo ID
 	public Evento findEventoByPK(long id) throws BusinessException {
 		Connection con = null;
 		Statement st = null;
@@ -125,6 +129,8 @@ public class JDBCEventoService implements EventoService {
 		return null;
 	}
 
+
+	//funzione che restituisce gli eventi più prossimi
 	public List<Evento> findLastEvent(Date oggi, int quantita) throws BusinessException {
 		Connection con = null;
 		Statement st = null;
@@ -192,6 +198,7 @@ public class JDBCEventoService implements EventoService {
 	}
 
 
+	//funzione che restituisce gli ultimi eventi a cui l'utente ha confermato la sua partecipazione
 	public List<Evento> findUltimiByUserID(Date oggi, long id) {
 
 		Connection con = null;
@@ -262,7 +269,7 @@ public class JDBCEventoService implements EventoService {
 		return risultati;
 	}
 
-	@Override
+	//funzione che restituisce tutti gli eventi a cui l'utente si è iscritto
 	public List<Evento> findAllMySubscription(Date oggi, long idUtente) {
 		Connection con = null;
 		Statement st = null;
@@ -328,7 +335,7 @@ public class JDBCEventoService implements EventoService {
 		return risultati;
 	}
 
-	@Override
+	//funzione che restituisce tutti gli eventi che ha creato l'utente
 	public List<Evento> trovaTuttePartiteCreateDaMe(long idUtente) {
 		Connection con = null;
 		Statement st = null;

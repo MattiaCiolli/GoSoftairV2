@@ -41,6 +41,8 @@ public class Utente implements java.io.Serializable {
 		this.immagineProfilo = immagineProfilo;
 	}
 
+	//è necessario un nuovo costruttore utente che associ un nickname nome.cognome.numeroaleatorio agli utenti che effettuano la registrazione e quindi l'accesso tramite fb e un'immagine standard da definire
+
 	public String getNome() {
 		return nome;
 	}
