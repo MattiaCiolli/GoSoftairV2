@@ -37,34 +37,26 @@
 </section>
 <section style="margin-bottom:30px;">
     <div class="container">
+    
         <div class="row">
             <div id="map"></div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="button">
-                    <button type="button" class="btn btn-default" id="attach" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">Attacchiamo</span>
-                    </button>
-                </div>
+       	<div id="out"></div>
+        
+        <div class="row" style="margin-top:10px">
+            <div class="col-md-3 text-center">
+            	<button type="button" class="btn bottonenav" id="attach"> Attacchiamo</button>      
             </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-align-left" aria-hidden="true">Copritemi</span>
-                </button>
+            <div class="col-md-3 text-center">
+                <button type="button" class="btn bottonenav" id="defend" >Copritemi</button>
             </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-align-left" aria-hidden="true">Ritirata</span>
-                </button>
+            <div class="col-md-3 text-center">
+                <button type="button" class="btn bottonenav">Rtirata</button>
             </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-align-left" aria-hidden="true">Assistenza</span>
-                </button>
+            <div class="col-md-3 text-center">
+                <button type="button" class="btn bottonenav">Assistenza</button>
             </div>
         </div>
-		<div id="out"></div>
     </div>
 </section>
 <%@include file="/layout/footer.jsp" %>
@@ -78,6 +70,7 @@
 	var bounds;
 	var infoWindow;
 	var markers = {};
+	var immagine = "2";
 	
     function initMap() {
     	
@@ -94,19 +87,16 @@
         //infoWindow = new google.maps.InfoWindow(), marker, i;
     }
     
-    document.getElementById("attach").onclick = function() {attach(map)};
+    document.getElementById("attach").onclick = function() {attach()};
+    document.getElementById("defend").onclick = function() {defend()};
 
-    function attach(mappa) {
-        var addAttach = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: mappa,
-            center: {lat: 42.368943, lng: 13.349999},
-            radius: 15,
-        });
+
+    function attach() {
+    	immagine = "0";
+    }
+    
+    function defend() {
+    	immagine = "1";
     }
     
     var intervalID = setInterval( function() 
@@ -125,9 +115,9 @@
 	  	    	
 	  	    	$.post( 
 	  	    		url, 
-	  	    		{ lat: latitude, lon: longitude, idEvento: 0 }, 
+	  	    		{ lat: latitude, lon: longitude, idEvento: 0, img: immagine  }, 
 	  	    		function(results) {
-	  	    			results = JSON.parse(results);	  	    			
+	  	    			results = JSON.parse(results);	 
 	  	    			jQuery.each(results.coordinates, function(i, val) {
 	  	    				if(markers[val.idGiocatore] == undefined) 
 	  	    				{
@@ -138,7 +128,7 @@
 		  	    	            	position: position,
 		  	    	                map: map,
 		  	    	                title: val.idGiocatore,
-		  	    	                icon: '${pageContext.request.contextPath}/resources/img/profile.jpg'
+		  	    	                icon: '${pageContext.request.contextPath}/resources/img/profile_images/' + val.immagine
 		  	    	            }, "<h1>Marker 0</h1><p>This is the home marker.</p>");
 		  	    			  	
 		  	    			  	// Allow each marker to have an info window
@@ -156,7 +146,7 @@
 	  	    				}else {
 	  	    					var position = new google.maps.LatLng(val.lat, val.lon);
 		  	    	            markers[val.idGiocatore].setPosition(position);
-
+		  	    	            markers[val.idGiocatore].setIcon("${pageContext.request.contextPath}/resources/img/profile_images/" + val.immagine);
 	  	    				}
 	  	    			});
 	  	    		}

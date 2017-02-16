@@ -31,11 +31,12 @@ public class JDBCPosizioniGiocatoriService implements PosizioniGiocatoriService 
 
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			String sql = "MERGE INTO posizioniutenti a USING (SELECT ? idutente, ? latitudine, ? longitudine FROM dual) incoming ON (a.idutente = incoming.idutente) WHEN MATCHED THEN UPDATE SET a.latitudine=incoming.latitudine, a.longitudine=incoming.longitudine WHEN NOT MATCHED THEN INSERT (a.id, a.idutente, a.latitudine, a.longitudine) VALUES (INCREMENTIDPOSIZIONIUTENTI.NEXTVAL, incoming.idutente, incoming.latitudine, incoming.longitudine)";
+			String sql = "MERGE INTO posizioniutenti a USING (SELECT ? idutente, ? latitudine, ? longitudine, ? immagine FROM dual) incoming ON (a.idutente = incoming.idutente) WHEN MATCHED THEN UPDATE SET a.latitudine=incoming.latitudine, a.longitudine=incoming.longitudine, a.immagine=incoming.immagine WHEN NOT MATCHED THEN INSERT (a.id, a.idutente, a.latitudine, a.longitudine, a.immagine) VALUES (INCREMENTIDPOSIZIONIUTENTI.NEXTVAL, incoming.idutente, incoming.latitudine, incoming.longitudine, incoming.immagine)";
 			st = con.prepareStatement(sql);
 			st.setLong(1, posizione.getIdGiocatore());
 			st.setDouble(2, posizione.getLat());
 			st.setDouble(3, posizione.getLon());
+			st.setString(4, posizione.getImmagineMappa());
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,15 +72,17 @@ public class JDBCPosizioniGiocatoriService implements PosizioniGiocatoriService 
 				long idUtente = Long.parseLong(rs.getString("idutente"));
 				double lat = Double.parseDouble(rs.getString("latitudine"));
 				double lon = Double.parseDouble(rs.getString("longitudine"));
+				String immagineUtenteMappa = rs.getString("immagine");
 				PosizioneGiocatore pos = new PosizioneGiocatore();
 				pos.setGiocatore(idUtente);
 				pos.setLat(lat);
 				pos.setLon(lon);
+				pos.setImmagineMappa(immagineUtenteMappa);
 				posizioniGiocatori.add(pos);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new BusinessException("Errore durante la creazione dell'evento", e);
+			throw new BusinessException("Errore caricamento posizioni utenti", e);
 		} finally {
 			if (rs != null) {
 				try {
