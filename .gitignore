@@ -297,3 +297,49 @@ GoSoftair/GoSoftair.iml
 
 *.class
 >>>>>>> Stashed changes
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.fdt
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.fdx
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.fnm
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.frq
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.nrm
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.prx
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.tii
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/_1.tis
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/segments_2
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/segments.gen
+
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/write.lock
+
+GoSoftair/.classpath
+
+GoSoftair/.classpath
+
+GoSoftair/.classpath
+
+Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
+
+Servers/Tomcat v8.5 Server at localhost-config/catalina.properties
+
+Servers/Tomcat v8.5 Server at localhost-config/context.xml
+
+Servers/Tomcat v8.5 Server at localhost-config/server.xml
+
+Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
+
+Servers/Tomcat v8.5 Server at localhost-config/web.xml
+
+Servers/.project
+
+RemoteSystemsTempFiles/.project
+
+GoSoftair/.classpath
