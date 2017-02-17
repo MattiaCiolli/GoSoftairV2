@@ -1,8 +1,4 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-		 pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -31,7 +27,7 @@
 				<div class="col-md-2 col-md-offset-1 sezutente">
 					<label class="col-md-12 personalLabel">Immagine profilo:</label>
 					<div class="kv-avatar center-block">
-						<input id="immagine" name="immagine" type="file"class="file-loading">
+						<input id="immagine" name="immagine" type="file" class="file-loading">
 					</div>
 									<div id="kv-avatar-errors-2" class="center-block"></div>
 				</div>
@@ -51,8 +47,7 @@
 							<div class="form-group">
 								<label class="col-lg-3 control-label personalLabel">Cognome:</label>
 								<div class="col-lg-8">
-									<input class="form-control" id="cognome" name="cognome"
-										type="text" value="${utente.cognome}">
+									<input class="form-control" id="cognome" name="cognome" type="text" value="${utente.cognome}">
 								</div>
 							</div>
 						</div>
@@ -62,8 +57,7 @@
 							<div class="form-group">
 								<label class="col-lg-3 control-label personalLabel">Nickname:</label>
 								<div class="col-lg-8">
-									<input class="form-control" id="nickname" name="nickname"
-										type="text" value="${utente.nickname}">
+									<input class="form-control" id="nickname" name="nickname" type="text" value="${utente.nickname}">
 								</div>
 							</div>
 						</div>
@@ -84,8 +78,7 @@
 								<label class="col-md-3 control-label personalLabel">Numero
 									Carta D'Identita:</label>
 								<div class="col-md-8">
-									<input class="form-control" id="documentoValido"
-										name="documentoValido" type="text" value="${utente.documentoValido}">
+									<input class="form-control" id="documentoValido" name="documentoValido" type="text" value="${utente.documentoValido}">
 								</div>
 							</div>
 						</div>
@@ -95,8 +88,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label personalLabel">Password:</label>
 								<div class="col-md-8">
-									<input class="form-control" id="password" name="password"
-										type="password" value="${utente.password}">
+									<input class="form-control" id="password" name="password" type="password" value="${utente.password}">
 								</div>
 							</div>
 						</div>
@@ -104,8 +96,7 @@
 					<div class="row">
 						<div class="col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 col-md-8 col-md-offset-3">
 							<div class="form-group">
-								<label class="col-md-3 control-label personalLabel">Conferma
-									password:</label>
+								<label class="col-md-3 control-label personalLabel">Conferma password:</label>
 								<div class="col-md-8">
 									<input class="form-control" id="confermaPassword" name="confermaPassword" type="password" value="${utente.password}">
 								</div>
@@ -119,9 +110,9 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label"></label>
 								<div class="col-md-8">
-									<input class="btn bottone1" id="updateUtente" value="Conferma"
-										type="submit"> <span></span> <input
-										class="btn bottone1" value="Annulla" type="reset">
+									<input class="btn bottone1" id="creaUtente" value="Conferma" type="submit"> 
+									<span></span> 
+									<input class="btn bottone1" value="Annulla" type="reset">
 								</div>
 							</div>
 						</div>
@@ -138,6 +129,8 @@
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
   <script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
   <script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/customJS/registrazione.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/customJS/registrazione.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/fileinput/js//locales/it.js"></script>
 </body>
 </html>

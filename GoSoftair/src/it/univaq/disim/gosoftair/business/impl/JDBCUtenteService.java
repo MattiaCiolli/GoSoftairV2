@@ -162,18 +162,15 @@ public class JDBCUtenteService implements UtenteService{
         PreparedStatement st = null;
         try {   	
         	con = DriverManager.getConnection(url, username, password);
-            st = con.prepareStatement("UPDATE utente SET nome=?, cognome=?, nickname=?,email=?, password=?, documentoValido=?, immagineProfilo=? WHERE id=?");
+            st = con.prepareStatement("UPDATE utente SET nome=?, cognome=?, email=?, nickname=?, password=?, documentoValido=?, immagineProfilo=? WHERE id=?");
             st.setString(1, utente.getNome());
             st.setString(2, utente.getCognome());
-            st.setString(3, utente.getNickname());
-            st.setString(4, utente.getEmail());
+            st.setString(3, utente.getEmail());
+            st.setString(4, utente.getNickname());
             st.setString(5, utente.getPassword());
             st.setString(6, utente.getDocumentoValido());
             st.setString(7, utente.getImmagineProfilo());
             st.setLong(8, utente.getId());
-            st.setString(4, utente.getPassword());
-            st.setString(5, utente.getDocumentoValido());
-            st.setString(6, utente.getImmagineProfilo());
             st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
