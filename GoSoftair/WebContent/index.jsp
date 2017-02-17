@@ -107,7 +107,7 @@
 						</div>
 
 
-						<c:forEach items="${eventi}" var="evento">
+						<c:forEach items="${eventi}" var="evento" varStatus="loop">
 							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 								<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 									<div class="carta">
@@ -117,6 +117,9 @@
 										<div class="contenuto">
 											<div>
 												<p class="nome">${evento.titolo}</p>
+											</div>
+											<div>
+												<p class="luogoPartita">Luogo partita: ${posizione[loop.index][0]},${posizione[loop.index][1]}</p>
 											</div>
 											<div>
 												<p class="descrizione">${evento.descrizione}</p>

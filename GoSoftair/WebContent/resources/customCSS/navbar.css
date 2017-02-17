@@ -9,6 +9,11 @@
 	src: url(../fonts/Oswald-Regular.ttf);
 }
 
+#msg {
+	position:absolute;
+	display:none;
+}
+
 header {
 	background-color: #34362d;
 	color: #ffffff;

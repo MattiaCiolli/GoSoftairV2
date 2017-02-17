@@ -44,9 +44,18 @@ h6{
 .title{
  margin-left:10px;
 }
+
 .personalLabel{
 	font-family: 'oswald_stencilbold';
 	color:#515547;
+	font-weight:500;
+}
+
+.personalLabel2{
+	font-family: 'oswald_stencilbold';
+	color:#515547;
+	font-weight:500;
+	padding-left:0;
 }
 
 .form-control:focus {

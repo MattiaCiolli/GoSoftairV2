@@ -59,7 +59,7 @@
 			method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-2 col-md-offset-1 sezutente">
-					<label class="col-md-12 personalLabel">Immagine profilo:</label>
+					<label class="col-md-12 personalLabel2">Immagine profilo:</label>
 					<div class="kv-avatar center-block">
 										<input id="immagine" name="immagine" type="file"
 											class="file-loading">
