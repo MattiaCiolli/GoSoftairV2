@@ -47,7 +47,7 @@ public class UpdateUtenteServlet extends HttpServlet {
         long id=0;
         String nome = req.getParameter("nome");
         String cognome = req.getParameter("cognome");
-        String nickname = req.getParameter("nickname");
+        String nickname = req.getParameter("username");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String documentoValido =req.getParameter("documentoValido");
