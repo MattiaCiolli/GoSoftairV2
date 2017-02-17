@@ -31,29 +31,11 @@ $(document)
 										"gif" ]
 							});
 
-					// evita valori negativi
 
-					jQuery.validator.addMethod("greaterthan", function(value,
-							element, param) {
-
-						return this.optional(element) || value >= param;
-
-					}, "Inserire un numero realistico");
-
-
-					jQuery.validator.addMethod("validazione_email", function(value) {
-						var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-						return value.match(reg);
-					}, "Attenzione, hai inserito una email non valida");
-
-
-
-
-					jQuery.validator.addMethod("validazione_documento", function(value) {
-						var regex = /[A-Z]{2}[0-9]{7}/;
-						return value.match(regex);
-					}, "Attenzione, hai inserito un numero di documento non valido");
-
+					jQuery.validator.addMethod("validazione_documento", function(value, element) { 
+						return this.optional(element) || /[A-Z]{2}[0-9]{7}/i.test(value); 
+						}, "Caratteri non validi. Sono consentiti solo lettere e numeri!");
+					
 
 					// valida l'input, se corretto lo invia
 					$("#formRegistrazione").validate(
