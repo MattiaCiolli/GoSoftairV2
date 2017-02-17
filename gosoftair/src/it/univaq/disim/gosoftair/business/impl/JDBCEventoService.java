@@ -240,12 +240,12 @@ public class JDBCEventoService implements EventoService {
 				contatore++;
 			}
 			if (contatore == 0) {
-				System.out.print("Il result set non ha elementi");
+				System.out.print("Il result set non ha elementi 2");
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new BusinessException("Errore durante la ricerca degli eventi", e);
+			throw new BusinessException("Errore durante la ricerca degli eventi 2", e);
 		} finally {
 			if (rs != null) {
 				try {

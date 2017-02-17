@@ -156,5 +156,14 @@
     <servlet-name>CreaUtenteFBServlet</servlet-name>
     <url-pattern>/registrazioneFB</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>UpdateUtenteServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.UpdateUtenteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUtenteServlet</servlet-name>
+    <url-pattern>/updateUtente</url-pattern>
+  </servlet-mapping>
 
 </web-app>

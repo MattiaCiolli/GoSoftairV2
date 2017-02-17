@@ -58,7 +58,7 @@ public class UpdateUtenteServlet extends HttpServlet {
         UtenteService utente = factory.getUtenteService();
         service.update(utente);*/
 
-        resp.sendRedirect(req.getContextPath() + "/views/profilo/profilo");
+        resp.sendRedirect(req.getContextPath() + "/profilo");
 
     }
 

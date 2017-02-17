@@ -113,6 +113,13 @@ font-family:oswaldStencil;
 .text.center{
 	font-family: 'oswald_stencilbold';
 }
+
+.sottotitoloProfilo{
+	text-transform:none;
+	text-align:center;
+	font-size: 1.7em;
+	color:white;
+}
 @media (max-width:768px){
 	img {
 		display: block;

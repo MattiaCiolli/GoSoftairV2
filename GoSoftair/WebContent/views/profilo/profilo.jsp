@@ -170,27 +170,35 @@
 <section>
 <div class="container-fluid">
 	<div class="row UltimiAnnunci">
-		<h5 class="text-center"> Ultimi Annunci </h5>
-
-		<c:forEach items="${ultimiAnnunci}" var="annuncio">
-			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-				<a href="">
-					<div class="cartaScura">
-						<img
-								src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
-								class="img-responsive largo">
-						<div class="contenuto">
-							<div>
-								<p class="nome">${annuncio.titolo}</p>
-							</div>
-							<div>
-								<p class="descrizione">${annuncio.descrizione}</p>
-							</div>
-						</div>
+		<h5 class="text-center"> Ultimi Annunci Inseriti</h5>
+		
+		<c:choose>
+			<c:when test="${sezioneAnnunciVuota}">
+				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+					<div class="sottotitoloProfilo text-center">Vendi qui l'attrezzatura che non ti serve più
 					</div>
-				</a>
-			</div>
-		</c:forEach>
+				</div>
+			</c:when>
+		<c:otherwise>
+			<c:forEach items="${ultimiAnnunci}" var="annuncio">
+					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+						<a href="${pageContext.request.contextPath}/bachecaAnnunci?idAnnuncio=${annuncio.id}">
+							<div class="cartaScura">
+								<img src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}" class="img-responsive largo">
+								<div class="contenuto">
+									<div>
+										<p class="nome">${annuncio.titolo}</p>
+									</div>
+									<div>
+										<p class="descrizione">${annuncio.descrizione}</p>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</c:forEach>
+		</c:otherwise>
+		</c:choose>
 	</div>
 </div>
 </section>

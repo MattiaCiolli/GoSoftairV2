@@ -35,7 +35,7 @@ public class CreaUtenteFBServlet extends HttpServlet {
         Map<String, String> fbProfileData = fbGraph.getGraphData(graph);
         ServletOutputStream out = response.getOutputStream();
 
-        //creare un utente che abbia come paramentri quelli recuperati da fb
+        //creare un utente che abbia come parametri quelli recuperati da fb
         
         String nome=fbProfileData.get("first_name");
         String cognome=fbProfileData.get("second_name");

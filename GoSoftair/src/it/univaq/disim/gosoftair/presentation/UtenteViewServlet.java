@@ -41,13 +41,23 @@ public class UtenteViewServlet extends HttpServlet {
         for (Annuncio annuncio:ultimiAnnunci){
             annuncio.setInsertore(utenteService.findUserByPK(annuncio.getInsertore().getId()));
         }
+        
+        boolean sezioneAnnunciVuota=false;
+        int lenghtAnnunci = ultimiAnnunci.size();
+        if(lenghtAnnunci == 0) sezioneAnnunciVuota= true;
 
         List<Evento> ultimiEventi = eventoService.findUltimiByUserID(oggi, id);
         Utente utente = utenteService.findUserByPK(id);
+        
+        boolean sezioneEventiVuota=false;
+        int lenghtEventi = ultimiAnnunci.size();
+        if(lenghtEventi == 0) sezioneEventiVuota= true;
 
         request.setAttribute("utente", utente);
         request.setAttribute("ultimiAnnunci", ultimiAnnunci);
+        request.setAttribute("sezioneAnnunciVuota",sezioneAnnunciVuota);
         request.setAttribute("ultimiEventi", ultimiEventi);
+        request.setAttribute("sezioneEventiVuota",sezioneEventiVuota);
         request.setAttribute("percorso", "Profilo");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
         dispatcher.forward(request, response);
