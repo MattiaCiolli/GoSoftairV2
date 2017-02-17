@@ -69,7 +69,7 @@
 				<div class="container-fluid immagineSfondo">
 					<div class="card" id="bianco">
 						<form id="annuncioform"
-							action="${pageContext.request.contextPath}/views/annuncio/nuovo"
+							action="${pageContext.request.contextPath}/annuncio/nuovo"
 							method="post" enctype="multipart/form-data">
 							<div class="row">
 								<div class='col-sm-4 col-md-4 col-lg-4'>

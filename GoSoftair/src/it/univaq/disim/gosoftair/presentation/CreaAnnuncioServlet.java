@@ -96,6 +96,8 @@ public class CreaAnnuncioServlet extends HttpServlet {
         PrintWriter out=response.getWriter();
         HttpSession session=request.getSession();
         out.print("Welcome, "+session.getAttribute("email"));
+        
+        response.sendRedirect(request.getContextPath() + "/views/annuncio/nuovoAnnuncio.jsp");
 	}
 
 }

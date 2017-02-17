@@ -25,6 +25,18 @@
 	height:30px;
 }
 
+.personalLabel1{
+	font-family: 'oswald_stencilbold';
+	color:#515547;
+	font-weight:500;
+	font-size:20px;
+	padding-left:2px;
+}
+
+.esteso {
+	min-height: 300px;
+}
+
 .help-block {
 	font-family: 'oswaldRegular';
 }

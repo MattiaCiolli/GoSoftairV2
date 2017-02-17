@@ -73,7 +73,7 @@
 	<div class="container-fluid immagineSfondo">
 		<div class="card" id="bianco">
 			<form id="partitaform"
-				action="${pageContext.request.contextPath}/CreaEventoServlet"
+				action="${pageContext.request.contextPath}/evento/nuovo"
 				method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>

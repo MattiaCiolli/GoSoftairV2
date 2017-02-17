@@ -11,5 +11,11 @@ $(document).ready(function(){
             pro=1;
         }
     });
+    
+
+    if($("#user").text().length > 1)
+    	{
+    	$("#msg").fadeIn(1000, function(){setTimeout(function(){$("#msg").fadeOut(1500)}, 3000)});    	
+    	}
 });
 
