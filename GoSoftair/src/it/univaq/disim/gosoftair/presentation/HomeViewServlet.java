@@ -3,6 +3,7 @@ package it.univaq.disim.gosoftair.presentation;
 import it.univaq.disim.gosoftair.business.*;
 import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
+import it.univaq.disim.gosoftair.utility.ReadXMLFile;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,6 +33,20 @@ public class HomeViewServlet extends HttpServlet {
 														// eventi da cercare di
 														// caricare dal DB
 		request.setAttribute("eventi", eventi);
+
+		ReadXMLFile lettore= new ReadXMLFile();
+
+		String provincia;
+		String comune;
+		ArrayList<ArrayList<String>> posizione = new ArrayList<>();
+		for(Evento evento:eventi){
+			String lat = String.valueOf(evento.getLat());
+			String lon = String.valueOf(evento.getLon());
+			ArrayList<String> provinciaComune=new ArrayList<>();
+			provinciaComune = lettore.geocoding(lat, lon);
+			posizione.add(provinciaComune);
+		}
+		request.setAttribute("posizione", posizione);
 
 		AnnuncioService annuncioService = factory.getAnnuncioService();
 		List<Annuncio> annunci;

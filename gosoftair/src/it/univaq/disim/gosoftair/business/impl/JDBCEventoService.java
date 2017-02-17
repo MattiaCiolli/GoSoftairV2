@@ -160,8 +160,8 @@ public class JDBCEventoService implements EventoService {
 				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
 				int stato = Integer.parseInt(rs.getString("stato"));
 				String immagine = rs.getString("immagine");
-				double lat = Double.parseDouble(rs.getString("longitudine"));
-				double lon = Double.parseDouble(rs.getString("latitudine"));
+				double lat = Double.parseDouble(rs.getString("latitudine"));
+				double lon = Double.parseDouble(rs.getString("longitudine"));
 				Utente idutente = new Utente();
 				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente, lat, lon);
 				risultati.add(evento);
