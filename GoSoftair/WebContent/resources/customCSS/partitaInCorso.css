@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.button-console {
+	border-radius: 0px;
+	color: white;
+ 	padding: 15px 20px 15px 20px;
+ 	font-size: 1.3em;
+}
+
+.btn-red {
+	background-color: rgb(247, 34, 34);
+}
+
+.btn-blue {
+	background-color: rgb(30, 144, 255);
+}
+
+.btn-orange {
+	background-color: rgb(30, 144, 255);
+}
+

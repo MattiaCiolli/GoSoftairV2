@@ -15,7 +15,8 @@
     <link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons-wind.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
-
+	<link href="${pageContext.request.contextPath}/resources/customCSS/partitaInCorso.css" rel="stylesheet">
+	
     <style type="text/css">
         #map {
             width: 100%;
@@ -45,16 +46,16 @@
         
         <div class="row" style="margin-top:10px">
             <div class="col-md-3 text-center">
-            	<button type="button" class="btn bottonenav" id="attach"> Attacchiamo</button>      
+            	<button type="button" class="btn button-console btn-red" id="attach"> Attacchiamo</button>      
             </div>
             <div class="col-md-3 text-center">
-                <button type="button" class="btn bottonenav" id="defend" >Copritemi</button>
+                <button type="button" class="btn button-console btn-blue" id="defend" >Copritemi</button>
             </div>
             <div class="col-md-3 text-center">
-                <button type="button" class="btn bottonenav">Rtirata</button>
+                <button type="button" class="btn button-console btn-orange">Rtirata</button>
             </div>
             <div class="col-md-3 text-center">
-                <button type="button" class="btn bottonenav">Assistenza</button>
+                <button type="button" class="btn button-console btn-red">Assistenza</button>
             </div>
         </div>
     </div>
