@@ -22,6 +22,26 @@
 	background-size:cover;
 }
 
+.titoloBacheca{
+	font-family: 'oswald_stencilbold';
+	text-align:center;
+	font-size: 36px;
+	letter-spacing: 1px;
+	margin-bottom: 1%;
+	color: white;
+	padding-top: 1%;
+}
+
+.sottotitoloBacheca{
+	font-family: 'oswald';
+	text-align:center;
+	font-size: 1.7em;;
+	letter-spacing: 1px;
+	margin-bottom: 1%;
+	color: white;
+	padding-top: 1%;
+}
+
 .img-carta {
 	display: block;
     max-width: 400px;

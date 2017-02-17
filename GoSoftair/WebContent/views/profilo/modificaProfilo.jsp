@@ -52,7 +52,7 @@
 	<!-- inizio -->
 
 	<div class="container-fluid sfondo">
-</br>
+		</br>
 		<form id="formRegistrazione" class="form-horizontal contenitoreForm"
 			role="form"
 			action="${pageContext.request.contextPath}/profilo/updateUtente"
