@@ -1,17 +1,13 @@
 package it.univaq.disim.gosoftair.utility.Social;
 
-/**
- * Created by Faith on 15/02/17.
- */
-
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
-        import java.io.UnsupportedEncodingException;
-        import java.net.MalformedURLException;
-        import java.net.URL;
-        import java.net.URLConnection;
-        import java.net.URLEncoder;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 public class FBConnection {
     public static final String FB_APP_ID = "1249604458409041";
@@ -60,8 +56,7 @@ public class FBConnection {
             try {
                 fbConnection = fbGraphURL.openConnection();
                 BufferedReader in;
-                in = new BufferedReader(new InputStreamReader(
-                        fbConnection.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(fbConnection.getInputStream()));
                 String inputLine;
                 b = new StringBuffer();
                 while ((inputLine = in.readLine()) != null)
