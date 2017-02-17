@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import java.awt.image.BufferedImage;
@@ -22,9 +23,6 @@ import java.net.URL;
 import java.util.Map;
 import javax.servlet.ServletOutputStream;
 
-/**
- * Created by Faith on 15/02/17.
- */
 public class CreaUtenteFBServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -35,7 +33,7 @@ public class CreaUtenteFBServlet extends HttpServlet {
     	if (code == null || code.equals("")) {
     		throw new RuntimeException("ERROR: Didn't get code parameter in callback.");
     	}
-    	
+            	
         FBConnection fbConnection = new FBConnection();
         String accessToken = fbConnection.getAccessToken(code);
         FBGraph fbGraph = new FBGraph(accessToken);
@@ -43,23 +41,40 @@ public class CreaUtenteFBServlet extends HttpServlet {
         Map<String, String> fbProfileData = fbGraph.getGraphData(graph);
         ServletOutputStream out = response.getOutputStream();
         
-        String nome = fbProfileData.get("first_name");
-        String cognome = fbProfileData.get("last_name");
-        String email = fbProfileData.get("email");
-        String profilePicUrl = fbProfileData.get("picture");
-        
-        URL url = new URL(profilePicUrl);
-        BufferedImage c = ImageIO.read(url);
-        
-		String immagine = nome + cognome + ".jpg";
-		String savePath = request.getServletContext().getRealPath("/") + File.separator +"resources"+ File.separator +"img/profile_images/" + immagine;
-		/*File outputfile = new File(savePath);
-		ImageIO.write(c, "jpg", outputfile);
-		
-        Utente utente = new Utente(nome, cognome, email, username, password, documentoValido, immagine);
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService utenteService = factory.getUtenteService();
-        utenteService.create(utente);*/
-   }
+        
+        Utente user = utenteService.userByEmail(fbProfileData.get("email"));
+        HttpSession session=request.getSession();
+
+        if(user != null) {
+            session.setAttribute("username", user.getNickname()); 
+            session.setAttribute("id", user.getId()); 
+            response.sendRedirect(request.getContextPath() + "/home");
+
+        }else { 
+            String id = fbProfileData.get("id");
+            String nome = fbProfileData.get("first_name");
+            String cognome = fbProfileData.get("last_name");
+            String email = fbProfileData.get("email");
+            String profilePicUrl = fbProfileData.get("picture");
+            
+        	URL url = new URL(profilePicUrl);
+            BufferedImage c = ImageIO.read(url);
+            
+    		String immagine = nome + cognome + ".jpg";
+    		String savePath = request.getServletContext().getRealPath("/") + File.separator +"resources"+ File.separator +"img/profile_images/" + immagine;
+    		File outputfile = new File(savePath);
+    		ImageIO.write(c, "jpg", outputfile);
+			ImagesMap.generateImagesMap(savePath, immagine);
+
+            Utente utente = new Utente(nome, cognome, email, nome+cognome, id, "N.D.", immagine);
+            utenteService.create(utente);
+            
+            session.setAttribute("username", utente.getNickname()); 
+            session.setAttribute("id", utente.getId()); 
+            response.sendRedirect(request.getContextPath() + "/home");
+        }
+    }
 }
 

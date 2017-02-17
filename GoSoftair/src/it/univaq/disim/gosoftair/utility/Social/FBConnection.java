@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 public class FBConnection {
     public static final String FB_APP_ID = "1249604458409041";
     public static final String FB_APP_SECRET = "e48dc177567d9fd76c1e826ab3792ee4";
-    public static final String REDIRECT_URI = "http://localhost:8080/gosoftair/registrazioneFB";
+    public static final String REDIRECT_URI = "http://sample-env.ww6fhipney.us-west-2.elasticbeanstalk.com/registrazioneFB";
 
     static String accessToken = "";
 
@@ -22,7 +22,7 @@ public class FBConnection {
             fbLoginUrl = "http://www.facebook.com/dialog/oauth?" + "client_id="
                     + FBConnection.FB_APP_ID + "&redirect_uri="
                     + URLEncoder.encode(FBConnection.REDIRECT_URI, "UTF-8")
-                    + "&scope=email";
+                    ;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

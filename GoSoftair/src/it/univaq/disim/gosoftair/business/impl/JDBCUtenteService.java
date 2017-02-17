@@ -156,11 +156,7 @@ public class JDBCUtenteService implements UtenteService{
 		return null;
     }
 
-
-
-
     // funzione che modifica alcune informazioni nel profilo dell'utente, tra i quali la password
-    @Override
     public void update(Utente utente) throws BusinessException {
         Connection con = null;
         PreparedStatement st = null;
@@ -173,9 +169,7 @@ public class JDBCUtenteService implements UtenteService{
             st.setString(4, utente.getPassword());
             st.setString(5, utente.getDocumentoValido());
             st.setString(6, utente.getImmagineProfilo());
-
             st.executeUpdate();
-
         } catch (SQLException e) {
             e.printStackTrace();
             throw new BusinessException(e);
@@ -192,7 +186,52 @@ public class JDBCUtenteService implements UtenteService{
                 } catch (SQLException e) {
                 }
             }
-
         }
+    }
+    
+    public Utente userByEmail(String email) throws BusinessException {
+    	Connection con = null;
+        PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			st = con.prepareStatement("SELECT * FROM utente WHERE email=?");
+			st.setString(1, email);
+			rs = st.executeQuery();
+			if(rs.next()) {
+				Long id = Long.parseLong(rs.getString("id"));
+				String nome = rs.getString("nome");
+				String cognome = rs.getString("cognome");
+				String emailUser = rs.getString("email");
+				String nickname = rs.getString("nickname");
+				String password = rs.getString("password");
+				String documentoValido = rs.getString("documentoValido");
+				String immagineProfilo = rs.getString("immagineProfilo");
+				Utente utente = new Utente(id, nome, cognome, emailUser, nickname, password, documentoValido, immagineProfilo);
+				return utente;
+			}else {
+				System.out.print("Il result set non ha elementi");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BusinessException("Errore durante la ricerca dell'utente",e);
+		} finally {
+			if (rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			}
+			if (st!=null) {
+				try {
+					st.close();
+				} catch (SQLException e) {}
+			}
+			if (con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {}	
+			}	
+		}
+		return null;
     }
 }

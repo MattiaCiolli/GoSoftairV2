@@ -1,6 +1,6 @@
 <%
-                String username= (String) session.getAttribute("username");                     
-                if (username == null) {
+  String username= (String) session.getAttribute("username");                     
+  if (username == null) {
 %>
 <%@page import="it.univaq.disim.gosoftair.utility.Social.FBConnection"%>
 <%
