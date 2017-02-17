@@ -100,18 +100,21 @@ h3{
 .UltimiAnnunci{
 	background: url("../img/footer1.jpg") no-repeat center;
 	background-size:cover;
+	padding-top:1%;
 }
 
 .UltimiEventi{
 	background: url("../img/sfondo.jpg") no-repeat center;
 	background-size:cover;
+	padding-bottom:1%;
 }
 
 .UltimiEventi{
 font-family:oswaldStencil;
 }
-.text.center{
-	font-family: 'oswald_stencilbold';
+
+.text-center{
+	font-family: 'oswald';
 }
 
 .sottotitoloProfilo{
@@ -119,6 +122,15 @@ font-family:oswaldStencil;
 	text-align:center;
 	font-size: 1.7em;
 	color:white;
+	margin-bottom: 2%;
+	
+}
+
+.bottone123{
+	text-align:center;
+	text-transform:none;
+	width:20%;
+	margin-top:1%;
 }
 @media (max-width:768px){
 	img {
@@ -140,4 +152,5 @@ font-family:oswaldStencil;
 
 .titolo{
 	color:white;
+	font-family:oswald_stencilbold;
 }

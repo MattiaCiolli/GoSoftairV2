@@ -82,7 +82,7 @@
   			<a href="${pageContext.request.contextPath}/profilo/leMieIscrizioni" class="list-group-item">Le mie Iscrizioni</a>
   			<a href="${pageContext.request.contextPath}/profilo/iMieiAnnunci" class="list-group-item">I miei Annunci</a>
   			<a href="${pageContext.request.contextPath}/profilo/leMiePartite" class="list-group-item">Le mie Partite</a>
-  			<a href="${pageContext.request.contextPath}/views/profilo/modificaProfilo.jsp" class="list-group-item">Modifica Profilo</a>
+  			<a href="${pageContext.request.contextPath}/profilo/updateUtente" class="list-group-item">Modifica Profilo</a>
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -138,14 +138,23 @@
 <section>	
 <div class="container-fluid">
 	<div class="row UltimiEventi">
-		<h1 class="text-center titolo"> Ultime Partite </h1>
+		<h1 class="text-center titolo"> Prossime Partite </h1>
 
+		<c:choose>
+			<c:when test="${sezioneEventiVuota}">
+				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+					<div class="sottotitoloProfilo text-center">Non sei iscritto a nessuna partita, che cosa stai aspettando?</br>
+						<a href="${pageContext.request.contextPath}/evento/bachecaPartite" class="btn bottonenav bottone123">Guarda la bacheca!</a>
+					</div>
+				</div>
+			</c:when>
+		<c:otherwise>
+		<div class="sottotitoloProfilo text-center">Preparati, lo scontro è vicino!</br></div>
 		<c:forEach items="${ultimiEventi}" var="evento">
 			<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 				<a href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 					<div class="cartaScura">
-						<img
-								src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+						<img src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
 								class="img-responsive largo">
 						<div class="contenuto">
 							<div>
@@ -159,6 +168,8 @@
 				</a>
 			</div>
 		</c:forEach>
+		</c:otherwise>
+		</c:choose>
 	</div>
 </div>
 </section>
@@ -170,15 +181,17 @@
 <section>
 <div class="container-fluid">
 	<div class="row UltimiAnnunci">
-		<h5 class="text-center"> Ultimi Annunci Inseriti</h5>
+		<h5 class="text-center titolo"> Ultimi Annunci Inseriti</h5>
 		
 		<c:choose>
 			<c:when test="${sezioneAnnunciVuota}">
 				<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
-					<div class="sottotitoloProfilo text-center">Vendi qui l'attrezzatura che non ti serve più
+					<div class="sottotitoloProfilo text-center">Vendi qui l'attrezzatura che non ti serve più </br>
+						<a href="${pageContext.request.contextPath}/annuncio/nuovo" class="btn bottonenav bottone123">Inizia ora!</a>
 					</div>
 				</div>
 			</c:when>
+		
 		<c:otherwise>
 			<c:forEach items="${ultimiAnnunci}" var="annuncio">
 					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">

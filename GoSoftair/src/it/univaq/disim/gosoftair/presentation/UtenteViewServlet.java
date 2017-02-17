@@ -50,7 +50,7 @@ public class UtenteViewServlet extends HttpServlet {
         Utente utente = utenteService.findUserByPK(id);
         
         boolean sezioneEventiVuota=false;
-        int lenghtEventi = ultimiAnnunci.size();
+        int lenghtEventi = ultimiEventi.size();
         if(lenghtEventi == 0) sezioneEventiVuota= true;
 
         request.setAttribute("utente", utente);

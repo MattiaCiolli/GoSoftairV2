@@ -163,7 +163,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateUtenteServlet</servlet-name>
-    <url-pattern>/updateUtente</url-pattern>
+    <url-pattern>/profilo/updateUtente</url-pattern>
   </servlet-mapping>
 
 </web-app>

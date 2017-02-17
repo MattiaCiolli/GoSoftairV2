@@ -164,16 +164,17 @@ public class JDBCUtenteService implements UtenteService{
     public void update(Utente utente) throws BusinessException {
         Connection con = null;
         PreparedStatement st = null;
-        try {
-            con = DriverManager.getConnection(url, username, password);
-            st = con.prepareStatement("update titles set nome=?, cognome=?, nickname=?, password=?, documentoValido=?, immagineProfilo=?, where id=?");
+        try {   	
+        	con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("UPDATE utente SET nome=?, cognome=?, nickname=?,email=?, password=?, documentoValido=?, immagineProfilo=? WHERE id=?");
             st.setString(1, utente.getNome());
             st.setString(2, utente.getCognome());
             st.setString(3, utente.getNickname());
-            st.setString(4, utente.getPassword());
-            st.setString(5, utente.getDocumentoValido());
-            st.setString(6, utente.getImmagineProfilo());
-
+            st.setString(4, utente.getEmail());
+            st.setString(5, utente.getPassword());
+            st.setString(6, utente.getDocumentoValido());
+            st.setString(7, utente.getImmagineProfilo());
+            st.setLong(8, utente.getId());
             st.executeUpdate();
 
         } catch (SQLException e) {

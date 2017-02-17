@@ -14,35 +14,30 @@ import java.io.IOException;
 
 public class UpdateUtenteServlet extends HttpServlet {
 
-
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService service = factory.getUtenteService();
-        long id = Long.parseLong(req.getParameter("id"));
+       
+        long id=0;
+        
+        Utente utente = service.findUserByPK(id);
+        
+      
+        
+        req.setAttribute("utente", utente);
 
-        /*
-        Utente utente = service.findUtenteByPK(id);
-
-        req.setAttribute("nickname", nickname); //modificaNick
-        req.setAttribute("password", password); //modificaPsw
-        req.setAttribute("documentoValido", documentoValido);
-        req.setAttribute("immagineProfilo", immagineProfilo); //modificaImmProfilo
-        */
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/profilo/modificaProfilo.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/profilo/modificaProfilo.jsp");
         dispatcher.forward(req, resp);
 
     }
 
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //long id = Long.parseLong(req.getParameter("id"));
 
         //fittizio
         long id=0;
-
+        
+        System.out.println("abdul");
 
         String nome = req.getParameter("nome");
         String cognome = req.getParameter("cognome");
@@ -51,12 +46,26 @@ public class UpdateUtenteServlet extends HttpServlet {
         String password = req.getParameter("password");
         String documentoValido =req.getParameter("documentoValido");
         String immagineProfilo = req.getParameter("immagineProfilo");
+        System.out.println(nome);
+        System.out.println(cognome);
+        System.out.println(nickname);
+        System.out.println(email);
+        System.out.println(password);
+        System.out.println(documentoValido);
+        System.out.println(immagineProfilo);
+
 
         Utente utente = new Utente(id, nome, cognome, nickname, email, password, documentoValido, immagineProfilo );
+       
+        
+        
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-        /*
-        UtenteService utente = factory.getUtenteService();
-        service.update(utente);*/
+        
+        
+        
+   
+        UtenteService serviceUtente = factory.getUtenteService();
+        serviceUtente.update(utente);
 
         resp.sendRedirect(req.getContextPath() + "/profilo");
 
