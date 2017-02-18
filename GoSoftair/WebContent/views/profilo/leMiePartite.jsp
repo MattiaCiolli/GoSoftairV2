@@ -24,50 +24,58 @@
 	<%@include file="/layout/navbar.jsp"%>
 
 
-	<c:forEach items="${eventi}" var="evento" varStatus="loop">
-		<section>
-		<div class="container-fluid">
-			<div class="row lateralPadding">
-				<a
-					href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
-					<div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div></div>
-						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							<img
-								src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
-								class="img-responsive immagineElemento">
-						</div>
-						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
-							<div class="row">
-								<div class="col-lg-12">
-									<p class="titolo">${evento.titolo}</p>
+	<c:choose>
+		<c:when test="${nessunaCreazione}">
+			<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+				<div class="avvertenza">Non ci sono partite create da te. Prova a organizzarne una, è facile!</br>
+					<a href="${pageContext.request.contextPath}/evento/nuovo" class="btn bottonenav bottoneAvvertenza">Crea una partita</a>
+				</div>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<c:forEach items="${eventi}" var="evento" varStatus="loop">
+				<section>
+					<div class="container-fluid">
+						<div class="row lateralPadding">
+							<a  href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
+								<div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div></div>
+									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+										<img src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg" class="img-responsive immagineElemento">
+									</div>
+									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
+										<div class="row">
+											<div class="col-lg-12">
+												<p class="titolo">${evento.titolo}</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
+												<p class="tag">Data</p>
+												<p class="valore">${date[loop.index]}</p>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
+												<p class="tag">Ora</p>
+												<p class="valore">${ore[loop.index]}</p>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
+												<p class="tag">Punto di incontro</p>
+												<p class="valore">${evento.puntoIncontro}</p>
+											</div>
+											<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
+												<p class="tag">Tipo partita</p>
+												<p class="valore">${evento.tipologia}</p>
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
-									<p class="tag">Data</p>
-									<p class="valore">${date[loop.index]}</p>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
-									<p class="tag">Ora</p>
-									<p class="valore">${ore[loop.index]}</p>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
-									<p class="tag">Punto di incontro</p>
-									<p class="valore">${evento.puntoIncontro}</p>
-								</div>
-								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 centra">
-									<p class="tag">Tipo partita</p>
-									<p class="valore">${evento.tipologia}</p>
-								</div>
-							</div>
+							</a>
 						</div>
 					</div>
-				</a>
-			</div>
-		</div>
-		</section>
-	</c:forEach>
+				</section>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
 
 	<section>
 	<div class="container-fluid">

@@ -10,9 +10,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,9 +29,15 @@ public class MieiAnnunciViewServlet extends HttpServlet {
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         AnnuncioService annuncioService = factory.getAnnuncioService();
         List<Annuncio> annunci;
+
+        HttpSession session=request.getSession();
+        //long idUtente = (Long) session.getAttribute("id");
         long idUtente = 0;
+
         annunci = annuncioService.TuttiAnnunciCreatiDaMe(idUtente);
 
+        boolean nessuAnnuncioCreato = false;
+        if(annunci.size() == 0) nessuAnnuncioCreato = true;
 
         String idLetto = request.getParameter("idAnnuncio");
         if(idLetto !=null ){
@@ -59,6 +67,13 @@ public class MieiAnnunciViewServlet extends HttpServlet {
         }else{
             RequestDispatcher dispatcher;
             request.setAttribute("annunci", annunci);
+            ArrayList<String> date = new ArrayList<>();
+            SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
+            for (Annuncio annuncio:annunci){
+                date.add(sdf.format(annuncio.getDatainserzione()));
+            }
+            request.setAttribute("date", date);
+            request.setAttribute("nessuAnnuncioCreato", nessuAnnuncioCreato);
             request.setAttribute("percorso", "Profilo > I miei annunci");
             dispatcher = request.getRequestDispatcher("/views/profilo/iMieiAnnunci.jsp");
             dispatcher.forward(request, response);

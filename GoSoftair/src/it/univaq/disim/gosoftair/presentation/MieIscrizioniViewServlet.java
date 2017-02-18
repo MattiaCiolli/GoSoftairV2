@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,9 +33,17 @@ public class MieIscrizioniViewServlet extends HttpServlet {
         //il 2 in findLastEvent è il numero di eventi da cercare di caricare dal DB
         EventoService eventoService = factory.getEventoService();
         List<Evento> eventi;
+
+
+        HttpSession session=request.getSession();
+        //long idUtente = (Long) session.getAttribute("id");
         long idUtente = 0;
+
         eventi = eventoService.findAllMySubscription(oggi, idUtente );
         request.setAttribute("eventi", eventi);
+
+        boolean nessunaIscrizione = false;
+        if(eventi.size() == 0) nessunaIscrizione = true;
 
 
         DateFormat FormatoData = new SimpleDateFormat("dd/MM/yyyy");
@@ -48,6 +57,7 @@ public class MieIscrizioniViewServlet extends HttpServlet {
         request.setAttribute("ore",ore);
         request.setAttribute("date",date);
 
+        request.setAttribute("nessunaIscrizione", nessunaIscrizione);
         request.setAttribute("percorso", "Profilo > Le mie iscrizioni");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/leMieIscrizioni.jsp");
         dispatcher.forward(request, response);

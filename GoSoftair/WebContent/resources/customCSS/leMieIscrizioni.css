@@ -1,3 +1,19 @@
 .carta, .valore{
     color: #3c3c37;
 }
+
+.avvertenza{
+    text-transform:none;
+    text-align:center;
+    font-size: 1.7em;
+    margin-bottom: 2%;
+    font-family: 'oswald';
+    margin-top: 2%;
+}
+
+.bottoneAvvertenza{
+    text-align:center;
+    text-transform:none;
+    width:20%;
+    margin-top:1%;
+}

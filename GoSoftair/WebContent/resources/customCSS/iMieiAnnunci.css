@@ -120,3 +120,20 @@
 .spazietto{
     height: 30px;
 }
+
+.avvertenza{
+    text-transform:none;
+    text-align:center;
+    font-size: 1.7em;
+    color:white;
+    margin-bottom: 2%;
+    font-family: 'oswald';
+    margin-top: 2%;
+}
+
+.bottoneAvvertenza{
+    text-align:center;
+    text-transform:none;
+    width:20%;
+    margin-top:1%;
+}

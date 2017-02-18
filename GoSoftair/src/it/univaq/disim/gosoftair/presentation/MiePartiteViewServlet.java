@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,10 +29,15 @@ public class MiePartiteViewServlet extends HttpServlet {
         EventoService eventoService = factory.getEventoService();
         List<Evento> eventi;
 
-        //per ora l'id è messo a mano
+        HttpSession session=request.getSession();
+        //long idUtente = (Long) session.getAttribute("id");
         long idUtente = 0;
+
         eventi = eventoService.trovaTuttePartiteCreateDaMe(idUtente);
         request.setAttribute("eventi", eventi);
+
+        boolean nessunaCreazione = false;
+        if(eventi.size() == 0) nessunaCreazione = true;
 
         DateFormat FormatoData = new SimpleDateFormat("dd/MM/yyyy");
         DateFormat FormatoOre = new SimpleDateFormat("HH:mm:ss");
@@ -44,6 +50,7 @@ public class MiePartiteViewServlet extends HttpServlet {
         request.setAttribute("ore",ore);
         request.setAttribute("date",date);
 
+        request.setAttribute("nessunaCreazione", nessunaCreazione);
         request.setAttribute("percorso", "Profilo > Le mie partite");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/leMiePartite.jsp");
         dispatcher.forward(request, response);
