@@ -29,13 +29,13 @@ public class BachecaPartiteViewServlet extends HttpServlet {
 
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         EventoService eventoService= factory.getEventoService();
-        List<Evento> eventi = eventoService.findLastEvent(oggi, 10);
+        List<Evento> listaEventi = eventoService.findLastEvent(oggi, 10);
         
         boolean sezioneEventiVuota=false;
-        int lenghtEventi = eventi.size();
+        int lenghtEventi = listaEventi.size();
         if(lenghtEventi == 0) sezioneEventiVuota= true;
         
-		request.setAttribute("eventi", eventi);
+		request.setAttribute("listaEventi", listaEventi);
 
         
 		ReadXMLFile lettore= new ReadXMLFile();
@@ -43,7 +43,7 @@ public class BachecaPartiteViewServlet extends HttpServlet {
 		String provincia;
 		String comune;
 		ArrayList<ArrayList<String>> posizione = new ArrayList<>();
-		for(Evento evento:eventi){
+		for(Evento evento:listaEventi){
 			String lat = String.valueOf(evento.getLat());
 			String lon = String.valueOf(evento.getLon());
 			ArrayList<String> provinciaComune=new ArrayList<>();
@@ -57,6 +57,8 @@ public class BachecaPartiteViewServlet extends HttpServlet {
 		classeGrafica.add("hidden-xs");
 		classeGrafica.add("hidden-md  hidden-xs hidden-sm");
 		request.setAttribute("classeGrafica", classeGrafica);
+		
+        request.setAttribute("percorso", "Partite > Elenco partite");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/bachecaPartite.jsp");
 		dispatcher.forward(request, response);

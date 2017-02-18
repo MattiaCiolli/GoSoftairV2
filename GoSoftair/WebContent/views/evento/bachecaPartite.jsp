@@ -6,25 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>GoSoftair</title>
-<link
-	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap-theme.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/customCSS/bachecaPartite.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/customCSS/home.css"
-	rel="stylesheet">
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700'
-	rel='stylesheet' type='text/css'>
+<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/bachecaPartite.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
-<script
-	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body class="cssBody BodyWidth">
@@ -41,7 +30,7 @@
 						mai avuto occasione? Partecipa ad una delle prossime partite</div>
 
 
-					<c:forEach items="${eventi}" var="evento" varStatus="loop">
+					<c:forEach items="${listaEventi}" var="evento" varStatus="loop">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 							<a
 								href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
@@ -61,7 +50,6 @@
 											<p class="descrizione">${evento.descrizione}</p>
 										</div>
 									</div>
-
 								</div>
 							</a>
 						</div>
@@ -69,15 +57,13 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="centra">
-		<ul class="pagination">
-			<li class="active"><a href="#">1</a></li>
-			<li><a
-				href="${pageContext.request.contextPath}/views/evento/bachecaPartite2.jsp">2</a></li>
-		</ul>
-	</div>
+		<div class="centra">
+			<ul class="pagination">
+				<li class="active"><a href="#">1</a></li>
+					<li><a href="${pageContext.request.contextPath}/views/evento/bachecaPartite2.jsp">2</a></li>
+			</ul>
+		</div>
 	</div>
 
 	<%@include file="/layout/footer.jsp"%>
