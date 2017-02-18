@@ -27,7 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PartitaInCorso</servlet-name>
-    <url-pattern>/views/evento/incorso</url-pattern>
+    <url-pattern>/evento/incorso</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>
@@ -91,15 +91,15 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>BachecaAnnunciViewServlet</servlet-name>
-    <url-pattern>/bachecaAnnunci</url-pattern>
+    <url-pattern>/annuncio/bachecaAnnunci</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>BachecaPartiteViewServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.BachecaPartiteViewServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BachecaPartiteViewServlet</servlet-name>
-    <url-pattern>/bachecaPartite</url-pattern>
+    <url-pattern>/evento/bachecaEventi</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>MieIscrizioniViewServlet</servlet-name>
@@ -157,4 +157,20 @@
     <servlet-name>UpdateUtenteServlet</servlet-name>
     <url-pattern>/profilo/updateUtente</url-pattern>
   </servlet-mapping>
+  
+ <!--   
+  <filter>
+    <filter-name>ControlloLoggedFilter</filter-name>
+    <filter-class>it.univaq.disim.gosoftair.filters.ControlloLoggedFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ControlloLoggedFilter</filter-name> 
+    <url-pattern>/evento/*</url-pattern>
+    <url-pattern>/profilo/*</url-pattern>
+    <url-pattern>/evento/*</url-pattern>
+    <url-pattern>/annuncio/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  -->
+  
 </web-app>

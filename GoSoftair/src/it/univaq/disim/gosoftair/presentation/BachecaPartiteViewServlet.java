@@ -58,7 +58,7 @@ public class BachecaPartiteViewServlet extends HttpServlet {
 		classeGrafica.add("hidden-md  hidden-xs hidden-sm");
 		request.setAttribute("classeGrafica", classeGrafica);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/annuncio/bachecaPartite.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/bachecaPartite.jsp");
 		dispatcher.forward(request, response);
         
         

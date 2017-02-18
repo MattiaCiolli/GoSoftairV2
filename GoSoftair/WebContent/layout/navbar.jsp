@@ -92,7 +92,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Partite <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/bachecaPartite">Elenco partite</a></li>
+									<li><a href="${pageContext.request.contextPath}/evento/bachecaEventi">Elenco partite</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/profilo/leMieIscrizioni">Iscrizioni</a></li>
 									<li class="divider"></li>
@@ -102,7 +102,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="${pageContext.request.contextPath}/bachecaAnnunci">Bacheca annunci</a></li>
+									<li><a href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci">Bacheca annunci</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/annuncio/nuovo">Crea annuncio</a></li>
 								</ul>
