@@ -30,17 +30,19 @@
 							<div class="row">
 								<div class="col-md-12 loginTradizionale">
 									<form class="form" role="form"
-										action="${pageContext.request.contextPath}/logged/home"
+										action="${pageContext.request.contextPath}/tryLogin/home"
 										method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											<label class="sr-only" for="username">Username</label> <input
 												type="text" class="form-control" id="email" name="username"
-												placeholder="Username" required>
+												placeholder="Username" required> <div style="color: #FF0000;">${errorMessageUser}</div>
+												
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="pwd">Password</label> <input
 												type="password" class="form-control" id="password"
-												name="password" placeholder="Password" required>
+												name="password" placeholder="Password" required><div style="color: #FF0000;">${errorMessagePwd}</div>
+												
 											<div class="help-block text-right">
 												<a class="linkSfondoBianco pwdimenticata" href="">PASSWORD
 													DIMENTICATA?</a>

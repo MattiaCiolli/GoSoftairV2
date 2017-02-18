@@ -115,7 +115,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/logged/home</url-pattern>
+    <url-pattern>/tryLogin/home</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
@@ -158,7 +158,7 @@
     <url-pattern>/profilo/updateUtente</url-pattern>
   </servlet-mapping>
   
- <!--   
+ <!--  
   <filter>
     <filter-name>ControlloLoggedFilter</filter-name>
     <filter-class>it.univaq.disim.gosoftair.filters.ControlloLoggedFilter</filter-class>
@@ -171,6 +171,5 @@
     <url-pattern>/annuncio/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
-  -->
-  
+   -->
 </web-app>

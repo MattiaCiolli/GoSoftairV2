@@ -1,4 +1,5 @@
 var pro=1;
+
 $(document).ready(function(){
     $(window).scroll(function() {
         if ($(document).scrollTop() > ($("nav").height()+ $("header").height())  && pro==1) {
@@ -11,6 +12,10 @@ $(document).ready(function(){
             pro=1;
         }
     });
+    
+    $(document).on('click', '.dropdown-menu', function (e) {
+    	  e.stopPropagation();
+    	});
     
 
     if($("#user").text().length > 1)

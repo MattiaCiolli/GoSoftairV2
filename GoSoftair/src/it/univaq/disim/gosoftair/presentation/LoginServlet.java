@@ -28,14 +28,26 @@ public class LoginServlet extends HttpServlet {
         UtenteService utenteService=factory.getUtenteService();
         Utente logger=new Utente();
         logger=utenteService.login(username);
+        if(logger==null)
+        {
+        	request.setAttribute("errorMessageUser", "Username inesistente");
+        	request.getRequestDispatcher("/home").forward(request, response);
+        }
         
-        if(password.equals(logger.getPassword())){
+        if(logger!=null && !password.equals(logger.getPassword())){
+        	
+        	request.setAttribute("errorMessagePwd", "Password errata");
+        	request.getRequestDispatcher("/home").forward(request, response);
         
+        } 
+        
+        if(logger!=null && password.equals(logger.getPassword()))
+        {
         HttpSession session=request.getSession();
         session.setAttribute("username",logger.getNickname()); 
         session.setAttribute("id",logger.getId()); 
-        }  
         
         response.sendRedirect(request.getContextPath() + "/home");
+        }
     }  
 }  
