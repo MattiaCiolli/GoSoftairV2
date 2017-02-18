@@ -31,9 +31,6 @@
 <link
 	href="${pageContext.request.contextPath}/resources/customCSS/mycss.css"
 	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/customCSS/navbar.css"
-	rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700'
 	rel='stylesheet' type='text/css'>
 
@@ -55,11 +52,6 @@
 
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/creaAnnuncio.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
-
 
 </head>
 

@@ -7,7 +7,6 @@
 	<title>GoSoftair</title>
 	<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/bachecaEventi.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/profilo.css" rel="stylesheet">

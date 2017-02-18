@@ -13,7 +13,6 @@
     <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.theme.min.css"	rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons-wind.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/partitaInCorso.css" rel="stylesheet">
 	
@@ -65,7 +64,7 @@
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+
 <script>
 	var map;
 	var bounds;

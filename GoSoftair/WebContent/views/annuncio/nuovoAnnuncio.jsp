@@ -10,9 +10,6 @@
 	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link
-	href="${pageContext.request.contextPath}/resources/customCSS/navbar.css"
-	rel="stylesheet">
-<link
 	href="${pageContext.request.contextPath}/resources/customCSS/registrazione.css"
 	rel="stylesheet">
 <link

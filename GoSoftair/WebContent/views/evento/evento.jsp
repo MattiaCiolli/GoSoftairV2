@@ -14,7 +14,6 @@
 		<link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.theme.min.css"	rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons.min.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons-wind.min.css" rel="stylesheet">
-		<link href="${pageContext.request.contextPath}/resources/customCSS/navbar.css" rel="stylesheet">
 		<link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
 		
 		<style type="text/css">

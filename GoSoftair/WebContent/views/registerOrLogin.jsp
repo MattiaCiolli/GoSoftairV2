@@ -10,9 +10,6 @@
 	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link
-	href="${pageContext.request.contextPath}/resources/customCSS/navbar.css"
-	rel="stylesheet">
-<link
 	href="${pageContext.request.contextPath}/resources/customCSS/registrazione.css"
 	rel="stylesheet">
 <link
@@ -21,33 +18,32 @@
 <script
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script
+	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script
 	src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 </head>
 
-<body id="sfondochiaro" >
+<body id="sfondochiaro">
+
 	<%@include file="/layout/navbar.jsp"%>
 
 
-	<div class="container-fluid immagineSfondo">
-		</br>		
-			<div class="card" id="bianco">
-				<div class="row">
-					<div class='col-sm-4 col-md-4 col-lg-4'>
-						<label class="col-md-12 personalLabel">Non puoi
-							visualizzare questa pagina se non hai un profilo</label>
-					</div>
+	<div class="container-fluid immagineSfondo esteso">
+		</br>
+		<div class="card" id="bianco">
+			<div class="row">
+				<div class='col-sm-12 col-md-6 col-lg-6'>
+					</br> <label class="col-md-12 personalLabel1">Per visualizzare
+						questa pagina devi avere un profilo </br>
+					</br> Esegui l'accesso o <a class="btn bottone1"
+						href="${pageContext.request.contextPath}/registrazione">REGISTRATI</a>
+					</label>
 				</div>
-				<div class="row">
-					<div class='col-sm-4 col-md-4 col-lg-4'>
-						<a class="btn bottone1" 
-							href="${pageContext.request.contextPath}/registrazione">REGISTRATI</a> <a class="btn bottone1"
-							>LOGIN</a>
-					</div>			
 			</div>
 		</div>
 	</div>
 
 	<%@include file="/layout/footer.jsp"%>
-	
+
 </body>
 </html>

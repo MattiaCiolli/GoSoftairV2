@@ -10,9 +10,6 @@
 	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link
-	href="${pageContext.request.contextPath}/resources/customCSS/navbar.css"
-	rel="stylesheet">
-<link
 	href="${pageContext.request.contextPath}/resources/customCSS/registrazione.css"
 	rel="stylesheet">
 <link
@@ -20,8 +17,7 @@
 	rel="stylesheet">
 <script
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
+
 </head>
 
 <body id="sfondochiaro" >
