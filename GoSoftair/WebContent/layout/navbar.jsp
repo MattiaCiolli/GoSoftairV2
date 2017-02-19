@@ -18,6 +18,10 @@
 
 <header>
 	<div class="container-fluid">
+	<div class="row" id="msg">
+			<div class="col-lg-12">${errorMessageUser}${errorMessagePwd}
+				</div>
+			</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
@@ -69,8 +73,7 @@
 										<a href="<%=fbConnection.getFBAuthUrl()%>" class="btn btn-fb"><i
 											class="fa fa-facebook"></i> Facebook</a> <a href="#"
 											class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-									</div>
-								</div>
+								
 							</div>
 						</li>
 					</ul>
@@ -83,7 +86,13 @@
 	} else {
 %>
 <header>
+<div id="user" hidden><%=username%></div>
+
 	<div class="container-fluid">
+	<div class="row" id="msg">
+			<div class="col-lg-12">${welcomeMessage}
+				</div>
+			</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
