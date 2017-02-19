@@ -9,6 +9,7 @@
 </head>
 <%
 	String username = (String) session.getAttribute("username");
+	String username1 = username;		
 	if (username == null) {
 %>
 <%@page import="it.univaq.disim.gosoftair.utility.Social.FBConnection"%>
@@ -86,7 +87,7 @@
 	} else {
 %>
 <header>
-<div id="user" hidden><%=username%></div>
+<div id="user" hidden><%=username1%></div>
 
 	<div class="container-fluid">
 	<div class="row" id="msg">

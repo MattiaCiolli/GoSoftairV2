@@ -28,7 +28,6 @@ public class HomeViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Date oggi = new Date();
-
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory
 				.getInstance();
 		EventoService eventoService = factory.getEventoService();
