@@ -34,7 +34,7 @@ $(document)
 
 					jQuery.validator.addMethod("validazione_documento", function(value, element) { 
 						return this.optional(element) || /[A-Z]{2}[0-9]{7}/i.test(value); 
-						}, "Caratteri non validi. Sono consentiti solo lettere e numeri!");
+						}, "Formato non valido!");
 					
 
 					// valida l'input, se corretto lo invia
@@ -75,10 +75,7 @@ $(document)
 
                                 email: {
 
-                                    required: true,
-
-									validazione_email: true
-
+                                    required: true
 
                                 },
 
@@ -167,7 +164,10 @@ $(document)
 
                                 documentoValido: {
 
-                                    required: "Inserisci il numero di carta d'identità"
+                                    required: "Inserisci il numero di carta d'identità",
+                                    	
+                                	validazione_documento: "Hai inserito un numero di documento non valido"
+                                    	
 
 
                             },

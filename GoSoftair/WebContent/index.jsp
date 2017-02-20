@@ -36,8 +36,8 @@
 		<row>
 		<div class="jumbotron">
 			<div class=" text-center">
-				<h1 class="titolo">Frase ad effetto</h1>
-				<p class="sottotitolo">un'altra frase ad effetto, o forse no</p>
+				<h1 class="titolo">The Battle is Coming</h1>
+				<p class="sottotitolo">Cosa stai aspettando?</p>
 				<p></p>
 			</div>
 		</div>

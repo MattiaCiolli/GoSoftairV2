@@ -156,7 +156,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label"></label>
 							<div class="col-md-8">
-								<input class="btn bottone1" id="creaUtente" value="Registrati"
+								<input class="btn bottone1" id="creaUtente" value="Conferma"
 									type="submit"> <span></span> <input
 									class="btn bottone1" value="Annulla" type="reset">
 							</div>

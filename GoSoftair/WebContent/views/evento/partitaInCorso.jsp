@@ -51,7 +51,7 @@
                 <button type="button" class="btn button-console btn-blue" id="defend" >Copritemi</button>
             </div>
             <div class="col-md-3 text-center">
-                <button type="button" class="btn button-console btn-orange">Rtirata</button>
+                <button type="button" class="btn button-console btn-orange">Ritirata</button>
             </div>
             <div class="col-md-3 text-center">
                 <button type="button" class="btn button-console btn-red">Assistenza</button>
