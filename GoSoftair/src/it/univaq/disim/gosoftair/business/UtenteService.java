@@ -11,4 +11,5 @@ public interface UtenteService {
     Utente login(String nickname) throws BusinessException;
     Utente findUserByPK(long id) throws BusinessException;
     Utente userByEmail(String email) throws BusinessException;
+    Utente utenteCreatoreEventByIdEvento(long idEvento) throws BusinessException;
 }

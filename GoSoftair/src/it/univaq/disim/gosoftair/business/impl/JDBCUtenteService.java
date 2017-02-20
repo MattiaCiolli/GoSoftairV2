@@ -236,4 +236,50 @@ public class JDBCUtenteService implements UtenteService{
 		}
 		return null;
     }
+    
+    public Utente utenteCreatoreEventByIdEvento(long idEvento) throws BusinessException {
+    	Connection con = null;
+        PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			st = con.prepareStatement("SELECT utente.* FROM utente INNER JOIN evento ON utente.id=evento.idutente WHERE evento.id=?");
+			st.setLong(1, idEvento);
+			rs = st.executeQuery();
+			if(rs.next()) {
+				Long id = Long.parseLong(rs.getString("id"));
+				String nome = rs.getString("nome");
+				String cognome = rs.getString("cognome");
+				String emailUser = rs.getString("email");
+				String nickname = rs.getString("nickname");
+				String password = rs.getString("password");
+				String documentoValido = rs.getString("documentoValido");
+				String immagineProfilo = rs.getString("immagineProfilo");
+				Utente utente = new Utente(id, nome, cognome, emailUser, nickname, password, documentoValido, immagineProfilo);
+				return utente;
+			}else {
+				System.out.print("Il result set non ha elementi");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BusinessException("Errore durante la ricerca dell'utente",e);
+		} finally {
+			if (rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			}
+			if (st!=null) {
+				try {
+					st.close();
+				} catch (SQLException e) {}
+			}
+			if (con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {}	
+			}	
+		}
+		return null;
+    }
 }

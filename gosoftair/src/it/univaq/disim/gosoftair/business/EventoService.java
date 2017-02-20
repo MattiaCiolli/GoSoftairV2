@@ -25,4 +25,6 @@ public interface EventoService {
 	List<Evento> findAllMySubscription(Date oggi, long idUtente);
 
 	List<Evento> trovaTuttePartiteCreateDaMe(long idUtente);
+	
+	void activeEvent(long idEvento) throws BusinessException;
 }

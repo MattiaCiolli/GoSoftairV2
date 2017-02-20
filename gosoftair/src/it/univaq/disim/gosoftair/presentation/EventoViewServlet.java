@@ -13,6 +13,7 @@ import it.univaq.disim.gosoftair.business.model.Post;
 import it.univaq.disim.gosoftair.utility.ReadXMLFile;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 import javax.servlet.RequestDispatcher;
@@ -34,9 +35,20 @@ public class EventoViewServlet extends HttpServlet {
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = eventoService.findEventoByPK(Long.parseLong(request.getParameter("idEvento")));
+		
+		if(evento.getStato() == 2) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/partitaInCorso.jsp");
+			dispatcher.forward(request, response);
+		}
+			
 		SquadreService squadreService = factory.getSquadreService();
-		Squadre squadre = squadreService.cercaSquadreByEventoPK(evento.getId());
 		PostService postService = factory.getPostService();
+		UtenteService utenteService = factory.getUtenteService();
+
+		Squadre squadre = squadreService.cercaSquadreByEventoPK(evento.getId());
+		Utente organizzatore = utenteService.utenteCreatoreEventByIdEvento(evento.getId());
+		evento.setOrganizzatore(organizzatore);
+		
 		List<Post> posts = postService.cercaPostsByEventoPK(evento.getId());
 
 		evento.setSquadre(squadre);
@@ -50,7 +62,7 @@ public class EventoViewServlet extends HttpServlet {
 		String comune =  "";
 
 		Date dataEvento = evento.getData();
-		Date oggi=new Date();
+		Date oggi = new Date();
 
 		Calendar data = Calendar.getInstance();
 		data.setTime(dataEvento);
@@ -85,12 +97,22 @@ public class EventoViewServlet extends HttpServlet {
 
 		request.setAttribute("meteoDisponibile", meteoDisponibile);
 		request.setAttribute("percorso", "Dettaglio partita");
-
+		
+		if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId() && oggi.after(evento.getData()))
+			request.setAttribute("attiva_evento", true);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+		EventoService eventoService = factory.getEventoService();
+		long idEvento = Long.parseLong(request.getParameter("idEvento"));
+		eventoService.activeEvent(idEvento);
+		PrintWriter out = response.getWriter();
+		out.println(1);
+
 	}
 }

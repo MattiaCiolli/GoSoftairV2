@@ -399,4 +399,32 @@ public class JDBCEventoService implements EventoService {
 		}
 		return risultati;
 	}
+	
+	public void activeEvent(long idEvento) throws BusinessException {
+		Connection con = null;
+		PreparedStatement st = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			String sql = "UPDATE evento SET stato=2 WHERE id=?";
+			st = con.prepareStatement(sql);
+			st.setLong(1, idEvento);
+			st.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BusinessException("Errore durante la modifica dello stato dell'evento", e);
+		} finally {
+			if (st != null) {
+				try {
+					st.close();
+				} catch (SQLException e) {
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+			}
+		}
+	}
 }
