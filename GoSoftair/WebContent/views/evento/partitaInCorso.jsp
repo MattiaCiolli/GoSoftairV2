@@ -18,8 +18,7 @@
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/datetimepicker/moment-with-locales.js"></script>
-<script src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.js"></script>
+
 
 </head>
 <body>
@@ -48,7 +47,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn bottonenav" data-dismiss="modal">Cancella Evento</button>
-					<button type="button" class="btn bottonenav" data-dismiss="modal">Riproponi Evento</button>
+					<button type="button" class="btn bottonenav" data-dismiss="modal" onclick="repost()">Riproponi Evento</button>
 				</div>
 			</div>
 		</div>
@@ -103,11 +102,9 @@
 	</section>
 	<%@include file="/layout/footer.jsp"%>
 </body>
-<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/datetimepicker/moment-with-locales.js"></script>
+<script src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
-
 <script>
 	var map;
 	var bounds;
@@ -160,10 +157,7 @@
 	  	    	var longitude = position.coords.longitude;
 	  	    	var url = "${pageContext.request.contextPath}/views/evento/incorso";
 	  	    	
-	  	    	$.post( 
-	  	    		url, 
-	  	    		{ lat: latitude, lon: longitude, idEvento: 0, img: immagine  }, 
-	  	    		function(results) {
+	  	    	$.post(url, { lat: latitude, lon: longitude, idEvento: 0, img: immagine },function(results) {
 	  	    			results = JSON.parse(results);	 
 	  	    			jQuery.each(results.coordinates, function(i, val) {
 	  	    				if(markers[val.idGiocatore] == undefined) 
@@ -220,6 +214,13 @@
 		});
     });	
 	
+	function repost() {
+		$.post(url, { idEvento : ${evento.id}, date : $("#datetimepicker1").find("input").val() },function(results) {
+			if(result == 1) {
+				console.log("ho aggiornato tutto")
+			}
+		}
+	}
 
 </script>
 </html>
