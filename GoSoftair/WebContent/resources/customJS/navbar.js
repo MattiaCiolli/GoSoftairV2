@@ -34,19 +34,14 @@ $(document).ready(
 				e.stopPropagation();
 			});
 
-			if ($("#user").text().length > 1) {
-				$("#msg").text("Login effettuato");
+			if ($("div#msg").text().length > 1) {
+				if ($("div#msg").text() == "Login effettuato") {
+					$("div#msg").css('background-color', '#94a31a');
+				}
 				$("#msg").fadeIn(1000, function() {
 					setTimeout(function() {
 						$("#msg").fadeOut(1500)
-					}, 3000)
-				});
-			}
-			if ($("#user").text().length < 1) {
-				$("#msg").fadeIn(1000, function() {
-					setTimeout(function() {
-						$("#msg").fadeOut(1500)
-					}, 3000)
+					}, 2000)
 				});
 			}
 		});

@@ -12,6 +12,12 @@
 #msg {
 	position:absolute;
 	display:none;
+	height:50px;
+	background-color:red;
+	width:100%;
+	text-align: center;
+	padding-top:5px;
+	z-index:10;
 }
 
 header {

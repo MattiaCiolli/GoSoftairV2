@@ -47,7 +47,8 @@ public class LoginServlet extends HttpServlet {
         session.setAttribute("username",logger.getNickname()); 
         session.setAttribute("id",logger.getId()); 
         
-        response.sendRedirect(request.getContextPath() + "/home");
+        request.setAttribute("welcomeMessage", "Login effettuato");
+    	request.getRequestDispatcher("/home").forward(request, response);
         }
     }  
 }  

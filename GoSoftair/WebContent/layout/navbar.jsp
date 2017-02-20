@@ -8,8 +8,7 @@
 	src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
 </head>
 <%
-	String username = (String) session.getAttribute("username");
-	String username1 = username;		
+	String username = (String) session.getAttribute("username");		
 	if (username == null) {
 %>
 <%@page import="it.univaq.disim.gosoftair.utility.Social.FBConnection"%>
@@ -19,10 +18,8 @@
 
 <header>
 	<div class="container-fluid">
-	<div class="row" id="msg">
-			<div class="col-lg-12">${errorMessageUser}${errorMessagePwd}
-				</div>
-			</div>
+	<div class="row" id="msg">${errorMessageUser}${errorMessagePwd}</div>
+	
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
@@ -47,22 +44,12 @@
 											<label class="sr-only" for="pwd">Password</label> <input
 												type="password" class="form-control" id="password"
 												name="password" placeholder="Password" required><div style="color: #FF0000;">${errorMessagePwd}</div>
-												
-											<div class="help-block text-right">
-												<a class="linkSfondoBianco pwdimenticata" href="">PASSWORD
-													DIMENTICATA?</a>
-											</div>
+																					
 										</div>
 										<div class="form-group">
 											<button type="submit" class="btn btn-block bottonenav">Accedi</button>
 											<!-- ----------------------------- -->
-										</div>
-										<div class="form-group">
-											<div class="checkbox">
-												<label><input type="checkbox" value="">RESTA
-													CONNESSO</label>
-											</div>
-										</div>
+										</div>										
 									</form>
 								</div>
 							</div>
@@ -87,13 +74,10 @@
 	} else {
 %>
 <header>
-<div id="user" hidden><%=username1%></div>
 
 	<div class="container-fluid">
-	<div class="row" id="msg">
-			<div class="col-lg-12">${welcomeMessage}
-				</div>
-			</div>
+	<div class="row" id="msg">${welcomeMessage}</div>
+			
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="pull-right registrazione">
