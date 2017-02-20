@@ -107,27 +107,6 @@
 				<div class="sottotitoloSezione">Vorresti provare ma non hai
 					mai avuto occasione? Partecipa a una delle prossime partite</div>
 				<div class="autoplay">
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a
-							href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
-							<div class="carta">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo1.jpg"
-									class="img-responsive bordino largo">
-								<div class="contenuto">
-									<div>
-										<p class="nome">Partita 1</p>
-									</div>
-									<div>
-										<p class="descrizione">Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-
 
 					<c:forEach items="${eventi}" var="evento" varStatus="loop">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
@@ -155,67 +134,6 @@
 						</div>
 					</c:forEach>
 
-
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a
-							href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
-							<div class="carta">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
-									class="img-responsive bordino largo">
-								<div class="contenuto">
-									<div>
-										<p class="nome">Partita 3</p>
-									</div>
-									<div>
-										<p class="descrizione">Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a
-							href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
-							<div class="carta">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo4.jpg"
-									class="img-responsive bordino largo">
-								<div class="contenuto">
-									<div>
-										<p class="nome">Partita 4</p>
-									</div>
-									<div>
-										<p class="descrizione">Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a
-							href="${pageContext.request.contextPath}/evento/dettagli?idEvento=0">
-							<div class="carta">
-								<img
-									src="${pageContext.request.contextPath}/resources/img/jumbo5.jpg"
-									class="img-responsive bordino largo">
-								<div class="contenuto">
-									<div>
-										<p class="nome">Partita 5</p>
-									</div>
-									<div>
-										<p class="descrizione">Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit, sed do eiusmod tempor incididunt
-											ut labore et dolore magna aliqua.</p>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -255,25 +173,6 @@
 					</div>
 				</c:forEach>
 
-				<div class="${classeGrafica[2]}  col-lg-4">
-					<a href="#">
-						<div class="cartaScura">
-							<img
-								src="${pageContext.request.contextPath}/resources/img/jumbo3.jpg"
-								class="img-responsive ">
-							<div class="contenuto">
-								<div>
-									<p class="nome">Articolo 3</p>
-								</div>
-								<div>
-									<p class="descrizione">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit, sed do eiusmod tempor incididunt
-										ut labore et dolore magna aliqua.</p>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
 
 			</div>
 		</div>

@@ -144,8 +144,9 @@ public class JDBCEventoService implements EventoService {
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
 			String oggiFormattato = DBformat.format(oggi);
 
-			rs = st.executeQuery("SELECT titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
+			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
 			while (rs.next() && contatore < quantita) {
+				Long id = rs.getLong("id");
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
 				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
@@ -163,7 +164,7 @@ public class JDBCEventoService implements EventoService {
 				double lat = Double.parseDouble(rs.getString("latitudine"));
 				double lon = Double.parseDouble(rs.getString("longitudine"));
 				Utente idutente = new Utente();
-				Evento evento = new Evento(titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente, lat, lon);
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, idutente, lat, lon);
 				risultati.add(evento);
 				contatore++;
 			}
