@@ -191,6 +191,35 @@ public class JDBCUtenteService implements UtenteService{
         }
     }
     
+ // funzione che modifica alcune informazioni nel profilo dell'utente, tra i quali la password
+    public void updateImg(Utente utente) throws BusinessException {
+        Connection con = null;
+        PreparedStatement st = null;
+        try {   	
+        	con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("UPDATE utente SET immagineProfilo=? WHERE id=?");
+            st.setString(1, utente.getImmagineProfilo());
+            st.setLong(2, utente.getId());
+            st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException(e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+    }
+    
     public Utente userByEmail(String email) throws BusinessException {
     	Connection con = null;
         PreparedStatement st = null;
