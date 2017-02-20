@@ -30,11 +30,10 @@ public class UtenteViewServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session=request.getSession();
-        //long idUtente = (Long) session.getAttribute("id");
-        long id = 0; //deve essere settato nel login
+        
+        long id = (Long) session.getAttribute("id");        
         
         Date oggi=new Date();
-
 
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService utenteService = factory.getUtenteService();

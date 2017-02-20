@@ -17,9 +17,6 @@
 	href="${pageContext.request.contextPath}/resources/customCSS/profilo.css"
 	rel="stylesheet">
 <link
-	href="${pageContext.request.contextPath}/resources/fileinput/css/fileinput.min.css"
-	rel="stylesheet">
-<link
 	href="${pageContext.request.contextPath}/resources/customCSS/registrazione.css"
 	rel="stylesheet">
 <script
@@ -30,10 +27,6 @@
 	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/registrazione.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/fileinput/js/fileinput.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/fileinput/js//locales/it.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700'
 	rel='stylesheet' type='text/css'>
 </head>
@@ -49,16 +42,9 @@
 		<form id="formRegistrazione" class="form-horizontal contenitoreForm"
 			role="form"
 			action="${pageContext.request.contextPath}/profilo/updateUtente"
-			method="post" enctype="multipart/form-data">
-			<div class="row">
-				<div class="col-md-2 col-md-offset-1 sezutente">
-					<label class="col-md-12 personalLabel2">Immagine profilo:</label>
-					<div class="kv-avatar center-block">
-						<input id="immagine" name="immagine" type="file"
-							class="file-loading">
-					</div>
-					<div id="kv-avatar-errors-2" class="center-block"></div>
-				</div>
+			method="post">
+			<input type="hidden" class="form-control" id="img" name="img" type="text"
+										value="${utente.immagineProfilo}">
 				<div class="col-sm-12 col-md-9 sezutente">
 					<div class="row">
 						<div

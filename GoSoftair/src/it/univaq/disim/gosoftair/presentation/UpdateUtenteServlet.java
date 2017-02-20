@@ -7,15 +7,17 @@ import it.univaq.disim.gosoftair.utility.ImagesMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import java.io.File;
 import java.io.IOException;
 
-
+@MultipartConfig(maxFileSize = 1048576)
 public class UpdateUtenteServlet extends HttpServlet {
 	
 	private String extractFileName(Part part) {
@@ -33,7 +35,9 @@ public class UpdateUtenteServlet extends HttpServlet {
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService service = factory.getUtenteService();
        
-        long id=0;
+        HttpSession session=req.getSession();
+        
+        long id = (Long) session.getAttribute("id");
         
         Utente utente = service.findUserByPK(id);
         req.setAttribute("utente", utente);
@@ -44,37 +48,41 @@ public class UpdateUtenteServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        long id=0;
+    	
+    	HttpSession session=req.getSession();
+        
+        long id = (Long) session.getAttribute("id");
         String nome = req.getParameter("nome");
         String cognome = req.getParameter("cognome");
-        String nickname = req.getParameter("username");
         String email = req.getParameter("email");
+        String username = req.getParameter("username");
         String password = req.getParameter("password");
-        String documentoValido =req.getParameter("documentoValido");
-       
-        System.out.println(nome);
-        System.out.println(cognome);
-        System.out.println(nickname);
-
-        
-        String appPath = req.getServletContext().getRealPath("/");
-        String savePath = appPath + File.separator +"resources"+ File.separator +"img";
-      	String immagine = null; // input stream of the upload file
-      	Part filePart = req.getPart("immagine");
-      	if (filePart != null) {
-      		String fileName = extractFileName(filePart);
-      		// refines the fileName in case it is an absolute path
-      		fileName = new File(fileName).getName();
-      		filePart.write(savePath + File.separator + "original" + fileName);
-      		immagine = fileName;
-      		ImagesMap.generateImagesMap(savePath, fileName);
-      	}
-        
-        Utente utente = new Utente(id, nome, cognome, email, nickname, password, documentoValido, immagine );
-
+        String documentoValido = req.getParameter("documentoValido");
+        String immagine= req.getParameter("img");
+        System.out.println(immagine);
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-        UtenteService serviceUtente = factory.getUtenteService();
-        serviceUtente.update(utente);
+        UtenteService utenteService = factory.getUtenteService();
+        if(nome==null)
+        {
+        	String appPath = req.getServletContext().getRealPath("/");
+    		// constructs path of the directory to save uploaded file
+    		String savePath = appPath + File.separator +"resources"+ File.separator +"img";   		
+    		// obtains the upload file part in this multipart request
+    		Part filePart = req.getPart("immagine");
+    		if (filePart != null) {
+    			String fileName = extractFileName(filePart);
+    			// refines the fileName in case it is an absolute path
+    			fileName = new File(fileName).getName();
+    			filePart.write(savePath + File.separator + "original" + fileName);
+    			immagine = fileName;
+    			ImagesMap.generateImagesMap(savePath, fileName);
+    		}
+    		Utente utente = new Utente(id, nome, cognome, email, username, password, documentoValido, immagine);
+        	utenteService.updateImg(utente);
+        }else{
+        	Utente utente = new Utente(id, nome, cognome, email, username, password, documentoValido, immagine);
+        utenteService.update(utente);
+        }
 
         resp.sendRedirect(req.getContextPath() + "/profilo");
     }

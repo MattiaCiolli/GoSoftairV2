@@ -2,6 +2,38 @@
     font-family: oswaldStencil;
     src: url(../fonts/Oswald-Stencil.ttf);
 }
+.file-preview {
+		width: 291px;
+	}
+#imgsubmit {
+		height:28px;
+	}
+
+@media ( min-width :320px) {
+	#imginput {
+		width: 160px;
+	}
+	.file-preview {
+		width: 173px;
+	}
+	.file-preview-image {
+		width: 173px;
+	}
+}
+
+.kv-avatar .file-input {
+	display: table-cell;
+	max-width: 220px;
+}
+
+.kv-avatar .file-preview-frame, .kv-avatar .file-preview-frame:hover {
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-shadow: none;
+	text-align: center;
+}
+
 .Profilo{
 	background: url("../img/footer1.jpg") no-repeat center;
 	background-size:cover;
