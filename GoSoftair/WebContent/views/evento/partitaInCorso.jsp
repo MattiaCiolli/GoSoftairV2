@@ -4,66 +4,60 @@
 
 <html>
 <head>
-    <title>Pagina Del Match</title>
+<title>Pagina Del Match</title>
 
-    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.min.css"	rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.structure.min.css"	rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.theme.min.css"	rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons-wind.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/customCSS/partitaInCorso.css" rel="stylesheet">
-	
-    <style type="text/css">
-        #map {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
-    <!-- <script src="${pageContext.request.contextPath}/resources/js/gmaps.min.js"></script> -->
+<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.structure.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.theme.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons-wind.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/customCSS/partitaInCorso.css" rel="stylesheet">
 </head>
 <body>
-<%@include file="/layout/navbar.jsp"%>
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1 class="title-event">La valle della morte</h1>
-            </div>
-        </div>
-    </div>
-</section>
-<section style="margin-bottom:30px;">
-    <div class="container">
-    
-        <div class="row">
-            <div id="map"></div>
-        </div>
-       	<div id="out"></div>
-        
-        <div class="row" style="margin-top:10px">
-            <div class="col-md-3 text-center">
-            	<button type="button" class="btn button-console btn-red" id="attach"> Attacchiamo</button>      
-            </div>
-            <div class="col-md-3 text-center">
-                <button type="button" class="btn button-console btn-blue" id="defend" >Copritemi</button>
-            </div>
-            <div class="col-md-3 text-center">
-                <button type="button" class="btn button-console btn-orange">Ritirata</button>
-            </div>
-            <div class="col-md-3 text-center">
-                <button type="button" class="btn button-console btn-red">Assistenza</button>
-            </div>
-        </div>
-    </div>
-</section>
-<%@include file="/layout/footer.jsp" %>
+	<%@include file="/layout/navbar.jsp"%>
+	<section class="event-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1 class="title-event">La valle della morte</h1>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section class="event-section">
+	<div class="container">
+
+		<div class="row">
+			<div class="map" id="map"></div>
+		</div>
+		<div id="out"></div>
+
+		<div class="row" style="margin-top: 10px">
+			<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+				<button type="button" class="btn button-console btn-red" id="attach">Attacchiamo</button>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+				<button type="button" class="btn button-console btn-blue"id="defend">Copritemi</button>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+				<button type="button" class="btn button-console btn-orange" id="retreat">Rtirata</button>
+			</div>
+			<div class="col-xs-3 col-sm-3 col-md-3 text-center"> <button type="button" class="btn button-console" id="rest">Riposo</button>
+			</div>
+		</div>
+	</div>
+	</section>
+	<%@include file="/layout/footer.jsp"%>
 </body>
-<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 
 <script>
 	var map;
@@ -89,6 +83,7 @@
     
     document.getElementById("attach").onclick = function() {attach()};
     document.getElementById("defend").onclick = function() {defend()};
+    document.getElementById("rest").onclick = function() {rest()};
 
 
     function attach() {
@@ -97,6 +92,10 @@
     
     function defend() {
     	immagine = "1";
+    }
+    
+    function rest() {
+    	immagine = "2";
     }
     
     var intervalID = setInterval( function() 
@@ -163,6 +162,8 @@
     	}, 5000);
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap"
+	async defer></script>
 
 </html>

@@ -18,7 +18,6 @@ import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.PosizioneGiocatore;
 import it.univaq.disim.gosoftair.business.model.Utente;
 
-@WebServlet("/AggiornaPosizioniServlet")
 public class PartitaInCorsoServlet extends HttpServlet { 
     public PartitaInCorsoServlet() {
         super();

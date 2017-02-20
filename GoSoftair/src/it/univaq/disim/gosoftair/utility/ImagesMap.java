@@ -28,7 +28,9 @@ public class ImagesMap {
 		BufferedImage img = null;
 		Color red = new Color(247, 34, 34);
 		Color blue = new Color(30, 144, 255);
-		Color[] colors = { red, blue };
+		Color orange = new Color(255, 128, 0);
+		
+		Color[] colors = { red, blue, orange };
 		int counter;
 		
 		try {
@@ -53,7 +55,7 @@ public class ImagesMap {
 			System.out.print(e);
 		}
 		
-		for(counter = 0; counter < 2; counter++) {
+		for(counter = 0; counter < 3; counter++) {
 			g.setColor(colors[counter]);
 	        g.setStroke(new BasicStroke(10));
 			g.drawLine(0, 0, IMG_WIDTH, 0);

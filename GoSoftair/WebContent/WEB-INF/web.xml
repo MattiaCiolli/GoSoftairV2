@@ -27,7 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PartitaInCorso</servlet-name>
-    <url-pattern>/evento/incorso</url-pattern>
+    <url-pattern>/views/evento/incorso</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>CreaUtenteServlet</servlet-name>

@@ -132,13 +132,17 @@
 					</c:otherwise>
 				</c:choose>
 
-
 				<div class="row">
 					<div class="linkmeteo">
 						<a id="linkMeteo" href="http://www.ilmeteo.net" title="Il Meteo">ilmeteo.net</a>
 					</div>
 				</div>
-			</div>
+				
+				<% if (session.getAttribute("id") == ${evento.id} ) { %>
+					<div class="row">
+						<button type="button" class="btn bottonenav">Attiva l'evento</button>
+					</div>
+				<% } %>
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h1>Descrizione</h1>
