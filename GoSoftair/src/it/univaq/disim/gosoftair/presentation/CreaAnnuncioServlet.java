@@ -5,6 +5,7 @@ import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Utente;
+import it.univaq.disim.gosoftair.utility.ImagesMap;
 
 import java.io.File;
 import java.io.IOException;
@@ -69,8 +70,10 @@ public class CreaAnnuncioServlet extends HttpServlet {
 			String fileName = extractFileName(filePart);
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
-			filePart.write(savePath + File.separator + fileName);
+
+			filePart.write(savePath + File.separator + "original" + fileName);
 			immagine = fileName;
+			ImagesMap.generateImagesCard(savePath, fileName, 362, 270);
 			
 		}
 		String prezzo = request.getParameter("Prezzo");

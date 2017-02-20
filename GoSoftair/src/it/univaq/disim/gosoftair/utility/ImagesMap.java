@@ -1,9 +1,6 @@
 package it.univaq.disim.gosoftair.utility;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,9 +10,6 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
-
-import java.awt.BasicStroke;
-
 
 
 public class ImagesMap {
@@ -76,5 +70,69 @@ public class ImagesMap {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public static void generateImagesCard(String savePath, String fileName, int larghezzaVoluta, int altezzaVoluta) {
+		BufferedImage img = null;
+
+		Color transparent = new Color(0, 0, 0, 0);
+
+		try {
+			img = ImageIO.read(new File(savePath + File.separator + "original" + fileName));
+		} catch (IOException e) {
+			System.out.print(e);
+		}
+
+		Image scaledImage = img.getScaledInstance(larghezzaVoluta, -1, Image.SCALE_SMOOTH);
+
+		int larghezzaScalato = scaledImage.getWidth(null);
+		int altezzaScalato = scaledImage.getHeight(null);
+
+		int y = 0;
+		if(altezzaVoluta > altezzaScalato){
+			y = (altezzaVoluta-altezzaScalato)/2;
+		}
+
+		// width and height are of the toolkit image
+		BufferedImage newImage = new BufferedImage(larghezzaScalato, altezzaVoluta, BufferedImage.TYPE_4BYTE_ABGR);
+		Graphics2D g = (Graphics2D) newImage.getGraphics();
+
+		g.setComposite(AlphaComposite.Clear);
+		g.fillRect(0, 0, larghezzaVoluta, altezzaVoluta);
+
+		g.setComposite(AlphaComposite.Src);
+		g.drawImage(scaledImage, 0, y, null);
+		try {
+			File outputfile = new File(savePath + File.separator + fileName);
+			ImageIO.write(newImage, "png", outputfile);
+		} catch (IOException e) {
+			System.out.print(e);
+		}
+
+		try {
+			Files.delete(Paths.get(savePath + File.separator + "original" + fileName));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		/*
+		if(altezzaVoluta > altezzaScalato) {
+			g.setColor(transparent);
+			g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.0f));
+			g.fill(new Rectangle(0, 0, larghezzaScalato, (altezzaVoluta-altezzaScalato)/2));
+			g.fill(new Rectangle(0, altezzaScalato+y, larghezzaScalato, (altezzaVoluta-altezzaScalato)/2));
+		}
+		*/
+		g.dispose();
+
+		try {
+			File outputfile = new File(savePath + File.separator + fileName);
+			ImageIO.write(newImage, "png", outputfile);
+		} catch (IOException e) {
+			System.out.print(e);
+		}
+
 	}
 }

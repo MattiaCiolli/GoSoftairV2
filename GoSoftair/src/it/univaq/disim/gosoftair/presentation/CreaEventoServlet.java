@@ -5,6 +5,7 @@ import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Utente;
+import it.univaq.disim.gosoftair.utility.ImagesMap;
 
 import java.io.File;
 import java.io.IOException;
@@ -91,10 +92,13 @@ public class CreaEventoServlet extends HttpServlet {
 			String fileName = extractFileName(filePart);
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
-			filePart.write(savePath + File.separator + fileName);
 
-			// obtains input stream of the upload file
+
+			filePart.write(savePath + File.separator + "original" + fileName);
 			immagine = fileName;
+			ImagesMap.generateImagesCard(savePath, fileName, 362, 270);
+
+
 		}
 		
 		Double lat=Double.parseDouble(request.getParameter("Lat"));
