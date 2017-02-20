@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.PosizioniGiocatoriService;
 import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.PosizioneGiocatore;
 import it.univaq.disim.gosoftair.business.model.Utente;
 
@@ -24,8 +26,23 @@ public class PartitaInCorsoServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+		EventoService eventoService = factory.getEventoService();
+		UtenteService utenteService = factory.getUtenteService();
+		
+		HttpSession session = request.getSession();
+
+		Evento evento = eventoService.findEventoByPK(Long.parseLong(request.getParameter("idEvento")));
+		request.setAttribute("evento", evento);
+		Utente organizzatore = utenteService.utenteCreatoreEventByIdEvento(evento.getId());
+		evento.setOrganizzatore(organizzatore);
+		
+		if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId())
+			request.setAttribute("termina_evento", true);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/partitaInCorso.jsp");
 		dispatcher.forward(request, response);
+		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

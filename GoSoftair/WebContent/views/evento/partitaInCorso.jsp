@@ -11,19 +11,67 @@
 <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.structure.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/jquery-ui/css/overcast/jquery-ui.theme.min.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons.min.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/customCSS/weather-icons-wind.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/customCSS/partitaInCorso.css" rel="stylesheet">
+
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/datetimepicker/moment-with-locales.js"></script>
+<script src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.js"></script>
+
 </head>
 <body>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Termina Evento</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						Clicca su "Cancella Evento" se vuoi eliminare l'evento
+						oppure "Aggiorna Data" se vuoi riprorlo con una nuova data.
+					</p>
+					<div class="form-group">
+						<div class='input-group date' id='datetimepicker1'>
+							<input type='text' class="form-control" /> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn bottonenav" data-dismiss="modal">Cancella Evento</button>
+					<button type="button" class="btn bottonenav" data-dismiss="modal">Riproponi Evento</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<%@include file="/layout/navbar.jsp"%>
 	<section class="event-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">
-				<h1 class="title-event">La valle della morte</h1>
+				<h1 class="title-event">${evento.titolo}</h1>
 			</div>
+			<c:choose>
+				<c:when test="${termina_evento}">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<button type="button" class="btn bottonenav" id="end-event"
+								data-toggle="modal" data-target="#myModal">Termina
+								l'evento</button>
+						</div>
+					</div>
+				</c:when>
+			</c:choose>
 		</div>
 	</div>
 	</section>
@@ -40,24 +88,25 @@
 				<button type="button" class="btn button-console btn-red" id="attach">Attacchiamo</button>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 text-center">
-				<button type="button" class="btn button-console btn-blue"id="defend">Copritemi</button>
+				<button type="button" class="btn button-console btn-blue"
+					id="defend">Copritemi</button>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 text-center">
-				<button type="button" class="btn button-console btn-orange" id="retreat">Rtirata</button>
+				<button type="button" class="btn button-console btn-orange"
+					id="retreat">Rtirata</button>
 			</div>
-			<div class="col-xs-3 col-sm-3 col-md-3 text-center"> <button type="button" class="btn button-console" id="rest">Riposo</button>
+			<div class="col-xs-3 col-sm-3 col-md-3 text-center">
+				<button type="button" class="btn button-console" id="rest">Riposo</button>
 			</div>
 		</div>
 	</div>
 	</section>
 	<%@include file="/layout/footer.jsp"%>
 </body>
-<script
-	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
 
 <script>
 	var map;
@@ -98,8 +147,7 @@
     	immagine = "2";
     }
     
-    var intervalID = setInterval( function() 
-    	{
+    var intervalID = setInterval( function() {
 	    	var output = document.getElementById("out");
 	
 	  	  	if (!navigator.geolocation){
@@ -159,11 +207,19 @@
 	  	  	output.innerHTML = "<p>Locating…</p>";
 	  	  	navigator.geolocation.getCurrentPosition(success, error);
 	  	  	
-    	}, 5000);
+    }, 5000);
+ 
+    
+	var startdate = new Date();//today
+	startdate.setDate(startdate.getDate() + 1);//tomorrow
+	
+	$(document).ready(function(){
+		$('#datetimepicker1').datetimepicker({
+			locale : "it",
+			minDate : startdate,
+		});
+    });	
+	
 
 </script>
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap"
-	async defer></script>
-
 </html>

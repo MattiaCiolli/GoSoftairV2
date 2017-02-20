@@ -37,8 +37,8 @@ public class EventoViewServlet extends HttpServlet {
 		Evento evento = eventoService.findEventoByPK(Long.parseLong(request.getParameter("idEvento")));
 		
 		if(evento.getStato() == 2) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/partitaInCorso.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect(getServletContext().getContextPath() + "/evento/incorso?idEvento=" + evento.getId());
+			return;
 		}
 			
 		SquadreService squadreService = factory.getSquadreService();
