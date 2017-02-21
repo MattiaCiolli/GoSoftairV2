@@ -81,7 +81,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
             String oggiFormattato = DBformat.format(oggi);
 
-            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
+            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >=" + "'" + oggiFormattato + "'ORDER BY data");
             while (rs.next() && contatore < quantita) {
                 contatore++;
                 Long id = rs.getLong("id");

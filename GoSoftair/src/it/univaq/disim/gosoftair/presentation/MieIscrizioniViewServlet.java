@@ -36,10 +36,9 @@ public class MieIscrizioniViewServlet extends HttpServlet {
 
 
         HttpSession session=request.getSession();
-        //long idUtente = (Long) session.getAttribute("id");
-        long idUtente = 0;
+        long idUtente = (Long) session.getAttribute("id");
 
-        eventi = eventoService.findAllMySubscription(oggi, idUtente );
+        eventi = eventoService.findAllMySubscription(oggi, idUtente);
         request.setAttribute("eventi", eventi);
 
         boolean nessunaIscrizione = false;
