@@ -180,10 +180,11 @@
   </filter>
   <filter-mapping>
     <filter-name>ControlloLoggedFilter</filter-name> 
-    <url-pattern>/evento/*</url-pattern>
+    <url-pattern>/evento/nuovo</url-pattern>
+    <url-pattern>/evento/incorso</url-pattern>
     <url-pattern>/profilo/*</url-pattern>
-    <url-pattern>/evento/*</url-pattern>
-    <url-pattern>/annuncio/*</url-pattern>
+    <url-pattern>/evento/dettagli</url-pattern>
+    <url-pattern>/annuncio/nuovo</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
 
