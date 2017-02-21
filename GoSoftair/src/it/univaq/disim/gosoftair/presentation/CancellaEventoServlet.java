@@ -1,6 +1,13 @@
 package it.univaq.disim.gosoftair.presentation;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +35,24 @@ public class CancellaEventoServlet extends HttpServlet {
 		PostService postService = factory.getPostService();
 		SquadreService squadraService = factory.getSquadreService();
 		
-		postService.
+		Evento evento = eventoService.findEventoByPK(idEvento);
+		Path path = Paths.get(request.getServletContext().getRealPath("/") + "resources/img/" + evento.getImmagine());
 		
+		try {
+		    Files.delete(path);
+		} catch (NoSuchFileException x) {
+		    System.err.format("no such file or directory");
+		} catch (DirectoryNotEmptyException x) {
+		    System.err.format("directory not empty");
+		} catch (IOException x) {
+		    System.err.println(x);
+		}
+		
+		postService.deletePostByIdEvent(idEvento);
+		squadraService.deleteSquadreByIdEvent(idEvento);
 		eventoService.delete(idEvento);
+		
+		PrintWriter out = response.getWriter();
+		out.println(1);	
 	}
 }

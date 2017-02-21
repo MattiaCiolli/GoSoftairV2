@@ -120,4 +120,31 @@ public class JDBCPostService implements PostService {
 		}
 		return posts; 
 	}
+	
+	public void deletePostByIdEvent(long idEvento) throws BusinessException {
+		Connection con = null;
+        PreparedStatement st = null;
+        try {   	
+        	con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("DELETE FROM post WHERE idEvento=?");
+            st.setLong(1, idEvento);
+			st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException(e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+	}
 }

@@ -208,7 +208,9 @@
 	
 	$("#delete-event").click(function() {
 		$.post("${pageContext.request.contextPath}/evento/cancella?idEvento=${evento.id}", function(results) {
-			
+			if(result == 1) {
+				window.location.replace = "${pageContext.request.contextPath}/";
+			}
 		});
 
 	});
