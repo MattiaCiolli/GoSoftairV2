@@ -30,8 +30,7 @@ public class MiePartiteViewServlet extends HttpServlet {
         List<Evento> eventi;
 
         HttpSession session=request.getSession();
-        //long idUtente = (Long) session.getAttribute("id");
-        long idUtente = 0;
+        long idUtente = (Long) session.getAttribute("id");
 
         eventi = eventoService.trovaTuttePartiteCreateDaMe(idUtente);
         request.setAttribute("eventi", eventi);
