@@ -41,7 +41,7 @@ public class JDBCPostService implements PostService {
             st.setLong(1, post.getUtente().getId());
             st.setLong(2, idEvento);
             st.setString(3, post.getMessaggio());
-			st.setTimestamp(3, new java.sql.Timestamp(post.getData().getTime()));
+			st.setTimestamp(4, new java.sql.Timestamp(post.getData().getTime()));
             st.executeUpdate();
             
         } catch (SQLException e) {
