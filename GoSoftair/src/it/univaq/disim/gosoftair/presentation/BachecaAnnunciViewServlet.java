@@ -38,22 +38,11 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
     	
     	GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         AnnuncioService annuncioService = factory.getAnnuncioService();
-        HttpSession session=request.getSession();
-        
-        //long idUtente = (Long) session.getAttribute("id");
-        long idUtente = 0;
         
         List<Annuncio> listaAnnunci = annuncioService.findLastAnnunci(oggi, 10);
         
         request.setAttribute("listaAnnunci", listaAnnunci);
         
-        //if(request.getParameter("idAnnuncio") != null){
-            //Long idEvento = Long.parseLong(request.getParameter("idAnnuncio"));
-
-            // utilizzando idAnnuncio cerca sul DB l'annuncio corrispondente e passa i valori a request in modo
-            // che in qualche modo li possa passare al modal corrispondente
-        //}
-
 
         String idLetto = request.getParameter("idAnnuncio");
         if(idLetto !=null ){

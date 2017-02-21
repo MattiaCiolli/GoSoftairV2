@@ -81,7 +81,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
             String oggiFormattato = DBformat.format(oggi);
 
-            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
+            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >=" + "'" + oggiFormattato + "'ORDER BY data");
             while (rs.next() && contatore < quantita) {
                 contatore++;
                 Long id = rs.getLong("id");
@@ -154,7 +154,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
             String oggiFormattato = DBformat.format(oggi);
 
-            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+userID+" AND data >" + "'" + oggiFormattato + "'ORDER BY data");
+            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+userID+" AND data >=" + "'" + oggiFormattato + "'ORDER BY data");
             while (rs.next() && contatore < 3) {
                 Long id = rs.getLong("id");
                 String titolo = rs.getString("titolo");
@@ -184,12 +184,12 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 contatore++;
             }
             if (contatore == 0) {
-                System.out.print("Il result set non ha elementi 1");
+                System.out.print("Il result set non ha elementi (lastannuncibyuser)");
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new BusinessException("Errore durante la ricerca degli annunci 1", e);
+            throw new BusinessException("Errore durante la ricerca degli annunci (lastannuncibyuser)", e);
         } finally {
             if (rs != null) {
                 try {
@@ -253,12 +253,12 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 contatore++;
             }
             if (contatore == 0) {
-                System.out.print("Il result set non ha elementi");
+                System.out.print("Il result set non ha elementi TuttiAnnunciCreatiDaMe");
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new BusinessException("Errore durante la ricerca degli annunci", e);
+            throw new BusinessException("Errore durante la ricerca degli annunci TuttiAnnunciCreatiDaMe", e);
         } finally {
             if (rs != null) {
                 try {
