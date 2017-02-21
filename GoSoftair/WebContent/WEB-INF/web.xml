@@ -54,6 +54,14 @@
     <url-pattern>/evento/nuovo</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>UpdateEventoServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.UpdateEventoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEventoServlet</servlet-name>
+    <url-pattern>/evento/update</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ScegliSquadraServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.ScegliSquadraServlet</servlet-class>
   </servlet>
@@ -157,8 +165,14 @@
     <servlet-name>UpdateUtenteServlet</servlet-name>
     <url-pattern>/profilo/updateUtente</url-pattern>
   </servlet-mapping>
-  
-
+   <servlet>
+    <servlet-name>CancellaEventoServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.CancellaEventoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancellaEventoServlet</servlet-name>
+    <url-pattern>/evento/cancella</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>ControlloLoggedFilter</filter-name>
     <filter-class>it.univaq.disim.gosoftair.filters.ControlloLoggedFilter</filter-class>

@@ -36,18 +36,10 @@
 						Clicca su "Cancella Evento" se vuoi eliminare l'evento
 						oppure "Aggiorna Data" se vuoi riprorlo con una nuova data.
 					</p>
-					<div class="form-group">
-						<div class='input-group date' id='datetimepicker1'>
-							<input type='text' class="form-control" /> <span
-								class="input-group-addon"> <span
-								class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn bottonenav" data-dismiss="modal">Cancella Evento</button>
-					<button type="button" class="btn bottonenav" data-dismiss="modal" onclick="repost()">Riproponi Evento</button>
+					<button type="button" class="btn bottonenav" data-dismiss="modal" id="delete-event">Cancella Evento</button>
+					<a class="btn bottonenav" href="${pageContext.request.contextPath}/evento/update?idEvento=${evento.id}">Riproponi Evento</a>
 				</div>
 			</div>
 		</div>
@@ -214,13 +206,11 @@
 		});
     });	
 	
-	function repost() {
-		$.post(url, { idEvento : ${evento.id}, date : $("#datetimepicker1").find("input").val() },function(results) {
-			if(result == 1) {
-				console.log("ho aggiornato tutto")
-			}
-		}
-	}
+	$("#delete-event").click(function() {
+		$.post("${pageContext.request.contextPath}/evento/cancella?idEvento=${evento.id}", function(results) {
+			
+		});
 
+	});
 </script>
 </html>
