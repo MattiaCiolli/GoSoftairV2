@@ -41,12 +41,7 @@ public class JDBCEventoService implements EventoService {
 			st = con.prepareStatement(sql);
 			st.setString(1, evento.getTitolo());
 			st.setString(2, evento.getDescrizione());
-
-			System.out.println("data in create:"+evento.getData());
-			System.out.println("data in create getTime:"+evento.getData().getTime());
-			System.out.println("data sql:" + new java.sql.Date(evento.getData().getTime()) );
-
-			st.setDate(3, new java.sql.Date(evento.getData().getTime()));
+			st.setTimestamp(3, new java.sql.Timestamp(evento.getData().getTime()));
 			st.setString(4, evento.getPuntoIncontro());
 			st.setString(5, evento.getTipologia());
 			st.setInt(6, evento.getNumMaxPartecipanti());
