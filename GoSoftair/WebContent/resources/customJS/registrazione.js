@@ -84,19 +84,19 @@ $(document)
 
                                     required: true,
 
-                                    minlenght: 8,
+                                    minlength: 8,
 
-                                    maxlenght: 20
-
+                                    maxlength: 20
 
                                 },
 
+                                conferma: {
 
-								confermaPassword: {
+                                    required: true,
 
-									equalTo: "#password"
+                                    equalTo: "#password"
 
-								},
+                                },
 
                                 documentoValido: {
 
@@ -150,16 +150,20 @@ $(document)
 
 								password: {
 
-									required: "Inserisci la password"
+									required: "Inserisci la password",
+									 
+									minlength: "Almeno 8 caratteri",
+
+	                                maxlength: "Massimo 20 caratteri"
 
 								},
 
-								confermaPassword: {
+								conferma: {
 
 									required: "Conferma la tua password",
-
+									
 									equalTo: "Attenzione, hai inserito due password differenti"
-
+										
 								},
 
                                 documentoValido: {

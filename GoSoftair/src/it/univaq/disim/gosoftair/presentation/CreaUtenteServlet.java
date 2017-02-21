@@ -58,14 +58,13 @@ public class CreaUtenteServlet extends HttpServlet {
 			ImagesMap.generateImagesMap(savePath, fileName);
 		}
 
-
         Utente utente = new Utente(nome, cognome, email, username, password, documentoValido, immagine);
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         UtenteService utenteService = factory.getUtenteService();
         utenteService.create(utente);
 
-        response.sendRedirect(request.getContextPath() + "/profilo");
-
+        request.setAttribute("executeLoginMsg", "Profilo creato, esegui l'accesso");
+    	request.getRequestDispatcher("/home").forward(request, response);
 
     }
 

@@ -141,7 +141,7 @@
 					<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
 						<div class="form-group">
 							<label for="Posizione">Posizione:</label> <input id="pac-input"
-								class="controls" type="text" placeholder="Search Box"> ï¿½
+								class="controls" type="text" placeholder="Search Box">  
 							<div id="mapcont"></div>
 							<input type="text" class="form-control" name="Posizione"
 								id="Posizione" value="Lat:  Long:" readonly> <input

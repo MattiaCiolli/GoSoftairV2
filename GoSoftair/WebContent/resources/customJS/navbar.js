@@ -35,7 +35,7 @@ $(document).ready(
 			});
 
 			if ($("div#msg").text().length > 1) {
-				if ($("div#msg").text() == "Login effettuato") {
+				if ($("div#msg").text() == "Login effettuato" || $("div#msg").text() == "Profilo creato, esegui l'accesso") {
 					$("div#msg").css('background-color', '#94a31a');
 				}
 				$("#msg").fadeIn(1000, function() {

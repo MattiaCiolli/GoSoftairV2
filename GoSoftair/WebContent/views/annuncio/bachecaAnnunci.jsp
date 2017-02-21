@@ -77,7 +77,7 @@
 				<c:forEach items="${listaAnnunci}" var="annuncio" varStatus="loop">
 					<div
 						class="${classeGrafica[loop.index]} col-lg-4 col-xs-12 col-md-6 col-sm-6">
-						<a class="clicca" href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
+						<a class="clicca" href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
 							<div class="cartaScura">
 								<img
 									src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
@@ -111,11 +111,10 @@
 
 
 
-
-<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
 <script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
 <script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

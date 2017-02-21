@@ -72,19 +72,12 @@ public class CreaEventoServlet extends HttpServlet {
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Descrizione");
 		Date data = null;
-		String userInput = request.getParameter("DataOra");
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
 		try {
-
-			data = formatter.parse(userInput+":00");
-
-		} catch (/*ParseException*/Exception e1) {
+			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		System.out.println("data in servlet:"+data);
 
 		String tipologia = request.getParameter("Tipologia");
 		int numPartecipanti = Integer.parseInt(request.getParameter("NumPartecipanti"));
@@ -107,20 +100,11 @@ public class CreaEventoServlet extends HttpServlet {
 		Double lat=Double.parseDouble(request.getParameter("Lat"));
 		Double lon=Double.parseDouble(request.getParameter("Lon"));
 		
-        long idUtente = (Long) session.getAttribute("id");
-
-		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		UtenteService utenteService = factory.getUtenteService();
-		Utente organizzatore = utenteService.findUserByPK(idUtente);
-		
-		System.out.println(organizzatore.getId());
-		
+		Utente organizzatore = utenteService.findUserByPK(Long.parseLong(session.getAttribute("id").toString()));
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = new Evento(titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
-
-		System.out.println("data da servlet da evento"+evento.getData());
-
 		eventoService.create(evento);
 		
 		response.sendRedirect(request.getContextPath() + "/views/evento/nuovoEvento.jsp");

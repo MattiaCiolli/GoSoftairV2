@@ -18,7 +18,7 @@
 
 <header>
 	<div class="container-fluid">
-	<div class="row" id="msg">${errorMessageUser}${errorMessagePwd}</div>
+	<div class="row" id="msg">${errorMessageUser}${errorMessagePwd}${executeLoginMsg}</div>
 	
 		<div class="row">
 			<div class="col-lg-12">
