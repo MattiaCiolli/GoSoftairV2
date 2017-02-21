@@ -87,7 +87,7 @@ public class JDBCPostService implements PostService {
 				
 				long idPost = Long.parseLong(rs.getString("idPost"));
 				String messaggio = rs.getString("testo");
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));

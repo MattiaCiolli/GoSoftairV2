@@ -119,7 +119,7 @@ public class JDBCEventoService implements EventoService {
 			if (rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));
@@ -177,7 +177,7 @@ public class JDBCEventoService implements EventoService {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
 
-			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato = DBformat.format(oggi);
 
 			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
@@ -185,7 +185,7 @@ public class JDBCEventoService implements EventoService {
 				Long id = rs.getLong("id");
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));
@@ -248,7 +248,7 @@ public class JDBCEventoService implements EventoService {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
 
-			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato = DBformat.format(oggi);
 			rs = st.executeQuery("SELECT evento.* FROM evento,utente_evento WHERE evento.id=utente_evento.idevento AND utente_evento.idutente="+id+" AND evento.data >" + "'" + oggiFormattato + "'ORDER BY data");
 
@@ -256,7 +256,7 @@ public class JDBCEventoService implements EventoService {
 				long idEvento = Long.parseLong(rs.getString("id"));
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));
@@ -318,14 +318,14 @@ public class JDBCEventoService implements EventoService {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
 
-			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato= DBformat.format(oggi);
 
 			rs = st.executeQuery("SELECT evento.id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento, utente_evento WHERE evento.id = utente_evento.idevento AND utente_evento.idutente ="+idUtente+" AND data >"+ "'"+oggiFormattato+"' ORDER BY data");
 			while(rs.next() && contatore < 10) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));
@@ -384,13 +384,13 @@ public class JDBCEventoService implements EventoService {
 			con = DriverManager.getConnection(url, username, password);
 			st = con.createStatement();
 
-			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 
 			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE evento.idutente = "+idUtente+" ORDER BY data desc");
 			while(rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
-				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
 				Date data = new Date();
 				try {
 					data = format.parse(rs.getString("data"));

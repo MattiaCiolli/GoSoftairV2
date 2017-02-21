@@ -58,7 +58,7 @@ public class HomeViewServlet extends HttpServlet {
 		data.setTime(oggi);
 		data.add(Calendar.MONTH, -3);
 		Date oggiMeno3Mesi = data.getTime();
-		annunci = annuncioService.findLastAnnunci(oggiMeno3Mesi, 2); // il 2 in
+		annunci = annuncioService.findLastAnnunci(oggiMeno3Mesi, 3); // il 3 in
 																		// findLastAnnunci
 																		// è il
 																		// numero

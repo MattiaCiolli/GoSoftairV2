@@ -68,7 +68,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
     }
 
   //funzione che restituisce tutti gli ultimi annunci inseriti in GoSoftair
-    public List<Annuncio> findLastAnnunci(Date oggi, int quantita) throws BusinessException {
+    public List<Annuncio> findLastAnnunci(Date oggiMeno3Mesi, int quantita) throws BusinessException {
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;
@@ -78,10 +78,11 @@ public class JDBCAnnuncioService implements AnnuncioService {
             con = DriverManager.getConnection(url, username, password);
             st = con.createStatement();
 
-            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
-            String oggiFormattato = DBformat.format(oggi);
+            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+            String oggiFormattato = DBformat.format(oggiMeno3Mesi);
 
-            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data <=" + "'" + oggiFormattato + "'ORDER BY data DESC");
+
+            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data DESC");
 
             while (rs.next() && contatore < quantita) {
                 contatore++;
@@ -94,7 +95,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
 
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
                 Date datainserzione = new Date();
                 try {
                     datainserzione = format.parse(rs.getString("data"));
@@ -151,7 +152,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
         try {
             con = DriverManager.getConnection(url, username, password);
             st = con.createStatement();
-            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
+            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String oggiFormattato = DBformat.format(oggi);
             System.out.println(oggiFormattato);
 
@@ -168,7 +169,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 Long idutente = rs.getLong("idutente");
                 
 
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
                 Date datainserzione = new Date();
                 try {
                     datainserzione = format.parse(rs.getString("data"));
@@ -241,7 +242,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
 
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
                 Date datainserzione = new Date();
                 try {
                     datainserzione = format.parse(rs.getString("data"));
