@@ -71,12 +71,19 @@ public class CreaEventoServlet extends HttpServlet {
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Descrizione");
 		Date data = null;
+		String userInput = request.getParameter("DataOra");
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
 		try {
-			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
-		} catch (ParseException e1) {
+
+			data = formatter.parse(userInput+":00");
+
+		} catch (/*ParseException*/Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+
+		System.out.println("data in servlet:"+data);
 
 		String tipologia = request.getParameter("Tipologia");
 		int numPartecipanti = Integer.parseInt(request
@@ -109,6 +116,9 @@ public class CreaEventoServlet extends HttpServlet {
 		Utente organizzatore = utenteService.findUserByPK(0);
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = new Evento(titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
+
+		System.out.println("data da servlet da evento"+evento.getData());
+
 		eventoService.create(evento);
 		
 		response.sendRedirect(request.getContextPath() + "/views/evento/nuovoEvento.jsp");
