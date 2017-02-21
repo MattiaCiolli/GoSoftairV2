@@ -39,7 +39,7 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
     	GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         AnnuncioService annuncioService = factory.getAnnuncioService();
         
-        List<Annuncio> listaAnnunci = annuncioService.findLastAnnunci(oggi, 10);
+        List<Annuncio> listaAnnunci = annuncioService.findLastAnnunci(oggi, 9);
         
         request.setAttribute("listaAnnunci", listaAnnunci);
         

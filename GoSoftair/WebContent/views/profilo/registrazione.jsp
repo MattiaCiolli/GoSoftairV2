@@ -48,7 +48,7 @@
 		</br>
 		<form id="formRegistrazione" class="form-horizontal contenitoreForm"
 			role="form"
-			action="${pageContext.request.contextPath}/views/profilo/nuovo"
+			action="${pageContext.request.contextPath}/registrazione"
 			method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-2 col-md-offset-1 sezutente">

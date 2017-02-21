@@ -64,7 +64,7 @@ public class CreaUtenteServlet extends HttpServlet {
         UtenteService utenteService = factory.getUtenteService();
         utenteService.create(utente);
 
-        //resp.sendRedirect(req.getContextPath() + "/views/profilo/nuovo");
+        response.sendRedirect(request.getContextPath() + "/profilo");
 
 
     }

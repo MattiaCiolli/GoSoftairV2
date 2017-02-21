@@ -81,7 +81,8 @@ public class JDBCAnnuncioService implements AnnuncioService {
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
             String oggiFormattato = DBformat.format(oggi);
 
-            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >=" + "'" + oggiFormattato + "'ORDER BY data");
+            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data <=" + "'" + oggiFormattato + "'ORDER BY data DESC");
+
             while (rs.next() && contatore < quantita) {
                 contatore++;
                 Long id = rs.getLong("id");
@@ -150,11 +151,12 @@ public class JDBCAnnuncioService implements AnnuncioService {
         try {
             con = DriverManager.getConnection(url, username, password);
             st = con.createStatement();
-
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy");
             String oggiFormattato = DBformat.format(oggi);
+            System.out.println(oggiFormattato);
 
-            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+userID+" AND data >=" + "'" + oggiFormattato + "'ORDER BY data");
+            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+userID+" AND data <=" + "'" + oggiFormattato + "'ORDER BY data DESC");
+
             while (rs.next() && contatore < 3) {
                 Long id = rs.getLong("id");
                 String titolo = rs.getString("titolo");
@@ -164,6 +166,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 String numeroTelefono = rs.getString("numerotelefono");
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
+                
 
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S", Locale.ITALIAN);
                 Date datainserzione = new Date();
@@ -184,7 +187,9 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 contatore++;
             }
             if (contatore == 0) {
-                System.out.print("Il result set non ha elementi (lastannuncibyuser)");
+
+                System.out.print("l'utente non ha creato annunci");
+
             }
 
         } catch (SQLException e) {
@@ -225,7 +230,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
             st = con.createStatement();
 
 
-            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+idUtente+" ORDER BY data");
+            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+idUtente+" ORDER BY data DESC");
             while (rs.next() && contatore < 10) {
                 Long id = rs.getLong("id");
                 String titolo = rs.getString("titolo");

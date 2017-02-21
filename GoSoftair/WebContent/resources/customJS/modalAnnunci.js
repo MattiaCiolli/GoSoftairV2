@@ -3,6 +3,8 @@
  */
 $(".clicca").click(function() {
     var link =$(this).attr("href");
+    console.log(link);
+
     $.ajax({
         type: "GET",
         url: link,

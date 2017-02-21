@@ -107,9 +107,16 @@ public class CreaEventoServlet extends HttpServlet {
 		Double lat=Double.parseDouble(request.getParameter("Lat"));
 		Double lon=Double.parseDouble(request.getParameter("Lon"));
 		
+        HttpSession session=request.getSession();
+        long idUtente = (Long) session.getAttribute("id");
+
+		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		UtenteService utenteService = factory.getUtenteService();
-		Utente organizzatore = utenteService.findUserByPK(Long.parseLong(session.getAttribute("id").toString()));
+		Utente organizzatore = utenteService.findUserByPK(idUtente);
+		
+		System.out.println(organizzatore.getId());
+		
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = new Evento(titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
 
