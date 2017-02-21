@@ -257,7 +257,7 @@
 					<c:otherwise>
 						<c:forEach items="${ultimiAnnunci}" var="annuncio">
 							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-								<a
+								<a class="clicca"
 									href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}">
 									<div class="cartaScura">
 										<img
