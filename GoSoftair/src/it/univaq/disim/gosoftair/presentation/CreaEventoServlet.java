@@ -107,7 +107,6 @@ public class CreaEventoServlet extends HttpServlet {
 		Double lat=Double.parseDouble(request.getParameter("Lat"));
 		Double lon=Double.parseDouble(request.getParameter("Lon"));
 		
-        HttpSession session=request.getSession();
         long idUtente = (Long) session.getAttribute("id");
 
 		
