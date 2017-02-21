@@ -15,7 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -23,9 +27,10 @@ import java.util.List;
  * Created by Faith on 03/02/17.
  */
 public class UtenteViewServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
+    	}
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -57,19 +62,48 @@ public class UtenteViewServlet extends HttpServlet {
         int lenghtEventi = ultimiEventi.size();
         if(lenghtEventi == 0) sezioneEventiVuota= true;
 
-        request.setAttribute("utente", utente);
-        request.setAttribute("ultimiAnnunci", ultimiAnnunci);
-        request.setAttribute("sezioneAnnunciVuota",sezioneAnnunciVuota);
-        request.setAttribute("ultimiEventi", ultimiEventi);
-        request.setAttribute("sezioneEventiVuota",sezioneEventiVuota);
-        request.setAttribute("percorso", "Profilo");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
-        dispatcher.forward(request, response);
+        
+        String idLetto = request.getParameter("idAnnuncio");
+        if(idLetto !=null ){
 
+            for (Annuncio annuncio:ultimiAnnunci){
+                if(Long.toString(annuncio.getId()).contentEquals(idLetto)){
+                    Annuncio annuncioLetto = annuncio;
+                    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
+                    String dataStringata=sdf.format(annuncioLetto.getDatainserzione());
 
-
-    }
-}
+                    JSONObject value = new JSONObject();
+                    value.put("titolo",annuncioLetto.getTitolo() );
+                    value.put("descrizione", annuncioLetto.getDescrizione());
+                    value.put("prezzo", annuncioLetto.getPrezzo());
+                    value.put("email", annuncioLetto.getEmail());
+                    value.put("numeroTelefono", annuncioLetto.getNumeroTelefono());
+                    value.put("immagine", annuncioLetto.getImmagine());
+                    value.put("datainserzione", dataStringata);
+                    
+                    response.setContentType("application/json");
+                    PrintWriter out = response.getWriter();
+                    out.print(value);
+                    out.flush();
+                }
+            }
+        }
+                else {
+                    request.setAttribute("utente", utente);
+                    request.setAttribute("ultimiAnnunci", ultimiAnnunci);
+                    request.setAttribute("sezioneAnnunciVuota",sezioneAnnunciVuota);
+                    request.setAttribute("ultimiEventi", ultimiEventi);
+                    request.setAttribute("sezioneEventiVuota",sezioneEventiVuota);
+                    request.setAttribute("percorso", "Profilo");
+                   
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
+                    dispatcher.forward(request, response);
+                }
+            
+    
+   }//fine get
+    
+}//fine class
 
 
 
