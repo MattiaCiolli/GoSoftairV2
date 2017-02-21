@@ -98,11 +98,11 @@ public class EventoViewServlet extends HttpServlet {
 		request.setAttribute("meteoDisponibile", meteoDisponibile);
 		request.setAttribute("percorso", "Dettaglio partita");
 		
-		if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId() && oggi.after(evento.getData()))
-			request.setAttribute("attiva_evento", true);
-		//bug nel caso di non loggato!!! dovresti poter entrare nel dettaglio dell'evento anche se non
-		//sei loggato ma session.getAttribute("id") punta a null è da errore
-
+		
+		if(session.getAttribute("id") != null)
+			if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId() && oggi.after(evento.getData()))
+				request.setAttribute("attiva_evento", true);
+	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");
 		dispatcher.forward(request, response);
 	}

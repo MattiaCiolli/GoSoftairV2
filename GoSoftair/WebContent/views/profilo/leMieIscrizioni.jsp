@@ -39,7 +39,7 @@
 				<section>
 					<div class="container-fluid">
 						<div class="row lateralPadding">
-							<a  href="${pageContext.request.contextPath}/views/evento/dettagli?idEvento=${evento.id}">
+							<a  href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 								<div class="carta elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div></div>
 									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">

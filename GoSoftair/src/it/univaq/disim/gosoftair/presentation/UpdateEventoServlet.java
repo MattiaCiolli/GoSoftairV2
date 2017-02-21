@@ -1,15 +1,7 @@
 package it.univaq.disim.gosoftair.presentation;
 
-import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
-import it.univaq.disim.gosoftair.business.UtenteService;
-import it.univaq.disim.gosoftair.business.EventoService;
-import it.univaq.disim.gosoftair.business.model.Evento;
-import it.univaq.disim.gosoftair.business.model.Utente;
-import it.univaq.disim.gosoftair.utility.ImagesMap;
-
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,17 +14,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
 
-/**
- * Servlet implementation class CreaEventoServlet
- */
-@WebServlet("/CreaEventoServlet")
-@MultipartConfig(maxFileSize = 1048576)
-public class CreaEventoServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import it.univaq.disim.gosoftair.business.EventoService;
+import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+import it.univaq.disim.gosoftair.business.UtenteService;
+import it.univaq.disim.gosoftair.business.model.Evento;
+import it.univaq.disim.gosoftair.business.model.Utente;
+import it.univaq.disim.gosoftair.utility.ImagesMap;
 
-	private String extractFileName(Part part) {
+@MultipartConfig(maxFileSize = 1048576)
+public class UpdateEventoServlet extends HttpServlet {       
+ 
+    public UpdateEventoServlet() {
+        super();
+    }
+    
+    private String extractFileName(Part part) {
 		String contentDisp = part.getHeader("content-disposition");
 		String[] items = contentDisp.split(";");
 		for (String s : items) {
@@ -42,49 +41,31 @@ public class CreaEventoServlet extends HttpServlet {
 		}
 		return "";
 	}
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		long idEvento = Long.parseLong(request.getParameter("idEvento"));
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+		EventoService eventoService = factory.getEventoService();
+		Evento evento = eventoService.findEventoByPK(idEvento);
+		
+		request.setAttribute("percorso", "Partite > Aggiorna partita");
+		request.setAttribute("evento", evento);
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public CreaEventoServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setAttribute("percorso", "Partite > Crea partita");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/creaPartita.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/aggiornaEvento.jsp");
         dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String titolo = request.getParameter("NomeEvento");
 		String descrizione = request.getParameter("Descrizione");
 		Date data = null;
-		String userInput = request.getParameter("DataOra");
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
 		try {
-
-			data = formatter.parse(userInput+":00");
-
-		} catch (/*ParseException*/Exception e1) {
+			data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(request.getParameter("DataOra"));
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		System.out.println("data in servlet:"+data);
 
 		String tipologia = request.getParameter("Tipologia");
 		int numPartecipanti = Integer.parseInt(request.getParameter("NumPartecipanti"));
@@ -104,20 +85,17 @@ public class CreaEventoServlet extends HttpServlet {
 			ImagesMap.generateImagesCard(savePath, fileName, 362, 270);
 		}
 		
-		Double lat=Double.parseDouble(request.getParameter("Lat"));
-		Double lon=Double.parseDouble(request.getParameter("Lon"));
+		double lat=Double.parseDouble(request.getParameter("Lat"));
+		double lon=Double.parseDouble(request.getParameter("Lon"));
+		long idEvento = Long.parseLong(request.getParameter("idEvento"));
 		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		UtenteService utenteService = factory.getUtenteService();
 		Utente organizzatore = utenteService.findUserByPK(Long.parseLong(session.getAttribute("id").toString()));
 		EventoService eventoService = factory.getEventoService();
-		Evento evento = new Evento(titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
-
-		System.out.println("data da servlet da evento"+evento.getData());
-
-		eventoService.create(evento);
+		Evento evento = new Evento(idEvento, titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
+		eventoService.update(evento);
 		
-		response.sendRedirect(request.getContextPath() + "/views/evento/nuovoEvento.jsp");
+		response.sendRedirect(request.getContextPath() + "/evento/dettagli?idEvento=" + evento.getId());
 	}
-
 }

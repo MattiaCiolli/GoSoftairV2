@@ -173,6 +173,7 @@
     <servlet-name>CancellaEventoServlet</servlet-name>
     <url-pattern>/evento/cancella</url-pattern>
   </servlet-mapping>
+<<<<<<< Updated upstream
   <filter>
     <filter-name>ControlloLoggedFilter</filter-name>
     <filter-class>it.univaq.disim.gosoftair.filters.ControlloLoggedFilter</filter-class>
@@ -188,3 +189,6 @@
   </filter-mapping>
 
 </web-app>
+=======
+</web-app>
+>>>>>>> Stashed changes

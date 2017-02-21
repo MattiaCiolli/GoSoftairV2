@@ -309,5 +309,10 @@ $(document)
 						}
 
 					});
-
+					
+					$("#updatepartita").click(function() {
+						if ($("#partitaform").valid()) {
+							document.getElementById("partitaform").submit();
+						}
+					});
 				});

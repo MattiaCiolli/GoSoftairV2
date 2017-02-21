@@ -58,6 +58,7 @@ public class CreaAnnuncioServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
 		String titolo = request.getParameter("Titolo");
 		String descrizione = request.getParameter("Descrizione");
 		String appPath = request.getServletContext().getRealPath("/");
@@ -82,23 +83,11 @@ public class CreaAnnuncioServlet extends HttpServlet {
 		Date data = new Date();
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		UtenteService utenteService = factory.getUtenteService();
-		Utente insertore = utenteService.findUserByPK(0);
-		
-		/*Evento myEvento = new Evento(titolo, "descrizione", , "punto incontro", tipologia, numeroPartecipanti, 0);
-		
-		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-		EventoService eventoService = factory.getEventoService();
-		eventoService.create(myEvento);
-		*/
-		//doGet(request, response);
+		Utente insertore = utenteService.findUserByPK(Long.parseLong(session.getAttribute("id").toString()));
+
 		Annuncio annuncio=new Annuncio(titolo,descrizione, immagine, prezzo, numeroTelefono, email, insertore, data);
         AnnuncioService annuncioService=factory.getAnnuncioService();
         annuncioService.create(annuncio);
-        
-        //TEST sessione
-        PrintWriter out=response.getWriter();
-        HttpSession session=request.getSession();
-        out.print("Welcome, "+session.getAttribute("email"));
         
         response.sendRedirect(request.getContextPath() + "/views/annuncio/nuovoAnnuncio.jsp");
 	}

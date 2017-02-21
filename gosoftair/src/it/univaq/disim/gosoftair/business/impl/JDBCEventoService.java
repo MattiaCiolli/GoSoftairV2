@@ -74,7 +74,43 @@ public class JDBCEventoService implements EventoService {
 			}
 		}
 	}
-
+	
+	public void update (Evento evento) throws BusinessException {
+		Connection con = null;
+        PreparedStatement st = null;
+        try {   	
+        	con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("UPDATE evento SET titolo=?, descrizione=?, data=?, puntoincontro=?, tipologia=?, nmaxpartecipanti=?, stato=1, idutente=?, immagine=?, latitudine=?, longitudine=? WHERE id=?");
+            st.setString(1, evento.getTitolo());
+			st.setString(2, evento.getDescrizione());
+			st.setDate(3, new java.sql.Date(evento.getData().getTime()));
+			st.setString(4, evento.getPuntoIncontro());
+			st.setString(5, evento.getTipologia());
+			st.setInt(6, evento.getNumMaxPartecipanti());
+			st.setLong(7, evento.getOrganizzatore().getId());
+			st.setString(8, evento.getImmagine());
+			st.setDouble(9, evento.getLat());
+			st.setDouble(10, evento.getLon());
+			st.setLong(11, evento.getId());
+			st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException(e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+	}
 
 	//funzione che restituisce un evento dato il suo ID
 	public Evento findEventoByPK(long id) throws BusinessException {
@@ -432,5 +468,32 @@ public class JDBCEventoService implements EventoService {
 				}
 			}
 		}
+	}
+	
+	public void delete(long id) throws BusinessException {
+		Connection con = null;
+        PreparedStatement st = null;
+        try {   	
+        	con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("DELETE FROM evento WHERE id=?");
+            st.setLong(1, id);
+			st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException(e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
 	}
 }
