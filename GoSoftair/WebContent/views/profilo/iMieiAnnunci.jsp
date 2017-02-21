@@ -30,33 +30,54 @@
 				<div class="modal-body row">
 					<div class="col-md-6 col-lg-6">
 						<div class="list-group">
-							<a href="#" class="list-group-item">
+							<div class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
 								<p class="list-group-item-text" id="titolo"></p>
-							</a> <a href="#" class="list-group-item">
+							</div>
+							<div  class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
 								<p class="list-group-item-text" id="descrizione"></p>
-							</a> <a href="#" class="list-group-item">
+							</div> <div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
 								<p class="list-group-item-text" id="prezzo"></p>
-							</a><a href="#" class="list-group-item">
+							</div>
+							<div class="list-group-item">
 								<h4 class="list-group-item-heading">Data inserzione:</h4>
 								<p class="list-group-item-text" id="data"></p>
-							</a>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6">
 						<img id="imgAnnuncio" src="" />
 					</div>
-					<div class="col-md-12 col-lg-12">
-						<div class="list-group">
-							<a href="#" class="list-group-item">
-								<h4 class="list-group-item-heading">Contatti:</h4>
-								<p class="list-group-item-text" id="telefono"></p>
-								<p class="list-group-item-text" id="emailContatti"></p>
-							</a>
-						</div>
-					</div>
+
+
+					<c:choose>
+						<c:when test="${nonLoggato}">
+							<div class="col-md-12 col-lg-12">
+								<div class="list-group">
+									<div class="list-group-item">
+										<div class="noContact">Per vedere i contatti dell'utente accedi o iscriviti, é facile! </br>
+											<a href="${pageContext.request.contextPath}/views/registerOrLogin.jsp" class="btn bottonenav noContactButton">Accedi o registrati</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="col-md-12 col-lg-12">
+								<div class="list-group">
+									<div class="list-group-item">
+										<h4 class="list-group-item-heading">Contatti:</h4>
+										<p class="list-group-item-text" id="telefono"></p>
+										<p class="list-group-item-text" id="emailContatti"></p>
+									</div>
+								</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
+
+
 				</div>
 			</div>
 		</div>

@@ -46,9 +46,15 @@ public class LoginServlet extends HttpServlet {
         HttpSession session=request.getSession();
         session.setAttribute("username",logger.getNickname()); 
         session.setAttribute("id",logger.getId()); 
-        
+        String provenienza = (String) session.getAttribute("provenienza");
+
         request.setAttribute("welcomeMessage", "Login effettuato");
-    	request.getRequestDispatcher("/home").forward(request, response);
+            if(provenienza !=null){
+                response.sendRedirect(provenienza);
+                return;
+            }else {
+                request.getRequestDispatcher("/home").forward(request, response);
+            }
         }
     }  
 }  

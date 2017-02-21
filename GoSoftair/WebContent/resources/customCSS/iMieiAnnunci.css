@@ -137,3 +137,20 @@
     width:20%;
     margin-top:1%;
 }
+
+.noContact{
+    text-transform:none;
+    text-align:center;
+    font-size: 1.2em;
+    color:black;
+    margin-bottom: 2%;
+    font-family: 'oswald';
+    margin-top: 2%;
+}
+
+.noContactButton{
+    text-align:center;
+    text-transform:none;
+    width:30%;
+    margin-top:1%;
+}

@@ -158,7 +158,7 @@
     <url-pattern>/profilo/updateUtente</url-pattern>
   </servlet-mapping>
   
- <!--  
+
   <filter>
     <filter-name>ControlloLoggedFilter</filter-name>
     <filter-class>it.univaq.disim.gosoftair.filters.ControlloLoggedFilter</filter-class>
@@ -171,5 +171,5 @@
     <url-pattern>/annuncio/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
-   -->
+
 </web-app>

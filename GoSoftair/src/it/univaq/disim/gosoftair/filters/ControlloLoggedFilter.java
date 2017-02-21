@@ -43,6 +43,8 @@ public class ControlloLoggedFilter implements Filter {
 	      HttpSession session = req.getSession(true);
 
 	      String pageRequested = req.getRequestURI().toString();
+		  session.setAttribute("provenienza", pageRequested);
+
 	      if(session.getAttribute("username") == null){
 	         resp.sendRedirect(req.getContextPath() + "/views/registerOrLogin.jsp");
 	      }else{

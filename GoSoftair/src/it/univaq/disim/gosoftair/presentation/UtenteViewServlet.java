@@ -31,7 +31,8 @@ public class UtenteViewServlet extends HttpServlet {
 
         HttpSession session=request.getSession();
         
-        long id = (Long) session.getAttribute("id");        
+        //long id = (Long) session.getAttribute("id");
+        long id = 0;
         
         Date oggi=new Date();
 

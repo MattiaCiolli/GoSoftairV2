@@ -31,8 +31,7 @@ public class MieiAnnunciViewServlet extends HttpServlet {
         List<Annuncio> annunci;
 
         HttpSession session=request.getSession();
-        //long idUtente = (Long) session.getAttribute("id");
-        long idUtente = 0;
+        long idUtente = (Long) session.getAttribute("id");
 
         annunci = annuncioService.TuttiAnnunciCreatiDaMe(idUtente);
 
@@ -76,6 +75,12 @@ public class MieiAnnunciViewServlet extends HttpServlet {
             request.setAttribute("nessuAnnuncioCreato", nessuAnnuncioCreato);
             request.setAttribute("percorso", "Profilo > I miei annunci");
             dispatcher = request.getRequestDispatcher("/views/profilo/iMieiAnnunci.jsp");
+
+            Boolean nonLoggato = true;
+            if(session.getAttribute("id") != null){
+                    nonLoggato = false;
+            }
+            request.setAttribute("nonLoggato", nonLoggato);
             dispatcher.forward(request, response);
         }
 

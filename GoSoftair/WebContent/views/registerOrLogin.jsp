@@ -21,6 +21,8 @@
 	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
+<script
+		src="${pageContext.request.contextPath}/resources/customJS/registerOrLogin.js"></script>
 </head>
 
 <body id="sfondochiaro">
@@ -30,13 +32,14 @@
 
 	<div class="container-fluid immagineSfondo esteso">
 		</br>
-		<div class="card" id="bianco">
+		<div class="carta" id="bianca">
 			<div class="row">
-				<div class='col-sm-12 col-md-6 col-lg-6'>
+				<div class='col-sm-12 col-md-12 col-lg-12'>
 					</br> <label class="col-md-12 personalLabel1">Per visualizzare
 						questa pagina devi avere un profilo </br>
-					</br> Esegui l'accesso o <a class="btn bottone1"
-						href="${pageContext.request.contextPath}/registrazione">REGISTRATI</a>
+					</br>
+					<a class="btn bottone1 accedi" id="accedi">ACCEDI</a>
+					<a class="btn bottone1" href="${pageContext.request.contextPath}/registrazione">REGISTRATI</a>
 					</label>
 				</div>
 			</div>

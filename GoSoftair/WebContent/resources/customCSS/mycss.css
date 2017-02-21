@@ -161,3 +161,16 @@
 		height: 400px;
 	}
 }
+
+
+.carta{
+	background-color: white;
+	border-radius: 5px;
+	text-align: center;
+	padding-bottom: 1%;
+	text-transform: lowercase;
+}
+
+.accedi{
+	margin-right: 1%;
+}
