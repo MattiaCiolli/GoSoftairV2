@@ -25,8 +25,7 @@
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
+
 <script
 	src="${pageContext.request.contextPath}/resources/customJS/profilo.js"></script>
 <script
@@ -258,7 +257,7 @@
 						<c:forEach items="${ultimiAnnunci}" var="annuncio">
 							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
 								<a class="clicca"
-									href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}">
+									href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
 									<div class="cartaScura">
 										<img
 											src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
@@ -282,6 +281,8 @@
 		</section>
 
 		<!-- fine sezione ultimi annunci -->
+		<script
+				src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
 </body>
 <%@include file="/layout/footer.jsp"%>
 </html>
