@@ -59,7 +59,8 @@
 	<%@include file="/layout/navbar.jsp"%>
 	
 				<div class="container-fluid immagineSfondo">
-					<div class="card" id="bianco">
+					<div class="panel" id="bianco">
+					<div class="panel-body">
 						<form id="annuncioform"
 							action="${pageContext.request.contextPath}/annuncio/nuovo"
 							method="post" enctype="multipart/form-data">
@@ -132,6 +133,7 @@
 								class="btn bottonenav">Inserisci annuncio</button>
 					</div>
 					</form>
+					</div>
 				</div>
 			</div>
 

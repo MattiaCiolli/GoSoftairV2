@@ -65,7 +65,8 @@
 <body id="sfondochiaro">
 	<%@include file="/layout/navbar.jsp"%>
 	<div class="container-fluid immagineSfondo">
-		<div class="card" id="bianco">
+		<div class="panel" id="bianco">
+					<div class="panel-body">
 			<form id="partitaform"
 				action="${pageContext.request.contextPath}/evento/nuovo"
 				method="post" enctype="multipart/form-data">
@@ -167,6 +168,7 @@
 					evento</button>
 		</div>
 		</form>
+		</div>
 	</div>
 	</div>
 	<%@include file="/layout/footer.jsp"%>
