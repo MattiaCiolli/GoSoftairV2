@@ -11,6 +11,8 @@
 	<link href="${pageContext.request.contextPath}/resources/customCSS/bachecaAnnunci.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/customCSS/home.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+	<script
+	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 
 </head>
 

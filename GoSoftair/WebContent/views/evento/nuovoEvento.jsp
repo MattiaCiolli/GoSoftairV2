@@ -38,7 +38,7 @@
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 					</br>
 						<a class="btn bottone1" 
-							href="${pageContext.request.contextPath}/bachecaPartite">BACHECA EVENTI</a> 
+							href="${pageContext.request.contextPath}/evento/bachecaEventi">BACHECA EVENTI</a> 
 						<a class="btn bottone1" href="${pageContext.request.contextPath}/profilo/leMiePartite">I MIEI EVENTI</a>
 					</div>			
 			</div>

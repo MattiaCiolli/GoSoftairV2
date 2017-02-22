@@ -38,7 +38,7 @@
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4'>
 						<a class="btn bottone1" 
-							href="${pageContext.request.contextPath}/bachecaAnnunci">BACHECA ANNUNCI</a> 
+							href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci">BACHECA ANNUNCI</a> 
 						<a class="btn bottone1" href="${pageContext.request.contextPath}/profilo/iMieiAnnunci">I MIEI ANNUNCI</a>
 					</div>			
 			</div>
