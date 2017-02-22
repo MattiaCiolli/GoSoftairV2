@@ -30,14 +30,13 @@ public class BachecaPartiteViewServlet extends HttpServlet {
         EventoService eventoService= factory.getEventoService();
         
         HttpSession session=request.getSession();
-        long idUtente = (Long) session.getAttribute("id");
         int pageNum = Integer.parseInt(request.getParameter("pageNum"));
         
     	Calendar data = Calendar.getInstance();
     	data.add(Calendar.MONTH, -6);
     	Date oggiMeno6Mesi = data.getTime();
         
-        List<Evento> listaEventi = eventoService.visualizzazioneBachecaPartite(oggiMeno6Mesi, idUtente, pageNum);
+        List<Evento> listaEventi = eventoService.visualizzazioneBachecaPartite(oggiMeno6Mesi, pageNum);
         
         double numEventi = eventoService.numEventi(oggiMeno6Mesi);  
         int numeroPagine = (int)Math.ceil(numEventi/9);

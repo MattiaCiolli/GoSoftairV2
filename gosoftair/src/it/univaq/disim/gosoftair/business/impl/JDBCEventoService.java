@@ -502,7 +502,7 @@ public class JDBCEventoService implements EventoService {
         }
 	}
 	
-public List<Evento> visualizzazioneBachecaPartite (Date oggiMeno6Mesi, long userID,int pageNum){
+public List<Evento> visualizzazioneBachecaPartite (Date oggiMeno6Mesi, int pageNum){
     	
         Connection con = null;
         PreparedStatement st = null;
@@ -518,7 +518,7 @@ public List<Evento> visualizzazioneBachecaPartite (Date oggiMeno6Mesi, long user
             
             int firstEl=pageNum*9; //primo elemento della pagina
             int lastEl=(pageNum*9)+9; //ultimo elemento della pagina
-            st = con.prepareStatement("SELECT * FROM (SELECT * ROW_NUMBER() OVER (ORDER BY data DESC) rn FROM evento WHERE data > ?) WHERE rn BETWEEN ?  AND ? ");
+            st = con.prepareStatement("SELECT * FROM (SELECT evento.*, ROW_NUMBER() OVER (ORDER BY data DESC) rn FROM evento WHERE data > ?) WHERE rn BETWEEN ?  AND ? ");
             st.setString(1, oggiFormattato);
             st.setInt(2, firstEl);
             st.setInt(3, lastEl);

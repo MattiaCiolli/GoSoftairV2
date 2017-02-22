@@ -24,7 +24,7 @@ public interface EventoService {
 
 	List<Evento> trovaTuttePartiteCreateDaMe(long idUtente);
 	
-	List<Evento> visualizzazioneBachecaPartite (Date oggi, long userID, int pageNum) throws BusinessException;
+	List<Evento> visualizzazioneBachecaPartite (Date oggi, int pageNum) throws BusinessException;
 	
 	double numEventi(Date ultimi6mesi);
 	
