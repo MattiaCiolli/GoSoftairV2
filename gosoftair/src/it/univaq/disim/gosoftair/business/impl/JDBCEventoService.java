@@ -180,7 +180,7 @@ public class JDBCEventoService implements EventoService {
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato = DBformat.format(oggi);
 			st.setString(1, oggiFormattato);
-			st.executeQuery();
+			rs=st.executeQuery();
 			
 			while (rs.next() && contatore < quantita) {
 				long id = rs.getLong("id");

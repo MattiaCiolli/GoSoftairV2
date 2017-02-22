@@ -17,17 +17,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Davide on 09/02/2017.
- */
 
 public class BachecaAnnunciViewServlet extends HttpServlet {
     
-    Date oggi=new Date();
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -39,7 +35,16 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
     	GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         AnnuncioService annuncioService = factory.getAnnuncioService();
         
-        List<Annuncio> listaAnnunci = annuncioService.findLastAnnunci(oggi, 9);
+        HttpSession session=request.getSession();
+        long idUtente = (Long) session.getAttribute("id");
+        
+    	Calendar data = Calendar.getInstance();
+    	data.add(Calendar.MONTH, -6);
+    	Date oggiMeno6Mesi = data.getTime();
+        
+        int pageNum=0;
+        
+        List<Annuncio> listaAnnunci = annuncioService.visualizzazioneBachecaAnnunci(oggiMeno6Mesi, idUtente, pageNum);
         
         request.setAttribute("listaAnnunci", listaAnnunci);
         
@@ -62,8 +67,6 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
                     value.put("immagine", annuncioLetto.getImmagine());
                     value.put("datainserzione", dataStringata);
                     
-                    System.out.println(annuncioLetto.getTitolo());
-
                     response.setContentType("application/json");
                     PrintWriter out = response.getWriter();
                     out.print(value);

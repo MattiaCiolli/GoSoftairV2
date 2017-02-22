@@ -67,7 +67,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
 
     }
 
-  //funzione che restituisce tutti gli ultimi annunci inseriti in GoSoftair
+  //funzione che restituisce tutti gli ultimi annunci inseriti in GoSoftair //home
     public List<Annuncio> findLastAnnunci(Date oggiMeno3Mesi, int quantita) throws BusinessException {
         Connection con = null;
         PreparedStatement st = null;
@@ -82,7 +82,6 @@ public class JDBCAnnuncioService implements AnnuncioService {
             String oggiFormattato = DBformat.format(oggiMeno3Mesi);
             
             st.setString(1, oggiFormattato);
-
             rs = st.executeQuery();
 
             while (rs.next() && contatore < quantita) {
@@ -141,6 +140,87 @@ public class JDBCAnnuncioService implements AnnuncioService {
         return risultati;
     }
 
+    //funzione che gestisce i dati visualizzati nella bacheca
+    public List<Annuncio> visualizzazioneBachecaAnnunci (Date oggiMeno6Mesi, long userID,int pageNum){
+    	
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
+        int contatore = 0;
+        
+        List<Annuncio> risultati = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url, username, password);
+            st = con.createStatement();
+
+            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+            String oggiFormattato = DBformat.format(oggiMeno6Mesi);
+            
+            int firstEl=pageNum*9; //primo elemento della pagina
+            int lastEl=(pageNum*9)+9; //ultimo elemento della pagina
+
+            //query che restituisce gli elementi della pagina
+            rs = st.executeQuery("SELECT * FROM (SELECT annuncio.id, titolo, descrizione, immagine, data, prezzo, numerotelefono, email, idutente, ROW_NUMBER() OVER( ORDER BY data DESC) rn FROM annuncio WHERE data > "+"'" + oggiFormattato +"'WHERE rn BETWEEN '" + firstEl +"' AND '"+ lastEl +"'");
+
+            while (rs.next() && contatore < 9) {
+                contatore++;
+                Long id = rs.getLong("id");
+                String titolo = rs.getString("titolo");
+                String descrizione = rs.getString("descrizione");
+                String immagine = rs.getString("immagine");
+                String prezzo = rs.getString("prezzo");
+                String numeroTelefono = rs.getString("numeroTelefono");
+                String email = rs.getString("email");
+                Long idutente = rs.getLong("idutente");
+
+                
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
+                Date datainserzione = new Date();
+                try {
+                    datainserzione = format.parse(rs.getString("data"));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Utente insertore = new Utente();
+                insertore.setId(idutente);
+
+                Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);
+                annuncio.setDatainserzione(datainserzione);
+                risultati.add(annuncio);
+            }
+            if (contatore == 0) {
+                System.out.print("Il result set non ha elementi ultimi annunci");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante la ricerca degli annunci", e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return risultati;
+    }
+    
+    
+    
 
     //funzione che restituisce gli ultimi annunci (3) inseriti dall'utente
     public List<Annuncio> findLastAnnunciByUserID(Date oggi, long userID) {
@@ -155,6 +235,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
             st = con.prepareStatement("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente= ? AND data <= ? ORDER BY data DESC");
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String oggiFormattato = DBformat.format(oggi);
+            
             st.setLong(1, userID);
             st.setString(2, oggiFormattato);
 
