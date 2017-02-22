@@ -82,7 +82,7 @@ public class UpdateEventoServlet extends HttpServlet {
 			fileName = new File(fileName).getName();
 			filePart.write(savePath + File.separator + "original" + fileName);
 			immagine = fileName;
-			ImagesMap.generateImagesCard(savePath, fileName, 362, 270);
+			ImagesMap.generateImagesCard(savePath, fileName, 362, 270, savePath, true);
 		}
 		
 		double lat=Double.parseDouble(request.getParameter("Lat"));

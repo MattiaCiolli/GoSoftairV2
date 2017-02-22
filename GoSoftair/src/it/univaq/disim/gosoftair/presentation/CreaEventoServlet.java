@@ -92,9 +92,17 @@ public class CreaEventoServlet extends HttpServlet {
 			String fileName = extractFileName(filePart);
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
-			filePart.write(savePath + File.separator + "original" + fileName);
 			immagine = fileName;
-			ImagesMap.generateImagesCard(savePath, fileName, 362, 270);
+
+			String outputPath = savePath + File.separator + "partite" + File.separator + "big";
+			System.out.println("write 1: "+outputPath + File.separator + "original" + fileName);
+			filePart.write(savePath + File.separator + "original" + fileName);
+			ImagesMap.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
+
+			outputPath = savePath + File.separator + "partite" + File.separator + "small";
+			System.out.println("write 2: "+outputPath + File.separator + "original" + fileName);
+			ImagesMap.generateImagesCard(outputPath, fileName, 350, 200, savePath, true);
+
 		}
 		
 		Double lat=Double.parseDouble(request.getParameter("Lat"));

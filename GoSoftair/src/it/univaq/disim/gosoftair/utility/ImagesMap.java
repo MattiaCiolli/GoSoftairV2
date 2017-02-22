@@ -72,13 +72,14 @@ public class ImagesMap {
 		}
 	}
 
-	public static void generateImagesCard(String savePath, String fileName, int larghezzaVoluta, int altezzaVoluta) {
+	public static void generateImagesCard(String savePath, String fileName, int larghezzaVoluta, int altezzaVoluta, String commonPath, Boolean cancellaOriginale) {
 		BufferedImage img = null;
 
 		Color transparent = new Color(0, 0, 0, 0);
 
+		System.out.println(commonPath + File.separator + "original" + fileName);
 		try {
-			img = ImageIO.read(new File(savePath + File.separator + "original" + fileName));
+			img = ImageIO.read(new File(commonPath + File.separator + "original" + fileName));
 		} catch (IOException e) {
 			System.out.print(e);
 		}
@@ -103,28 +104,26 @@ public class ImagesMap {
 		g.setComposite(AlphaComposite.Src);
 		g.drawImage(scaledImage, 0, y, null);
 		try {
+			System.out.println("outputfile: "+savePath + File.separator + fileName);
 			File outputfile = new File(savePath + File.separator + fileName);
 			ImageIO.write(newImage, "png", outputfile);
 		} catch (IOException e) {
 			System.out.print(e);
 		}
 
-		try {
-			Files.delete(Paths.get(savePath + File.separator + "original" + fileName));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(cancellaOriginale) {
+			try {
+				Files.delete(Paths.get(commonPath + File.separator + "original" + fileName));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 
-		/*
-		if(altezzaVoluta > altezzaScalato) {
-			g.setColor(transparent);
-			g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.0f));
-			g.fill(new Rectangle(0, 0, larghezzaScalato, (altezzaVoluta-altezzaScalato)/2));
-			g.fill(new Rectangle(0, altezzaScalato+y, larghezzaScalato, (altezzaVoluta-altezzaScalato)/2));
-		}
-		*/
+
+
+
 		g.dispose();
 
 		try {
