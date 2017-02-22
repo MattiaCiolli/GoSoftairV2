@@ -15,6 +15,17 @@
     src: url(../fonts/Oswald-Regular.ttf);
 }
 
+.b {
+	background-color:#515547;
+	color:#FFFFFF;
+	font-family:'oswald_stencilbold';
+	border-color:#94A31A;
+	margin-top:10px;
+	
+}
+.b:hover {
+	background-color:#94A31A;
+}
 
 .bachecaAnnunci {
 	font-family: 'oswald_stencilbold';
