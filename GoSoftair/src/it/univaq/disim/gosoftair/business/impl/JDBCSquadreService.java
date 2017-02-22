@@ -32,13 +32,14 @@ public class JDBCSquadreService implements SquadreService {
 	
 	public Squadre cercaSquadreByEventoPK(long id) throws BusinessException {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		Squadre squadre = new Squadre();
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT utente.*, utente_evento.ID, utente_evento.numsquadra FROM utente, utente_evento, evento WHERE utente.id=utente_evento.idutente AND evento.id=utente_evento.idevento AND evento.id=" + id);
+			st = con.prepareStatement("SELECT utente.*, utente_evento.ID, utente_evento.numsquadra FROM utente, utente_evento, evento WHERE utente.id=utente_evento.idutente AND evento.id=utente_evento.idevento AND evento.id= ?");
+			st.setLong(1, id);
+			rs = st.executeQuery();
 			while(rs.next()) {
 				String nome = rs.getString("nome");
 				String cognome = rs.getString("cognome");
