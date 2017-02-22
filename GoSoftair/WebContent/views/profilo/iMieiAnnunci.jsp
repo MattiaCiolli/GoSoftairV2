@@ -97,7 +97,7 @@
 				<section>
 					<div class="container-fluid">
 						<div class="row lateralPadding">
-							<a class="clicca" href="${pageContext.request.contextPath}/profilo/iMieiAnnunci?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
+							<a class="clicca" href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
 								<div class="cartaScura elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div></div>
 									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">

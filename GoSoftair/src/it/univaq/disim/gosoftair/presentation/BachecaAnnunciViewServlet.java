@@ -33,7 +33,8 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
 		long idAnnuncio = Long.parseLong(request.getParameter("idAnnuncio"));
 
 		Annuncio annuncioLetto = annuncioService.findAnnuncioByPK(idAnnuncio);
-
+        HttpSession session=request.getSession();
+        
 		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
 		String dataStringata=sdf.format(annuncioLetto.getDatainserzione());
 
@@ -41,8 +42,12 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
 		value.put("titolo",annuncioLetto.getTitolo() );
 		value.put("descrizione", annuncioLetto.getDescrizione());
 		value.put("prezzo", annuncioLetto.getPrezzo());
-		value.put("email", annuncioLetto.getEmail());
-		value.put("numeroTelefono", annuncioLetto.getNumeroTelefono());
+		if(session.getAttribute("id") != null) {
+			value.put("email", annuncioLetto.getEmail());
+			value.put("numeroTelefono", annuncioLetto.getNumeroTelefono());
+		}
+			
+		
 		value.put("immagine", annuncioLetto.getImmagine());
 		value.put("datainserzione", dataStringata);
 
