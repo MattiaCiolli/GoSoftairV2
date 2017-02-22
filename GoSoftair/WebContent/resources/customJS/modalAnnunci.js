@@ -5,7 +5,7 @@ $(".clicca").click(function() {
     var link =$(this).attr("href");
 
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: link,
         cache: false,
         success: function(response){
@@ -18,9 +18,6 @@ $(".clicca").click(function() {
             $('#telefono').text(response.numeroTelefono);
             $('#emailContatti').text(response.email);
             $('#data').text(response.datainserzione);
-
         }
     });
-
-
 })

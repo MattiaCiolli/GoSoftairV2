@@ -27,11 +27,32 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
     
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+		AnnuncioService annuncioService = factory.getAnnuncioService();
 
-    }
+		long idAnnuncio = Long.parseLong(request.getParameter("idAnnuncio"));
+
+		Annuncio annuncioLetto = annuncioService.findAnnuncioByPK(idAnnuncio);
+
+		SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
+		String dataStringata=sdf.format(annuncioLetto.getDatainserzione());
+
+		JSONObject value = new JSONObject();
+		value.put("titolo",annuncioLetto.getTitolo() );
+		value.put("descrizione", annuncioLetto.getDescrizione());
+		value.put("prezzo", annuncioLetto.getPrezzo());
+		value.put("email", annuncioLetto.getEmail());
+		value.put("numeroTelefono", annuncioLetto.getNumeroTelefono());
+		value.put("immagine", annuncioLetto.getImmagine());
+		value.put("datainserzione", dataStringata);
+
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		out.print(value);
+		out.flush();
+	}
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
     	
     	GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         AnnuncioService annuncioService = factory.getAnnuncioService();
@@ -40,7 +61,6 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
         long idUtente = (Long) session.getAttribute("id");
         int pageNum = Integer.parseInt(request.getParameter("pageNum"));
         
-        
     	Calendar data = Calendar.getInstance();
     	data.add(Calendar.MONTH, -6);
     	Date oggiMeno6Mesi = data.getTime();
@@ -48,48 +68,22 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
         List<Annuncio> listaAnnunci = annuncioService.visualizzazioneBachecaAnnunci(oggiMeno6Mesi, idUtente, pageNum);
         
         request.setAttribute("listaAnnunci", listaAnnunci);
-        
-       double numAnnunci = annuncioService.numAnnunci(oggiMeno6Mesi);  
-       int numeroPagine = (int)Math.ceil(numAnnunci/9);
-       request.setAttribute("numeroPagine", numeroPagine - 1);
 
-        String idLetto = request.getParameter("idAnnuncio");
-        if(idLetto !=null ){
+        double numAnnunci = annuncioService.numAnnunci(oggiMeno6Mesi);  
+        int numeroPagine = (int)Math.ceil(numAnnunci/9);
+        request.setAttribute("numeroPagine", numeroPagine - 1);
 
-            for (Annuncio annuncio:listaAnnunci){
-                if(Long.toString(annuncio.getId()).contentEquals(idLetto)){
-                    Annuncio annuncioLetto = annuncio;
-                    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
-                    String dataStringata=sdf.format(annuncioLetto.getDatainserzione());
-
-                    JSONObject value = new JSONObject();
-                    value.put("titolo",annuncioLetto.getTitolo() );
-                    value.put("descrizione", annuncioLetto.getDescrizione());
-                    value.put("prezzo", annuncioLetto.getPrezzo());
-                    value.put("email", annuncioLetto.getEmail());
-                    value.put("numeroTelefono", annuncioLetto.getNumeroTelefono());
-                    value.put("immagine", annuncioLetto.getImmagine());
-                    value.put("datainserzione", dataStringata);
-                    
-                    response.setContentType("application/json");
-                    PrintWriter out = response.getWriter();
-                    out.print(value);
-                    out.flush();
-                }
-            }
-        }else{
-            RequestDispatcher dispatcher;
-            request.setAttribute("listaAnnunci", listaAnnunci);
-            ArrayList<String> date = new ArrayList<>();
-            SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
-            for (Annuncio annuncio:listaAnnunci){
-                date.add(sdf.format(annuncio.getDatainserzione()));
-            }
-            request.setAttribute("date", date);
-            request.setAttribute("percorso", "Mercatino > Bacheca Annunci");
-            dispatcher = request.getRequestDispatcher("/views/annuncio/bachecaAnnunci.jsp");
-            dispatcher.forward(request, response);
+        RequestDispatcher dispatcher;
+        request.setAttribute("listaAnnunci", listaAnnunci);
+        ArrayList<String> date = new ArrayList<>();
+        SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
+        for (Annuncio annuncio:listaAnnunci){
+        	date.add(sdf.format(annuncio.getDatainserzione()));
         }
+        request.setAttribute("date", date);
+        request.setAttribute("percorso", "Mercatino > Bacheca Annunci");
+        dispatcher = request.getRequestDispatcher("/views/annuncio/bachecaAnnunci.jsp");
+        dispatcher.forward(request, response);
 
     }
 }

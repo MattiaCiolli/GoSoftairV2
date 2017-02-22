@@ -414,5 +414,64 @@ public class JDBCAnnuncioService implements AnnuncioService {
         }
         return risultati;
     }
+    
+    public Annuncio findAnnuncioByPK(long id) throws BusinessException {
+		Connection con = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			st = con.prepareStatement("SELECT * FROM annuncio WHERE id=?");
+			st.setLong(1, id);
+			rs = st.executeQuery();
+			if (rs.next()) {
+				 long idAnnuncio = rs.getLong("id");
+	             String titolo = rs.getString("titolo");
+	             String descrizione = rs.getString("descrizione");
+	             String immagine = rs.getString("immagine");
+	             String prezzo = rs.getString("prezzo");
+	             String numeroTelefono = rs.getString("numerotelefono");
+	             String email = rs.getString("email");
+	             long idutente = rs.getLong("idutente");
+	             DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
+	             Date datainserzione = new Date();
+	             try {
+	                 	datainserzione = format.parse(rs.getString("data"));
+	             } catch (ParseException e) {
+	                  e.printStackTrace();
+	             }
+
+	            Utente insertore = new Utente();
+	            insertore.setId(idutente);
+				Annuncio annuncio = new Annuncio(titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore, datainserzione);				
+				return annuncio;
+			} else {
+				System.out.print("Il result set non ha elementi");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BusinessException("Errore durante la ricerca dell'evento", e);
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}
+			}
+			if (st != null) {
+				try {
+					st.close();
+				} catch (SQLException e) {
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+				}
+			}
+		}
+		return null;
+	}
 
 }
