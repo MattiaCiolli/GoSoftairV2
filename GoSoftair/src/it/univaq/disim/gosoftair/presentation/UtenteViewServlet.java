@@ -94,7 +94,8 @@ public class UtenteViewServlet extends HttpServlet {
                     request.setAttribute("sezioneAnnunciVuota",sezioneAnnunciVuota);
                     request.setAttribute("ultimiEventi", ultimiEventi);
                     request.setAttribute("sezioneEventiVuota",sezioneEventiVuota);
-                    request.setAttribute("percorso", "Profilo");
+                    request.setAttribute("percorso1", "Profilo");
+                    request.setAttribute("link1", "/profilo");
                    
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
                     dispatcher.forward(request, response);

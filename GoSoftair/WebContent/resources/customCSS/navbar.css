@@ -188,7 +188,13 @@ li>a{
 	letter-spacing: 2px;
 }
 
+.linknav{
+	color: white;
+}
 
+.linknav:hover{
+	color: #515547;
+}
 
 .dropdown-menu .divider{
 	height: 0px;

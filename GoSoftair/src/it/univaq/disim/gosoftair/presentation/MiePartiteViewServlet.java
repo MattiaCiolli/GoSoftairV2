@@ -50,7 +50,9 @@ public class MiePartiteViewServlet extends HttpServlet {
         request.setAttribute("date",date);
 
         request.setAttribute("nessunaCreazione", nessunaCreazione);
-        request.setAttribute("percorso", "Profilo > Le mie partite");
+        request.setAttribute("percorso1", "Profilo");
+        request.setAttribute("percorso2", " > Le mie partite");
+        request.setAttribute("link1", "/profilo");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/leMiePartite.jsp");
         dispatcher.forward(request, response);
 
