@@ -181,7 +181,6 @@
 
 		<!-- Inizio Sezione ultimi eventi -->
 		<section>
-		<div class="container-fluid">
 			<div class="row UltimiEventi">
 				<h1 class="text-center titolo">Prossime Partite</h1>
 
@@ -222,7 +221,7 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-		</div>
+		
 		</section>
 		<!-- fine sezione ultimi eventi -->
 
@@ -230,7 +229,7 @@
 
 
 		<section>
-		<div class="container-fluid">
+
 			<div class="row UltimiAnnunci">
 				<h5 class="text-center titolo">Ultimi Annunci Inseriti</h5>
 
@@ -269,7 +268,7 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-		</div>
+
 		</section>
 
 		<!-- fine sezione ultimi annunci -->
