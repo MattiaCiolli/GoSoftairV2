@@ -143,7 +143,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
     
     
     //funzione che gestisce i dati visualizzati nella bacheca
-    public List<Annuncio> visualizzazioneBachecaAnnunci (Date oggiMeno6Mesi, long userID,int pageNum){
+    public List<Annuncio> visualizzazioneBachecaAnnunci (Date oggiMeno6Mesi, int pageNum){
     	
         Connection con = null;
         PreparedStatement st = null;
@@ -311,7 +311,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
         ResultSet rs = null;
         try {
             con = DriverManager.getConnection(url, username, password);
-            st = con.prepareStatement("SELECT COUNT (*) \"Total\" FROM annuncio WHERE data > ?");//form sbagliata 
+            st = con.prepareStatement("SELECT COUNT (*) \"Total\" FROM annuncio WHERE data > ?"); 
             
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String ultimi6mesiform = DBformat.format(ultimi6mesi);

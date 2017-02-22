@@ -58,14 +58,13 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
         AnnuncioService annuncioService = factory.getAnnuncioService();
         
         HttpSession session=request.getSession();
-        long idUtente = (Long) session.getAttribute("id");
         int pageNum = Integer.parseInt(request.getParameter("pageNum"));
         
     	Calendar data = Calendar.getInstance();
     	data.add(Calendar.MONTH, -6);
     	Date oggiMeno6Mesi = data.getTime();
         
-        List<Annuncio> listaAnnunci = annuncioService.visualizzazioneBachecaAnnunci(oggiMeno6Mesi, idUtente, pageNum);
+        List<Annuncio> listaAnnunci = annuncioService.visualizzazioneBachecaAnnunci(oggiMeno6Mesi, pageNum);
         
         request.setAttribute("listaAnnunci", listaAnnunci);
 

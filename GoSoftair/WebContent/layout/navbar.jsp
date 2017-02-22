@@ -119,7 +119,7 @@
 								data-toggle="dropdown">Partite <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a
-										href="${pageContext.request.contextPath}/evento/bachecaEventi">Elenco
+										href="${pageContext.request.contextPath}/evento/bachecaEventi?pageNum=0">Elenco
 											partite</a></li>
 									<li class="divider"></li>
 									<li><a

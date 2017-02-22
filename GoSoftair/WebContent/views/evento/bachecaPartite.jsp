@@ -58,12 +58,13 @@
 			</div>
 		</div>
 
-		<div class="centra">
-			<ul class="pagination">
-				<li class="active"><a href="#">1</a></li>
-					<li><a href="${pageContext.request.contextPath}/views/evento/bachecaPartite2.jsp">2</a></li>
-			</ul>
-		</div>
+				<div class="centra">
+					<ul class="pagination">
+						<c:forEach var="i" begin="0" end="${numeroPagine}">							
+							<li><a href="${pageContext.request.contextPath}/evento/bachecaPartite?pageNum=<c:out value="${i}"/>"><c:out value="${i}"/></a></li>						
+						</c:forEach>
+					</ul>
+				</div>
 	</div>
 
 	<%@include file="/layout/footer.jsp"%>

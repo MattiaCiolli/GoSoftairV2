@@ -1,9 +1,6 @@
 package it.univaq.disim.gosoftair.presentation;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +12,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
+import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
+import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.utility.ReadXMLFile;
 
@@ -29,7 +28,20 @@ public class BachecaPartiteViewServlet extends HttpServlet {
 
         GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
         EventoService eventoService= factory.getEventoService();
-        List<Evento> listaEventi = eventoService.findLastEvent(oggi, 10);
+        
+        HttpSession session=request.getSession();
+        long idUtente = (Long) session.getAttribute("id");
+        int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        
+    	Calendar data = Calendar.getInstance();
+    	data.add(Calendar.MONTH, -6);
+    	Date oggiMeno6Mesi = data.getTime();
+        
+        List<Evento> listaEventi = eventoService.visualizzazioneBachecaPartite(oggiMeno6Mesi, idUtente, pageNum);
+        
+        double numEventi = eventoService.numEventi(oggiMeno6Mesi);  
+        int numeroPagine = (int)Math.ceil(numEventi/9);
+        request.setAttribute("numeroPagine", numeroPagine - 1);
         
         boolean sezioneEventiVuota=false;
         int lenghtEventi = listaEventi.size();

@@ -501,4 +501,123 @@ public class JDBCEventoService implements EventoService {
             }
         }
 	}
+	
+public List<Evento> visualizzazioneBachecaPartite (Date oggiMeno6Mesi, long userID,int pageNum){
+    	
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int contatore = 0;
+        
+        List<Evento> risultati = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url, username, password);
+
+            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+            String oggiFormattato = DBformat.format(oggiMeno6Mesi);
+            
+            int firstEl=pageNum*9; //primo elemento della pagina
+            int lastEl=(pageNum*9)+9; //ultimo elemento della pagina
+            st = con.prepareStatement("SELECT * FROM (SELECT * ROW_NUMBER() OVER (ORDER BY data DESC) rn FROM evento WHERE data > ?) WHERE rn BETWEEN ?  AND ? ");
+            st.setString(1, oggiFormattato);
+            st.setInt(2, firstEl);
+            st.setInt(3, lastEl);
+            rs = st.executeQuery();
+            while (rs.next() && contatore < 9) {
+                
+            	String titolo = rs.getString("titolo");
+				String descrizione = rs.getString("descrizione");
+				DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
+				Date data = new Date();
+				try {
+					data = format.parse(rs.getString("data"));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
+
+				String puntoIncontro = rs.getString("puntoIncontro");
+				String tipologia = rs.getString("tipologia");
+				int numMaxPartecipanti = Integer.parseInt(rs.getString("nmaxpartecipanti"));
+				int stato = Integer.parseInt(rs.getString("stato"));
+				String immagine = rs.getString("immagine");
+				long id= rs.getLong("id");
+				double lat = Double.parseDouble(rs.getString("latitudine"));
+				double lon = Double.parseDouble(rs.getString("longitudine"));
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, lat, lon);
+				risultati.add(evento);
+				contatore++;
+            }
+            if (contatore == 0) {
+                System.out.print("Il result set non ha elementi ultimi annunci");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante la ricerca degli annunci", e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return risultati;
+    }
+
+public double numEventi(Date ultimi6mesi) {
+	Connection con = null;
+    PreparedStatement st = null;
+    ResultSet rs = null;
+    try {
+        con = DriverManager.getConnection(url, username, password);
+        st = con.prepareStatement("SELECT COUNT (*) \"Total\" FROM evento WHERE data > ?");
+        
+        DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+        String ultimi6mesiform = DBformat.format(ultimi6mesi);
+        
+        st.setString(1, ultimi6mesiform);
+        rs = st.executeQuery();
+        if (rs.next()) {
+        	return rs.getDouble("Total");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        throw new BusinessException("Errore durante la ricerca degli eventi", e);
+    } finally {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+            }
+        }
+        if (st != null) {
+            try {
+                st.close();
+            } catch (SQLException e) {
+            }
+        }
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException e) {
+            }
+        }
+    }
+    return 0;
+}
+
+	
 }
