@@ -79,6 +79,16 @@ h6{
 	margin-left:20%;
 }
 
+@media (max-width:1024px){
+
+.sezutente{
+	margin-left:3%;
+}
+
+.col-md-offset-3 {
+	margin-left: 0%;
+}
+}
 
 
 
