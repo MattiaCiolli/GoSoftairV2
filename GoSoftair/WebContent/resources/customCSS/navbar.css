@@ -9,6 +9,10 @@
 	src: url(../fonts/Oswald-Regular.ttf);
 }
 
+.inputusername{
+	font-family: 'Oswald';
+}
+
 #msg {
 	position:absolute;
 	display:none;
@@ -75,6 +79,7 @@ nav {
 	border-radius: 4px;
 	border-width: 1px;
 	border-style: solid;
+	font-family:'Oswald';
 }
 
 .linkSfondoBianco{
@@ -151,14 +156,7 @@ nav {
 	color: #fff;
 	background-color:#496ebc
 }
-.btn-tw{
-	color: #fff;
-	background-color:#55acee;
-}
-.btn-tw:hover{
-	color: #fff;
-	background-color:#59b5fa;
-}
+
 
 #login-dp .social-buttons a{
 	width: 48%;

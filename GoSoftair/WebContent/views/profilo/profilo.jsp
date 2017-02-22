@@ -10,9 +10,6 @@
 	href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link
-	href="${pageContext.request.contextPath}/resources/customCSS/event.css"
-	rel="stylesheet">
-<link
 	href="${pageContext.request.contextPath}/resources/customCSS/home.css"
 	rel="stylesheet">
 <link
@@ -40,12 +37,11 @@
 <body class="cssBody BodyWidth">
 	<%@include file="/layout/navbar.jsp"%>
 
-	<!-- edit-modal 1 -->
-	<!-- edit-modal 1 -->
+	<!-- modal -->
 	<div class="modal fade" data-remote="false" id="modal" tabindex="-1"
 		role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div class="modal-content modalgraph">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
@@ -55,20 +51,21 @@
 				</div>
 				<div class="modal-body row">
 					<div class="col-md-6 col-lg-6">
+
 						<div class="list-group nelmodal">
-							<a href="#" class="list-group-item">
+							<div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
 								<p class="list-group-item-text" id="titolo"></p>
-							</a> <a href="#" class="list-group-item">
+							</div> <div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
 								<p class="list-group-item-text" id="descrizione"></p>
-							</a> <a href="#" class="list-group-item">
+							</div> <div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
 								<p class="list-group-item-text" id="prezzo"></p>
-							</a><a href="#" class="list-group-item">
+							</div><div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Data inserzione:</h4>
 								<p class="list-group-item-text" id="data"></p>
-							</a>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6">
@@ -76,18 +73,18 @@
 					</div>
 					<div class="col-md-12 col-lg-12">
 						<div class="list-group">
-							<a href="#" class="list-group-item">
+							<div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Contatti:</h4>
 								<p class="list-group-item-text" id="telefono"></p>
 								<p class="list-group-item-text" id="emailContatti"></p>
-							</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- fine modal 1-->
+	<!--modal-->
 
 	<!-- inizio -->
 
@@ -95,21 +92,21 @@
 		<div class="contenitore">
 			<div class="row ">
 				<div class="col-md-4">
-					<div class="list-group">
+					<div class="list-group gruppolista">
 						<a
 							href="${pageContext.request.contextPath}/profilo/leMieIscrizioni"
-							class="list-group-item">Le mie Iscrizioni</a> <a
+							class="list-group-item itemlista">Le mie Iscrizioni</a> <a
 							href="${pageContext.request.contextPath}/profilo/iMieiAnnunci"
-							class="list-group-item">I miei Annunci</a> <a
+							class="list-group-item itemlista">I miei Annunci</a> <a
 							href="${pageContext.request.contextPath}/profilo/leMiePartite"
-							class="list-group-item">Le mie Partite</a> <a
+							class="list-group-item itemlista">Le mie Partite</a> <a
 							href="${pageContext.request.contextPath}/profilo/updateUtente"
-							class="list-group-item">Modifica Profilo</a>
+							class="list-group-item itemlista">Modifica Profilo</a>
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="panel panel-default">
-						<div class="panel-body">
+						<div class="panel-body contenitoreProfilo">
 							<div class="col-xs-12 col-md-12">
 								<form class="form-horizontal contenitoreForm" role="form"
 									action="${pageContext.request.contextPath}/profilo/updateUtente"

@@ -65,7 +65,6 @@
 			<%
 						} else {
 					%>
-			<!-- edit-modal 1 -->
 			<div class="modal fade" data-remote="false" id="modal" tabindex="-1"
 				role="dialog" aria-labelledby="basicModal" aria-hidden="true">
 				<div class="modal-dialog">
@@ -106,6 +105,7 @@
 										<p class="list-group-item-text" id="emailContatti"></p>
 									</a>
 								</div>
+
 							</div>
 						</div>
 					</div>

@@ -36,7 +36,8 @@
 										method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											<label class="sr-only" for="username">Username</label> <input
-												type="text" class="form-control a" id="email" name="username"
+												type="text" class="form-control inputusername a" id="email" name="username"
+
 												placeholder="Username" required> <div style="color: #FF0000;">${errorMessageUser}</div>
 												
 										</div>
@@ -59,9 +60,7 @@
 										<p class="AccedereUsando">Puoi accedere usando il tuo
 											profilo:</p>
 										<a href="<%=fbConnection.getFBAuthUrl()%>" class="btn btn-fb"><i
-											class="fa fa-facebook"></i> Facebook</a> <a href="#"
-											class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-								
+											class="fa fa-facebook"></i> Facebook</a>
 							</div>
 						</li>
 					</ul>

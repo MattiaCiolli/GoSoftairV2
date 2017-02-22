@@ -72,7 +72,11 @@
     font-family: "oswald_stencilbold",sans-serif;
     font-size: x-large;
 }
-
+.modalgraph{
+	
+	 font-family: "Oswald",sans-serif;
+	
+}
 
 .elemento:hover .valore{
     color: white;

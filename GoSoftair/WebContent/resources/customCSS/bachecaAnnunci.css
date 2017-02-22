@@ -95,6 +95,12 @@ a.list-group-item:focus, a.list-group-item:hover, .list-group-item:focus, .list-
 	color: black;
 }
 
+.modalgraph{
+	
+	 font-family: "Oswald",sans-serif;
+	
+}
+
 .pagination>.active>a {
 	background-color:#A6B71B;
 	border-color:#515547;

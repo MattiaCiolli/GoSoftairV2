@@ -57,11 +57,15 @@
 
 .contenitoreProfilo
 {
-	font-family: 'oswald_stencil';
+	font-family: 'oswald';
 	font-size: 14px;
 }
 
-
+.modalgraph{
+	
+	 font-family: "Oswald",sans-serif;
+	
+}
 .span-master {
 	font-size: 1.3em;
 }
@@ -73,16 +77,51 @@
 
 .nelmodal {
 	font-family: 'oswaldRegular';
+
+.gruppolista {
+	font-family: 'oswald_stencilbold';
 	border-color: #FFFFFF;
 	color: #FFFFFF;
 	text-transform: none;
 }
 
+
 a.list-group-item:focus, a.list-group-item:hover, .list-group-item:focus, .list-group-item:hover {
 	background-color: white;
 	color: black;
 }
+.itemlista {
+	background-color: #515547;
+	border-color: #FFFFFF;
+	color: #FFFFFF !important;
+	font-size:17px;
+	letter-spacing: 2px;
+	}
+.itemlista:hover {
+	background-color: #A6B71B !important;
+	color: #FFFFFF !important;
+}
+.itemlista:focus {
+	background-color: #A6B71B !important;
+	color: #FFFFFF !important;
 
+}
+.span-master {
+	font-weight: 400;
+	font-size: 1.5em;
+	text-align: left;
+	line-height: 1.3em;
+	letter-spacing: 2px;
+}
+
+.span-master-2 {
+	color: #a6b71b;
+	font-weight: 200;
+	font-size: 1.3em;
+	text-align: right;
+	line-height: 1.3em;
+	letter-spacing: 2px;
+}
 .img-carta {
 	display: block;
     max-width: 100%;
@@ -129,6 +168,8 @@ h3{
 	background: url("../img/footer1.jpg") no-repeat center;
 	background-size:cover;
 	padding-top:1%;
+	padding-bottom:1%;
+	
 }
 
 .UltimiEventi{
