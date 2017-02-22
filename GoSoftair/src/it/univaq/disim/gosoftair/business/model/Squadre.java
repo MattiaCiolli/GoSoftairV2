@@ -58,4 +58,19 @@ public class Squadre implements java.io.Serializable {
 	public void addUtenteSquadra2(Utente utente) {
 		this.squadra2.add(utente);
 	}
+	
+	public boolean utenteInSquadra(String username) {
+		
+		for(Utente user : this.squadra1) {
+			if(user.getNickname().equals(username))
+				return true;
+		}
+		
+		for(Utente user : this.squadra2) {
+			if(user.getNickname().equals(username))
+				return true;
+		}
+		
+		return false;
+	}
 }

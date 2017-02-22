@@ -133,4 +133,32 @@ public class JDBCSquadreService implements SquadreService {
             }
         }
 	}
+	
+	public void esciDallaSquadra(long idEvento, long idUtente) throws BusinessException {
+		Connection con = null;
+        PreparedStatement st = null;
+        try {   	
+        	con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("DELETE FROM utente_evento WHERE idEvento=? AND idUtente=?");
+            st.setLong(1, idEvento);
+            st.setLong(2, idUtente);
+			st.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException(e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+	}
 }

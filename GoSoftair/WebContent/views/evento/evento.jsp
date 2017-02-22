@@ -162,20 +162,22 @@
 		</div>
 	</div>
 	</section>
-	<section class="event-section">
+<section class="event-section" id="sectionSquadre">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<h1>Scegli la tua squadra</h1>
 			</div>
 		</div>
-		<div class="row team_select">
+	</div>
+	<div class="container-fluid team_select">
+		<div class="row">
 			<div class="col-md-6">
 				<div class="team_select_card" id="squadra1">
 					<h1 class="squadra text-center">Squadra 1</h1>
 					<ul id="squadra1List">
 						<c:forEach items="${evento.squadre.squadra1}" var="utente">
-							<li class="team-member">${utente.nickname}</li>
+							<li class="team-member"> ${utente.nickname}</li>	
 						</c:forEach>
 					</ul>
 				</div>
@@ -191,8 +193,17 @@
 				</div>
 			</div>
 		</div>
+		<c:choose>
+			<c:when test="${abbandonaSquadra}">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 text-center">
+						<button class="btn bottonenav" id="annullaIscrizione">Esci dalla squadra</button>
+					</div>
+				</div>
+			</c:when>
+		</c:choose>
 	</div>
-	</section>
+</section>
 	<section class="event-section">
 	<div class="container">
 		<div class="row">
@@ -213,20 +224,14 @@
 		<% if (session.getAttribute("username") != null) { %>
 		<div class="row">
 			<div class="col-md-1">
-				<img
-					src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg"
-					class="img-responsive">
+				<img src="${pageContext.request.contextPath}/resources/img/profile_images/${utente.immagineProfilo}" class="img-responsive">
 			</div>
 			<div class="col-md-7">
 				<form id="myForm"
 					action="${pageContext.request.contextPath}/post/crea-post">
-					<input type="text" name="postText" id="postText"
-						placeholder="Insersci un commento"> <input type="text"
-						name="idUtente" id="idUtente"
-						value="<%= session.getAttribute("id") %>" hidden> <input
-						type="text" name="idEvento" id="idEvento" value="${evento.id}"
-						hidden> <input type="submit" value="Inserisci"
-						id="submitButton">
+					<input type="text" name="postText" id="postText" placeholder="Insersci un commento"> 
+					<input type="text" name="idUtente" id="idUtente"value="<%= session.getAttribute("id") %>" hidden> 
+					<input type="text" name="idEvento" id="idEvento" value="${evento.id}" hidden> <input type="submit" value="Inserisci" id="submitButton">
 				</form>
 			</div>
 		</div>
@@ -236,7 +241,7 @@
 			<div class="row post">
 				<div class="col-md-1">
 					<img
-						src="${pageContext.request.contextPath}/resources/img/profile_images/profile.jpg"
+						src="${pageContext.request.contextPath}/resources/img/profile_images/${post.utente.immagineProfilo}"
 						class="img-responsive img-post">
 				</div>
 				<div class="col-md-9 post-content">
@@ -253,7 +258,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
 <script>
 		function initMap() {
-		    var uluru = { lat: ${evento.lat}, lng: ${evento.lon}};
+		    var uluru = { lat: ${evento.lat}, lng: ${evento.lon} };
 		    var map = new google.maps.Map(document.getElementById('map'), {
 		   		zoom: 16,
 		        center: uluru
@@ -319,8 +324,20 @@
 		    	  }
 		      });
 		    });
-	    
-		document.getElementById("active-event").onclick = function() {activeEvent()};
+		
+		$("#annullaIscrizione").click(function() {
+			console.log("ciao");
+			$.post("${pageContext.request.contextPath}/evento/esci", { idEvento:"${evento.id}", idUtente:"${utenteLoggato.id}" }, function(result) {
+				if(result == 1) {
+					window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
+				}
+			});
+		});
+		
+		var attivaEvento = $("#active-event");
+		if(attivaEvento != null) {
+			attivaEvento.onclick = function() {activeEvent()};
+		}
 		
 		function activeEvent() {
 			$.post("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}", function(result){

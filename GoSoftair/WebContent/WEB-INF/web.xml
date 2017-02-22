@@ -165,7 +165,7 @@
     <servlet-name>UpdateUtenteServlet</servlet-name>
     <url-pattern>/profilo/updateUtente</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>CancellaEventoServlet</servlet-name>
     <servlet-class>it.univaq.disim.gosoftair.presentation.CancellaEventoServlet</servlet-class>
   </servlet>
@@ -173,12 +173,20 @@
     <servlet-name>CancellaEventoServlet</servlet-name>
     <url-pattern>/evento/cancella</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>EsciDallaSquadraServlet</servlet-name>
+    <servlet-class>it.univaq.disim.gosoftair.presentation.EsciDallaSquadraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EsciDallaSquadraServlet</servlet-name>
+    <url-pattern>/evento/esci</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>ControlloLoggedFilter</filter-name>
     <filter-class>it.univaq.disim.gosoftair.filters.ControlloLoggedFilter</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>ControlloLoggedFilter</filter-name> 
+    <filter-name>ControlloLoggedFilter</filter-name>
     <url-pattern>/evento/nuovo</url-pattern>
     <url-pattern>/evento/incorso</url-pattern>
     <url-pattern>/profilo/*</url-pattern>
@@ -186,5 +194,4 @@
     <url-pattern>/annuncio/nuovo</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
-
 </web-app>

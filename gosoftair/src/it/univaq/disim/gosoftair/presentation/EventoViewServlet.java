@@ -23,12 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class EventoViewServlet
- */
 public class EventoViewServlet extends HttpServlet {
-    public EventoViewServlet() {
-    }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -54,8 +49,6 @@ public class EventoViewServlet extends HttpServlet {
 		evento.setSquadre(squadre);
 		evento.setPosts(posts);
 		request.setAttribute("evento", evento);
-
-		HttpSession session = request.getSession();
 
 		// Sezione di codice necessario per il meteo
 		String provincia = "";
@@ -92,17 +85,26 @@ public class EventoViewServlet extends HttpServlet {
 			request.setAttribute("primoOrario", ora1);
 			request.setAttribute("secondoOrario", ora2);
 			request.setAttribute("terzoOrario", ora3);
-
 		}
 
 		request.setAttribute("meteoDisponibile", meteoDisponibile);
 		request.setAttribute("percorso", "Dettaglio partita");
 		
+		HttpSession session = request.getSession();
+		//Se non è loggato non da errore
 		
-		if(session.getAttribute("id") != null)
-			if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId() && oggi.after(evento.getData()))
+		if(session.getAttribute("id") != null) {
+			Utente utenteLoggato = utenteService.findUserByPK(Long.parseLong(session.getAttribute("id").toString()));
+			
+			if(utenteLoggato.getId() == evento.getOrganizzatore().getId() && oggi.after(evento.getData()))
 				request.setAttribute("attiva_evento", true);
-	
+			
+			if(evento.getSquadre().utenteInSquadra(session.getAttribute("username").toString()))
+				request.setAttribute("abbandonaSquadra", true);
+			
+			request.setAttribute("utenteLoggato", utenteLoggato);
+		}
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");
 		dispatcher.forward(request, response);
 	}
