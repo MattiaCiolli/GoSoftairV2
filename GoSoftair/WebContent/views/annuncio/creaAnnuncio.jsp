@@ -65,72 +65,64 @@
 							action="${pageContext.request.contextPath}/annuncio/nuovo"
 							method="post" enctype="multipart/form-data">
 							<div class="row">
-								<div class='col-sm-4 col-md-4 col-lg-4'>
+								<div class='col-sm-6 col-md-6 col-lg-6'>
 									<div class="form-group">
 										<label for="Titolo">Titolo:</label> <input type="text"
 											class="form-control" id="Titolo" name="Titolo">
 									</div>
 								</div>
+								<div class='col-sm-6 col-md-6 col-lg-6'>
+									<div class="form-group">
+										<label for="Prezzo">Prezzo:</label>
+										<div class="input-group">
+											<input type="number" class="form-control" id="Prezzo"
+												   name="Prezzo" /> <span class="input-group-addon">$</span>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div class="row">
-								<div class='col-sm-4 col-md-4 col-lg-4'>
+								<div class='col-sm-6 col-md-6 col-lg-6'>
 									<div class="form-group">
 										<label for="Descrizione">Descrizione:</label>
 										<textarea rows="5" class="form-control" id="Descrizione"
 											name="Descrizione"></textarea>
 									</div>
 								</div>
-							</div>
-
-
-							<div class="row">
-								<div class='col-sm-4 col-md-4 col-lg-4'>
+								<div class='col-sm-6 col-md-6 col-lg-6'>
 									<div class="form-group">
-										<label for="Prezzo">Prezzo:</label>
-										<div class="input-group">
-											<input type="number" class="form-control" id="Prezzo"
-												name="Prezzo" /> <span class="input-group-addon">$</span>
-										</div>
+										<label for="NumTelefono">Telefono:</label>
+										<input type="number" class="form-control" id="NumTelefono"
+											   name="NumTelefono" />
 									</div>
 								</div>
-							</div>
-
-							<div class="row">
-								<div class='col-sm-4 col-md-4 col-lg-4'>
-									<div class="form-group">
-										<label for="NumTelefono">Telefono:</label>									
-											<input type="number" class="form-control" id="NumTelefono"
-												name="NumTelefono" />
-										</div>
-									</div>
-								</div>
-							
-
-							<div class="row">
-								<div class='col-sm-4 col-md-4 col-lg-4'>
+								<div class='col-sm-6 col-md-6 col-lg-6'>
 									<div class="form-group">
 										<label for="Email">E-Mail:</label>
-											<input type="email" class="form-control" id="Email"
-												name="Email" />
-										</div>
+										<input type="email" class="form-control" id="Email"
+											   name="Email" />
 									</div>
 								</div>
-							
+							</div>
+
 							<div class="row">
-								<div class='col-sm-4 col-md-4 col-lg-4' id="rowimg">
+								<div class='col-sm-6 col-md-6 col-lg-6' id="rowimg">
 									<label for="Immagine">Immagine:</label>
 									<div class="kv-avatar center-block">
 										<input id="Immagine" name="Immagine" type="file"
-											class="file-loading">
+											   class="file-loading">
 									</div>
 									<div id="kv-avatar-errors-2" class="center-block"></div>
 								</div>
 							</div>
 
+
+
+
 							<br />
 							<button type="submit" id="inserisciannuncio"
-								class="btn bottonenav">Inserisci annuncio</button>
+								class="btn bottonenav text-center">Inserisci annuncio</button>
 					</div>
 					</form>
 					</div>

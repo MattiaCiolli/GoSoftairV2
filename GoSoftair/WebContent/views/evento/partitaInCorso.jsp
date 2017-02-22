@@ -161,7 +161,7 @@
 		  	    	            	position: position,
 		  	    	                map: map,
 		  	    	                title: val.idGiocatore,
-		  	    	                icon: '${pageContext.request.contextPath}/resources/img/profile_images/' + val.immagine
+		  	    	                icon: '${pageContext.request.contextPath}/resources/img/profili/small/' + val.immagine
 		  	    	            }, "<h1>Marker 0</h1><p>This is the home marker.</p>");
 		  	    			  	
 		  	    			  	// Allow each marker to have an info window
@@ -179,7 +179,7 @@
 	  	    				}else {
 	  	    					var position = new google.maps.LatLng(val.lat, val.lon);
 		  	    	            markers[val.idGiocatore].setPosition(position);
-		  	    	            markers[val.idGiocatore].setIcon("${pageContext.request.contextPath}/resources/img/profile_images/" + val.immagine);
+		  	    	            markers[val.idGiocatore].setIcon("${pageContext.request.contextPath}/resources/img/profili/small/" + val.immagine);
 	  	    				}
 	  	    			});
 	  	    		}
