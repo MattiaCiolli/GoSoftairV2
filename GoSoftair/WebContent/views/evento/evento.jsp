@@ -36,7 +36,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<img
-					src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+					src="${pageContext.request.contextPath}/resources/img/partite/xl/${evento.immagine}"
 					class="img-responsive" alt="Immagine evento">
 			</div>
 			<div class="col-md-6">
@@ -231,7 +231,7 @@
 		<% if (session.getAttribute("username") != null) { %>
 		<div class="row">
 			<div class="col-md-1">
-				<img src="${pageContext.request.contextPath}/resources/img/profile_images/${utenteLoggato.immagineProfilo}" class="img-responsive">
+				<img src="${pageContext.request.contextPath}/resources/img/profili/big/${utenteLoggato.immagineProfilo}" class="img-responsive">
 			</div>
 			<div class="col-md-7">
 				<form id="myForm"
@@ -248,7 +248,7 @@
 			<div class="row post">
 				<div class="col-md-1">
 					<img
-						src="${pageContext.request.contextPath}/resources/img/profile_images/${post.utente.immagineProfilo}"
+						src="${pageContext.request.contextPath}/resources/img/profili/big/${post.utente.immagineProfilo}"
 						class="img-responsive img-post">
 				</div>
 				<div class="col-md-9 post-content">

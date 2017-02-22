@@ -10,7 +10,7 @@ $(".clicca").click(function() {
         cache: false,
         success: function(response){
             //console.log(response);
-            $('#imgAnnuncio').attr("src","../resources/img/"+response.immagine);
+            $('#imgAnnuncio').attr("src","../resources/img/annunci/big/"+response.immagine);
             $('#titolo').text(response.titolo);
             $('#descrizione').text(response.descrizione);
             $('#prezzo').text(response.prezzo);

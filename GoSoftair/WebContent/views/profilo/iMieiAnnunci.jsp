@@ -101,7 +101,7 @@
 								<div class="cartaScura elemento col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div></div>
 									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-										<img src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}" class="img-responsive immagineElemento">
+										<img src="${pageContext.request.contextPath}/resources/img/annunci/small/${annuncio.immagine}" class="img-responsive immagineElemento">
 									</div>
 									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 container">
 										<div class="row">

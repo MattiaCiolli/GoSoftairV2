@@ -106,7 +106,7 @@
 					<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
 						<div class="form-group">
 							<label for="Posizione">Posizione:</label> 
-							<input id="pac-input" class="controls" type="text" placeholder="Search Box">  
+							<input id="pac-input" class="controls" type="text" placeholder="Search Box"> ï¿½
 							<div id="mapcont"></div>
 							<input type="text" class="form-control" name="Posizione" id="Posizione" value="Lat: ${evento.lat}  Long: ${evento.lon}" readonly> 
 							<input hidden type="text" name="Lat" id="Lat" value="${evento.lat}"> 
@@ -119,7 +119,7 @@
 					<div class='col-sm-4 col-md-4 col-lg-4 limit'>
 						<label for="Immagine">Immagine:</label>
 						<div class="kv-avatar center-block">
-							<input id="Immagine" name="Immagine" type="file" class="file-loading" value="${pageContext.request.contextPath}/resources/img/${evento.immagine}">
+							<input id="Immagine" name="Immagine" type="file" class="file-loading" value="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}">
 						</div>
 						<div id="kv-avatar-errors-2" class="center-block"></div>
 					</div>

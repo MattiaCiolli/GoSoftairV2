@@ -80,9 +80,18 @@ public class UpdateEventoServlet extends HttpServlet {
 			String fileName = extractFileName(filePart);
 			// refines the fileName in case it is an absolute path
 			fileName = new File(fileName).getName();
-			filePart.write(savePath + File.separator + "original" + fileName);
 			immagine = fileName;
-			ImagesMap.generateImagesCard(savePath, fileName, 350, 200, savePath, true);
+
+
+			String outputPath = savePath + File.separator + "partite" + File.separator + "big";
+			filePart.write(savePath + File.separator + "original" + fileName);
+			ImagesMap.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
+
+			outputPath = savePath + File.separator + "partite" + File.separator + "small";
+			ImagesMap.generateImagesCard(outputPath, fileName, 350, 200, savePath, false);
+
+			outputPath = savePath + File.separator + "partite" + File.separator + "xl";
+			ImagesMap.generateImagesCard(outputPath, fileName, 800, 600, savePath, true);
 		}
 		
 		double lat=Double.parseDouble(request.getParameter("Lat"));

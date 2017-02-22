@@ -133,7 +133,7 @@
 										data-toggle="modal" data-target="#modal">
 										<div class="cartaScura">
 											<img
-												src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
+												src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"
 												class="img-responsive largo">
 											<div class="contenuto">
 												<div>

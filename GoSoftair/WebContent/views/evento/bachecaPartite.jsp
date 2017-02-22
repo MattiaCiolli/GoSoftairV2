@@ -36,7 +36,7 @@
 								href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 								<div class="carta">
 									<img
-										src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+										src="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}"
 										class="img-responsive bordino largo">
 									<div class="contenuto">
 										<div>

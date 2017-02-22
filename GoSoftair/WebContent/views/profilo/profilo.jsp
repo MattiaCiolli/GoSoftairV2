@@ -126,7 +126,7 @@
 											</div>
 											<div id="kv-avatar-errors-2" class="center-block"></div>
 										</div>
-										<div hidden id="img">${pageContext.request.contextPath}/resources/img/${utente.immagineProfilo}</div>								
+										<div hidden id="img">${pageContext.request.contextPath}/resources/img/profili/big/${utente.immagineProfilo}</div>
 								</form>
 
 								<div class="col-xs-12 col-sm-8 col-md-offset-2 col-md-8">
@@ -205,7 +205,7 @@
 									href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 									<div class="cartaScura">
 										<img
-											src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+											src="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}"
 											class="img-responsive largo">
 										<div class="contenuto">
 											<div>
@@ -252,7 +252,7 @@
 									href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
 									<div class="cartaScura">
 										<img
-											src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
+											src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"
 											class="img-responsive largo">
 										<div class="contenuto">
 											<div>

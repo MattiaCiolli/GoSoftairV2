@@ -68,7 +68,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<img
-							src="${pageContext.request.contextPath}/resources/img/iphoneTagliato1.png"
+							src="${pageContext.request.contextPath}/resources/img/iphoneTagliato2.jpg"
 							class="img-responsive iphone">
 						<div>
 							<p class="contenutoFeatures">Partite in real time</p>
@@ -114,7 +114,7 @@
 								href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
 								<div class="carta">
 									<img
-										src="${pageContext.request.contextPath}/resources/img/${evento.immagine}"
+										src="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}"
 										class="img-responsive bordino largo">
 									<div class="contenuto">
 										<div>
@@ -158,7 +158,7 @@
 							href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?idAnnuncio=${annuncio.id}">
 							<div class="cartaScura">
 								<img
-									src="${pageContext.request.contextPath}/resources/img/${annuncio.immagine}"
+									src="${pageContext.request.contextPath}/resources/img/annunci/big${annuncio.immagine}"
 									class="img-responsive largo">
 								<div class="contenuto">
 									<div>
