@@ -136,14 +136,13 @@ nav {
 }
 
 #login-dp{
-	background-color: white;
+	background-color: white !important;
 	border-radius: 0px;
 	padding: 0px 40px;
 	margin-right: inherit;
 	color: initial;
 	padding-top: 20px;
 	z-index: 2002;
-	left: 75%;
 	letter-spacing: 0.5px;
 }
 
