@@ -133,7 +133,7 @@
 								data-toggle="dropdown">Mercatino <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a
-										href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci">Bacheca
+										href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?pageNum=0">Bacheca
 											annunci</a></li>
 									<li class="divider"></li>
 									<li><a
@@ -156,7 +156,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 navigazione">
-				<p>Home > ${percorso}</p>
+				<p><a class="linknav" href="${pageContext.request.contextPath}/home">Home</a> > <a class="linknav" href="${pageContext.request.contextPath}${link1}">${percorso1}</a>${percorso2}</p>
 			</div>
 		</div>
 	</div>
