@@ -65,15 +65,16 @@ public class JDBCUtenteService implements UtenteService{
         }
     }
 
-  //funzione che consente di trovare all'interno del database tramite la sua email un utente
+  //funzione che consente di trovare all'interno del database tramite il suo nicknamel un utente
     public Utente login(String nickname) throws BusinessException {
     	Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT * FROM gosoftair.UTENTE WHERE NICKNAME='" + nickname + "'");
+			st = con.prepareStatement("SELECT * FROM gosoftair.UTENTE WHERE NICKNAME= ? ");
+			st.setString(1, nickname);
+			rs = st.executeQuery();
 			if(rs.next()){
 				Long id = rs.getLong("id");
 				String nome = rs.getString("nome");
@@ -114,12 +115,13 @@ public class JDBCUtenteService implements UtenteService{
     //funzione che consente di trovare all'interno del database tramite la sua chiave privata l'utente con tutte le sue informazioni
     public Utente findUserByPK(long id) throws BusinessException {
     	Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT * FROM gosoftair.UTENTE WHERE ID=" + id);
+			st = con.prepareStatement("SELECT * FROM gosoftair.UTENTE WHERE ID= ?");
+			st.setLong(1, id);
+			rs = st.executeQuery();
 			if(rs.next()){
 				String nome = rs.getString("nome");
 				String cognome = rs.getString("cognome");

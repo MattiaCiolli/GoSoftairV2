@@ -89,6 +89,11 @@ nav {
 	clear: both;
 }
 
+.a{
+	font-family: 'Oswald';
+	text-transform: none;
+}
+
 .loginTradizionale{
 	border-bottom: 1px solid #ddd;
 }

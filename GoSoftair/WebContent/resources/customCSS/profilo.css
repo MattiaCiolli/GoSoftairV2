@@ -2,6 +2,12 @@
     font-family: oswaldStencil;
     src: url(../fonts/Oswald-Stencil.ttf);
 }
+
+@font-face {
+    font-family: oswaldRegular;
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+
 .file-preview {
 		width: 291px;
 	}
@@ -65,26 +71,16 @@
 	text-transform:capitalize;
 }
 
-.list-group {
-	font-family: 'oswald_stencilbold';
+.nelmodal {
+	font-family: 'oswaldRegular';
 	border-color: #FFFFFF;
 	color: #FFFFFF;
+	text-transform: none;
 }
 
-.list-group-item {
-	background-color: #515547;
-	border-color: #FFFFFF;
-	color: #FFFFFF !important;
-	font-size:17px;
-	letter-spacing: 2px;
-	}
-.list-group-item:hover {
-	background-color: #A6B71B !important;
-	color: #FFFFFF !important;
-}
-.list-group-item:focus {
-	background-color: #A6B71B !important;
-	color: #FFFFFF !important;
+a.list-group-item:focus, a.list-group-item:hover, .list-group-item:focus, .list-group-item:hover {
+	background-color: white;
+	color: black;
 }
 
 .img-carta {

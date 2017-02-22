@@ -60,14 +60,16 @@ public class JDBCPosizioniGiocatoriService implements PosizioniGiocatoriService 
 	
 	public List<PosizioneGiocatore> posizioniAggiornate(long idEvento, long idGiocatore) throws BusinessException {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		List<PosizioneGiocatore> posizioniGiocatori = new ArrayList<PosizioneGiocatore>();
 
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT posizioniutenti.*,  utente_evento.numsquadra FROM Utente_Evento INNER JOIN posizioniutenti ON posizioniutenti.idutente=utente_evento.idutente WHERE utente_evento.idevento=" + idEvento +  "AND utente_evento.numsquadra=(SELECT numsquadra FROM utente_evento WHERE idutente=" + idGiocatore + ")");
+			st = con.prepareStatement("SELECT posizioniutenti.*,  utente_evento.numsquadra FROM Utente_Evento INNER JOIN posizioniutenti ON posizioniutenti.idutente=utente_evento.idutente WHERE utente_evento.idevento= ? AND utente_evento.numsquadra=(SELECT numsquadra FROM utente_evento WHERE idutente= ? )");
+			st.setLong(1, idEvento);
+			st.setLong(2, idGiocatore);
+			rs = st.executeQuery();
 			while(rs.next()) {
 				long idUtente = Long.parseLong(rs.getString("idutente"));
 				double lat = Double.parseDouble(rs.getString("latitudine"));

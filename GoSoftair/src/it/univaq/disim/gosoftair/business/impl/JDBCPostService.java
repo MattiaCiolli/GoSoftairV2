@@ -63,7 +63,7 @@ public class JDBCPostService implements PostService {
 	
 	public List<Post> cercaPostsByEventoPK(long idEvento) throws BusinessException {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		List<Post> posts = new ArrayList<Post>();
 		Utente utente;
@@ -71,8 +71,9 @@ public class JDBCPostService implements PostService {
 		
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT utente.*, post.id as idpost, post.testo, post.data FROM utente JOIN post ON post.idutente=utente.id WHERE post.idevento=" + idEvento);
+			st = con.prepareStatement("SELECT utente.*, post.id as idpost, post.testo, post.data FROM utente JOIN post ON post.idutente=utente.id WHERE post.idevento= ?");
+			st.setLong(1,idEvento);
+			rs = st.executeQuery();
 			while(rs.next()) {
 				long idUser = Long.parseLong(rs.getString("id"));
 				String nome = rs.getString("nome");

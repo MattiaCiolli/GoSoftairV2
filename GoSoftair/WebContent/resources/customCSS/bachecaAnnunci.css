@@ -15,6 +15,17 @@
     src: url(../fonts/Oswald-Regular.ttf);
 }
 
+.b {
+	background-color:#515547;
+	color:#FFFFFF;
+	font-family:'oswald_stencilbold';
+	border-color:#94A31A;
+	margin-top:10px;
+	
+}
+.b:hover {
+	background-color:#94A31A;
+}
 
 .bachecaAnnunci {
 	font-family: 'oswald_stencilbold';
@@ -59,10 +70,31 @@ h1{
 	border-color:#A6B71B;;
 }
 
-.list-group-item:hover {
-	background-color: #515547 !important;
-	color: #FFFFFF !important;
+body {
+	font-family: oswaldRegular;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+    color: #767a70;
 }
+
+.nelmodal {
+	font-family: 'oswaldRegular';
+	border-color: #FFFFFF;
+	color: rgb(118, 122, 112);
+	text-transform: none;
+}
+
+.list-group {
+	font-family: 'oswaldRegular';
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+}
+
+a.list-group-item:focus, a.list-group-item:hover, .list-group-item:focus, .list-group-item:hover {
+	background-color: white;
+	color: black;
+}
+
 .pagination>.active>a {
 	background-color:#A6B71B;
 	border-color:#515547;

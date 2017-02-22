@@ -110,12 +110,13 @@ public class JDBCEventoService implements EventoService {
 	//funzione che restituisce un evento dato il suo ID
 	public Evento findEventoByPK(long id) throws BusinessException {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
-			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE id=" + id);
+			st = con.prepareStatement("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE id=?");
+			st.setLong(1, id);
+			rs = st.executeQuery();
 			if (rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -133,15 +134,14 @@ public class JDBCEventoService implements EventoService {
 				String immagine = rs.getString("immagine");
 				double lat = Double.parseDouble(rs.getString("latitudine"));
 				double lon = Double.parseDouble(rs.getString("longitudine"));
-				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, lat, lon);
-				
+				Evento evento = new Evento(id, titolo, descrizione, data, puntoIncontro, tipologia, numMaxPartecipanti, stato, immagine, lat, lon);				
 				return evento;
 			} else {
 				System.out.print("Il result set non ha elementi");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new BusinessException("Errore durante la creazione dell'evento", e);
+			throw new BusinessException("Errore durante la ricerca dell'evento", e);
 		} finally {
 			if (rs != null) {
 				try {
@@ -169,17 +169,17 @@ public class JDBCEventoService implements EventoService {
 	//funzione che restituisce gli eventi più prossimi
 	public List<Evento> findLastEvent(Date oggi, int quantita) throws BusinessException {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		int contatore = 0;
 		List<Evento> risultati = new ArrayList<>();
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
+			st = con.prepareStatement("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data > ? ORDER BY data");
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato = DBformat.format(oggi);
-			System.out.println(oggiFormattato);
+
 			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
 			while (rs.next() && contatore < quantita) {
 				Long id = rs.getLong("id");
@@ -239,18 +239,20 @@ public class JDBCEventoService implements EventoService {
 	public List<Evento> findUltimiByUserID(Date oggi, long id) {
 
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		int contatore = 0;
 		List<Evento> risultati = new ArrayList<>();
 
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
+			st = con.prepareStatement("SELECT evento.* FROM evento,utente_evento WHERE evento.id=utente_evento.idevento AND utente_evento.idutente= ? AND evento.data > ? ORDER BY data");
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato = DBformat.format(oggi);
-			rs = st.executeQuery("SELECT evento.* FROM evento,utente_evento WHERE evento.id=utente_evento.idevento AND utente_evento.idutente="+id+" AND evento.data >" + "'" + oggiFormattato + "'ORDER BY data");
+			st.setLong(1, id);
+			st.setString(2, oggiFormattato);
+			rs = st.executeQuery();
 
 			while (rs.next() && contatore < 3) {
 				long idEvento = Long.parseLong(rs.getString("id"));
@@ -309,19 +311,22 @@ public class JDBCEventoService implements EventoService {
 	//funzione che restituisce tutti gli eventi a cui l'utente si è iscritto
 	public List<Evento> findAllMySubscription(Date oggi, long idUtente) {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		int contatore=0;
 
 		List<Evento> risultati = new ArrayList<>();
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
+			st = con.prepareStatement("SELECT evento.id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento, utente_evento WHERE evento.id = utente_evento.idevento AND utente_evento.idutente = ? AND data > ? ORDER BY data");
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato= DBformat.format(oggi);
+			
+			st.setLong(1, idUtente);
+			st.setString(2, oggiFormattato);
 
-			rs = st.executeQuery("SELECT evento.id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento, utente_evento WHERE evento.id = utente_evento.idevento AND utente_evento.idutente ="+idUtente+" AND data >"+ "'"+oggiFormattato+"' ORDER BY data");
+			rs = st.executeQuery();
 			while(rs.next() && contatore < 10) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -375,18 +380,20 @@ public class JDBCEventoService implements EventoService {
 	//funzione che restituisce tutti gli eventi che ha creato l'utente
 	public List<Evento> trovaTuttePartiteCreateDaMe(long idUtente) {
 		Connection con = null;
-		Statement st = null;
+		PreparedStatement st = null;
 		ResultSet rs = null;
 		int contatore=0;
 
 		List<Evento> risultati = new ArrayList<>();
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			st = con.createStatement();
+			st = con.prepareStatement("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE evento.idutente = ? ORDER BY data desc");
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+			
+			st.setLong(1, idUtente);
 
-			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE evento.idutente = "+idUtente+" ORDER BY data desc");
+			rs = st.executeQuery();
 			while(rs.next()) {
 				String titolo = rs.getString("titolo");
 				String descrizione = rs.getString("descrizione");
@@ -442,9 +449,10 @@ public class JDBCEventoService implements EventoService {
 		PreparedStatement st = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
-			String sql = "UPDATE evento SET stato=2 WHERE id=?";
+			String sql = "UPDATE evento SET stato=? WHERE id=?";
 			st = con.prepareStatement(sql);
-			st.setLong(1, idEvento);
+			st.setInt(1, 2);
+			st.setLong(2, idEvento);
 			st.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

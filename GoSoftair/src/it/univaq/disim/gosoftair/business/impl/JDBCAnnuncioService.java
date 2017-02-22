@@ -70,19 +70,20 @@ public class JDBCAnnuncioService implements AnnuncioService {
   //funzione che restituisce tutti gli ultimi annunci inseriti in GoSoftair
     public List<Annuncio> findLastAnnunci(Date oggiMeno3Mesi, int quantita) throws BusinessException {
         Connection con = null;
-        Statement st = null;
+        PreparedStatement st = null;
         ResultSet rs = null;
         int contatore = 0;
         List<Annuncio> risultati = new ArrayList<>();
         try {
             con = DriverManager.getConnection(url, username, password);
-            st = con.createStatement();
+            st = con.prepareStatement("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data > ? ORDER BY data DESC");
 
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String oggiFormattato = DBformat.format(oggiMeno3Mesi);
+            
+            st.setString(1, oggiFormattato);
 
-
-            rs = st.executeQuery("SELECT annuncio.id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE data >" + "'" + oggiFormattato + "'ORDER BY data DESC");
+            rs = st.executeQuery();
 
             while (rs.next() && contatore < quantita) {
                 contatore++;
@@ -145,18 +146,19 @@ public class JDBCAnnuncioService implements AnnuncioService {
     public List<Annuncio> findLastAnnunciByUserID(Date oggi, long userID) {
 
         Connection con = null;
-        Statement st = null;
+        PreparedStatement st = null;
         ResultSet rs = null;
         int contatore = 0;
         List<Annuncio> risultati = new ArrayList<>();
         try {
             con = DriverManager.getConnection(url, username, password);
-            st = con.createStatement();
+            st = con.prepareStatement("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente= ? AND data <= ? ORDER BY data DESC");
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String oggiFormattato = DBformat.format(oggi);
-            System.out.println(oggiFormattato);
+            st.setLong(1, userID);
+            st.setString(2, oggiFormattato);
 
-            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+userID+" AND data <=" + "'" + oggiFormattato + "'ORDER BY data DESC");
+            rs = st.executeQuery();
 
             while (rs.next() && contatore < 3) {
                 Long id = rs.getLong("id");
@@ -222,16 +224,15 @@ public class JDBCAnnuncioService implements AnnuncioService {
 //funzione che restituisce tutti gli annunci creati dall'utente
     public List<Annuncio> TuttiAnnunciCreatiDaMe(long idUtente) {
         Connection con = null;
-        Statement st = null;
+        PreparedStatement st = null;
         ResultSet rs = null;
         int contatore = 0;
         List<Annuncio> risultati = new ArrayList<>();
         try {
             con = DriverManager.getConnection(url, username, password);
-            st = con.createStatement();
-
-
-            rs = st.executeQuery("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente="+idUtente+" ORDER BY data DESC");
+            st = con.prepareStatement("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente= ? ORDER BY data DESC");
+            st.setLong(1, idUtente);
+            rs = st.executeQuery();
             while (rs.next() && contatore < 10) {
                 Long id = rs.getLong("id");
                 String titolo = rs.getString("titolo");
