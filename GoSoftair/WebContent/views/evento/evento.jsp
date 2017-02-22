@@ -201,6 +201,13 @@
 					</div>
 				</div>
 			</c:when>
+			 <c:otherwise>
+        		<div class="row">
+					<div class="col-md-4 col-md-offset-4 text-center">
+						<button style="display:none;" class="btn bottonenav" id="annullaIscrizione" hidden>Esci dalla squadra</button>
+					</div>
+				</div>
+    		</c:otherwise>
 		</c:choose>
 	</div>
 </section>
@@ -272,6 +279,18 @@
 		    });
 	   	}
 		
+		var annullaIscrizione = $("#annullaIscrizione");
+		if(annullaIscrizione != null) {
+			annullaIscrizione.click(function() {
+				$.post("${pageContext.request.contextPath}/evento/esci", { idEvento:"${evento.id}", idUtente:"${utenteLoggato.id}" }, function(result) {
+					if(result == 1) {
+						$( "li:contains('${utenteLoggato.nickname}')" ).hide();
+						annullaIscrizione.hide();
+					}
+				});
+			});
+		}
+		
 		<% if (session.getAttribute("username") != null) { %>
 
 		var squadra1 = document.getElementById('squadra1');
@@ -286,7 +305,7 @@
 						if(elementToRemove.length == 1) {
 							elementToRemove.remove();
 						}
-						window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
+						annullaIscrizione.show()
 				    };
 				});
 			}
@@ -304,7 +323,7 @@
 						if(elementToRemove.length == 1) {
 							elementToRemove.remove();
 						}
-						window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
+						annullaIscrizione.show()
 				    };
 				});
 			}
@@ -321,30 +340,23 @@
 		      				
 		      /* Send the data using post with element id name and name2*/
 		      var posting = $.post( url, { postText: $('#postText').val(), idUtente: $('#idUtente').val(), idEvento: $('#idEvento').val() }, function(result){
-		    	  if(result == 1) {
-			    	  alert('success');
+		    	if(result == 1) {
+					window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
 		    	  }
 		      });
 		    });
-		
-		$("#annullaIscrizione").click(function() {
-			$.post("${pageContext.request.contextPath}/evento/esci", { idEvento:"${evento.id}", idUtente:"${utenteLoggato.id}" }, function(result) {
-				if(result == 1) {
-					window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
-				}
-			});
-		});
-		
+				
 		var attivaEvento = $("#active-event");
+		console.log(attivaEvento);
 		if(attivaEvento != null) {
-			attivaEvento.onclick = function() {activeEvent()};
-		}
-		
-		function activeEvent() {
-			$.post("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}", function(result){
-				if(result == 1) {
-					window.location.replace("${pageContext.request.contextPath}/evento/incorso?idEvento=${evento.id}");
-				}
+			console.log("diverso da null");
+			$(attivaEvento).click(function() {
+				console.log("attivo");
+				$.post("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}", function(result){
+					if(result == 1) {
+						window.location.replace("${pageContext.request.contextPath}/evento/incorso?idEvento=${evento.id}");
+					}
+				});
 			});
 		}
 

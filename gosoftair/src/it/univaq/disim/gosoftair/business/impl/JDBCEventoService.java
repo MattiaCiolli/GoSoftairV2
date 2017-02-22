@@ -179,7 +179,7 @@ public class JDBCEventoService implements EventoService {
 
 			DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 			String oggiFormattato = DBformat.format(oggi);
-
+			System.out.println(oggiFormattato);
 			rs = st.executeQuery("SELECT id, titolo, descrizione, data, puntoincontro, tipologia, nmaxpartecipanti, stato, immagine, latitudine, longitudine FROM evento WHERE data >" + "'" + oggiFormattato + "'ORDER BY data");
 			while (rs.next() && contatore < quantita) {
 				Long id = rs.getLong("id");

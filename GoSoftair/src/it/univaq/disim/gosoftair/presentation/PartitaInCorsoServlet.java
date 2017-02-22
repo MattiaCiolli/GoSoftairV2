@@ -36,7 +36,6 @@ public class PartitaInCorsoServlet extends HttpServlet {
 		request.setAttribute("evento", evento);
 		Utente organizzatore = utenteService.utenteCreatoreEventByIdEvento(evento.getId());
 		evento.setOrganizzatore(organizzatore);
-		
 		if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId())
 			request.setAttribute("termina_evento", true);
 		
@@ -54,7 +53,7 @@ public class PartitaInCorsoServlet extends HttpServlet {
 
 		long idGiocatore = (Long)session.getAttribute("id");
 		long idEvento = Long.parseLong(request.getParameter("idEvento"));
-				
+		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		PosizioniGiocatoriService posizioneGiocatoreService = factory.getPosizioniGiocatoriService();
 		UtenteService utenteService = factory.getUtenteService();
@@ -66,7 +65,6 @@ public class PartitaInCorsoServlet extends HttpServlet {
 		position.setGiocatore(idGiocatore);
 		position.setImmagineMappa(immagineMappa + giocatore.getImmagineProfilo());
 		posizioneGiocatoreService.update(position);
-		
 		List<PosizioneGiocatore> posizioniGiocatori =  posizioneGiocatoreService.posizioniAggiornate(idEvento, idGiocatore);
 		
 		String json = "{\"coordinates\":[";

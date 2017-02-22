@@ -147,9 +147,9 @@
 	  	  	function success(position) {
 	  	    	var latitude  = position.coords.latitude;
 	  	    	var longitude = position.coords.longitude;
-	  	    	var url = "${pageContext.request.contextPath}/views/evento/incorso";
+	  	    	var url = "${pageContext.request.contextPath}/evento/incorso";
 	  	    	
-	  	    	$.post(url, { lat: latitude, lon: longitude, idEvento: 0, img: immagine },function(results) {
+	  	    	$.post(url, { lat: latitude, lon: longitude, idEvento: ${evento.id}, img: immagine },function(results) {
 	  	    			results = JSON.parse(results);	 
 	  	    			jQuery.each(results.coordinates, function(i, val) {
 	  	    				if(markers[val.idGiocatore] == undefined) 
