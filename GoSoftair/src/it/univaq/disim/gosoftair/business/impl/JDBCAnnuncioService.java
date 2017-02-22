@@ -140,31 +140,33 @@ public class JDBCAnnuncioService implements AnnuncioService {
         return risultati;
     }
 
+    
+    
     //funzione che gestisce i dati visualizzati nella bacheca
     public List<Annuncio> visualizzazioneBachecaAnnunci (Date oggiMeno6Mesi, long userID,int pageNum){
     	
         Connection con = null;
-        Statement st = null;
+        PreparedStatement st = null;
         ResultSet rs = null;
         int contatore = 0;
         
         List<Annuncio> risultati = new ArrayList<>();
         try {
             con = DriverManager.getConnection(url, username, password);
-            st = con.createStatement();
 
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String oggiFormattato = DBformat.format(oggiMeno6Mesi);
             
             int firstEl=pageNum*9; //primo elemento della pagina
             int lastEl=(pageNum*9)+9; //ultimo elemento della pagina
-
-            //query che restituisce gli elementi della pagina
-            rs = st.executeQuery("SELECT * FROM (SELECT annuncio.id, titolo, descrizione, immagine, data, prezzo, numerotelefono, email, idutente, ROW_NUMBER() OVER( ORDER BY data DESC) rn FROM annuncio WHERE data > "+"'" + oggiFormattato +"'WHERE rn BETWEEN '" + firstEl +"' AND '"+ lastEl +"'");
-
+            st = con.prepareStatement("SELECT * FROM (SELECT annuncio.id, titolo, descrizione, immagine, data, prezzo, numerotelefono, email, idutente, ROW_NUMBER() OVER (ORDER BY data DESC) rn FROM annuncio WHERE data > ?) WHERE rn BETWEEN ?  AND ? ");
+            st.setString(1, oggiFormattato);
+            st.setInt(2, firstEl);
+            st.setInt(3, lastEl);
+            rs = st.executeQuery();
             while (rs.next() && contatore < 9) {
-                contatore++;
-                Long id = rs.getLong("id");
+                
+            	Long id = rs.getLong("id");
                 String titolo = rs.getString("titolo");
                 String descrizione = rs.getString("descrizione");
                 String immagine = rs.getString("immagine");
@@ -173,6 +175,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
 
+                System.out.println(id);
                 
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
                 Date datainserzione = new Date();
@@ -188,6 +191,7 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 Annuncio annuncio = new Annuncio(id, titolo, descrizione, immagine, prezzo, numeroTelefono, email, insertore);
                 annuncio.setDatainserzione(datainserzione);
                 risultati.add(annuncio);
+                contatore++;
             }
             if (contatore == 0) {
                 System.out.print("Il result set non ha elementi ultimi annunci");
@@ -301,7 +305,48 @@ public class JDBCAnnuncioService implements AnnuncioService {
         }
         return risultati;
     }
-
+    public double numAnnunci(Date ultimi6mesi) {
+    	Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            con = DriverManager.getConnection(url, username, password);
+            st = con.prepareStatement("SELECT COUNT (*) \"Total\" FROM annuncio WHERE data > ?");//form sbagliata 
+            
+            DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+            String ultimi6mesiform = DBformat.format(ultimi6mesi);
+            
+            st.setString(1, ultimi6mesiform);
+            rs = st.executeQuery();
+            if (rs.next()) {
+            	return rs.getDouble("Total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new BusinessException("Errore durante la ricerca degli annunci", e);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException e) {
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+        return 0;
+    }
+    
 //funzione che restituisce tutti gli annunci creati dall'utente
     public List<Annuncio> TuttiAnnunciCreatiDaMe(long idUtente) {
         Connection con = null;

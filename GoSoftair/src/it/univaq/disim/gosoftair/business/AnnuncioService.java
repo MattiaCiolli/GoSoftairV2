@@ -13,4 +13,5 @@ public interface AnnuncioService {
 	List<Annuncio> findLastAnnunciByUserID (Date oggi, long userID) throws BusinessException;
 	List<Annuncio> TuttiAnnunciCreatiDaMe(long idUtente);
 	List<Annuncio> visualizzazioneBachecaAnnunci (Date oggi, long userID, int pageNum);
+	double numAnnunci(Date ultimi6mesi);
 }

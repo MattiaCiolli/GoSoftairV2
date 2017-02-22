@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.lang.Math;
 
 
 public class BachecaAnnunciViewServlet extends HttpServlet {
@@ -37,17 +38,20 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
         
         HttpSession session=request.getSession();
         long idUtente = (Long) session.getAttribute("id");
+        int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        
         
     	Calendar data = Calendar.getInstance();
     	data.add(Calendar.MONTH, -6);
     	Date oggiMeno6Mesi = data.getTime();
         
-        int pageNum=0;
-        
         List<Annuncio> listaAnnunci = annuncioService.visualizzazioneBachecaAnnunci(oggiMeno6Mesi, idUtente, pageNum);
         
         request.setAttribute("listaAnnunci", listaAnnunci);
         
+       double numAnnunci = annuncioService.numAnnunci(oggiMeno6Mesi);  
+       int numeroPagine = (int)Math.ceil(numAnnunci/9);
+       request.setAttribute("numeroPagine", numeroPagine - 1);
 
         String idLetto = request.getParameter("idAnnuncio");
         if(idLetto !=null ){

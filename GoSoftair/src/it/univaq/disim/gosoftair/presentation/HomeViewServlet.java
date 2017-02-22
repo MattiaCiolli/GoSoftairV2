@@ -32,7 +32,9 @@ public class HomeViewServlet extends HttpServlet {
 				.getInstance();
 		EventoService eventoService = factory.getEventoService();
 		List<Evento> eventi;
-		eventi = eventoService.findLastEvent(oggi, 7); // il 7 in findLastEvent
+		
+		System.out.println(oggi);
+		eventi = eventoService.findLastEvent(oggi, 7);// il 7 in findLastEvent
 														// è il numero di
 														// eventi da cercare di
 														// caricare dal DB

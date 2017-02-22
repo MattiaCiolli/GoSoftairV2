@@ -153,9 +153,9 @@
 				</div>
 				<div class="centra">
 					<ul class="pagination">
-						<li class="active"><a href="#">1</a></li>
-						<li><a
-							href="${pageContext.request.contextPath}/titles/bachecaAnnunci2.jsp">2</a></li>
+						<c:forEach var="i" begin="0" end="${numeroPagine}">							
+							<li><a href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?pageNum=<c:out value="${i}"/>"><c:out value="${i}"/></a></li>						
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
