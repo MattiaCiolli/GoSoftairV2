@@ -19,9 +19,7 @@ public class EsciDallaSquadraServlet extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		long idEvento = Long.parseLong(request.getParameter("idEvento"));
-		System.out.println(idEvento);
 		long idUtente = Long.parseLong(request.getParameter("idUtente"));
-		System.out.println(idUtente);
 		
 		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
 		SquadreService squadreService = factory.getSquadreService();

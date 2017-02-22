@@ -224,7 +224,7 @@
 		<% if (session.getAttribute("username") != null) { %>
 		<div class="row">
 			<div class="col-md-1">
-				<img src="${pageContext.request.contextPath}/resources/img/profile_images/${utente.immagineProfilo}" class="img-responsive">
+				<img src="${pageContext.request.contextPath}/resources/img/profile_images/${utenteLoggato.immagineProfilo}" class="img-responsive">
 			</div>
 			<div class="col-md-7">
 				<form id="myForm"
@@ -286,6 +286,7 @@
 						if(elementToRemove.length == 1) {
 							elementToRemove.remove();
 						}
+						window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
 				    };
 				});
 			}
@@ -303,6 +304,7 @@
 						if(elementToRemove.length == 1) {
 							elementToRemove.remove();
 						}
+						window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
 				    };
 				});
 			}
@@ -326,7 +328,6 @@
 		    });
 		
 		$("#annullaIscrizione").click(function() {
-			console.log("ciao");
 			$.post("${pageContext.request.contextPath}/evento/esci", { idEvento:"${evento.id}", idUtente:"${utenteLoggato.id}" }, function(result) {
 				if(result == 1) {
 					window.location.replace("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}");
@@ -342,7 +343,7 @@
 		function activeEvent() {
 			$.post("${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}", function(result){
 				if(result == 1) {
-					document.location.href = "${pageContext.request.contextPath}/evento/incorso?idEvento=${evento.id}";
+					window.location.replace("${pageContext.request.contextPath}/evento/incorso?idEvento=${evento.id}");
 				}
 			});
 		}
