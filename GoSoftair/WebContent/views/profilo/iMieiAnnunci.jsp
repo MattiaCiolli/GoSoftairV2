@@ -29,7 +29,7 @@
 				</div>
 				<div class="modal-body row">
 					<div class="col-md-6 col-lg-6">
-						<div class="list-group">
+						<div class="list-group nelmodal">
 							<div class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
 								<p class="list-group-item-text" id="titolo"></p>

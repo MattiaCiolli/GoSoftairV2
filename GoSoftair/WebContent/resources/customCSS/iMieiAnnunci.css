@@ -17,6 +17,11 @@
 }
 
 @font-face {
+    font-family: oswaldRegular;
+    src: url(../fonts/Oswald-Regular.ttf);
+}
+
+@font-face {
     font-family: 'oswald_stencilbold';
     src: url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff2') format('woff2'),
     url('../fonts/oswald-stencil-bold-586ea9ec262c2-webfont.woff') format('woff');
@@ -84,6 +89,19 @@
     }
 }
 
+body {
+	font-family: oswaldRegular;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+    color: #767a70;
+}
+
+.nelmodal {
+	font-family: 'oswaldRegular';
+	border-color: #FFFFFF;
+	color: rgb(118, 122, 112);
+	text-transform: none;
+}
 
 .titolo{
     text-align: center;

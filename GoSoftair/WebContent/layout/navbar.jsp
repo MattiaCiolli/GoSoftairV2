@@ -36,13 +36,13 @@
 										method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
 											<label class="sr-only" for="username">Username</label> <input
-												type="text" class="form-control" id="email" name="username"
+												type="text" class="form-control a" id="email" name="username"
 												placeholder="Username" required> <div style="color: #FF0000;">${errorMessageUser}</div>
 												
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="pwd">Password</label> <input
-												type="password" class="form-control" id="password"
+												type="password" class="form-control a" id="password"
 												name="password" placeholder="Password" required><div style="color: #FF0000;">${errorMessagePwd}</div>
 																					
 										</div>

@@ -52,15 +52,10 @@
 					<h4 class="modal-title" id="myModalLabel">
 						<b>Dettagli annuncio</b>
 					</h4>
-					<div id="loadingedit">
-						<img
-							src='${pageContext.request.contextPath}/resources/fileinput/img/loading.gif'
-							alt='loading...' />
-					</div>
 				</div>
 				<div class="modal-body row">
 					<div class="col-md-6 col-lg-6">
-						<div class="list-group">
+						<div class="list-group nelmodal">
 							<a href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
 								<p class="list-group-item-text" id="titolo"></p>
