@@ -74,12 +74,10 @@ public class CreaAnnuncioServlet extends HttpServlet {
 			immagine = fileName;
 
 			String outputPath = savePath + File.separator + "annunci" + File.separator + "big";
-			System.out.println("write 1: "+outputPath + File.separator + "original" + fileName);
 			filePart.write(savePath + File.separator + "original" + fileName);
 			ImagesMap.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
 
 			outputPath = savePath + File.separator + "annunci" + File.separator + "small";
-			System.out.println("write 2: "+outputPath + File.separator + "original" + fileName);
 			ImagesMap.generateImagesCard(outputPath, fileName, 350, 200, savePath, true);
 			
 		}
