@@ -105,7 +105,8 @@ public class EventoViewServlet extends HttpServlet {
 		}
 		request.setAttribute("percorso1", "Elenco partite");
 		request.setAttribute("link1", "/evento/bachecaEventi?pageNum=0");
-		request.setAttribute("percorso2", " > Dettagli Evento");
+		request.setAttribute("percorso2", " > Dettagli Partita");
+		request.setAttribute("link2", "/evento/dettagli?idEvento="+request.getParameter("idEvento"));
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/evento.jsp");
 		dispatcher.forward(request, response);

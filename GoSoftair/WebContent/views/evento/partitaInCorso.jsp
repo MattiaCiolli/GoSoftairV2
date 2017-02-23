@@ -16,13 +16,13 @@
 <link href="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/customCSS/event.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/customCSS/partitaInCorso.css" rel="stylesheet">
-
+<link href="${pageContext.request.contextPath}/resources/customCSS/registerOrLogin.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/jquery-ui/js/jquery-ui.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 
-
 </head>
+
 <body>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -36,7 +36,7 @@
 				<div class="modal-body">
 					<p>
 						Clicca su "Cancella Evento" se vuoi eliminare l'evento
-						oppure "Aggiorna Data" se vuoi riprorlo con una nuova data.
+						oppure "Riproponi Evento" se vuoi riproporlo con leggere modifiche.
 					</p>
 				</div>
 				<div class="modal-footer">

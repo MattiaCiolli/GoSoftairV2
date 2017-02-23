@@ -46,7 +46,10 @@ public class UpdateEventoServlet extends HttpServlet {
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = eventoService.findEventoByPK(idEvento);
 		
-		request.setAttribute("percorso", "Partite > Aggiorna partita");
+		request.setAttribute("percorso1", "Partite");
+		request.setAttribute("percorso2", " > Aggiorna partita");
+		request.setAttribute("link1", "/evento/bachecaEventi?pageNum=0");
+		request.setAttribute("link2", "/evento/update?idEvento="+idEvento);
 		request.setAttribute("evento", evento);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/aggiornaEvento.jsp");
