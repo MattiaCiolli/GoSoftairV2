@@ -263,6 +263,12 @@
 	<%@include file="/layout/footer.jsp"%>
 </body>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&callback=initMap" async defer></script>
+
+<!-- In questo caso si è fatto uno strappo alla regola di mettere il javascript in un file separato .js
+	Il motivo sta nel fatto che ci sono molti valori che vengono inseriti all'interno del codice javascript
+	tramite elaborazione della java server page. Quindi si è presa la strada che sembra più logica.
+-->
+
 <script>
 		function initMap() {
 		    var uluru = { lat: ${evento.lat}, lng: ${evento.lon} };
