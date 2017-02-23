@@ -96,26 +96,36 @@
 			<div class="row ">
 				<div class="col-md-4">
 					<div class="list-group gruppolista">
-						<a href="${pageContext.request.contextPath}/profilo/leMieIscrizioni" class="list-group-item itemlista">Le mie Iscrizioni</a> 
-						<a href="${pageContext.request.contextPath}/profilo/iMieiAnnunci" class="list-group-item itemlista">I miei Annunci</a> 
-						<a href="${pageContext.request.contextPath}/profilo/leMiePartite" class="list-group-item itemlista">Le mie Partite</a> 
-						<a href="${pageContext.request.contextPath}/profilo/updateUtente" class="list-group-item itemlista">Modifica Profilo</a>
+						<a
+							href="${pageContext.request.contextPath}/profilo/leMieIscrizioni"
+							class="list-group-item itemlista">Le mie Iscrizioni</a> <a
+							href="${pageContext.request.contextPath}/profilo/iMieiAnnunci"
+							class="list-group-item itemlista">I miei Annunci</a> <a
+							href="${pageContext.request.contextPath}/profilo/leMiePartite"
+							class="list-group-item itemlista">Le mie Partite</a> <a
+							href="${pageContext.request.contextPath}/profilo/updateUtente"
+							class="list-group-item itemlista">Modifica Profilo</a>
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="panel panel-default">
 						<div class="panel-body contenitoreProfilo">
 							<div class="col-xs-12 col-md-12">
-								<form class="form-horizontal contenitoreForm" role="form" action="${pageContext.request.contextPath}/profilo/updateUtente" method="post" enctype="multipart/form-data">
+								<form class="form-horizontal contenitoreForm" role="form"
+									action="${pageContext.request.contextPath}/profilo/updateUtente"
+									method="post" enctype="multipart/form-data">
 									<input id="nome" type="hidden" value="${utente.nome}">
 									<input id="cognome" type="hidden" value="${utente.cognome}">
 									<input id="username" type="hidden" value="${utente.nickname}">
 									<input id="email" type="hidden" value="${utente.email}">
-									<input id="documentoValido" type="hidden" value="${utente.documentoValido}"> <input id="password" type="hidden" value="${utente.password}">
+									<input id="documentoValido" type="hidden"
+										value="${utente.documentoValido}"> <input
+										id="password" type="hidden" value="${utente.password}">
 									<div class="row">
 										<div class="col-md-2">
 											<div class="kv-avatar center-block">
-												<input id="immagine" name="immagine" type="file" class="file-loading">
+												<input id="immagine" name="immagine" type="file"
+													class="file-loading">
 											</div>
 											<div id="kv-avatar-errors-2" class="center-block"></div>
 										</div>
@@ -242,9 +252,7 @@
 				<c:otherwise>
 					<c:forEach items="${ultimiAnnunci}" var="annuncio">
 						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-							<a class="clicca"
-								href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}"
-								data-toggle="modal" data-target="#modal">
+							<a class="clicca" href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
 								<div class="cartaScura">
 									<img
 										src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"
@@ -267,10 +275,11 @@
 		</section>
 	</div>
 	</div>
-	
+
 	<%@include file="/layout/footer.jsp"%>
 	<!-- fine sezione ultimi annunci -->
-	<script src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
 </body>
 
 </html>
