@@ -56,13 +56,16 @@
 							<div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Titolo:</h4>
 								<p class="list-group-item-text" id="titolo"></p>
-							</div> <div href="#" class="list-group-item">
+							</div>
+							<div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Descrizione:</h4>
 								<p class="list-group-item-text" id="descrizione"></p>
-							</div> <div href="#" class="list-group-item">
+							</div>
+							<div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Prezzo:</h4>
 								<p class="list-group-item-text" id="prezzo"></p>
-							</div><div href="#" class="list-group-item">
+							</div>
+							<div href="#" class="list-group-item">
 								<h4 class="list-group-item-heading">Data inserzione:</h4>
 								<p class="list-group-item-text" id="data"></p>
 							</div>
@@ -93,36 +96,26 @@
 			<div class="row ">
 				<div class="col-md-4">
 					<div class="list-group gruppolista">
-						<a
-							href="${pageContext.request.contextPath}/profilo/leMieIscrizioni"
-							class="list-group-item itemlista">Le mie Iscrizioni</a> <a
-							href="${pageContext.request.contextPath}/profilo/iMieiAnnunci"
-							class="list-group-item itemlista">I miei Annunci</a> <a
-							href="${pageContext.request.contextPath}/profilo/leMiePartite"
-							class="list-group-item itemlista">Le mie Partite</a> <a
-							href="${pageContext.request.contextPath}/profilo/updateUtente"
-							class="list-group-item itemlista">Modifica Profilo</a>
+						<a href="${pageContext.request.contextPath}/profilo/leMieIscrizioni" class="list-group-item itemlista">Le mie Iscrizioni</a> 
+						<a href="${pageContext.request.contextPath}/profilo/iMieiAnnunci" class="list-group-item itemlista">I miei Annunci</a> 
+						<a href="${pageContext.request.contextPath}/profilo/leMiePartite" class="list-group-item itemlista">Le mie Partite</a> 
+						<a href="${pageContext.request.contextPath}/profilo/updateUtente" class="list-group-item itemlista">Modifica Profilo</a>
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="panel panel-default">
 						<div class="panel-body contenitoreProfilo">
 							<div class="col-xs-12 col-md-12">
-								<form class="form-horizontal contenitoreForm" role="form"
-									action="${pageContext.request.contextPath}/profilo/updateUtente"
-									method="post" enctype="multipart/form-data">
+								<form class="form-horizontal contenitoreForm" role="form" action="${pageContext.request.contextPath}/profilo/updateUtente" method="post" enctype="multipart/form-data">
 									<input id="nome" type="hidden" value="${utente.nome}">
 									<input id="cognome" type="hidden" value="${utente.cognome}">
 									<input id="username" type="hidden" value="${utente.nickname}">
 									<input id="email" type="hidden" value="${utente.email}">
-									<input id="documentoValido" type="hidden"
-										value="${utente.documentoValido}"> 
-									<input	id="password" type="hidden" value="${utente.password}">
+									<input id="documentoValido" type="hidden" value="${utente.documentoValido}"> <input id="password" type="hidden" value="${utente.password}">
 									<div class="row">
 										<div class="col-md-2">
 											<div class="kv-avatar center-block">
-												<input id="immagine" name="immagine" type="file"
-													class="file-loading">
+												<input id="immagine" name="immagine" type="file" class="file-loading">
 											</div>
 											<div id="kv-avatar-errors-2" class="center-block"></div>
 										</div>
@@ -181,47 +174,49 @@
 
 		<!-- Inizio Sezione ultimi eventi -->
 		<section>
-			<div class="row UltimiEventi">
-				<h1 class="text-center titolo">Prossime Partite</h1>
+		<div class="row UltimiEventi">
+			<h1 class="text-center titolo">Prossime Partite</h1>
 
-				<c:choose>
-					<c:when test="${sezioneEventiVuota}">
-						<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
-							<div class="sottotitoloProfilo text-center">
-								Non sei iscritto a nessuna partita, che cosa stai aspettando?</br> <a
-									href="${pageContext.request.contextPath}/evento/bachecaEventi?pageNum=0""
-									class="btn bottonenav bottone123">Guarda la bacheca!</a>
-							</div>
-						</div>
-					</c:when>
-					<c:otherwise>
+			<c:choose>
+				<c:when test="${sezioneEventiVuota}">
+					<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
 						<div class="sottotitoloProfilo text-center">
-							Preparati, lo scontro è vicino!</br>
+							Non sei iscritto a nessuna partita, che cosa stai aspettando?</br> <a
+								href="${pageContext.request.contextPath}/evento/bachecaEventi?pageNum=0"
+								"
+									class="btn bottonenav bottone123">Guarda la
+								bacheca!</a>
 						</div>
-						<c:forEach items="${ultimiEventi}" var="evento">
-							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-								<a
-									href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
-									<div class="cartaScura">
-										<img
-											src="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}"
-											class="img-responsive largo">
-										<div class="contenuto">
-											<div>
-												<p class="nome">${evento.titolo}</p>
-											</div>
-											<div>
-												<p class="descrizione">${evento.descrizione}</p>
-											</div>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="sottotitoloProfilo text-center">
+						Preparati, lo scontro è vicino!</br>
+					</div>
+					<c:forEach items="${ultimiEventi}" var="evento">
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a
+								href="${pageContext.request.contextPath}/evento/dettagli?idEvento=${evento.id}">
+								<div class="cartaScura">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}"
+										class="img-responsive largo">
+									<div class="contenuto">
+										<div>
+											<p class="nome">${evento.titolo}</p>
+										</div>
+										<div>
+											<p class="descrizione">${evento.descrizione}</p>
 										</div>
 									</div>
-								</a>
-							</div>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</div>
-		
+								</div>
+							</a>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
+
 		</section>
 		<!-- fine sezione ultimi eventi -->
 
@@ -230,50 +225,52 @@
 
 		<section>
 
-			<div class="row UltimiAnnunci">
-				<h5 class="text-center titolo">Ultimi Annunci Inseriti</h5>
+		<div class="row UltimiAnnunci">
+			<h5 class="text-center titolo">Ultimi Annunci Inseriti</h5>
 
-				<c:choose>
-					<c:when test="${sezioneAnnunciVuota}">
-						<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
-							<div class="sottotitoloProfilo text-center">
-								Vendi qui l'attrezzatura che non ti serve più </br> <a
-									href="${pageContext.request.contextPath}/annuncio/nuovo"
-									class="btn bottonenav bottone123">Inizia ora!</a>
-							</div>
+			<c:choose>
+				<c:when test="${sezioneAnnunciVuota}">
+					<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
+						<div class="sottotitoloProfilo text-center">
+							Vendi qui l'attrezzatura che non ti serve più </br> <a
+								href="${pageContext.request.contextPath}/annuncio/nuovo"
+								class="btn bottonenav bottone123">Inizia ora!</a>
 						</div>
-					</c:when>
+					</div>
+				</c:when>
 
-					<c:otherwise>
-						<c:forEach items="${ultimiAnnunci}" var="annuncio">
-							<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
-								<a class="clicca"
-									href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}" data-toggle="modal" data-target="#modal">
-									<div class="cartaScura">
-										<img
-											src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"
-											class="img-responsive largo">
-										<div class="contenuto">
-											<div>
-												<p class="nome">${annuncio.titolo}</p>
-											</div>
-											<div>
-												<p class="descrizione">${annuncio.descrizione}</p>
-											</div>
+				<c:otherwise>
+					<c:forEach items="${ultimiAnnunci}" var="annuncio">
+						<div class="col-lg-4 col-xs-12 col-md-6 col-sm-6">
+							<a class="clicca"
+								href="${pageContext.request.contextPath}/profilo?idAnnuncio=${annuncio.id}"
+								data-toggle="modal" data-target="#modal">
+								<div class="cartaScura">
+									<img
+										src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"
+										class="img-responsive largo">
+									<div class="contenuto">
+										<div>
+											<p class="nome">${annuncio.titolo}</p>
+										</div>
+										<div>
+											<p class="descrizione">${annuncio.descrizione}</p>
 										</div>
 									</div>
-								</a>
-							</div>
-						</c:forEach>
-					</c:otherwise>
-				</c:choose>
-			</div>
-
+								</div>
+							</a>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
 		</section>
-
-		<!-- fine sezione ultimi annunci -->
-		<script
-				src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
+	</div>
+	</div>
+	
+	<%@include file="/layout/footer.jsp"%>
+	<!-- fine sezione ultimi annunci -->
+	<script src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
 </body>
-<%@include file="/layout/footer.jsp"%>
+
 </html>
