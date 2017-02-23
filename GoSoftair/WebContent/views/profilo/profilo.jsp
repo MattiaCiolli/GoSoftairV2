@@ -189,7 +189,7 @@
 						<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
 							<div class="sottotitoloProfilo text-center">
 								Non sei iscritto a nessuna partita, che cosa stai aspettando?</br> <a
-									href="${pageContext.request.contextPath}/evento/bachecaPartite"
+									href="${pageContext.request.contextPath}/evento/bachecaEventi?pageNum=0""
 									class="btn bottonenav bottone123">Guarda la bacheca!</a>
 							</div>
 						</div>
