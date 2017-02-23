@@ -69,13 +69,19 @@ public class CreaUtenteFBServlet extends HttpServlet {
     		String original = request.getServletContext().getRealPath("/") + File.separator + "resources"+ File.separator +"img" ;
     		File output = new File(original + File.separator + "original" + immagine);
     		ImageIO.write(c, "jpg", output );
-			ImagesMap.generaImmaginiBordate(savePath, immagine, original, true);
+			ImagesMap.generaImmaginiBordate(savePath, immagine, original, false);
+			
+    		String savePath2 = request.getServletContext().getRealPath("/") + File.separator +"resources"+ File.separator +"img" + File.separator + "profili" + File.separator + "big";
 
+			ImagesMap.generateImagesCard(savePath2, immagine, 160, 160, original, true);
+			
             Utente utente = new Utente(nome, cognome, email, nome+cognome, id, "N.D.", immagine);
             utenteService.create(utente);
             
-            session.setAttribute("username", utente.getNickname()); 
-            session.setAttribute("id", utente.getId()); 
+            Utente utenteCreato = utenteService.userByEmail(fbProfileData.get("email"));
+            
+            session.setAttribute("username", utenteCreato.getNickname()); 
+            session.setAttribute("id", utenteCreato.getId()); 
             response.sendRedirect(request.getContextPath() + "/home");
         }
     }
