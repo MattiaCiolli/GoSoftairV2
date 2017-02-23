@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -52,17 +54,13 @@
 			<div class="col-md-12 text-center">
 				<h1 class="title-event">${evento.titolo}</h1>
 			</div>
-			<c:choose>
-				<c:when test="${termina_evento}">
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<button type="button" class="btn bottonenav" id="end-event"
-								data-toggle="modal" data-target="#myModal">Termina
-								l'evento</button>
-						</div>
+			<c:if test="${termina_evento}">
+				<div class="row">
+					<div class="col-md-12 text-center">
+							<button type="button" class="btn bottonenav" id="end-event" data-toggle="modal" data-target="#myModal">Termina l'evento</button>
 					</div>
-				</c:when>
-			</c:choose>
+				</div>
+			</c:if>	
 		</div>
 	</div>
 	</section>

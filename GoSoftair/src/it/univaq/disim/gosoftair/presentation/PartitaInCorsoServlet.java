@@ -36,9 +36,12 @@ public class PartitaInCorsoServlet extends HttpServlet {
 		request.setAttribute("evento", evento);
 		Utente organizzatore = utenteService.utenteCreatoreEventByIdEvento(evento.getId());
 		evento.setOrganizzatore(organizzatore);
+		
 		if(Long.parseLong(session.getAttribute("id").toString()) == evento.getOrganizzatore().getId())
 			request.setAttribute("termina_evento", true);
-		
+		else
+			request.setAttribute("termina_evento", false);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/partitaInCorso.jsp");
 		dispatcher.forward(request, response);
 		
