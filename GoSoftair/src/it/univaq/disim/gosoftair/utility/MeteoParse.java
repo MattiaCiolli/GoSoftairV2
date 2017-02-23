@@ -20,10 +20,19 @@ import java.util.*;
 
 /**
  * Created by Davide on 10/02/2017.
+ * La classe MeteoParse si occupa di richiamare il servizio meteo dal sito ilmeteo.net
+ * e di elaborare la risposta inserendola in opportune strutture dati
  */
 public class MeteoParse {
 
 
+    /**
+     * Il metodo leggiDatiMeteo si occupa di ricavare le informazioni meteo relative alle tre ore successive
+     * alla data e l'ora indica nel parametro dataEventoCompleta (di tipo Date), elaborando l'XML puntato dal parametro
+     * urlMeteo (di tipo String).
+     * Il servizio rende disponibili le previsioni al massimo quattro giorni prima.
+     *
+    **/
     public  Map<String, Collection<String>> leggiDatiMeteo(Date dataEventoCompleta, String urlMeteo){
 
         String dataEvento = new SimpleDateFormat("yyyyMMdd").format(dataEventoCompleta);
@@ -102,18 +111,26 @@ public class MeteoParse {
             e.printStackTrace();
         }
 
-        //esempio di prelevamento da map completa
-        //System.out.println(meteo.get("ora1"));
-        //System.out.println(meteo.get("ora2"));
-        //System.out.println(meteo.get("ora3"));
-
         return meteo;
 
     }
 
+
+    /**
+     * La funzione calcolaUrlMeteo si occupa di ricavare l'url che punta all'XML relativo al comune indicato nel parametro
+     * comune ( di tipo String) che si trova nella provincia indicata nel parametro provincia (di tipo String).
+     * Questa funzione è necessaria poiche l'API meteo utilizzata in genere fornisce il servizio solo per uno specifico
+     * comune a cui è assegnato un codice, mentre per l'applicazione Gosoftair servono previsioni meteo per il luogo dove si
+     * svolgerà la partita che potenzialmente, può avvenire in ogni comune d'Italia.
+     * Attraverso il parse di due documenti XML, il primo per identificare il codice della provincia, il secondo per
+     * identificare il codice del comune, si calcola l'url effettivo ritornato, del file XML con i dati meteo desiderati.
+     * Dato che i due documenti XML analizzati hanno la stessa identica struttura, si utilizza solo la funzione trovacodice
+     * che li analizza entrambi.
+     *
+    **/
     public String calcolaUrlMeteo(String provincia, String comune){
-        String codiceProvincia= ""; //6010 per la provincia L'Aquila
-        String codiceCumune = "";  //30072 per il comune di L'Aquila
+        String codiceProvincia= "";
+        String codiceCumune = "";
 
         String urlTutteProvincieIta = "http://api.ilmeteo.net/index.php?api_lang=it&pais=20&affiliate_id=xh29u2qrnhr8";
         codiceProvincia = this.trovacodice(urlTutteProvincieIta, provincia);
@@ -123,14 +140,17 @@ public class MeteoParse {
 
         String urlFinaleComune = "http://api.ilmeteo.net/index.php?api_lang=it&localidad="+codiceCumune+"&affiliate_id=xh29u2qrnhr88&v=2.0&h=1";
 
-        //System.out.println("Codice provincia: "+codiceProvincia);
-        //System.out.println("Codice comune: "+codiceCumune);
-        //System.out.println("Url da usare: "+urlFinaleComune);
-
         return urlFinaleComune;
 
     }
 
+
+    /**
+     * Effettua l'analisi del file XML puntato dalla url nel parametro urlDoveCercare ( di tipo String )
+     * cercando il all'interno di esso il contenuto del parametro cosaCercare ( di tipo String ).
+     * Il codice trovato viene quindi ritonato.
+     *
+     **/
     private String trovacodice(String urlDoveCercare, String cosaDaCercare){
         String codiceTrovato = "";
 
@@ -164,6 +184,14 @@ public class MeteoParse {
         return  codiceTrovato;
     }
 
+
+    /**
+     * La funzione recuperaSimbolo si occupa di ricavere dal codice fornito dal servio meteo, la classe css
+     * per i simboli meteo e simboli del vento utilizzati per il progetto.
+     * Utilizzando una funzione esterna si rende in codice più flessibile a scelte future che implicano
+     * il cambiamenti di questi simboli.
+     *
+     */
     public String recuperaSimbolo(String simbolo){
 
         Map<String, String> simboli = new HashMap<>();
@@ -205,6 +233,14 @@ public class MeteoParse {
     }
 
 
+    /**
+     * Il metodo geocoding elaborando le coordinate geografiche passategli in lat e lng ( di tipo String)
+     * ritorna la provincia e il comune presente a quelle cordinate.
+     * Questo viene fatto richiamando un servizio di google maps che restituisce un JSON con molti dettagli
+     * relative a quelle cordinate. Una volta ottenuta la provincia da questa struttura dati viene controllata e nel
+     * caso riadattata a un formato consono per essere utilizzata dal servizio meteo.
+     *
+     */
     public ArrayList<String> geocoding(String lat, String lng) {
 
 

@@ -18,10 +18,17 @@ public class ResizeImage {
 	private static final int IMG_HEIGHT = 56;
 
 
+	/**
+	 * La funzione generateImageCard prende l'immagine situata in commonPath (di tipo String) e ne fa un resize
+	 * proporzionale e se necessario un successivo taglio al fine di arrivare alle dimensione stabilite dai
+	 * parametri larghezzaVoluta e altezzaVoluta ( di tipo int ). Salva quindi l'immagine ridimensionatra in
+	 * savePath ( di tipo String ). Con l'ultimo parametro cancellaOriginale ( di tipo Boolean ) si
+	 * puo indicare se si vuole salvare una copia dell'immagine originale  prima del ridimensionamento.
+	 *
+     */
 	public static void generateImagesCard(String savePath, String fileName, int larghezzaVoluta, int altezzaVoluta, String commonPath, Boolean cancellaOriginale) {
 		BufferedImage img = null;
 
-		Color transparent = new Color(0, 0, 0, 0);
 
 		System.out.println(commonPath + File.separator + "original" + fileName);
 		try {
@@ -66,10 +73,6 @@ public class ResizeImage {
 			}
 		}
 
-
-
-
-
 		g.dispose();
 
 		try {
@@ -82,6 +85,14 @@ public class ResizeImage {
 	}
 
 
+	/**
+	 * La funzione generaImmaginiBordate ha un funzionamento molti simile alla funzione generateImageCard, con la differenza
+	 * che le immagini in input vengono ridimensionate a delle dimensioni fisse e che se ne fanno tre copie con un bordino
+	 * colorato.
+	 * Queste immagini sono utilizzate come marker su alcune cartine utilizzate nell'applicazione.
+	 *
+	 *
+     */
 	public static void generaImmaginiBordate(String savePath, String inputNameImage, String commonPath, Boolean cancellaOriginale) {
 		BufferedImage img = null;
 		Color red = new Color(247, 34, 34);
