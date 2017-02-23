@@ -30,7 +30,7 @@
 		<c:when test="${nessunaIscrizione}">
 			<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12">
 				<div class="avvertenza">Non sei iscritto a nessuna partita, che cosa stai aspettando?</br>
-					<a href="${pageContext.request.contextPath}/evento/bachecaPartite" class="btn bottonenav bottoneAvvertenza">Guarda la bacheca!</a>
+					<a href="${pageContext.request.contextPath}/evento/bachecaEventi?pageNum=0" class="btn bottonenav bottoneAvvertenza">Guarda la bacheca!</a>
 				</div>
 			</div>
 		</c:when>
