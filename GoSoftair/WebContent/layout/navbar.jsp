@@ -156,7 +156,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 navigazione">
-				<p><a class="linknav" href="${pageContext.request.contextPath}/home">Home</a> > <a class="linknav" href="${pageContext.request.contextPath}${link1}">${percorso1}</a>${percorso2}</p>
+				<p><a class="linknav" href="${pageContext.request.contextPath}/home">Home</a> > <a class="linknav" href="${pageContext.request.contextPath}${link1}">${percorso1}</a><a class="linknav" href="${pageContext.request.contextPath}${link2}">${percorso2}</a></p>
 			</div>
 		</div>
 	</div>

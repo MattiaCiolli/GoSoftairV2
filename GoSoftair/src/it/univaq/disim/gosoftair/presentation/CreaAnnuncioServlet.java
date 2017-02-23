@@ -49,7 +49,7 @@ public class CreaAnnuncioServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("percorso", "Mercatino > Crea annuncio");
+		request.setAttribute("percorso1", "Crea Annuncio");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/annuncio/creaAnnuncio.jsp");
         dispatcher.forward(request, response);
 	}
@@ -92,6 +92,8 @@ public class CreaAnnuncioServlet extends HttpServlet {
 		Annuncio annuncio=new Annuncio(titolo,descrizione, immagine, prezzo, numeroTelefono, email, insertore, data);
         AnnuncioService annuncioService=factory.getAnnuncioService();
         annuncioService.create(annuncio);
+
+		request.setAttribute("percorso1", "Crea Annuncio");
         
         response.sendRedirect(request.getContextPath() + "/views/annuncio/nuovoAnnuncio.jsp");
 	}

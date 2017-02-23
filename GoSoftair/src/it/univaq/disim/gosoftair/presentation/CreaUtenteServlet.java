@@ -55,12 +55,10 @@ public class CreaUtenteServlet extends HttpServlet {
 			fileName = new File(fileName).getName();
 			immagine = fileName;
 			String outputPath = savePath + File.separator + "profili" + File.separator + "big";
-			System.out.println("write 1: "+outputPath + File.separator + "original" + fileName);
 			filePart.write(savePath + File.separator + "original" + fileName);
 			ImagesMap.generateImagesCard(outputPath, fileName, 160, 160, savePath, false);
 
 			outputPath = savePath + File.separator + "profili" + File.separator + "small";
-			System.out.println("write 2: "+outputPath + File.separator + "original" + fileName);
 			ImagesMap.generaImmaginiBordate(outputPath, fileName, savePath, true);
 
 
@@ -79,7 +77,7 @@ public class CreaUtenteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    	request.setAttribute("percorso", "Registrazione");
+		request.setAttribute("percorso1", "Registrati");
     	RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/registrazione.jsp");
         dispatcher.forward(request, response);
 

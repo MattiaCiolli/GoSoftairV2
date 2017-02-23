@@ -74,8 +74,8 @@ public class MieiAnnunciViewServlet extends HttpServlet {
             request.setAttribute("date", date);
             request.setAttribute("nessuAnnuncioCreato", nessuAnnuncioCreato);
             request.setAttribute("percorso1", "Profilo");
-            request.setAttribute("percorso2", " > I miei annunci");
             request.setAttribute("link1", "/profilo");
+            request.setAttribute("percorso2", " > I miei annunci");
             dispatcher = request.getRequestDispatcher("/views/profilo/iMieiAnnunci.jsp");
 
             Boolean nonLoggato = true;

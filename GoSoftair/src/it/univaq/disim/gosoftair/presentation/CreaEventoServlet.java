@@ -58,7 +58,7 @@ public class CreaEventoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("percorso", "Partite > Crea partita");
+		request.setAttribute("percorso1", "Crea Partita");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/evento/creaPartita.jsp");
         dispatcher.forward(request, response);
 	}

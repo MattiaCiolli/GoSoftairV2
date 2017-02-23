@@ -58,8 +58,8 @@ public class MieIscrizioniViewServlet extends HttpServlet {
 
         request.setAttribute("nessunaIscrizione", nessunaIscrizione);
         request.setAttribute("percorso1", "Profilo");
-        request.setAttribute("percorso2", " > Le mie iscrizioni");
         request.setAttribute("link1", "/profilo");
+        request.setAttribute("percorso2", " > Le mie iscrizioni");
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/leMieIscrizioni.jsp");
         dispatcher.forward(request, response);
     }

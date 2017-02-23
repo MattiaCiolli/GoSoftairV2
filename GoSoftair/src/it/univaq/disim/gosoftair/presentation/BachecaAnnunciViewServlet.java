@@ -85,7 +85,9 @@ public class BachecaAnnunciViewServlet extends HttpServlet {
         	date.add(sdf.format(annuncio.getDatainserzione()));
         }
         request.setAttribute("date", date);
-        request.setAttribute("percorso", "Mercatino > Bacheca Annunci");
+
+		request.setAttribute("percorso1", "Bacheca Annunci");
+
         dispatcher = request.getRequestDispatcher("/views/annuncio/bachecaAnnunci.jsp");
         dispatcher.forward(request, response);
 
