@@ -163,7 +163,7 @@ $(document)
 
 												minlength : 3,
 
-												maxlength : 100
+												maxlength : 600
 
 											},
 

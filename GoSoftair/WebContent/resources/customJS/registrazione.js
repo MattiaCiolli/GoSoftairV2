@@ -94,7 +94,6 @@ $(document)
 
                                     required: true,
 
-                                    equalTo: "#password"
 
                                 },
 
@@ -162,7 +161,7 @@ $(document)
 
 									required: "Conferma la tua password",
 									
-									equalTo: "Attenzione, hai inserito due password differenti"
+									
 										
 								},
 
