@@ -61,7 +61,7 @@
 							<p class="altroContenuto">
 								GoSoftair unisce la passione di molti giocatori di softair che
 								spontaneamente organizzano <b><a
-									href="${pageContext.request.contextPath}/bachecaPartite"
+									href="${pageContext.request.contextPath}/evento/bachecaEventi?pageNum=0"
 									class="link">partite</a></b>. Partecipa anche tu!
 							</p>
 						</div>
@@ -86,7 +86,7 @@
 							<p class="altroContenuto">
 								Dal tuo profilo puoi gestire le tue partite ed avere accesso
 								completo al <b><a
-									href="${pageContext.request.contextPath}/bachecaAnnunci"
+									href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?pageNum=0"
 									class="link">mercatino</a></b>, dove puoi consultere e inserire
 								annunci di compravendita.
 							</p>
@@ -155,7 +155,7 @@
 					<div
 						class="${classeGrafica[loop.index]} col-lg-4 col-xs-12 col-md-6 col-sm-6">
 						<a
-							href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci">
+							href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?pageNum=0">
 							<div class="cartaScura">
 								<img
 									src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"

@@ -115,7 +115,7 @@ public class CreaEventoServlet extends HttpServlet {
 		EventoService eventoService = factory.getEventoService();
 		Evento evento = new Evento(titolo, descrizione, data, ptoincontro, tipologia, numPartecipanti, 1, immagine, organizzatore, lat, lon);
 		eventoService.create(evento);
-		
+
 		response.sendRedirect(request.getContextPath() + "/views/evento/nuovoEvento.jsp");
 	}
 
