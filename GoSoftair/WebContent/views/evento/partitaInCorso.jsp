@@ -119,7 +119,9 @@
     
     document.getElementById("attach").onclick = function() {attach()};
     document.getElementById("defend").onclick = function() {defend()};
+    document.getElementById("retreat").onclick = function() {retreat()};
     document.getElementById("rest").onclick = function() {rest()};
+
 
 
     function attach() {
@@ -130,8 +132,12 @@
     	immagine = "1";
     }
     
-    function rest() {
+    function retreat() {
     	immagine = "2";
+    }
+    
+    function rest() {
+    	immagine = "";
     }
     
     var intervalID = setInterval( function() {
