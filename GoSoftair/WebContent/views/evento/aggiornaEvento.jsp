@@ -28,7 +28,7 @@
 <!-- js delle pagine crea partita e annuncio -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq8UAokX0-7blk-4iL6RVXrgzPlcS606I&libraries=places&callback=initAutocomplete" async defer></script>
-<script src="${pageContext.request.contextPath}/resources/customJS/creaPartita.js"></script>
+<script src="${pageContext.request.contextPath}/resources/customJS/aggiornaEvento.js"></script>
 
 </head>
 
@@ -106,7 +106,7 @@
 					<div class='col-sm-12 col-md-6 col-lg-6 bg-scr'>
 						<div class="form-group">
 							<label for="Posizione">Posizione:</label> 
-							<input id="pac-input" class="controls" type="text" placeholder="Search Box"> �
+							<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 							<div id="mapcont"></div>
 							<input type="text" class="form-control" name="Posizione" id="Posizione" value="Lat: ${evento.lat}  Long: ${evento.lon}" readonly> 
 							<input hidden type="text" name="Lat" id="Lat" value="${evento.lat}"> 
@@ -114,12 +114,12 @@
 						</div>
 					</div>
 				</div>
-
+<div hidden id="img">${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}</div>
 				<div class="row">
 					<div class='col-sm-4 col-md-4 col-lg-4 limit'>
 						<label for="Immagine">Immagine:</label>
 						<div class="kv-avatar center-block">
-							<input id="Immagine" name="Immagine" type="file" class="file-loading" value="${pageContext.request.contextPath}/resources/img/partite/big/${evento.immagine}">
+							<input id="Immagine" name="Immagine" type="file" class="file-loading"">
 						</div>
 						<div id="kv-avatar-errors-2" class="center-block"></div>
 					</div>

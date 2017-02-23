@@ -23,88 +23,50 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Faith on 03/02/17.
- */
 public class UtenteViewServlet extends HttpServlet {
     
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    	}
+		HttpSession session=request.getSession();
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		long id = (Long) session.getAttribute("id");
 
-        HttpSession session=request.getSession();
-        
-        long id = (Long) session.getAttribute("id");
-        
-        Date oggi=new Date();
+		Date oggi=new Date();
 
-        GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
-        UtenteService utenteService = factory.getUtenteService();
-        AnnuncioService annuncioservice = factory.getAnnuncioService();
-        EventoService eventoService= factory.getEventoService();
+		GosoftairBusinessFactory factory = GosoftairBusinessFactory.getInstance();
+		UtenteService utenteService = factory.getUtenteService();
+		AnnuncioService annuncioservice = factory.getAnnuncioService();
+		EventoService eventoService= factory.getEventoService();
 
-        List<Annuncio> ultimiAnnunci = annuncioservice.findLastAnnunciByUserID(oggi, id);
+		List<Annuncio> ultimiAnnunci = annuncioservice.findLastAnnunciByUserID(oggi, id);
 
-        for (Annuncio annuncio:ultimiAnnunci){
-            annuncio.setInsertore(utenteService.findUserByPK(annuncio.getInsertore().getId()));
-        }
-        
-        boolean sezioneAnnunciVuota=false;
-        int lenghtAnnunci = ultimiAnnunci.size();
-        if(lenghtAnnunci == 0) sezioneAnnunciVuota= true;
+		for (Annuncio annuncio:ultimiAnnunci){
+			annuncio.setInsertore(utenteService.findUserByPK(annuncio.getInsertore().getId()));
+		}
 
-        List<Evento> ultimiEventi = eventoService.findUltimiByUserID(oggi, id);
-        Utente utente = utenteService.findUserByPK(id);
-        
-        boolean sezioneEventiVuota=false;
-        int lenghtEventi = ultimiEventi.size();
-        if(lenghtEventi == 0) sezioneEventiVuota= true;
+		boolean sezioneAnnunciVuota=false;
+		int lenghtAnnunci = ultimiAnnunci.size();
+		if(lenghtAnnunci == 0) sezioneAnnunciVuota= true;
 
-        
-        String idLetto = request.getParameter("idAnnuncio");
-        if(idLetto !=null ){
+		List<Evento> ultimiEventi = eventoService.findUltimiByUserID(oggi, id);
+		Utente utente = utenteService.findUserByPK(id);
 
-            for (Annuncio annuncio:ultimiAnnunci){
-                if(Long.toString(annuncio.getId()).contentEquals(idLetto)){
-                    Annuncio annuncioLetto = annuncio;
-                    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/YYYY");
-                    String dataStringata=sdf.format(annuncioLetto.getDatainserzione());
+		boolean sezioneEventiVuota=false;
+		int lenghtEventi = ultimiEventi.size();
+		if(lenghtEventi == 0) sezioneEventiVuota= true;
+		
+		request.setAttribute("utente", utente);
+		request.setAttribute("ultimiAnnunci", ultimiAnnunci);
+		request.setAttribute("sezioneAnnunciVuota",sezioneAnnunciVuota);
+		request.setAttribute("ultimiEventi", ultimiEventi);
+		request.setAttribute("sezioneEventiVuota",sezioneEventiVuota);
+		request.setAttribute("percorso1", "Profilo");
+		request.setAttribute("link1", "/profilo");
 
-                    JSONObject value = new JSONObject();
-                    value.put("titolo",annuncioLetto.getTitolo() );
-                    value.put("descrizione", annuncioLetto.getDescrizione());
-                    value.put("prezzo", annuncioLetto.getPrezzo());
-                    value.put("email", annuncioLetto.getEmail());
-                    value.put("numeroTelefono", annuncioLetto.getNumeroTelefono());
-                    value.put("immagine", annuncioLetto.getImmagine());
-                    value.put("datainserzione", dataStringata);
-                    
-                    response.setContentType("application/json");
-                    PrintWriter out = response.getWriter();
-                    out.print(value);
-                    out.flush();
-                }
-            }
-        }
-                else {
-                    request.setAttribute("utente", utente);
-                    request.setAttribute("ultimiAnnunci", ultimiAnnunci);
-                    request.setAttribute("sezioneAnnunciVuota",sezioneAnnunciVuota);
-                    request.setAttribute("ultimiEventi", ultimiEventi);
-                    request.setAttribute("sezioneEventiVuota",sezioneEventiVuota);
-                    request.setAttribute("percorso1", "Profilo");
-                    request.setAttribute("link1", "/profilo");
-                   
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
-                    dispatcher.forward(request, response);
-                }
-            
-    
-   }//fine get
-    
-}//fine class
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/views/profilo/profilo.jsp");
+		dispatcher.forward(request, response);
+	}
+}
 
 
 
