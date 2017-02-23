@@ -235,12 +235,11 @@ public class JDBCAnnuncioService implements AnnuncioService {
         List<Annuncio> risultati = new ArrayList<>();
         try {
             con = DriverManager.getConnection(url, username, password);
-            st = con.prepareStatement("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente= ? AND data <= ? ORDER BY data DESC");
+            st = con.prepareStatement("SELECT id, titolo, descrizione, immagine, prezzo, numerotelefono, email, idutente, data FROM annuncio WHERE annuncio.idutente=? ORDER BY data DESC");
             DateFormat DBformat = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
             String oggiFormattato = DBformat.format(oggi);
             
             st.setLong(1, userID);
-            st.setString(2, oggiFormattato);
 
             rs = st.executeQuery();
 
