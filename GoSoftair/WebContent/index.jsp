@@ -158,7 +158,7 @@
 							href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci">
 							<div class="cartaScura">
 								<img
-									src="${pageContext.request.contextPath}/resources/img/annunci/big${annuncio.immagine}"
+									src="${pageContext.request.contextPath}/resources/img/annunci/big/${annuncio.immagine}"
 									class="img-responsive largo">
 								<div class="contenuto">
 									<div>

@@ -175,7 +175,6 @@ public class JDBCAnnuncioService implements AnnuncioService {
                 String email = rs.getString("email");
                 Long idutente = rs.getLong("idutente");
 
-                System.out.println(id);
                 
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ITALIAN);
                 Date datainserzione = new Date();

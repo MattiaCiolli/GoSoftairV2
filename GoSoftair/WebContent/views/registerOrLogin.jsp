@@ -15,6 +15,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/customCSS/mycss.css"
 	rel="stylesheet">
+	<link
+			href="${pageContext.request.contextPath}/resources/customCSS/registerOrLogin.css"
+			rel="stylesheet">
 <script
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
 <script
