@@ -165,7 +165,7 @@
 				<c:forEach var="i" begin="0" end="${numeroPagine}">
 					<li><a
 						href="${pageContext.request.contextPath}/annuncio/bachecaAnnunci?pageNum=<c:out value="${i}"/>"><c:out
-								value="${i}" /></a></li>
+								value="${i+1}" /></a></li>
 				</c:forEach>
 			</ul>
 		</div>
