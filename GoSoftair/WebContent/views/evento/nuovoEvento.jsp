@@ -15,8 +15,11 @@
 <link
 	href="${pageContext.request.contextPath}/resources/customCSS/mycss.css"
 	rel="stylesheet">
-<script
-	src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/jquery/jquery-2.1.3.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/modalAnnunci.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/navbar.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/customJS/footer.js"></script>
 
 </head>
 
