@@ -2,3 +2,5 @@
 Enhanced version of the GoSoftair website developed with Java Enterprise
 
 A theme for inspiration http://military.ancorathemes.com/
+
+online versione http://sample-env.ww6fhipney.us-west-2.elasticbeanstalk.com/
