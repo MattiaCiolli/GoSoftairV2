@@ -65,10 +65,11 @@ public class CreaUtenteFBServlet extends HttpServlet {
             BufferedImage c = ImageIO.read(url);
             
     		String immagine = nome + cognome + ".jpg";
-    		String savePath = request.getServletContext().getRealPath("/") + File.separator +"resources"+ File.separator +"img/profile_images/" + immagine;
-    		File outputfile = new File(savePath);
-    		ImageIO.write(c, "jpg", outputfile);
-			ImagesMap.generateImagesMap(savePath, immagine);
+    		String savePath = request.getServletContext().getRealPath("/") + File.separator +"resources"+ File.separator +"img" + File.separator + "profili" + File.separator + "small";
+    		String original = request.getServletContext().getRealPath("/") + File.separator + "resources"+ File.separator +"img" ;
+    		File output = new File(original + File.separator + "original" + immagine);
+    		ImageIO.write(c, "jpg", output );
+			ImagesMap.generaImmaginiBordate(savePath, immagine, original, true);
 
             Utente utente = new Utente(nome, cognome, email, nome+cognome, id, "N.D.", immagine);
             utenteService.create(utente);
