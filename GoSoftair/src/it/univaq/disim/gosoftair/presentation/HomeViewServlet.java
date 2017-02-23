@@ -3,14 +3,13 @@ package it.univaq.disim.gosoftair.presentation;
 import it.univaq.disim.gosoftair.business.*;
 import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
-import it.univaq.disim.gosoftair.utility.ReadXMLFile;
+import it.univaq.disim.gosoftair.utility.MeteoParse;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.util.*;
@@ -39,7 +38,7 @@ public class HomeViewServlet extends HttpServlet {
 														// caricare dal DB
 		request.setAttribute("eventi", eventi);
 
-		ReadXMLFile lettore= new ReadXMLFile();
+		MeteoParse lettore= new MeteoParse();
 
 		String provincia;
 		String comune;

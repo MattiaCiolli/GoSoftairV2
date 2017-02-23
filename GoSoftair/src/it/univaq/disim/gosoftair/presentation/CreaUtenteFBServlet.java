@@ -3,7 +3,7 @@ package it.univaq.disim.gosoftair.presentation;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.Utente;
-import it.univaq.disim.gosoftair.utility.ImagesMap;
+import it.univaq.disim.gosoftair.utility.ResizeImage;
 import it.univaq.disim.gosoftair.utility.Social.FBConnection;
 
 import it.univaq.disim.gosoftair.utility.Social.FBGraph;
@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -69,11 +68,11 @@ public class CreaUtenteFBServlet extends HttpServlet {
     		String original = request.getServletContext().getRealPath("/") + File.separator + "resources"+ File.separator +"img" ;
     		File output = new File(original + File.separator + "original" + immagine);
     		ImageIO.write(c, "jpg", output );
-			ImagesMap.generaImmaginiBordate(savePath, immagine, original, false);
+			ResizeImage.generaImmaginiBordate(savePath, immagine, original, false);
 			
     		String savePath2 = request.getServletContext().getRealPath("/") + File.separator +"resources"+ File.separator +"img" + File.separator + "profili" + File.separator + "big";
 
-			ImagesMap.generateImagesCard(savePath2, immagine, 160, 160, original, true);
+			ResizeImage.generateImagesCard(savePath2, immagine, 160, 160, original, true);
 			
             Utente utente = new Utente(nome, cognome, email, nome+cognome, id, "N.D.", immagine);
             utenteService.create(utente);

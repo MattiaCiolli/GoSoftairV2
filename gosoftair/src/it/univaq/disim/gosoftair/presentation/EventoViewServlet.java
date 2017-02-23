@@ -9,8 +9,7 @@ import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.SquadreService;
 import it.univaq.disim.gosoftair.business.PostService;
-import it.univaq.disim.gosoftair.business.model.Post;
-import it.univaq.disim.gosoftair.utility.ReadXMLFile;
+import it.univaq.disim.gosoftair.utility.MeteoParse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -64,7 +63,7 @@ public class EventoViewServlet extends HttpServlet {
 		Boolean meteoDisponibile = false;
 
 		if(!(oggi.after(dataEvento)) && (!oggi.before(dataEventoMeno4Giorni))) {
-			ReadXMLFile lettore= new ReadXMLFile();
+			MeteoParse lettore= new MeteoParse();
 			meteoDisponibile = true;
 
 			String lat = String.valueOf(evento.getLat());

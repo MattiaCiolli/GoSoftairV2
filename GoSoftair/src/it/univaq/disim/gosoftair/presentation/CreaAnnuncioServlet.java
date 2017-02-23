@@ -5,12 +5,11 @@ import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Utente;
-import it.univaq.disim.gosoftair.utility.ImagesMap;
+import it.univaq.disim.gosoftair.utility.ResizeImage;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -75,10 +74,10 @@ public class CreaAnnuncioServlet extends HttpServlet {
 
 			String outputPath = savePath + File.separator + "annunci" + File.separator + "big";
 			filePart.write(savePath + File.separator + "original" + fileName);
-			ImagesMap.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
+			ResizeImage.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
 
 			outputPath = savePath + File.separator + "annunci" + File.separator + "small";
-			ImagesMap.generateImagesCard(outputPath, fileName, 350, 200, savePath, true);
+			ResizeImage.generateImagesCard(outputPath, fileName, 350, 200, savePath, true);
 			
 		}
 		String prezzo = request.getParameter("Prezzo");

@@ -9,15 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.io.IOException;
 import java.util.*;
 
-import it.univaq.disim.gosoftair.business.AnnuncioService;
 import it.univaq.disim.gosoftair.business.EventoService;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
-import it.univaq.disim.gosoftair.business.model.Annuncio;
 import it.univaq.disim.gosoftair.business.model.Evento;
-import it.univaq.disim.gosoftair.utility.ReadXMLFile;
+import it.univaq.disim.gosoftair.utility.MeteoParse;
 
 public class BachecaPartiteViewServlet extends HttpServlet {
 	
@@ -49,7 +46,7 @@ public class BachecaPartiteViewServlet extends HttpServlet {
 		request.setAttribute("listaEventi", listaEventi);
 
         
-		ReadXMLFile lettore= new ReadXMLFile();
+		MeteoParse lettore= new MeteoParse();
 
 		String provincia;
 		String comune;

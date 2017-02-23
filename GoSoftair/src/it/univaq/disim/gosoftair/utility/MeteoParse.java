@@ -21,7 +21,7 @@ import java.util.*;
 /**
  * Created by Davide on 10/02/2017.
  */
-public class ReadXMLFile {
+public class MeteoParse {
 
 
     public  Map<String, Collection<String>> leggiDatiMeteo(Date dataEventoCompleta, String urlMeteo){

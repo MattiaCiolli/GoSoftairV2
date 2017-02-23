@@ -9,12 +9,10 @@ import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.Part;
 
 import it.univaq.disim.gosoftair.business.EventoService;
@@ -22,7 +20,7 @@ import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.Evento;
 import it.univaq.disim.gosoftair.business.model.Utente;
-import it.univaq.disim.gosoftair.utility.ImagesMap;
+import it.univaq.disim.gosoftair.utility.ResizeImage;
 
 @MultipartConfig(maxFileSize = 1048576)
 public class UpdateEventoServlet extends HttpServlet {       
@@ -85,13 +83,13 @@ public class UpdateEventoServlet extends HttpServlet {
 
 			String outputPath = savePath + File.separator + "partite" + File.separator + "big";
 			filePart.write(savePath + File.separator + "original" + fileName);
-			ImagesMap.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
+			ResizeImage.generateImagesCard(outputPath, fileName, 362, 270, savePath, false);
 
 			outputPath = savePath + File.separator + "partite" + File.separator + "small";
-			ImagesMap.generateImagesCard(outputPath, fileName, 350, 200, savePath, false);
+			ResizeImage.generateImagesCard(outputPath, fileName, 350, 200, savePath, false);
 
 			outputPath = savePath + File.separator + "partite" + File.separator + "xl";
-			ImagesMap.generateImagesCard(outputPath, fileName, 800, 600, savePath, true);
+			ResizeImage.generateImagesCard(outputPath, fileName, 800, 600, savePath, true);
 		}
 		
 		double lat=Double.parseDouble(request.getParameter("Lat"));

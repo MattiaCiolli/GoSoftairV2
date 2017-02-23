@@ -3,7 +3,7 @@ package it.univaq.disim.gosoftair.presentation;
 import it.univaq.disim.gosoftair.business.GosoftairBusinessFactory;
 import it.univaq.disim.gosoftair.business.UtenteService;
 import it.univaq.disim.gosoftair.business.model.Utente;
-import it.univaq.disim.gosoftair.utility.ImagesMap;
+import it.univaq.disim.gosoftair.utility.ResizeImage;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,10 +56,10 @@ public class CreaUtenteServlet extends HttpServlet {
 			immagine = fileName;
 			String outputPath = savePath + File.separator + "profili" + File.separator + "big";
 			filePart.write(savePath + File.separator + "original" + fileName);
-			ImagesMap.generateImagesCard(outputPath, fileName, 160, 160, savePath, false);
+			ResizeImage.generateImagesCard(outputPath, fileName, 160, 160, savePath, false);
 
 			outputPath = savePath + File.separator + "profili" + File.separator + "small";
-			ImagesMap.generaImmaginiBordate(outputPath, fileName, savePath, true);
+			ResizeImage.generaImmaginiBordate(outputPath, fileName, savePath, true);
 
 
 		}
